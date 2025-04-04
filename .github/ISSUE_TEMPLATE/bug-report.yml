@@ -1,0 +1,101 @@
+name: "Reporte de Error 🐞"
+description: "Reporta un error para ayudarnos a mejorar CertUs Marketplace."
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ¡Gracias por ayudarnos a mejorar CertUs! Por favor, completa las siguientes secciones para describir el error:
+
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: "Descripción del Error"
+      placeholder: "Al hacer clic aquí, ocurre lo siguiente..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: pasos
+    attributes:
+      label: "Pasos para Reproducir el Error"
+      placeholder: |
+        1. Ir a la página X
+        2. Hacer clic en el botón Y
+        3. Observar el error
+    validations:
+      required: true
+
+  - type: textarea
+    id: esperado
+    attributes:
+      label: "Comportamiento Esperado"
+      placeholder: "Esperaba que ocurriera..."
+
+  - type: textarea
+    id: capturas
+    attributes:
+      label: "Capturas de Pantalla/Video (Opcional)"
+      placeholder: "Adjunta capturas de pantalla o videos para ilustrar el problema."
+
+  - type: dropdown
+    id: asignacion
+    attributes:
+      label: "¿Te gustaría trabajar en la solución de este error?"
+      options:
+        - "Sí, me gustaría ayudar."
+        - "No, solo reporto el error."
+
+  - type: markdown
+    attributes:
+      value: |
+        ### Información del Dispositivo
+        Por favor, proporciona la siguiente información sobre el dispositivo donde se produjo el error:
+
+  - type: input
+    id: so_escritorio
+    attributes:
+      label: "Sistema Operativo (Escritorio)"
+      placeholder: "Ej: Windows 11, macOS Monterey"
+
+  - type: input
+    id: navegador_escritorio
+    attributes:
+      label: "Navegador (Escritorio)"
+      placeholder: "Ej: Google Chrome, Mozilla Firefox, Safari"
+
+  - type: input
+    id: version_escritorio
+    attributes:
+      label: "Versión del Navegador (Escritorio)"
+      placeholder: "Ej: 96.0.4664.110"
+
+  - type: input
+    id: so_movil
+    attributes:
+      label: "Sistema Operativo (Móvil)"
+      placeholder: "Ej: iOS 15, Android 12"
+
+  - type: input
+    id: navegador_movil
+    attributes:
+      label: "Navegador (Móvil)"
+      placeholder: "Ej: Safari, Chrome"
+
+  - type: input
+    id: version_movil
+    attributes:
+      label: "Versión del Navegador (Móvil)"
+      placeholder: "Ej: 15.0"
+
+  - type: textarea
+    id: contexto
+    attributes:
+      label: "Contexto Adicional (Opcional)"
+      placeholder: "Agrega cualquier información adicional que consideres relevante."
+
+  - type: markdown
+    attributes:
+      value: |
+        ¡Muchas gracias por tu reporte! Lo revisaremos a la brevedad.  
+        El equipo de CertUs te agradece tu colaboración.
