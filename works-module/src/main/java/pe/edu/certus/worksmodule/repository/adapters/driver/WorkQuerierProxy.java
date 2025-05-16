@@ -9,7 +9,6 @@ import pe.edu.certus.worksmodule.repository.ports.driver.ForQueryingWork;
 import pe.edu.certus.worksmodule.repository.ports.mapper.ForBridgingWork;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 
 @Service
