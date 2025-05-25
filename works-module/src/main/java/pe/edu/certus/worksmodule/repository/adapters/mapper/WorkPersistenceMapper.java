@@ -5,6 +5,7 @@ import pe.edu.certus.worksmodule.repository.entity.WorkEntity;
 import pe.edu.certus.worksmodule.repository.ports.mapper.ForBridgingWork;
 
 public class WorkPersistenceMapper implements ForBridgingWork {
+
     @Override
     public WorkEntity toPersistence( WorkModel workModel ) {
         return WorkEntity.builder()

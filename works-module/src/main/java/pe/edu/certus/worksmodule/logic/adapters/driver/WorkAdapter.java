@@ -8,8 +8,11 @@ import pe.edu.certus.worksmodule.logic.model.WorkModel;
 import pe.edu.certus.worksmodule.logic.ports.driver.ForWork;
 import pe.edu.certus.worksmodule.logic.ports.mapper.ForMappingWork;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
-@RequestMapping( "/api/v1/works" )
+@RequestMapping( "/works" )
 public class WorkAdapter {
 
     private final ForWork forWork;
@@ -22,56 +25,65 @@ public class WorkAdapter {
 
     @RequestMapping( "/create" )
     public ResponseEntity< WorkWebModel > createWork( @Valid @RequestBody WorkWebModel workWebModel ) {
-
         try {
             WorkModel objectFromWeb = forMappingWork.fromWeb( workWebModel );
             forWork.createWork( objectFromWeb );
             return ResponseEntity.ok( ).build( );
 
         } catch ( IllegalArgumentException e ) {
-            System.out.println( "ERROR: " + e.getMessage( ) );
+            throw new RuntimeException( "FAILED TO CREATE WORK", e );
+        }
+    }
+
+    @GetMapping( "/{id}" )
+    public ResponseEntity< WorkWebModel > findWorkById( @PathVariable Long id ) {
+        try {
+            WorkModel workModel = ( WorkModel ) forWork.findWorkById( id );
+            WorkWebModel response = forMappingWork.toWeb( workModel );
+            return ResponseEntity.ok( response );
+        } catch ( EntityNotFoundException e ) {
+            return ResponseEntity.notFound( ).build( );
+        } catch ( IllegalArgumentException e ) {
             return ResponseEntity.badRequest( ).build( );
         }
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<WorkWebModel> findWorkById(@PathVariable Long id) {
+    @PutMapping( "/update" )
+    public ResponseEntity< WorkWebModel > updateWork( @Valid @RequestBody WorkWebModel workWebModel ) {
         try {
-            WorkModel workModel = ( WorkModel ) forWork.findWorkModelById(id);
-            WorkWebModel response = forMappingWork.toWeb(workModel);
+            WorkModel objectFromWeb = forMappingWork.fromWeb( workWebModel );
+            WorkModel updatedWork = ( WorkModel ) forWork.updateWork( objectFromWeb );
+            WorkWebModel response = forMappingWork.toWeb( updatedWork );
+            return ResponseEntity.ok( response );
+        } catch ( EntityNotFoundException e ) {
+            return ResponseEntity.notFound( ).build( );
+        } catch ( IllegalArgumentException e ) {
+            return ResponseEntity.badRequest( ).build( );
+        }
+    }
+
+    @DeleteMapping( "/{id}" )
+    public ResponseEntity< Void > deleteWorkById( @PathVariable Long id ) {
+        try {
+            forWork.deleteWork( id );
+            return ResponseEntity.ok( ).build( );
+        } catch ( EntityNotFoundException e ) {
+            return ResponseEntity.notFound( ).build( );
+        } catch ( IllegalArgumentException e ) {
+            return ResponseEntity.badRequest( ).build( );
+        }
+    }
+
+    @GetMapping
+    public ResponseEntity<List<WorkWebModel>> findAllWorks() {
+        try {
+            List<WorkModel> workModels = forWork.findAllWorks();
+            List<WorkWebModel> response = workModels.stream()
+                    .map(forMappingWork::toWeb)
+                    .collect(Collectors.toList());
             return ResponseEntity.ok(response);
-        } catch ( EntityNotFoundException e) {
-            return ResponseEntity.notFound().build();
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
     }
-
-    @PutMapping("/update")
-    public ResponseEntity<WorkWebModel> updateWork(@Valid @RequestBody WorkWebModel workWebModel) {
-        try {
-            WorkModel objectFromWeb = forMappingWork.fromWeb(workWebModel);
-            WorkModel updatedWork = ( WorkModel ) forWork.updateWorkModel(objectFromWeb);
-            WorkWebModel response = forMappingWork.toWeb(updatedWork);
-            return ResponseEntity.ok(response);
-        } catch (EntityNotFoundException e) {
-            return ResponseEntity.notFound().build();
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().build();
-        }
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteWorkById(@PathVariable Long id) {
-        try {
-            forWork.deleteWorkModel(id);
-            return ResponseEntity.ok().build();
-        } catch (EntityNotFoundException e) {
-            return ResponseEntity.notFound().build();
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().build();
-        }
-    }
-
-
 }

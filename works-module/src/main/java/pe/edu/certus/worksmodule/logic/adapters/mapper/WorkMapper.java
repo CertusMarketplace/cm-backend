@@ -24,17 +24,19 @@ public class WorkMapper implements ForMappingWork {
 
     @Override
     public WorkWebModel toWeb( WorkModel workModel ) {
-        return WorkWebModel.builder ()
-                .workId( workModel.getWorkId() )
-                .idSellerUser( workModel.getIdSellerUser() )
-                .idWorkCategory( workModel.getIdWorkCategory() )
-                .workTitle( workModel.getWorkTitle() )
-                .workDescription( workModel.getWorkDescription() )
-                .workPrice( workModel.getWorkPrice() )
-                .workIsDeleted( workModel.getWorkIsDeleted() )
-                .workImageUrl( workModel.getWorkImageUrl() )
-                .workPublishedAt( workModel.getWorkPublishedAt() )
-                .workUpdatedAt( workModel.getWorkUpdatedAt() )
-                .workStatus( workModel.getWorkStatus() )
-                .build();    }
+        return new WorkWebModel(
+                workModel.getWorkId(),
+                workModel.getIdSellerUser(),
+                workModel.getIdWorkCategory(),
+                workModel.getWorkTitle(),
+                workModel.getWorkDescription(),
+                workModel.getWorkCategory(),
+                workModel.getWorkPrice(),
+                workModel.getWorkIsDeleted(),
+                workModel.getWorkImageUrl(),
+                workModel.getWorkPublishedAt(),
+                workModel.getWorkUpdatedAt(),
+                workModel.getWorkStatus()
+        );
+    }
 }

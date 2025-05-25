@@ -12,9 +12,9 @@ import java.time.LocalDateTime;
 @Builder
 public class WorkModel {
 
-    private Integer workId;
-    private Integer idSellerUser;
-    private Integer idWorkCategory;
+    private Long workId;
+    private Long idSellerUser;
+    private Long idWorkCategory;
     private String workTitle;
     private String workDescription;
     private String workCategory;

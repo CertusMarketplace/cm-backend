@@ -57,6 +57,9 @@
 
     <modules>
         <module>works-module</module>
+        <module>ratings-module</module>
+        <module>users-module</module>
+        <module>people-module</module>
         <module>bootloader</module>
     </modules>
 

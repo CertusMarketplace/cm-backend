@@ -9,7 +9,9 @@ import pe.edu.certus.worksmodule.repository.ports.driver.ForQueryingWork;
 import pe.edu.certus.worksmodule.repository.ports.mapper.ForBridgingWork;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class WorkQuerierProxy implements ForManagingWork {
@@ -24,67 +26,48 @@ public class WorkQuerierProxy implements ForManagingWork {
     @Override
     public void satisfyCreateWork( WorkModel workModel ) {
         WorkEntity objectFromDomain = forBridgingWork.toPersistence( workModel );
-        System.out.println( "THE METHOD OF SATISFYING THE CREATION IS SENDING THE DATA TO THE ENTITY" );
         forQueryingWork.save( objectFromDomain );
-        System.out.println( "THE DATA OF THE ENTITY HAS BEEN SAVED IN THE DATABASE" );
+        System.out.println( "THE ENTITY HAS BEEN CREATED SUCCESSFULLY" );
     }
 
-//    @Override
-//    public List< WorkModel > satisfyFindAllWork( ) {
-//        List< WorkEntity > workEntities = forQueryingWork.findAll( );
-//        return forBridgingWork.toPersistence( workEntities )
-//    }
 
     @Override
-    public WorkModel satisfyFindWorkById(Long id) {
-        if (id == null) {
-            throw new IllegalArgumentException("El ID no puede ser null");
-        }
+    public WorkModel satisfyFindWorkById( Long id ) {
+        return forQueryingWork.findById( id )
+                .map( forBridgingWork::fromPersistence )
+                .orElseThrow( ( ) -> new EntityNotFoundException(
+                        "THE ENTITY WORK NOT FOUND WITH ID: " + id ) );
+    }
 
-        return forQueryingWork.findById(id)
+    @Override
+    public WorkModel satisfyUpdateWork( WorkModel workModel ) {
+
+        WorkEntity objectFromDomain = forBridgingWork.toPersistence( workModel );
+        objectFromDomain.setWorkPublishedAt( LocalDateTime.now( ) );
+        objectFromDomain.setWorkUpdatedAt( LocalDateTime.now( ) );
+
+        WorkEntity updatedEntity = forQueryingWork.save( objectFromDomain );
+        System.out.println( "THE ENTITY HAS BEEN UPDATED SUCCESSFULLY" );
+
+        return forBridgingWork.fromPersistence( updatedEntity );
+    }
+
+    @Override
+    public void satisfyDeleteWorkById( Long id ) {
+
+        Optional< WorkEntity > existingWork = forQueryingWork.findById( id );
+        forQueryingWork.deleteById( id );
+        System.out.println( "WORK ID: " + id + " IS DELETED" );
+
+    }
+
+    @Override
+    public List<WorkModel> satisfyFindAllWork() {
+        List<WorkEntity> workEntities = forQueryingWork.findAll();
+        System.out.println("ALL ENTITIES HAVE BEEN FOUND SUCCESSFULLY");
+        
+        return workEntities.stream()
                 .map(forBridgingWork::fromPersistence)
-                .orElseThrow(() -> new EntityNotFoundException(
-                        "Trabajo no encontrado con ID: " + id));
-    }
-
-    @Override
-    public WorkModel satisfyUpdateWork(WorkModel workModel) {
-        if (workModel == null || workModel.getWorkId() == null) {
-            throw new IllegalArgumentException("WorkModel y workId no pueden ser null");
-        }
-
-        try {
-            Optional<WorkEntity> existingWork = forQueryingWork.findById(workModel.getWorkId().longValue());
-            if (existingWork.isEmpty()) {
-                throw new EntityNotFoundException("Trabajo no encontrado con ID: " + workModel.getWorkId());
-            }
-
-            WorkEntity objectFromDomain = forBridgingWork.toPersistence(workModel);
-            objectFromDomain.setWorkPublishedAt( LocalDateTime.now() );
-            objectFromDomain.setWorkUpdatedAt( LocalDateTime.now());
-
-            WorkEntity updatedEntity = forQueryingWork.save(objectFromDomain);
-            return forBridgingWork.fromPersistence(updatedEntity);
-        } catch (Exception e) {
-            throw new RuntimeException("Error al actualizar el trabajo", e);
-        }
-    }
-
-    @Override
-    public void satisfyDeleteWorkById(Long id) {
-        if (id == null) {
-            throw new IllegalArgumentException("El ID no puede ser null");
-        }
-
-        try {
-            Optional<WorkEntity> existingWork = forQueryingWork.findById(id);
-            if (existingWork.isEmpty()) {
-                throw new EntityNotFoundException("Trabajo no encontrado con ID: " + id);
-            }
-
-            forQueryingWork.deleteById(id);
-        } catch (Exception e) {
-            throw new RuntimeException("Error al eliminar el trabajo", e);
-        }
+                .collect(Collectors.toList());
     }
 }

@@ -17,15 +17,15 @@ public class WorkEntity {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     @Column( name = "work_id" )
-    private Integer workId;
+    private Long workId;
 
     @Transient
     @Column( name = "id_seller_user" )
-    private Integer idSellerUser;
+    private Long idSellerUser;
 
     @Transient
     @Column( name = "id_work_category" )
-    private Integer idWorkCategory;
+    private Long idWorkCategory;
 
     @Column( name = "work_title" )
     private String workTitle;
