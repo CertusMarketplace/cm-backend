@@ -34,6 +34,11 @@
             <artifactId>people-module</artifactId>
             <version>${version}</version>
         </dependency>
+        <dependency>
+            <groupId>pe.edu.certus</groupId>
+            <artifactId>users-module</artifactId>
+            <version>${version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
