@@ -19,9 +19,11 @@
     <packaging>pom</packaging>    <!-- multi-module project -->
     <description>Backend project for CertUs</description>
     <url/>
+
     <licenses>
         <license/>
     </licenses>
+
     <developers>
         <developer>
             <id>CM-GJ</id>
@@ -61,6 +63,7 @@
         <module>users-module</module>
         <module>people-module</module>
         <module>bootloader</module>
+        <module>paypal-module</module>
     </modules>
 
     <properties>
