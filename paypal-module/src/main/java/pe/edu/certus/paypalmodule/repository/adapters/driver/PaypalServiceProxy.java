@@ -9,12 +9,12 @@ import pe.edu.certus.paypalmodule.logic.ports.driven.ForManagingPaypal;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PaypalServiceProxy implements ForManagingPaypal {
 
     private final PayPalHttpClient client;
+    private final String appBaseUrl = "http://localhost:8080";
 
     public PaypalServiceProxy(PayPalHttpClient client) {
         this.client = client;
@@ -28,18 +28,10 @@ public class PaypalServiceProxy implements ForManagingPaypal {
 
         HttpResponse<Order> response = client.execute(request);
 
-        Order order = response.result();
-        Optional<LinkDescription> approveLink = order.links().stream()
-                .filter(link -> "approve".equals(link.rel()))
-                .findFirst();
-
-        if (approveLink.isPresent()) {
-            System.out.println("========================================================================");
-            System.out.println("ENLACE DE APROBACIÓN DE PAYPAL (PEGAR EN EL NAVEGADOR):");
-            System.out.println(approveLink.get().href());
-            System.out.println("========================================================================");
+        if (response.statusCode() >= 200 && response.statusCode() < 300) {
+            System.out.println("PayPal Order created with ID: " + response.result().id());
         } else {
-            System.out.println("ADVERTENCIA: No se encontró el enlace de aprobación en la respuesta de PayPal.");
+            System.err.println("Failed to create PayPal order. Status: " + response.statusCode());
         }
 
         return response;
@@ -67,8 +59,9 @@ public class PaypalServiceProxy implements ForManagingPaypal {
 
         ApplicationContext applicationContext = new ApplicationContext()
                 .brandName("CertUs Marketplace")
-                .returnUrl("https://example.com/payment/success")
-                .cancelUrl("https://example.com/payment/cancel");
+                .returnUrl(appBaseUrl + "/marketplace/works?payment_status=success")
+                .cancelUrl(appBaseUrl + "/marketplace/works?payment_status=cancelled");
+
         orderRequest.applicationContext(applicationContext);
 
         return orderRequest;

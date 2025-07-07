@@ -1,0 +1,21 @@
+# Ignorar imágenes
+**/*.svg
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.gif
+**/*.ico
+**/*.webp
+
+# Ignorar otros binarios o archivos generados
+**/node_modules/**
+**/dist/**
+**/build/**
+**/.git/**
+**/.mvn/**
+**/target/**
+.env*
+*.log
+*.mp4
+*.mov
+*.pdf

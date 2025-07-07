@@ -2,7 +2,9 @@ package pe.edu.certus.peoplemodule.logic.adapters.driver;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.certus.peoplemodule.logic.model.PeopleModel;
 import pe.edu.certus.peoplemodule.logic.ports.driver.ForPeople;
@@ -12,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/people")
+@RequestMapping("/api/v1/people")
 public class PeopleAdapter {
 
     private final ForPeople forPeople;
@@ -23,8 +25,23 @@ public class PeopleAdapter {
         this.forMappingPeople = forMappingPeople;
     }
 
+    // ENDPOINT SEGURO AÑADIDO PARA OBTENER PERFIL DEL USUARIO LOGUEADO
+    @GetMapping("/me")
+    public ResponseEntity<PeopleWebModel> getCurrentPersonProfile(Authentication authentication) {
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        try {
+            Long userId = Long.parseLong(authentication.getName());
+            PeopleModel peopleModel = (PeopleModel) forPeople.findPeopleById(userId);
+            return ResponseEntity.ok(forMappingPeople.toWeb(peopleModel));
+        } catch (NumberFormatException | EntityNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
     @PostMapping("/create")
-    public ResponseEntity<PeopleWebModel> createPeople(@Valid @RequestBody PeopleWebModel peopleWebModel) {
+    public ResponseEntity<Void> createPeople(@Valid @RequestBody PeopleWebModel peopleWebModel) {
         try {
             PeopleModel objectFromWeb = forMappingPeople.fromWeb(peopleWebModel);
             forPeople.createPeople(objectFromWeb);
@@ -47,11 +64,14 @@ public class PeopleAdapter {
         }
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<PeopleWebModel> updatePeople(@Valid @RequestBody PeopleWebModel peopleWebModel) {
+    @PutMapping("/update/{userId}")
+    public ResponseEntity<PeopleWebModel> updatePeople(@PathVariable Long userId, @Valid @RequestBody PeopleWebModel peopleWebModel) {
         try {
-            PeopleModel objectFromWeb = forMappingPeople.fromWeb(peopleWebModel);
-            PeopleModel updatedPeople = (PeopleModel) forPeople.updatePeople(objectFromWeb);
+            // Aseguramos que el idUser del path se use
+            PeopleModel peopleToUpdate = forMappingPeople.fromWeb(peopleWebModel);
+            peopleToUpdate.setIdUser(userId);
+
+            PeopleModel updatedPeople = (PeopleModel) forPeople.updatePeople(peopleToUpdate);
             PeopleWebModel response = forMappingPeople.toWeb(updatedPeople);
             return ResponseEntity.ok(response);
         } catch (EntityNotFoundException e) {

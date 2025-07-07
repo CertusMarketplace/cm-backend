@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<header th:fragment="header-request-seller">
+    <div class="flex items-center justify-between mx-6 my-3 sm:mx-16 xl:mx-36 2xl:mx-60 relative">
+        <!-- Logo y Nombre -->
+        <div class="flex items-center space-x-2">
+            <a th:href="@{/home}">
+                <img th:src="@{img/home/logo_certus.png}" class="h-14" alt="Logo"/>
+            </a>
+            <div>
+                <h5 class="font-righteous text-3xl cssanimation danceTop">Marketplace</h5>
+                <h6 class="font-poppins text-base text-gray-500">Explora la creatividad</h6>
+            </div>
+        </div>
+
+        <!-- Links de navegación -->
+        <ul class="font-poppins hidden min-[1100px]:flex items-center space-x-4">
+            <a th:href="@{/auth/login}"
+               class="text-base py-2 px-6 border border-gray-500 rounded-full hover:text-skyBlueCertus hover:border-b-2 hover:border-skyBlueCertus duration-100">Iniciar</a>
+            <a th:href="@{/auth/register}"
+               class="text-base py-2 px-6 border border-gray-500 rounded-full hover:text-skyBlueCertus hover:border-b-2 hover:border-skyBlueCertus duration-100">Regístrate</a>
+            <a th:href="@{/}" class="text-base"><i
+                    class="fa-solid fa-store text-3xl text-blueCertus hover:text-skyBlueCertus duration-200"></i></a>
+        </ul>
+
+        <!-- Menú hamburguesa -->
+        <span id="burguer" class="min-[1100px]:hidden cursor-pointer">
+                <i class="fa-solid fa-bars-staggered text-3xl text-blueCertus hover:text-skyBlueCertus duration-200"></i>
+            </span>
+    </div>
+
+    <!-- Sidebar oculto -->
+    <div id="sidebar"
+         class="fixed top-0 right-0 h-full w-64 bg-darkBlueCertus transform translate-x-full transition-transform duration-300 z-50">
+        <div class="flex justify-end p-4">
+            <button id="closeSidebar"
+                    class="text-primaryColor text-4xl top-2 right-2.5 relative min-[530px]:right-12">
+                <i class="fa-solid fa-times text-white hover:text-skyBlueCertus duration-200"></i>
+            </button>
+        </div>
+        <nav class="flex flex-col px-5 space-y-6 mt-8">
+            <ul class="space-y-2 font-medium">
+                <li>
+                    <a th:href="@{/home}"
+                       class="flex items-center p-2 text-white hover:text-white hover:bg-skyBlueCertus duration-150 rounded-full group">
+                        <i class="fa-solid fa-house-chimney"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Inicio</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/auth/login}"
+                       class="flex items-center p-2 text-white hover:text-white hover:bg-skyBlueCertus duration-150 rounded-full group">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Iniciar</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/auth/register}"
+                       class="flex items-center p-2 text-white hover:text-white hover:bg-skyBlueCertus duration-150 rounded-full group">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Registrate</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                       class="flex items-center p-2 text-white hover:text-white hover:bg-skyBlueCertus duration-150 rounded-full group">
+                        <i class="fa-solid fa-store"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Marketplace</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+</html>

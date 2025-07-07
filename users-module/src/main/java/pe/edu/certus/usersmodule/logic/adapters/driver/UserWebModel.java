@@ -14,27 +14,35 @@ public record UserWebModel(
         Long idRole,
 
         @NotBlank(message = "El correo electrónico no puede estar vacío")
-        @Pattern(regexp = "^[0-9]{8}@certus\\.edu\\.pe$",
-
-                message = "El correo electrónico debe ser el DNI de 8 dígitos seguido de @certus.edu.pe")
+        @Pattern(regexp = "^.+@certus\\.edu\\.pe$", message = "El correo electrónico debe ser de dominio @certus.edu.pe")
         String userEmail,
 
         @NotBlank(message = "La contraseña no puede estar vacía")
-        @Size(min = 8, max = 10, message = "La contraseña debe tener entre 8 y 10 caracteres")
-        @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$",
-                message = "La contraseña debe contener al menos un número, una letra minúscula, una mayúscula y un carácter especial")
+        @Size(min = 8, message = "La contraseña debe tener al menos 8 caracteres")
         String userPassword,
 
         LocalDateTime userCreatedAt,
         LocalDateTime userUpdatedAt,
-        @NotNull(message = "El estado del usuario no puede ser nulo")
 
+        @NotNull(message = "El estado del usuario no puede ser nulo")
         Boolean userStatus
 ) {
 
     public UserWebModel {
-        userCreatedAt = userCreatedAt != null ? userCreatedAt : LocalDateTime.now();
-        userUpdatedAt = userUpdatedAt != null ? userUpdatedAt : LocalDateTime.now();
+        userCreatedAt = (userCreatedAt != null) ? userCreatedAt : LocalDateTime.now();
+        userUpdatedAt = (userUpdatedAt != null) ? userUpdatedAt : LocalDateTime.now();
+    }
 
+    // MÉTODO AÑADIDO PARA LA CORRECCIÓN
+    public UserWebModel withUserIdAndRole(Long newUserId, Long newRoleId) {
+        return new UserWebModel(
+                newUserId,
+                newRoleId,
+                this.userEmail,
+                this.userPassword,
+                this.userCreatedAt,
+                this.userUpdatedAt,
+                this.userStatus
+        );
     }
 }

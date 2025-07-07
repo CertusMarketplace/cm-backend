@@ -18,8 +18,6 @@ import pe.edu.certus.authmodule.repository.entity.AuthEntity;
 import pe.edu.certus.authmodule.repository.ports.driver.ForQueryingAuth;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.text.ParseException;
 import java.util.Collection;
 import java.util.Collections;
@@ -40,16 +38,38 @@ public class JwtAuthorizationFilterConfig extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        // Lista de rutas públicas
-        List<String> excludedPaths = List.of(
-                "/api/v1/auth/**",
-                "/api/v1/works/**",
-                "/api/v1/ratings/**",
-                "/api/v1/people/**",
-                "/api/v1/users/**"
+        String path = request.getServletPath();
+        String method = request.getMethod();
+
+        List<String> publicUiPaths = List.of(
+                "/marketplace/home",
+                "/marketplace/works",
+                "/marketplace/works/**",
+                "/marketplace/auth/**",
+                "/marketplace/request-seller-role",
+                "/marketplace/profiles/**",
+                "/css/**", "/scripts/**", "/img/**", "/video/**"
         );
-        return excludedPaths.stream().anyMatch(p -> pathMatcher.match(p, request.getServletPath()));
+
+        if (publicUiPaths.stream().anyMatch(p -> pathMatcher.match(p, path))) {
+            return true;
+        }
+
+        List<String> publicApiPaths = List.of(
+                "/api/v1/works",
+                "/api/v1/works/**",
+                "/api/v1/people/**",
+                "/api/v1/work-categories/**",
+                "/api/v1/auth/**"
+        );
+
+        if ("GET".equals(method) && publicApiPaths.stream().anyMatch(p -> pathMatcher.match(p, path))) {
+            return true;
+        }
+
+        return false;
     }
+
 
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
@@ -77,7 +97,7 @@ public class JwtAuthorizationFilterConfig extends OncePerRequestFilter {
 
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 
-        } catch ( JOSEException | ParseException | NumberFormatException e) {
+        } catch (JOSEException | ParseException | NumberFormatException e) {
             SecurityContextHolder.clearContext();
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return;
@@ -90,16 +110,13 @@ public class JwtAuthorizationFilterConfig extends OncePerRequestFilter {
         Long roleId = user.getIdRole();
         String roleName = "USER";
 
-        if (roleId == 1L) {
-            roleName = "Administrator";
-        } else if (roleId == 2L) {
-            roleName = "Seller";
-        } else if (roleId == 3L) {
-            roleName = "Buyer";
+        if (roleId != null) {
+            switch (roleId.intValue()) {
+                case 1: roleName = "Administrator"; break;
+                case 2: roleName = "Seller"; break;
+                case 3: roleName = "Buyer"; break;
+            }
         }
-
-        return Stream.of(roleName)
-                .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());
+        return Stream.of(roleName).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
     }
 }

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}"></head>
+<body class="h-screen w-screen m-0 p-0 font-poppins">
+
+<div class="min-h-screen w-full bg-cover bg-center flex items-center justify-center px-4 py-8"
+     th:style="'background-image: url(' + @{/img/login/fondo.jpg} + ')'">
+
+    <div class="flex flex-col lg:flex-row w-full max-w-6xl h-auto lg:h-[90%] bg-white/90 rounded-lg shadow-lg overflow-hidden">
+
+        <!-- Imagen -->
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-6 bg-white/50">
+            <img th:src="@{/img/login/register.png}" alt="Register"
+                 class="w-40 sm:w-52 md:w-64 lg:w-[400px] max-h-[80%] object-contain">
+        </div>
+
+        <!-- Formulario -->
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-6">
+            <div class="w-full max-w-md">
+                <div class="flex flex-col items-center mb-6">
+                    <img th:src="@{/img/home/logo_certus.png}" alt="Logo CertUs"
+                         class="w-12 h-12 mb-2">
+                    <h2 class="text-xl font-semibold">Marketplace</h2>
+                    <p class="text-gray-600 text-center p-3">Explora trabajos, únete a la experiencia</p>
+                </div>
+
+                <!-- Contenedor para mensajes de error -->
+                <div id="error-message" class="hidden my-4"></div>
+
+                <!-- Botón de Google Personalizado -->
+                <button id="custom-google-btn" type="button" class="w-full bg-white text-gray-700 border border-gray-300 py-2 rounded-md mb-4 hover:bg-gray-50 flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21.35 11.1H12v2.8h5.4c-.3 1.8-2.2 2.8-4.2 2.8-2.5 0-4.5-2-4.5-4.5S10.7 7.7 13.2 7.7c1.2 0 2.3.5 3 1.2l2-2C16.8 5.2 15 4.5 13.2 4.5 8.9 4.5 5.5 7.9 5.5 12s3.4 7.5 7.7 7.5c3.8 0 7-2.7 7-7.5 0-.5-.1-1-.2-1.5z"/>
+                    </svg>
+                    Registrarse con Google
+                </button>
+
+                <div class="flex items-center justify-center mb-6">
+                    <hr class="flex-grow border-gray-300">
+                    <span class="px-3 text-gray-500 text-sm">o</span>
+                    <hr class="flex-grow border-gray-300">
+                </div>
+
+                <!-- Formulario de Registro Manual -->
+                <form id="register-form" class="w-full space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <i class="fa-regular fa-user text-gray-400"></i>
+                            </div>
+                            <input type="text" id="nombre" name="name" placeholder="Nombres"
+                                   class="pl-10 p-3 w-full text-base border border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-blue-500 focus:border-blue-500" required>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <i class="fa-regular fa-user text-gray-400"></i>
+                            </div>
+                            <input type="text" id="apellido" name="lastname" placeholder="Apellidos"
+                                   class="pl-10 p-3 w-full text-base border border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-blue-500 focus:border-blue-500" required>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <i class="fa-regular fa-envelope text-gray-400"></i>
+                        </div>
+                        <input type="email" id="correo" name="email" placeholder="Correo electrónico"
+                               class="pl-10 p-3 w-full text-base border border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <i class="fas fa-lock text-gray-400"></i>
+                        </div>
+                        <input type="password" id="contrasena" name="password" placeholder="Contraseña"
+                               class="pl-10 p-3 w-full text-base border border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+
+                    <button type="submit"
+                            class="w-full bg-[#00205b] text-white py-2 rounded-md hover:bg-[#001a4d] flex items-center justify-center gap-2">
+                        Registrarse
+                    </button>
+                </form>
+
+                <p class="mt-4 text-sm text-center text-gray-600">
+                    ¿Ya tienes una cuenta?
+                    <a th:href="@{/marketplace/auth/login}" class="text-blue-700 font-semibold hover:underline">Inicia sesión aquí</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Span oculto para pasar el Client ID a JS -->
+<span id="google-client-id-span" th:data-client-id="${googleClientId}" class="hidden"></span>
+
+</body>
+</html>

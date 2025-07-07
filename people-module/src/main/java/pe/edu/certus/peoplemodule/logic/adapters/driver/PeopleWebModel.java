@@ -8,34 +8,36 @@ import lombok.Builder;
 @Builder
 public record PeopleWebModel(
         Long personId,
-        
         Long idUser,
-        Long idCareer,
-        
+
         @NotBlank(message = "El nombre no puede estar vacío")
-        @Size(max = 100, message = "El nombre no puede exceder los 100 caracteres")
+        @Size(max = 100)
         String personName,
-        
+
         @NotBlank(message = "El apellido no puede estar vacío")
-        @Size(max = 100, message = "El apellido no puede exceder los 100 caracteres")
+        @Size(max = 100)
         String personLastname,
-        
+
+        String personProfileImageUrl,
+
         @Size(max = 8, message = "El DNI debe tener 8 caracteres")
         @Pattern(regexp = "^[0-9]*$", message = "El DNI debe contener solo números")
         String personDni,
-        
-        @Size(max = 15, message = "El número de teléfono no puede exceder los 15 caracteres")
+
+        @Size(max = 15)
         String personMobilePhone,
-        
-        @Size(max = 1, message = "El género debe ser un solo carácter")
+
+        @Size(max = 1)
         String personGender,
-        
-        @Size(max = 100, message = "La ubicación del instituto no puede exceder los 100 caracteres")
-        String personInstituteLocation,
-        
-        @Size(max = 100, message = "El correo institucional no puede exceder los 100 caracteres")
+
+        @Size(max = 100)
+        String personInstituteCampus,
+
+        @Size(max = 100)
         String personInstitutionalEmail,
-        
-        Integer personInstitutionalCycle
-) {
-}
+
+        @Size(max = 100)
+        String personInstitutionalCareer,
+
+        Integer personCurrentTerm
+) {}

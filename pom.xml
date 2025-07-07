@@ -58,12 +58,12 @@
     </scm>
 
     <modules>
-        <module>works-module</module>
-        <module>ratings-module</module>
-        <module>users-module</module>
         <module>people-module</module>
-        <module>bootloader</module>
+        <module>auth-module</module>
+        <module>works-module</module>
+        <module>users-module</module>
         <module>paypal-module</module>
+        <module>bootloader</module>
     </modules>
 
     <properties>
@@ -131,18 +131,7 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
+
         </plugins>
     </build>
     <repositories>

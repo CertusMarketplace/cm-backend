@@ -1,0 +1,84 @@
+/* Efecto 1 Movimiento */
+
+.danceTop {
+    animation-name: danceTop;
+    transform-origin: top
+}
+
+@keyframes danceTop {
+    16% {
+        transform: skew(-14deg)
+    }
+    33% {
+        transform: skew(12deg)
+    }
+    49% {
+        transform: skew(-8deg)
+    }
+    66% {
+        transform: skew(6deg)
+    }
+    83% {
+        transform: skew(-4deg)
+    }
+}
+
+/* Efecto 2 fadeInRight */
+
+.fadeInRight {
+    animation-name: fadeInRight
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1
+    }
+}
+
+/* Efecto 3 */
+
+.leDanceInTop span {
+    animation-name: leDanceInTop;
+    transform-origin: top
+}
+
+@keyframes leDanceInTop {
+    from {
+        opacity: 0
+    }
+    16% {
+        transform: skew(-14deg)
+    }
+    33% {
+        transform: skew(12deg)
+    }
+    49% {
+        transform: skew(-8deg)
+    }
+    66% {
+        transform: skew(6deg)
+    }
+    83% {
+        transform: skew(-4deg)
+    }
+}
+
+/* Efecto 4 */
+
+.leScaleXIn span {
+    animation-name: leScaleXIn
+}
+
+@keyframes leScaleXIn {
+    from {
+        transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1
+    }
+}

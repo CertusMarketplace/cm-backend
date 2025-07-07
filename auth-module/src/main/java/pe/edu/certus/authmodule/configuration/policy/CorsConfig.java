@@ -1,5 +1,6 @@
 package pe.edu.certus.authmodule.configuration.policy;
 
+
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 

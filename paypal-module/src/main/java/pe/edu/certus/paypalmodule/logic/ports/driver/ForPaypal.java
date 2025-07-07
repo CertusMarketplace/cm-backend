@@ -4,8 +4,9 @@ import pe.edu.certus.paypalmodule.logic.model.CreateOrderResponseModel;
 import pe.edu.certus.paypalmodule.logic.model.PaymentDetailModel;
 
 import java.io.IOException;
+import java.util.List; // Importar List
 
 public interface ForPaypal {
-    CreateOrderResponseModel createOrderFromWork(Long workId) throws IOException, IllegalArgumentException;
-    PaymentDetailModel captureOrder(String orderId, Long workId, Long buyerUserId) throws IOException;
+    CreateOrderResponseModel createOrderFromCart(List<Long> workIds) throws IOException, IllegalArgumentException;
+    PaymentDetailModel captureOrder(String orderId, List<Long> workIds, Long buyerUserId) throws IOException; // MODIFICADO para aceptar lista
 }

@@ -11,15 +11,16 @@ public class PeopleMapper implements ForMappingPeople {
         return PeopleModel.builder()
                 .personId(peopleWebModel.personId())
                 .idUser(peopleWebModel.idUser())
-                .idCareer(peopleWebModel.idCareer())
                 .personName(peopleWebModel.personName())
                 .personLastname(peopleWebModel.personLastname())
+                .personProfileImageUrl(peopleWebModel.personProfileImageUrl())
                 .personDni(peopleWebModel.personDni())
                 .personMobilePhone(peopleWebModel.personMobilePhone())
                 .personGender(peopleWebModel.personGender())
-                .personInstituteLocation(peopleWebModel.personInstituteLocation())
+                .personInstituteCampus(peopleWebModel.personInstituteCampus())
                 .personInstitutionalEmail(peopleWebModel.personInstitutionalEmail())
-                .personInstitutionalCycle(peopleWebModel.personInstitutionalCycle())
+                .personInstitutionalCareer(peopleWebModel.personInstitutionalCareer())
+                .personCurrentTerm(peopleWebModel.personCurrentTerm())
                 .build();
     }
 
@@ -28,15 +29,16 @@ public class PeopleMapper implements ForMappingPeople {
         return new PeopleWebModel(
                 peopleModel.getPersonId(),
                 peopleModel.getIdUser(),
-                peopleModel.getIdCareer(),
                 peopleModel.getPersonName(),
                 peopleModel.getPersonLastname(),
+                peopleModel.getPersonProfileImageUrl(),
                 peopleModel.getPersonDni(),
                 peopleModel.getPersonMobilePhone(),
                 peopleModel.getPersonGender(),
-                peopleModel.getPersonInstituteLocation(),
+                peopleModel.getPersonInstituteCampus(),
                 peopleModel.getPersonInstitutionalEmail(),
-                peopleModel.getPersonInstitutionalCycle()
+                peopleModel.getPersonInstitutionalCareer(),
+                peopleModel.getPersonCurrentTerm()
         );
     }
 }

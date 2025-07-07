@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<section th:fragment="content">
+
+    <div class="font-poppins px-4 min-h-[80vh]">
+
+        <!-- Contenido Sin Trabajo -->
+
+        <div class="hidden flex-col items-center justify-center">
+            <h1 class="text-2xl lg:text-4xl">No tienes ningun trabajo en proceso de Revisión
+                😓</h1>
+            <p class="text-base lg:text-lg text-gray-500">Publica un trabajo desde el boton de
+                "Publicar", y en "Pendientes" se mostrará el contenido en revisión.</p>
+        </div>
+
+        <!-- Title -->
+
+        <div class="mt-6 mb-4">
+            <h1 class="text-2xl font-bold">Trabajos bajo revisión</h1>
+        </div>
+
+        <!-- Contenido con Trabajo-->
+
+        <div class="flex space-x-4">
+
+            <!-- Work Under Review 1  -->
+
+            <div class="max-w-xs p-3 space-y-2 border-2 rounded-md">
+                <div class="flex justify-center">
+                    <img th:src="@{/img/dashboard/seller/img-work-2.png}"
+                         class="max-h-48 max-w-96 rounded-lg" alt="Trabajo">
+                </div>
+                <div class="text-sm space-y-1.5">
+                    <h5><strong>Trabajo:</strong> The Strokes</h5>
+                    <p><strong>Descripción:</strong> Mi Creatividad destaca la elegancia de un
+                        tipo de flor originada en Perú, una ilustración pura y...</p>
+                    <p class="text-green-600"><strong>Cateogoría:</strong> Ilustración Digital
+                    </p>
+                    <p><strong>Precio:</strong> S/630.00</p>
+                </div>
+                <div class="flex space-x-2">
+                    <button onclick="document.getElementById('modalLookReviewWork').showModal()"
+                            class="rounded-full text-white text-sm w-full py-1.5 bg-blueCertus">
+                        Ver Revisión
+                    </button>
+                    <button class="rounded-full text-white text-sm w-full py-1.5 bg-redCertus">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Work Under Review 2 -->
+
+            <div class="max-w-xs p-3 space-y-2 border-2 rounded-md">
+                <div class="flex justify-center">
+                    <img th:src="@{/img/dashboard/seller/img-work-3.png}"
+                         class="max-h-48 max-w-96 rounded-lg" alt="Trabajo">
+                </div>
+                <div class="text-sm space-y-1.5">
+                    <h5><strong>Trabajo:</strong> The Voidz</h5>
+                    <p><strong>Descripción:</strong> Mi Creatividad destaca la elegancia de un
+                        tipo de flor originada en Perú, una ilustración pura y...</p>
+                    <p class="text-green-600"><strong>Cateogoría:</strong> Ilustración Digital
+                    </p>
+                    <p><strong>Precio:</strong> S/320.00</p>
+                </div>
+                <div class="flex space-x-2">
+                    <button onclick="document.getElementById('modalLookReviewWork').showModal()"
+                            class="rounded-full text-white text-sm w-full py-1.5 bg-blueCertus">
+                        Ver Revisión
+                    </button>
+                    <button class="rounded-full text-white text-sm w-full py-1.5 bg-redCertus">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- Modales para Seller Work Under Review -->
+
+    <section
+            th:replace="~{/dashboard/seller/fragments/seller-works-under-review/modal-look-review-work :: modal-look-review-work}"></section>
+
+</section>
+</html>

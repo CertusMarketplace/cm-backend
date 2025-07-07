@@ -9,6 +9,8 @@ import pe.edu.certus.authmodule.logic.ports.driven.ForVerifyingGoogleToken;
 import pe.edu.certus.authmodule.logic.ports.driver.ForGoogleAuth;
 import pe.edu.certus.authmodule.repository.entity.AuthEntity;
 import pe.edu.certus.authmodule.repository.ports.driver.ForQueryingAuth;
+import pe.edu.certus.peoplemodule.logic.model.PeopleModel;
+import pe.edu.certus.peoplemodule.logic.ports.driver.ForPeople;
 
 import java.util.HashMap;
 import java.util.Optional;
@@ -20,15 +22,18 @@ public class GoogleAuthManager implements ForGoogleAuth {
     private final ForQueryingAuth forQueryingAuth;
     private final JwtManager jwtManager;
     private final BCryptPasswordEncoder passwordEncoder;
+    private final ForPeople<PeopleModel, Long> forPeople;
 
     public GoogleAuthManager(ForVerifyingGoogleToken forVerifyingGoogleToken,
                              ForQueryingAuth forQueryingAuth,
                              JwtManager jwtManager,
-                             PasswordEncoder passwordEncoder) {
+                             PasswordEncoder passwordEncoder,
+                             ForPeople< PeopleModel, Long> forPeople) {
         this.forVerifyingGoogleToken = forVerifyingGoogleToken;
         this.forQueryingAuth = forQueryingAuth;
         this.jwtManager = jwtManager;
         this.passwordEncoder = (BCryptPasswordEncoder) passwordEncoder;
+        this.forPeople = forPeople;
     }
 
     @Override
@@ -47,6 +52,19 @@ public class GoogleAuthManager implements ForGoogleAuth {
                 user.setUserPassword(passwordEncoder.encode(java.util.UUID.randomUUID().toString()));
                 user.setIdRole(3L);
                 user = forQueryingAuth.save(user);
+
+                String givenName = (String) payload.get("given_name");
+                String familyName = (String) payload.get("family_name");
+                String pictureUrl = (String) payload.get("picture");
+
+                PeopleModel newPersonProfile = PeopleModel.builder()
+                        .idUser(user.getId())
+                        .personName(givenName != null ? givenName : "Usuario")
+                        .personLastname(familyName != null ? familyName : "Google")
+                        .personProfileImageUrl(pictureUrl)
+                        .build();
+
+                forPeople.createPeople(newPersonProfile);
             }
 
             HashMap<String, String> jwt = new HashMap<>();

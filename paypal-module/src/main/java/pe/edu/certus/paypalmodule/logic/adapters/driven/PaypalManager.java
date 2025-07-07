@@ -1,4 +1,3 @@
-// Archivo MODIFICADO: paypal-module/src/main/java/pe/edu/certus/paypalmodule/logic/adapters/driven/PaypalManager.java
 package pe.edu.certus.paypalmodule.logic.adapters.driven;
 
 import com.paypal.http.HttpResponse;
@@ -14,6 +13,7 @@ import pe.edu.certus.paypalmodule.logic.ports.driver.ForPaypal;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,7 +22,6 @@ public class PaypalManager implements ForPaypal {
     private final ForManagingPaypal forManagingPaypal;
     private final ForPersistingPaypalPayment forPersistingPaypalPayment;
     private final ForGettingWorkPrice forGettingWorkPrice;
-
     private static final String CURRENCY_CODE = "USD";
 
     public PaypalManager(ForManagingPaypal forManagingPaypal,
@@ -34,31 +33,38 @@ public class PaypalManager implements ForPaypal {
     }
 
     @Override
-    public CreateOrderResponseModel createOrderFromWork(Long workId) throws IOException, IllegalArgumentException {
-        // 4. Usa el puerto para obtener el precio
-        Optional<BigDecimal> amountOptional = forGettingWorkPrice.findWorkPriceById(workId);
-
-        if (amountOptional.isEmpty()) {
-            throw new IllegalArgumentException("Work not found with ID: " + workId);
+    public CreateOrderResponseModel createOrderFromCart(List<Long> workIds) throws IOException, IllegalArgumentException {
+        if (workIds == null || workIds.isEmpty()) {
+            throw new IllegalArgumentException("Cart is empty");
         }
-
-        BigDecimal amount = amountOptional.get();
-        if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalArgumentException("Invalid price for work ID: " + workId);
+        BigDecimal totalAmount = workIds.stream()
+                .map(forGettingWorkPrice::findWorkPriceById)
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+        if (totalAmount.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("Invalid total amount for the cart.");
         }
+        return createOrder(totalAmount);
+    }
 
+    private CreateOrderResponseModel createOrder(BigDecimal amount) throws IOException {
         HttpResponse<Order> response = forManagingPaypal.initiateOrder(amount, CURRENCY_CODE);
         Order order = response.result();
-
+        String approvalUrl = order.links().stream()
+                .filter(link -> "approve".equals(link.rel()))
+                .findFirst()
+                .map(link -> link.href())
+                .orElse(null);
         return CreateOrderResponseModel.builder()
                 .orderId(order.id())
                 .status(order.status())
+                .approvalUrl(approvalUrl)
                 .build();
     }
 
     @Override
-    public PaymentDetailModel captureOrder(String orderId, Long workId, Long buyerUserId) throws IOException {
-        // ... (El resto de este método no cambia, ya que no depende del precio del trabajo)
+    public PaymentDetailModel captureOrder(String orderId, List<Long> workIds, Long buyerUserId) throws IOException {
         HttpResponse<Order> response = forManagingPaypal.confirmOrder(orderId);
         Order order = response.result();
 
@@ -78,7 +84,8 @@ public class PaypalManager implements ForPaypal {
                     .payerName(order.payer().name().givenName() + " " + order.payer().name().surname())
                     .build();
 
-            return forPersistingPaypalPayment.createOrderAndSavePayment(paymentDetail, workId, buyerUserId);
+            // CORRECCIÓN: Llamar al servicio de persistencia para guardar los datos.
+            return forPersistingPaypalPayment.createOrderAndSavePayment(paymentDetail, workIds, buyerUserId);
         } else {
             throw new IOException("Failed to capture payment. Status: " + order.status());
         }

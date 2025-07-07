@@ -10,6 +10,8 @@ import pe.edu.certus.paypalmodule.repository.ports.driver.ForQueryingOrders;
 import pe.edu.certus.paypalmodule.repository.ports.driver.ForQueryingPaypalPayments;
 import pe.edu.certus.paypalmodule.repository.ports.mapper.ForBridgingPaypalPayment;
 
+import java.util.List;
+
 @Service
 public class PaypalPersistenceProxy implements ForPersistingPaypalPayment {
 
@@ -27,7 +29,7 @@ public class PaypalPersistenceProxy implements ForPersistingPaypalPayment {
 
     @Override
     @Transactional
-    public PaymentDetailModel createOrderAndSavePayment(PaymentDetailModel paymentDetail, Long workId, Long buyerUserId) {
+    public PaymentDetailModel createOrderAndSavePayment(PaymentDetailModel paymentDetail, List<Long> workIds, Long buyerUserId) {
         OrderEntity newOrder = OrderEntity.builder()
                 .idUser(buyerUserId)
                 .build();

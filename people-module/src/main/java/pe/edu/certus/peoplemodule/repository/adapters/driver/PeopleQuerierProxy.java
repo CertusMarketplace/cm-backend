@@ -39,14 +39,20 @@ public class PeopleQuerierProxy implements ForManagingPeople {
 
     @Override
     public PeopleModel satisfyUpdatePeople(PeopleModel peopleModel) {
-        PeopleEntity objectFromDomain = forBridgingPeople.toPersistence(peopleModel);
-        
-        Optional<PeopleEntity> existingPeople = forQueryingPeople.findById(objectFromDomain.getPersonId());
-        if (existingPeople.isEmpty()) {
-            throw new EntityNotFoundException("PERSON NOT FOUND WITH ID: " + objectFromDomain.getPersonId());
-        }
-        
-        PeopleEntity updatedEntity = forQueryingPeople.save(objectFromDomain);
+        PeopleEntity existingPeople = forQueryingPeople.findByIdUser(peopleModel.getIdUser())
+                .orElseThrow(() -> new EntityNotFoundException("PERSON PROFILE NOT FOUND FOR USER ID: " + peopleModel.getIdUser()));
+
+        existingPeople.setPersonName(peopleModel.getPersonName());
+        existingPeople.setPersonLastname(peopleModel.getPersonLastname());
+        existingPeople.setPersonDni(peopleModel.getPersonDni());
+        existingPeople.setPersonMobilePhone(peopleModel.getPersonMobilePhone());
+        existingPeople.setPersonGender(peopleModel.getPersonGender());
+        existingPeople.setPersonInstituteCampus(peopleModel.getPersonInstituteCampus());
+        existingPeople.setPersonInstitutionalEmail(peopleModel.getPersonInstitutionalEmail());
+        existingPeople.setPersonInstitutionalCareer(peopleModel.getPersonInstitutionalCareer());
+        existingPeople.setPersonCurrentTerm(peopleModel.getPersonCurrentTerm());
+
+        PeopleEntity updatedEntity = forQueryingPeople.save(existingPeople);
         System.out.println("PERSON ENTITY HAS BEEN UPDATED SUCCESSFULLY");
 
         return forBridgingPeople.fromPersistence(updatedEntity);

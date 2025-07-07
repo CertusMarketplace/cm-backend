@@ -1,0 +1,19 @@
+{
+  "name": "frontend-config",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i ./css/styles.css -o ./css/main.css",
+    "watch": "tailwindcss --watch -i ./css/styles.css -o ./css/main.css"
+  },
+  "author": "Lúcian (Alessandro Marquina)",
+  "license": "ISC",
+  "description": "Frontend Configuration - Certus MarketPlace",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "flowbite": "^3.1.2"
+  }
+}

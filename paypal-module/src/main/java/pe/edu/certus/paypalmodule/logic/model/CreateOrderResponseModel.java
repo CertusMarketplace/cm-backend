@@ -10,4 +10,5 @@ import lombok.*;
 public class CreateOrderResponseModel {
     private String orderId;
     private String status;
+    private String approvalUrl;
 }

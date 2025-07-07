@@ -10,13 +10,14 @@ import lombok.Setter;
 public class PeopleModel {
     private Long personId;
     private Long idUser;
-    private Long idCareer;
     private String personName;
     private String personLastname;
+    private String personProfileImageUrl;
     private String personDni;
     private String personMobilePhone;
     private String personGender;
-    private String personInstituteLocation;
+    private String personInstituteCampus;
     private String personInstitutionalEmail;
-    private Integer personInstitutionalCycle;
+    private String personInstitutionalCareer;
+    private Integer personCurrentTerm;
 }

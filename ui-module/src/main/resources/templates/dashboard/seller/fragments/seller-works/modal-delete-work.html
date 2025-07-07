@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<section th:fragment="modal-delete-work">
+    <dialog id="modalDeleteWork" class="h-40 w-96 backdrop:bg-black/30 left-[10rem]">
+        <div class="flex flex-col items-center justify-center text-center font-poppins px-3 mt-9 space-y-4">
+            <div class="text-sm">
+                ¿Estás seguro que deseas eliminar el trabajo?
+            </div>
+            <div class="text-sm flex space-x-2">
+                <button class="h-9 text-center text-white bg-redCertus px-10 rounded-full">
+                    Eliminar
+                </button>
+                <button onclick="document.getElementById('modalDeleteWork').close()"
+                        class="h-9 text-center text-black border-2 px-10 rounded-full">Cancelar
+                </button>
+            </div>
+        </div>
+    </dialog>
+</section>
+</html>

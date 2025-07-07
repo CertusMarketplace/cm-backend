@@ -13,15 +13,16 @@ public class PeoplePersistenceMapper implements ForBridgingPeople {
         return PeopleModel.builder()
                 .personId(peopleEntity.getPersonId())
                 .idUser(peopleEntity.getIdUser())
-                .idCareer(peopleEntity.getIdCareer())
                 .personName(peopleEntity.getPersonName())
                 .personLastname(peopleEntity.getPersonLastname())
+                .personProfileImageUrl(peopleEntity.getPersonProfileImageUrl())
                 .personDni(peopleEntity.getPersonDni())
                 .personMobilePhone(peopleEntity.getPersonMobilePhone())
                 .personGender(peopleEntity.getPersonGender())
-                .personInstituteLocation(peopleEntity.getPersonInstituteLocation())
+                .personInstituteCampus(peopleEntity.getPersonInstituteCampus())
                 .personInstitutionalEmail(peopleEntity.getPersonInstitutionalEmail())
-                .personInstitutionalCycle(peopleEntity.getPersonInstitutionalCycle())
+                .personInstitutionalCareer(peopleEntity.getPersonInstitutionalCareer())
+                .personCurrentTerm(peopleEntity.getPersonCurrentTerm())
                 .build();
     }
 
@@ -30,15 +31,16 @@ public class PeoplePersistenceMapper implements ForBridgingPeople {
         return PeopleEntity.builder()
                 .personId(peopleModel.getPersonId())
                 .idUser(peopleModel.getIdUser())
-                .idCareer(peopleModel.getIdCareer())
                 .personName(peopleModel.getPersonName())
                 .personLastname(peopleModel.getPersonLastname())
+                .personProfileImageUrl(peopleModel.getPersonProfileImageUrl())
                 .personDni(peopleModel.getPersonDni())
                 .personMobilePhone(peopleModel.getPersonMobilePhone())
                 .personGender(peopleModel.getPersonGender())
-                .personInstituteLocation(peopleModel.getPersonInstituteLocation())
+                .personInstituteCampus(peopleModel.getPersonInstituteCampus())
                 .personInstitutionalEmail(peopleModel.getPersonInstitutionalEmail())
-                .personInstitutionalCycle(peopleModel.getPersonInstitutionalCycle())
+                .personInstitutionalCareer(peopleModel.getPersonInstitutionalCareer())
+                .personCurrentTerm(peopleModel.getPersonCurrentTerm())
                 .build();
     }
 }

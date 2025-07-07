@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<section th:fragment="modal-edit-work">
+
+    <!-- Edit Work -->
+
+    <dialog id="modalEditWork"
+            class="rounded-xl w-1/2 h-1/2 backdrop:bg-black/60 left-[10rem]">
+        <div class="flex flex-col px-8 font-poppins text-sm">
+            <div class="w-full space-y-6">
+                <h1 class="text-xl text-center font-extrabold my-4">Edición del trabajo</h1>
+                <div class="grid grid-cols-2 w-full gap-x-4 text-sm">
+                    <div class="space-y-2">
+                        <label for="titleWork" class="font-bold">Título del Trabajo</label>
+                        <input type="text" placeholder="Arctic Monkeys" id="titleWork"
+                               name="titleWork"
+                               class="w-full h-10 border-gray-400 rounded-lg text-sm">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="price" class="font-bold">Precio</label>
+                        <input type="text" placeholder="S/700.00" id="priceWork"
+                               name="priceWork"
+                               class="w-full h-10 border-gray-400 rounded-lg text-sm">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 w-full gap-x-4">
+                    <div class="space-y-2">
+                        <label for="titleWork" class="font-bold">Descripción</label>
+                        <textarea type="text" id="titleWork" name="titleWork"
+                                  class="text-sm w-full py-1.5 h-44 max-h-44 border-gray-400 rounded-lg">Mi Creatividad destaca la elegancia de un tipo de flor originada en Perú, una ilustración pura y única para aquellos que aman la Ilustración 💗</textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="price" class="font-bold">Categoría</label>
+                        <input type="text" id="priceWork" name="priceWork"
+                               class="text-sm w-full py-1.5 border-gray-400 rounded-lg">
+                        <div class="space-y-2">
+                            <div class="font-light">
+                                <i class="fa-solid fa-circle-exclamation text-blueCertus"></i>
+                                <span class="text-gray-600">Recuerda: Solo podrás editar el título, descripción, precio y categoría del trabajo activo. Las otras opciones como
+                                        imagenes y archivos adjuntos no están permitidos para ser editados ya que así evitamos el fraude y malas prácticas de imagenes y archivos no deseados
+                                    </span>
+                            </div>
+                            <div class="font-light">
+                                <i class="fa-solid fa-circle-exclamation text-blueCertus"></i>
+                                <span class="text-gray-600">El trabajo podrá ser editado solo 1 sola vez.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 w-full gap-x-4 text-sm">
+                    <div class="space-y-2">
+                        <button onclick="document.getElementById('modalSaveWork').showModal()"
+                                class="h-10 text-center text-white bg-greenCertus w-full rounded-full">
+                            Guardar
+                        </button>
+                    </div>
+                    <div class="space-y-2">
+                        <button onclick="document.getElementById('modalEditWork').close()"
+                                class="h-10 text-center text-white bg-redCertus w-full rounded-full">
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Modal Save Work -->
+
+    <dialog id="modalSaveWork" class="h-40 w-96 backdrop:bg-black/30 left-[10rem]">
+        <div class="flex flex-col items-center justify-center text-center font-poppins px-3 py-7 space-y-4">
+            <div class="text-sm">
+                ¿Estás seguro de que deseas guardar los cambios?
+            </div>
+            <div class="text-sm flex space-x-2">
+                <button class="h-9 text-center text-white bg-greenCertus px-10 rounded-full">
+                    Guardar
+                </button>
+                <button onclick="document.getElementById('modalSaveWork').close()"
+                        class="h-9 text-center text-white bg-redCertus px-10 rounded-full">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </dialog>
+
+</section>
+</html>
