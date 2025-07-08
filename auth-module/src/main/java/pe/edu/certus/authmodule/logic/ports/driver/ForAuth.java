@@ -24,6 +24,9 @@ public interface ForAuth {
     ResponseWebModel register( AuthEntity user, String personName, String personLastname) throws Exception;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

@@ -10,11 +10,14 @@ import pe.edu.certus.uimodule.ui.pages.dashboard.admin.ports.driver.ForAdminDash
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 @RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE )
 public class AdminDashboardController implements ForAdminDashboard {
 
     @GetMapping( AdminDashboardRoute.ADMIN_DASHBOARD_ROUTE )
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -25,6 +28,9 @@ public class AdminDashboardController implements ForAdminDashboard {
     @GetMapping(AdminDashboardRoute.ADMIN_DASHBOARD_ROUTE )
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

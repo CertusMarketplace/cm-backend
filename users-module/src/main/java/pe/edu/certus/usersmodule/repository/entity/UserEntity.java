@@ -22,7 +22,11 @@ public class UserEntity {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @Column( name = "id_role" )
+=======
+    @Column(name = "id_role")
+>>>>>>> Stashed changes
 =======
     @Column(name = "id_role")
 >>>>>>> Stashed changes

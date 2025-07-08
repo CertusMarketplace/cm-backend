@@ -10,6 +10,10 @@ public interface ForQueryingPeople extends JpaRepository<PeopleEntity, Long> {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes

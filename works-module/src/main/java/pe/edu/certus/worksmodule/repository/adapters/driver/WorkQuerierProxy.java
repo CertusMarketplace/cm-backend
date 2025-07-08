@@ -5,7 +5,12 @@ import org.springframework.stereotype.Service;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import org.springframework.transaction.annotation.Transactional;
+=======
+import pe.edu.certus.ratingsmodule.repository.entity.RatingEntity;
+import pe.edu.certus.ratingsmodule.repository.ports.driver.ForQueryingRating;
+>>>>>>> Stashed changes
 =======
 import pe.edu.certus.ratingsmodule.repository.entity.RatingEntity;
 import pe.edu.certus.ratingsmodule.repository.ports.driver.ForQueryingRating;
@@ -27,12 +32,17 @@ import pe.edu.certus.worksmodule.repository.ports.mapper.ForBridgingWork;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+=======
+import java.util.List;
+import java.util.Map;
+>>>>>>> Stashed changes
 =======
 import java.util.List;
 import java.util.Map;
@@ -57,7 +67,11 @@ public class WorkQuerierProxy implements ForManagingWork {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public WorkQuerierProxy(ForQueryingWork forQueryingWork, ForBridgingWork forBridgingWork) {
+=======
+    public WorkQuerierProxy(ForQueryingWork forQueryingWork, ForQueryingRating forQueryingRating, ForBridgingWork forBridgingWork) {
+>>>>>>> Stashed changes
 =======
     public WorkQuerierProxy(ForQueryingWork forQueryingWork, ForQueryingRating forQueryingRating, ForBridgingWork forBridgingWork) {
 >>>>>>> Stashed changes
@@ -73,6 +87,7 @@ public class WorkQuerierProxy implements ForManagingWork {
     }
 
     @Override
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -94,12 +109,17 @@ public class WorkQuerierProxy implements ForManagingWork {
     public List<WorkModel> satisfyFindWorksBySellerId(Long sellerId) {
         List<WorkEntity> workEntities = forQueryingWork.findByIdSellerUser(sellerId);
 >>>>>>> Stashed changes
+=======
+    public List<WorkModel> satisfyFindWorksBySellerId(Long sellerId) {
+        List<WorkEntity> workEntities = forQueryingWork.findByIdSellerUser(sellerId);
+>>>>>>> Stashed changes
         return workEntities.stream()
                 .map(forBridgingWork::fromPersistence)
                 .collect(Collectors.toList());
     }
 
     @Override
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -170,6 +190,8 @@ public class WorkQuerierProxy implements ForManagingWork {
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     public List<WorkModel> satisfyFindAllWorkWithRatings() {
         List<WorkEntity> workEntities = forQueryingWork.findAllWithCategory();
         List<RatingEntity> ratingEntities = forQueryingRating.findAll();
@@ -206,6 +228,9 @@ public class WorkQuerierProxy implements ForManagingWork {
         WorkEntity updatedEntity = forQueryingWork.save(objectFromDomain);
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -215,6 +240,7 @@ public class WorkQuerierProxy implements ForManagingWork {
     }
 
     @Override
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -234,6 +260,11 @@ public class WorkQuerierProxy implements ForManagingWork {
                 .map(forBridgingWork::fromPersistence)
                 .collect(Collectors.toList());
     }
+=======
+    public void satisfyDeleteWorkById(Long id) {
+        forQueryingWork.deleteById(id);
+    }
+>>>>>>> Stashed changes
 =======
     public void satisfyDeleteWorkById(Long id) {
         forQueryingWork.deleteById(id);

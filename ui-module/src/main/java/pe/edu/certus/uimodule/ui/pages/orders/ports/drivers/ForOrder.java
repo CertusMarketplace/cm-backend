@@ -4,9 +4,14 @@ public interface ForOrder {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     String showOrders( );
 
     String showOrderDetails( );
+=======
+    String showOrders();
+    String showOrderDetails();
+>>>>>>> Stashed changes
 =======
     String showOrders();
     String showOrderDetails();

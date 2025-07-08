@@ -4,7 +4,10 @@ import org.springframework.stereotype.Controller;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import org.springframework.ui.Model;
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pe.edu.certus.uimodule.ui.pages.constants.BusinessRoute;
 import pe.edu.certus.uimodule.ui.pages.dashboard.seller.ports.driver.ForSellerDashboard;
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -63,6 +67,8 @@ public class SellerDashboardController implements ForSellerDashboard {
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 @Controller
 @RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE)
@@ -88,6 +94,9 @@ public class SellerDashboardController implements ForSellerDashboard {
     public String loadSales() {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

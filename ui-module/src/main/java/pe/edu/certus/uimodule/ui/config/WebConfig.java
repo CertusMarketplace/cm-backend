@@ -11,6 +11,7 @@ public class WebConfig implements WebMvcConfigurer {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public void addResourceHandlers( ResourceHandlerRegistry registry ) {
 
         registry.addResourceHandler( "/css/**" )
@@ -25,6 +26,8 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler( "/video/**" )
                 .addResourceLocations( "classpath:/static/video/" );
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -44,6 +47,9 @@ public class WebConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/static/video/");
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

@@ -13,7 +13,10 @@ import pe.edu.certus.peoplemodule.logic.ports.driver.ForPeople;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -35,8 +38,12 @@ public class GoogleAuthManager implements ForGoogleAuth {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     private final BCryptPasswordEncoder passwordEncoder;
     private final ForPeople<PeopleModel, Long> forPeople;
+=======
+    private final PasswordEncoder passwordEncoder;
+>>>>>>> Stashed changes
 =======
     private final PasswordEncoder passwordEncoder;
 >>>>>>> Stashed changes
@@ -60,8 +67,12 @@ public class GoogleAuthManager implements ForGoogleAuth {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         this.passwordEncoder = (BCryptPasswordEncoder) passwordEncoder;
         this.forPeople = forPeople;
+=======
+        this.passwordEncoder = passwordEncoder;
+>>>>>>> Stashed changes
 =======
         this.passwordEncoder = passwordEncoder;
 >>>>>>> Stashed changes
@@ -87,6 +98,7 @@ public class GoogleAuthManager implements ForGoogleAuth {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 user = new AuthEntity();
                 user.setUserEmail(email);
                 user.setUserPassword(passwordEncoder.encode(java.util.UUID.randomUUID().toString()));
@@ -106,6 +118,8 @@ public class GoogleAuthManager implements ForGoogleAuth {
 
                 forPeople.createPeople(newPersonProfile);
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -134,6 +148,9 @@ public class GoogleAuthManager implements ForGoogleAuth {
                 forPeople.createPeople(newPerson);
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

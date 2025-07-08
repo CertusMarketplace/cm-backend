@@ -10,11 +10,14 @@ import pe.edu.certus.uimodule.ui.pages.profile.ports.drivers.ForProfile;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 @RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE )
 public class ProfileController implements ForProfile {
 
     @GetMapping( ProfileRoute.PROFILE_PAGE_ROUTE )
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -25,6 +28,9 @@ public class ProfileController implements ForProfile {
     @GetMapping( ProfileRoute.PROFILE_PAGE_ROUTE)
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

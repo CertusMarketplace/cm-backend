@@ -6,7 +6,11 @@ import org.springframework.http.ResponseEntity;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import org.springframework.security.core.Authentication;
+=======
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+>>>>>>> Stashed changes
 =======
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 >>>>>>> Stashed changes
@@ -38,6 +42,7 @@ public class UserAdapter {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @GetMapping("/me")
     public ResponseEntity<UserWebModel> getCurrentUser(Authentication authentication) {
         if (authentication == null || !authentication.isAuthenticated()) {
@@ -66,6 +71,8 @@ public class UserAdapter {
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     @PutMapping("/update-role/{userId}/{roleId}")
     public ResponseEntity<Void> updateUserRole(@PathVariable Long userId, @PathVariable Long roleId) {
         UserModel user = (UserModel) forUser.findUserById(userId);
@@ -73,6 +80,9 @@ public class UserAdapter {
             return ResponseEntity.notFound().build();
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -109,6 +119,7 @@ public class UserAdapter {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         try {
             UserModel userModel = (UserModel) forUser.findUserById(id);
             UserWebModel response = forMappingUser.toWeb(userModel);
@@ -138,6 +149,8 @@ public class UserAdapter {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         UserModel userModel = (UserModel) forUser.findUserById(id);
         UserWebModel response = forMappingUser.toWeb(userModel);
         return ResponseEntity.ok(response);
@@ -151,6 +164,9 @@ public class UserAdapter {
         return ResponseEntity.ok(response);
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -169,6 +185,7 @@ public class UserAdapter {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         try {
             List<UserModel> userModels = forUser.findAllUsers();
             List<UserWebModel> response = userModels.stream()
@@ -183,6 +200,8 @@ public class UserAdapter {
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         List<UserModel> userModels = forUser.findAllUsers();
         List<UserWebModel> response = userModels.stream()
                 .map(forMappingUser::toWeb)
@@ -190,6 +209,9 @@ public class UserAdapter {
         return ResponseEntity.ok(response);
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

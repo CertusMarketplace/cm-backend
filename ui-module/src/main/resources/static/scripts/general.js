@@ -2,7 +2,13 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 function headerHome() {
+=======
+
+function headerHome() {
+    
+>>>>>>> Stashed changes
 =======
 
 function headerHome() {
@@ -22,6 +28,7 @@ function headerHome() {
     const sidebar = document.getElementById('sidebar');
     const closeSidebar = document.getElementById('closeSidebar');
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -61,6 +68,8 @@ function loadView(view) {
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
    if ( burguer && sidebar && closeSidebar ) {
 
     burguer.addEventListener('click', () => {
@@ -96,6 +105,9 @@ function loadView(view) {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -105,6 +117,7 @@ function setActiveSidebarLink(activeId) {
     const links = ['stateLinkWork', 'stateLinkReview', 'stateLinkSales', 'stateLinkSettings', 'stateLinkAccount', 'stateLinkLogout'];
     links.forEach(id => {
         const element = document.getElementById(id);
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -121,6 +134,8 @@ function setActiveSidebarLink(activeId) {
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         if (!element) return;
         if (id === activeId) {
             element.classList.add('bg-skyBlueCertus');
@@ -130,6 +145,9 @@ function setActiveSidebarLink(activeId) {
             element.classList.add('hover:bg-blue-900');
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -139,6 +157,7 @@ function setActiveSidebarLink(activeId) {
     });
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -182,6 +201,8 @@ function greetingExpression() {
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 ['stateLinkWork', 'stateLinkReview', 'stateLinkSales', 'stateLinkSettings', 'stateLinkAccount', 'stateLinkLogout'].forEach(id => {
     const element = document.getElementById(id);
     if (!element) return;
@@ -210,6 +231,10 @@ function greetingExpression () {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+greetingExpression();
+>>>>>>> Stashed changes
+=======
 greetingExpression();
 >>>>>>> Stashed changes
 =======

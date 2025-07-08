@@ -66,7 +66,11 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <module>bootloader</module>
+=======
+        <module>ui-module</module>
+>>>>>>> Stashed changes
 =======
         <module>ui-module</module>
 >>>>>>> Stashed changes

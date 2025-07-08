@@ -3,6 +3,12 @@ package pe.edu.certus.uimodule.ui.pages.works.adapters.drivers;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+>>>>>>> Stashed changes
 =======
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -26,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import pe.edu.certus.uimodule.ui.pages.constants.BusinessRoute;
 import pe.edu.certus.worksmodule.logic.model.WorkModel;
 import pe.edu.certus.worksmodule.logic.ports.driver.ForWork;
@@ -33,6 +40,8 @@ import pe.edu.certus.worksmodule.logic.ports.driver.ForWork;
 @Controller
 @RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE )
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -51,6 +60,9 @@ import java.util.stream.Collectors;
 @RequestMapping(BusinessRoute.BUSINESS_PAGE_ROUTE)
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -60,6 +72,7 @@ import java.util.stream.Collectors;
 public class WorkRouteController {
 
     private final ForWork forWork;
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -80,6 +93,8 @@ public class WorkRouteController {
         model.addAttribute( "work", work );
         model.addAttribute( "ratings", work.getRatings( ) );
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -109,6 +124,9 @@ public class WorkRouteController {
         model.addAttribute("ratings", workRatings);
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

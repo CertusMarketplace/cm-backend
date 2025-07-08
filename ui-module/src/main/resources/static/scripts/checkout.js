@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     document.body.addEventListener('click', async (e) => {
         if (e.target.closest('#checkout-button')) {
             const token = localStorage.getItem('jwt_token');
@@ -95,6 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     handlePaymentStatus();
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -241,6 +244,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

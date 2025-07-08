@@ -3,6 +3,7 @@ module.exports = {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     content: [
         "../templates/**/*.html",
         "../templates/**/*.html",
@@ -28,6 +29,8 @@ module.exports = {
         require('flowbite/plugin')
     ],
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -58,6 +61,9 @@ module.exports = {
   ],
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

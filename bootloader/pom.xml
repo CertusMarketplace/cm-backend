@@ -64,6 +64,11 @@
             <artifactId>ui-module</artifactId>
             <version>${version}</version>
         </dependency>
+        <dependency>
+            <groupId>pe.edu.certus</groupId>
+            <artifactId>ui-module</artifactId>
+            <version>${version}</version>
+        </dependency>
 
         <!-- Dependencia de Actuator (se mantiene) -->
         <dependency>

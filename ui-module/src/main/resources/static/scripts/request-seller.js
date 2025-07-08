@@ -35,10 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         if (!token) {
             const password = formData.get('password');
             const confirmPassword = formData.get('confirmPassword');
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -61,6 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -70,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 showMessage('Las contraseñas no coinciden.', true);
                 return;
             }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -119,6 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             showMessage(error.message, true);
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -179,6 +188,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
