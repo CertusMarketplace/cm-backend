@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    if(contentArea) {
+    if (contentArea) {
         loadView('seller-works');
         setActiveSidebarLink('stateLinkWork');
     }
@@ -60,8 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
         let selectedImageFiles = [];
 
         const handleImageFiles = (files) => {
-            for (const file of files) { if (selectedImageFiles.length < 5 && file.type.startsWith('image/')) { selectedImageFiles.push(file); } }
-            if (selectedImageFiles.length > 5) { selectedImageFiles = selectedImageFiles.slice(0, 5); alert('Puedes seleccionar un máximo de 5 imágenes.'); }
+            for (const file of files) {
+                if (selectedImageFiles.length < 5 && file.type.startsWith('image/')) {
+                    selectedImageFiles.push(file);
+                }
+            }
+            if (selectedImageFiles.length > 5) {
+                selectedImageFiles = selectedImageFiles.slice(0, 5);
+                alert('Puedes seleccionar un máximo de 5 imágenes.');
+            }
             updateImagePreviews();
         };
         const updateImagePreviews = () => {
@@ -87,14 +94,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
         imageDropZone.addEventListener('click', () => imageInput.click());
         imageInput.addEventListener('change', () => handleImageFiles(imageInput.files));
-        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => { imageDropZone.addEventListener(eventName, e => { e.preventDefault(); e.stopPropagation(); if (['dragenter', 'dragover'].includes(eventName)) { imageDropZone.classList.add('border-blue-500', 'bg-blue-50'); } else { imageDropZone.classList.remove('border-blue-500', 'bg-blue-50'); } }, false); });
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            imageDropZone.addEventListener(eventName, e => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (['dragenter', 'dragover'].includes(eventName)) {
+                    imageDropZone.classList.add('border-blue-500', 'bg-blue-50');
+                } else {
+                    imageDropZone.classList.remove('border-blue-500', 'bg-blue-50');
+                }
+            }, false);
+        });
         imageDropZone.addEventListener('drop', e => handleImageFiles(e.dataTransfer.files));
-        imagePreviewContainer.addEventListener('click', e => { if (e.target.tagName === 'BUTTON') { const index = parseInt(e.target.dataset.index, 10); selectedImageFiles.splice(index, 1); updateImagePreviews(); } });
+        imagePreviewContainer.addEventListener('click', e => {
+            if (e.target.tagName === 'BUTTON') {
+                const index = parseInt(e.target.dataset.index, 10);
+                selectedImageFiles.splice(index, 1);
+                updateImagePreviews();
+            }
+        });
         projectDropZone.addEventListener('click', () => projectInput.click());
         projectInput.addEventListener('change', () => handleProjectFile(projectInput.files[0]));
-        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => { projectDropZone.addEventListener(eventName, e => { e.preventDefault(); e.stopPropagation(); if (['dragenter', 'dragover'].includes(eventName)) { projectDropZone.classList.add('border-blue-500', 'bg-blue-50'); } else { projectDropZone.classList.remove('border-blue-500', 'bg-blue-50'); } }, false); });
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            projectDropZone.addEventListener(eventName, e => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (['dragenter', 'dragover'].includes(eventName)) {
+                    projectDropZone.classList.add('border-blue-500', 'bg-blue-50');
+                } else {
+                    projectDropZone.classList.remove('border-blue-500', 'bg-blue-50');
+                }
+            }, false);
+        });
         projectDropZone.addEventListener('drop', e => handleProjectFile(e.dataTransfer.files[0]));
-        projectPreviewContainer.addEventListener('click', e => { if (e.target.id === 'remove-project-file') { projectInput.value = ''; projectPreviewContainer.innerHTML = ''; } });
+        projectPreviewContainer.addEventListener('click', e => {
+            if (e.target.id === 'remove-project-file') {
+                projectInput.value = '';
+                projectPreviewContainer.innerHTML = '';
+            }
+        });
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -197,6 +235,14 @@ function createWorkCard(work) {
     `;
 }
 
-function openEditModal(workId) { console.log(`Editar trabajo ${workId}`); }
-function openRequestsModal(workId) { console.log(`Ver solicitudes para ${workId}`); }
-function confirmDelete(workId) { console.log(`Eliminar trabajo ${workId}`); }
+function openEditModal(workId) {
+    console.log(`Editar trabajo ${workId}`);
+}
+
+function openRequestsModal(workId) {
+    console.log(`Ver solicitudes para ${workId}`);
+}
+
+function confirmDelete(workId) {
+    console.log(`Eliminar trabajo ${workId}`);
+}

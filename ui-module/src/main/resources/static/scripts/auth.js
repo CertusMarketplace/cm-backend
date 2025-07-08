@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // --- Registro ---
     const registerForm = document.getElementById('registerForm');
     if (registerForm) {
-        registerForm.onsubmit = async function(e) {
+        registerForm.onsubmit = async function (e) {
             e.preventDefault();
             const data = Object.fromEntries(new FormData(this));
             const res = await fetch('/api/v1/auth/register', {
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // --- Login ---
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
-        loginForm.onsubmit = async function(e) {
+        loginForm.onsubmit = async function (e) {
             e.preventDefault();
             const data = Object.fromEntries(new FormData(this));
             const res = await fetch('/api/v1/auth/login', {
@@ -149,33 +149,33 @@ document.addEventListener('DOMContentLoaded', async () => {
         fetch('/api/v1/auth/login-google', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ idToken: response.credential })
+            body: JSON.stringify({idToken: response.credential})
         })
-        .then(res => res.ok ? res.json() : Promise.reject(res))
-        .then(data => {
-            if (data.jwt) {
-                localStorage.setItem('jwt_token', data.jwt);
-                alert('¡Bienvenido con Google!');
-                window.location.href = '/';
-            } else {
-                alert('Error: ' + (data.error || 'Error de autenticación con Google.'));
-            }
-        })
-        .catch(async err => {
-            let msg = 'Error de red o autenticación con Google.';
-            if (err.text) msg = await err.text();
-            alert(msg);
-        });
+            .then(res => res.ok ? res.json() : Promise.reject(res))
+            .then(data => {
+                if (data.jwt) {
+                    localStorage.setItem('jwt_token', data.jwt);
+                    alert('¡Bienvenido con Google!');
+                    window.location.href = '/';
+                } else {
+                    alert('Error: ' + (data.error || 'Error de autenticación con Google.'));
+                }
+            })
+            .catch(async err => {
+                let msg = 'Error de red o autenticación con Google.';
+                if (err.text) msg = await err.text();
+                alert(msg);
+            });
     }
 
-    window.onload = function() {
+    window.onload = function () {
         const googleBtn = document.getElementById('google-signin-btn');
         if (googleBtn && window.google) {
             google.accounts.id.initialize({
                 client_id: 'TU_CLIENT_ID_GOOGLE',
                 callback: handleGoogleCredentialResponse
             });
-            google.accounts.id.renderButton(googleBtn, { theme: 'outline', size: 'large' });
+            google.accounts.id.renderButton(googleBtn, {theme: 'outline', size: 'large'});
         }
     };
 });

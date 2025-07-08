@@ -18,4 +18,6 @@ public interface ForQueryingWork extends JpaRepository<WorkEntity, Long> {
 
     @Query("SELECT w FROM WorkEntity w WHERE w.workId IN :ids")
     List<WorkEntity> findByIdIn(List<Long> ids);
+
+    List<WorkEntity> findAllByIdSellerUserAndWorkIsDeletedFalse(Long idSellerUser);
 }

@@ -11,4 +11,5 @@ public interface ForManagingWork {
     WorkModel satisfyUpdateWork( WorkModel workModel );
     void satisfyDeleteWorkById( Long id );
     List<WorkModel> satisfyFindWorksByIds(List<Long> ids);
+    List<WorkModel> satisfyFindAllBySellerId(Long sellerId);
 }

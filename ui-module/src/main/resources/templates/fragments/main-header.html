@@ -38,15 +38,16 @@
                               class="block text-sm text-gray-500 truncate">correo@certus.edu.pe</span>
                     </div>
                     <ul class="py-2">
+                        <li id="dashboard-link-container">
+                            <a th:href="@{/marketplace/dashboard/seller}"
+                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
+                        </li>
                         <li>
                             <a href="#" id="logout-button"
                                class="block px-4 py-2 text-sm text-red-600 hover:bg-red-100">Cerrar
                                 Sesión</a>
                         </li>
-                        <li id="dashboard-link-container" class="hidden">
-                            <a th:href="@{/marketplace/dashboard/seller}"
-                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
-                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -57,7 +58,7 @@
                        class="text-sm font-medium text-gray-600 hover:text-blue-700 transition">Iniciar
                         Sesión</a>
                     <a th:href="@{/marketplace/auth/register}"
-                       class="hidden sm:block text-sm font-medium text-white bg-[#00205b] hover:bg-[#001a4d] px-4 py-2 rounded-md transition">Regístrate</a>
+                       class="sm:block ml-4 text-sm font-medium text-white bg-[#00205b] hover:bg-[#001a4d] px-4 py-2 rounded-md transition">Regístrate</a>
                 </div>
             </div>
         </div>

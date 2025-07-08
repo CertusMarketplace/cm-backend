@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // CORRECCIÓN: Inicializar el estado activo del sidebar si estamos en el dashboard
-    if(document.getElementById('stateLinkWork')) {
+    if (document.getElementById('stateLinkWork')) {
         setActiveSidebarLink('stateLinkWork');
     }
 });

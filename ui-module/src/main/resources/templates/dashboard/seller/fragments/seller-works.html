@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <section th:fragment="content">
     <div class="font-poppins">
-        <div id="no-works-message"
-             class="hidden flex-col items-center justify-center text-center">
-            <h1 class="text-2xl lg:text-4xl">Por ahora no tienes ninguna publicación activa
-                😓</h1>
-            <p class="text-base lg:text-lg text-gray-500">Publica un trabajo desde el boton de
-                "Publicar", espera la aprobación y listo.</p>
-        </div>
 
+        <!-- Título de la sección -->
         <div class="mt-6 mb-4">
             <h1 class="text-2xl font-bold">Trabajos Publicados</h1>
         </div>
 
+        <!--
+            Contenedor dinámico.
+            El script 'seller-dashboard.js' buscará este ID y lo llenará con:
+            - Las tarjetas de los trabajos, si existen.
+            - Un mensaje de "No tienes trabajos publicados", si no existen.
+        -->
         <div id="works-container" class="flex flex-wrap gap-4">
+            <!-- Cargando... (Este contenido será reemplazado) -->
+            <p class="col-span-full text-center text-gray-500">Cargando tus trabajos...</p>
         </div>
 
-        <section
-                th:replace="~{/dashboard/seller/fragments/seller-works/modal-edit-work :: modal-edit-work}"></section>
+        <!-- Inclusión de los modales -->
+        <section th:replace="~{/dashboard/seller/fragments/seller-works/modal-edit-work :: modal-edit-work}"></section>
+        <section th:replace="~{/dashboard/seller/fragments/seller-works/modal-delete-work :: modal-delete-work}"></section>
+        <section th:replace="~{/dashboard/seller/fragments/seller-works/modal-user-request-work :: modal-user-request-work}"></section>
+
     </div>
 </section>
 </html>

@@ -98,7 +98,12 @@
                         <label for="idWorkCategory" class="font-bold">Categoría</label>
                         <select id="idWorkCategory" name="idWorkCategory" required
                                 class="text-sm w-full h-10 border-gray-400 rounded-lg">
-                            <option value="" selected disabled>Cargando categorías...</option>
+                            <option value="" selected disabled>Selecciona una categoría</option>
+
+                            <!-- Bucle para cargar las categorías -->
+                            <th:block th:each="category : ${categories}">
+                                <option th:value="${category.id}" th:text="${category.name}"></option>
+                            </th:block>
                         </select>
                     </div>
                 </div>

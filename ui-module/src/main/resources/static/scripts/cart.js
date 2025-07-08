@@ -1,12 +1,20 @@
 const cartManager = (() => {
     // ... (resto de las funciones de cartManager se mantienen igual) ...
-    const getUserId = () => { /* ... */ };
+    const getUserId = () => { /* ... */
+    };
     const getCartKey = () => `shoppingCart_${getUserId()}`;
     const getCart = () => JSON.parse(localStorage.getItem(getCartKey())) || [];
     const saveCart = (cart) => localStorage.setItem(getCartKey(), JSON.stringify(cart));
-    const updateBadge = () => { /* ... */ };
-    const clearCart = () => { saveCart([]); updateBadge(); loadCartContent(); };
-    const clearCartOnLogout = () => { updateBadge(); };
+    const updateBadge = () => { /* ... */
+    };
+    const clearCart = () => {
+        saveCart([]);
+        updateBadge();
+        loadCartContent();
+    };
+    const clearCartOnLogout = () => {
+        updateBadge();
+    };
 
     const addToCart = async (workId) => {
         const token = localStorage.getItem('jwt_token');
@@ -21,7 +29,7 @@ const cartManager = (() => {
                 return;
             }
             const response = await fetch(`/api/v1/works/${workId}`, {
-                headers: { 'Authorization': `Bearer ${token}` }
+                headers: {'Authorization': `Bearer ${token}`}
             });
             if (!response.ok) throw new Error('No se pudo obtener la información del producto.');
             const productData = await response.json();
@@ -50,7 +58,15 @@ const cartManager = (() => {
         loadCartContent(); // Importante: recargar el carrito
     };
 
-    return { getCart, addToCart, removeFromCart, clearCart, updateBadge, getUserId, clearCartOnLogout };
+    return {
+        getCart,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        updateBadge,
+        getUserId,
+        clearCartOnLogout
+    };
 })();
 
 async function loadCartContent() {
@@ -74,7 +90,7 @@ async function loadCartContent() {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({ workIds: workIds })
+            body: JSON.stringify({workIds: workIds})
         });
         if (!response.ok) {
             throw new Error('Error al cargar el contenido del carrito');

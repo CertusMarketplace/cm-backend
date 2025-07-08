@@ -88,4 +88,9 @@ public class WorkManager implements ForWork <WorkModel, Long>{
     public void deleteWork(Long id) {
         forManagingWork.satisfyDeleteWorkById( id);
     }
+
+    @Override
+    public List<WorkModel> findAllBySellerId(Long sellerId) {
+        return forManagingWork.satisfyFindAllBySellerId(sellerId);
+    }
 }

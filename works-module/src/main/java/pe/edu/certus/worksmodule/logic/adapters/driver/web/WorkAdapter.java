@@ -76,4 +76,19 @@ public class WorkAdapter {
 
         return ResponseEntity.ok(workWebModelList);
     }
+
+    @GetMapping("/seller/{sellerId}")
+    public ResponseEntity<List<WorkWebModel>> findWorksBySellerId(@PathVariable Long sellerId) {
+        try {
+            // Se asume que ForWork tendrá un nuevo método `findAllBySellerId`
+            List<WorkModel> workModels = forWork.findAllBySellerId(sellerId);
+            List<WorkWebModel> response = workModels.stream()
+                    .map(forMappingWork::toWeb)
+                    .collect(Collectors.toList());
+            return ResponseEntity.ok(response);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }

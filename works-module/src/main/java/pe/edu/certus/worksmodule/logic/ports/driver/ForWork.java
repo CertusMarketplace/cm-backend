@@ -9,4 +9,5 @@ public interface ForWork <WorkModel, Long>{
     WorkModel updateWork(WorkModel workModel);
     void deleteWork(Long id);
     List<WorkModel> findWorksByIds(List<Long> ids);
+    List<WorkModel> findAllBySellerId(Long sellerId);
 }

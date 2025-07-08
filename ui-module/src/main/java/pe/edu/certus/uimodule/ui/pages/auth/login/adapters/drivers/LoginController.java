@@ -9,16 +9,16 @@ import pe.edu.certus.uimodule.ui.pages.auth.login.ports.drivers.ForLogin;
 import pe.edu.certus.uimodule.ui.pages.constants.BusinessRoute;
 
 @Controller
-@RequestMapping(BusinessRoute.BUSINESS_PAGE_ROUTE)
+@RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE )
 public class LoginController implements ForLogin {
 
-    @Value("${google.client-id}")
+    @Value( "${google.client-id}" )
     private String googleClientId;
 
-    @GetMapping(LoginRoute.LOGIN_PAGE_ROUTE)
+    @GetMapping( LoginRoute.LOGIN_PAGE_ROUTE )
     @Override
-    public String showLoginPage(Model model) {
-        model.addAttribute("googleClientId", googleClientId);
+    public String showLoginPage( Model model ) {
+        model.addAttribute( "googleClientId", googleClientId );
         return LoginRoute.LOGIN_PAGE_FILE;
     }
 }

@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
                     },
-                    body: JSON.stringify({ workIds: workIds })
+                    body: JSON.stringify({workIds: workIds})
                 });
                 const data = await response.json();
                 if (response.ok && data.approvalUrl) {

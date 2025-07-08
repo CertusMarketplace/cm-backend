@@ -31,7 +31,8 @@
                 <div id="error-message" class="hidden my-4"></div>
 
                 <!-- Botón de Google Personalizado -->
-                <button id="custom-google-btn" type="button" class="w-full bg-white text-gray-700 border border-gray-300 py-2 rounded-md mb-4 hover:bg-gray-50 flex items-center justify-center gap-2">
+                <button id="custom-google-btn" type="button"
+                        class="w-full bg-white text-gray-700 border border-gray-300 py-2 rounded-md mb-4 hover:bg-gray-50 flex items-center justify-center gap-2">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M21.35 11.1H12v2.8h5.4c-.3 1.8-2.2 2.8-4.2 2.8-2.5 0-4.5-2-4.5-4.5S10.7 7.7 13.2 7.7c1.2 0 2.3.5 3 1.2l2-2C16.8 5.2 15 4.5 13.2 4.5 8.9 4.5 5.5 7.9 5.5 12s3.4 7.5 7.7 7.5c3.8 0 7-2.7 7-7.5 0-.5-.1-1-.2-1.5z"/>
                     </svg>
@@ -51,8 +52,10 @@
                             <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 text-gray-500">
                                 <i class="fa-regular fa-envelope" style="color: #00205b;"></i>
                             </div>
-                            <input type="email" id="email" name="email" placeholder="nombre@correo.com"
-                                   class="ps-10 p-2.5 w-full text-sm border border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-blue-500 focus:border-blue-500" required>
+                            <input type="email" id="email" name="email"
+                                   placeholder="nombre@correo.com"
+                                   class="ps-10 p-2.5 w-full text-sm border border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-blue-500 focus:border-blue-500"
+                                   required>
                         </div>
                     </div>
                     <div>
@@ -60,8 +63,10 @@
                             <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 text-gray-500">
                                 <i class="fas fa-lock" style="color: #00205b;"></i>
                             </div>
-                            <input type="password" id="password" name="password" placeholder="••••••••"
-                                   class="ps-10 p-2.5 w-full text-sm border border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-blue-500 focus:border-blue-500" required>
+                            <input type="password" id="password" name="password"
+                                   placeholder="••••••••"
+                                   class="ps-10 p-2.5 w-full text-sm border border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-blue-500 focus:border-blue-500"
+                                   required>
                         </div>
                     </div>
                     <button type="submit"
@@ -72,7 +77,8 @@
 
                 <p class="mt-4 text-sm text-center text-gray-600">
                     ¿No tienes una cuenta?
-                    <a th:href="@{/marketplace/auth/register}" class="text-blue-700 font-semibold">Crea tu cuenta</a>
+                    <a th:href="@{/marketplace/auth/register}"
+                       class="text-blue-700 font-semibold">Crea tu cuenta</a>
                 </p>
             </div>
         </div>

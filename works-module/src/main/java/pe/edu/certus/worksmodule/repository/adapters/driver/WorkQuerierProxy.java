@@ -113,4 +113,13 @@ public class WorkQuerierProxy implements ForManagingWork {
         }
         forQueryingWork.deleteById(id);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<WorkModel> satisfyFindAllBySellerId(Long sellerId) {
+        List<WorkEntity> workEntities = forQueryingWork.findAllByIdSellerUserAndWorkIsDeletedFalse(sellerId);
+        return workEntities.stream()
+                .map(forBridgingWork::fromPersistence)
+                .collect(Collectors.toList());
+    }
 }

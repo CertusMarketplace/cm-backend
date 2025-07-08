@@ -19,7 +19,6 @@ public class UserEntity {
     @Column( name = "user_id" )
     private Long userId;
 
-    @Transient
     @Column( name = "id_role" )
     private Long idRole;
 

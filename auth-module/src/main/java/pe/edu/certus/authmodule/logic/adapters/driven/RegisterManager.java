@@ -31,7 +31,7 @@ public class RegisterManager implements ForRegister {
         AuthEntity user = new AuthEntity();
         user.setUserEmail(request.getEmail());
         user.setUserPassword(passwordEncoder.encode(request.getPassword()));
-        user.setIdRole(2L);
+        user.setIdRole(3L);
 
         user = forQueryingAuth.save(user);
 
