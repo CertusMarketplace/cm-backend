@@ -4,7 +4,11 @@ public interface ForAdminDashboard {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     String showAdminDashboard( );
+=======
+    String showAdminDashboard();
+>>>>>>> Stashed changes
 =======
     String showAdminDashboard();
 >>>>>>> Stashed changes

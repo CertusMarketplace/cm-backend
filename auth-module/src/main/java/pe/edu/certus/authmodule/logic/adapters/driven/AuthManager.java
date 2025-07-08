@@ -19,9 +19,12 @@ import pe.edu.certus.peoplemodule.logic.model.PeopleModel;
 import pe.edu.certus.peoplemodule.logic.ports.driver.ForPeople;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 import java.io.IOException;
 import java.util.Collections;
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -36,7 +39,10 @@ public class AuthManager implements ForAuth {
     private final ForQueryingAuth forQueryingAuth;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     private final ForPeople forPeople;
@@ -49,11 +55,16 @@ public class AuthManager implements ForAuth {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public AuthManager(ForQueryingAuth forQueryingAuth, PasswordEncoder passwordEncoder, JwtManager jwtManager, ForPeople<PeopleModel, Long> forPeople, @Value("${google.client-id}") String clientId) {
         this.forQueryingAuth = forQueryingAuth;
 =======
     public AuthManager(ForQueryingAuth forQueryingAuth, ForPeople forPeople, JwtManager jwtManager, PasswordEncoder passwordEncoder) {
         this.forQueryingAuth = forQueryingAuth;
+=======
+    public AuthManager(ForQueryingAuth forQueryingAuth, ForPeople forPeople, JwtManager jwtManager, PasswordEncoder passwordEncoder) {
+        this.forQueryingAuth = forQueryingAuth;
+>>>>>>> Stashed changes
 =======
     public AuthManager(ForQueryingAuth forQueryingAuth, ForPeople forPeople, JwtManager jwtManager, PasswordEncoder passwordEncoder) {
         this.forQueryingAuth = forQueryingAuth;

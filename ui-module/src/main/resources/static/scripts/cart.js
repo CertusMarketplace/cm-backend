@@ -1,5 +1,6 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 const cartManager = (() => {
     // ... (resto de las funciones de cartManager se mantienen igual) ...
     const getUserId = () => { /* ... */
@@ -130,6 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 document.addEventListener('DOMContentLoaded', () => {
     const cartIconBadge = document.getElementById('cart-icon-badge');
 
@@ -166,6 +169,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartBadge();
 });
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

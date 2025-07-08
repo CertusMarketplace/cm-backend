@@ -29,9 +29,13 @@ public class WorkModel {
     private WorkStatus workStatus;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     private Double averageRating;
     private List<RatingModel> ratings;
     private List<CommentModel> comments;
+=======
+    private double averageRating;
+>>>>>>> Stashed changes
 =======
     private double averageRating;
 >>>>>>> Stashed changes

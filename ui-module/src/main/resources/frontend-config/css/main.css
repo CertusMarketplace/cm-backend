@@ -1,6 +1,7 @@
 *, ::before, ::after {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     --tw-border-spacing-x: 0;
     --tw-border-spacing-y: 0;
     --tw-translate-x: 0;
@@ -109,6 +110,8 @@
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -215,6 +218,9 @@
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -234,6 +240,7 @@
 ::after {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     box-sizing: border-box;
     /* 1 */
     border-width: 0;
@@ -245,6 +252,8 @@
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   box-sizing: border-box;
   /* 1 */
   border-width: 0;
@@ -254,6 +263,9 @@
   border-color: #e5e7eb;
   /* 2 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -263,7 +275,11 @@
 ::after {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     --tw-content: '';
+=======
+  --tw-content: '';
+>>>>>>> Stashed changes
 =======
   --tw-content: '';
 >>>>>>> Stashed changes
@@ -286,6 +302,7 @@ html,
 :host {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     line-height: 1.5;
     /* 1 */
     -webkit-text-size-adjust: 100%;
@@ -306,6 +323,8 @@ html,
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   line-height: 1.5;
   /* 1 */
   -webkit-text-size-adjust: 100%;
@@ -324,6 +343,9 @@ html,
   -webkit-tap-highlight-color: transparent;
   /* 7 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -337,6 +359,7 @@ html,
 body {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     margin: 0;
     /* 1 */
     line-height: inherit;
@@ -344,11 +367,16 @@ body {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   margin: 0;
   /* 1 */
   line-height: inherit;
   /* 2 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -363,6 +391,7 @@ body {
 hr {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     height: 0;
     /* 1 */
     color: inherit;
@@ -372,6 +401,8 @@ hr {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   height: 0;
   /* 1 */
   color: inherit;
@@ -379,6 +410,9 @@ hr {
   border-top-width: 1px;
   /* 3 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -391,8 +425,13 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 abbr:where([title]) {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     -webkit-text-decoration: underline dotted;
     text-decoration: underline dotted;
+=======
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+>>>>>>> Stashed changes
 =======
   -webkit-text-decoration: underline dotted;
           text-decoration: underline dotted;
@@ -415,8 +454,13 @@ h5,
 h6 {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     font-size: inherit;
     font-weight: inherit;
+=======
+  font-size: inherit;
+  font-weight: inherit;
+>>>>>>> Stashed changes
 =======
   font-size: inherit;
   font-weight: inherit;
@@ -434,8 +478,13 @@ Reset links to optimize for opt-in styling instead of opt-out.
 a {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     color: inherit;
     text-decoration: inherit;
+=======
+  color: inherit;
+  text-decoration: inherit;
+>>>>>>> Stashed changes
 =======
   color: inherit;
   text-decoration: inherit;
@@ -454,7 +503,11 @@ b,
 strong {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     font-weight: bolder;
+=======
+  font-weight: bolder;
+>>>>>>> Stashed changes
 =======
   font-weight: bolder;
 >>>>>>> Stashed changes
@@ -476,6 +529,7 @@ samp,
 pre {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     /* 1 */
     font-feature-settings: normal;
@@ -487,6 +541,8 @@ pre {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   /* 1 */
   font-feature-settings: normal;
@@ -496,6 +552,9 @@ pre {
   font-size: 1em;
   /* 4 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -508,7 +567,11 @@ Add the correct font size in all browsers.
 small {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     font-size: 80%;
+=======
+  font-size: 80%;
+>>>>>>> Stashed changes
 =======
   font-size: 80%;
 >>>>>>> Stashed changes
@@ -523,6 +586,7 @@ Prevent `sub` and `sup` elements from affecting the line height in all browsers.
 
 sub,
 sup {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     font-size: 75%;
@@ -540,6 +604,8 @@ sup {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   font-size: 75%;
   line-height: 0;
   position: relative;
@@ -553,6 +619,9 @@ sub {
 sup {
   top: -0.5em;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -567,6 +636,7 @@ sup {
 table {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     text-indent: 0;
     /* 1 */
     border-color: inherit;
@@ -576,6 +646,8 @@ table {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   text-indent: 0;
   /* 1 */
   border-color: inherit;
@@ -583,6 +655,9 @@ table {
   border-collapse: collapse;
   /* 3 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -599,6 +674,7 @@ input,
 optgroup,
 select,
 textarea {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     font-family: inherit;
@@ -624,6 +700,8 @@ textarea {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   font-family: inherit;
   /* 1 */
   font-feature-settings: inherit;
@@ -645,6 +723,9 @@ textarea {
   padding: 0;
   /* 3 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -658,7 +739,11 @@ button,
 select {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     text-transform: none;
+=======
+  text-transform: none;
+>>>>>>> Stashed changes
 =======
   text-transform: none;
 >>>>>>> Stashed changes
@@ -678,6 +763,7 @@ input:where([type='reset']),
 input:where([type='submit']) {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     -webkit-appearance: button;
     /* 1 */
     background-color: transparent;
@@ -687,6 +773,8 @@ input:where([type='submit']) {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   -webkit-appearance: button;
   /* 1 */
   background-color: transparent;
@@ -694,6 +782,9 @@ input:where([type='submit']) {
   background-image: none;
   /* 2 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -706,7 +797,11 @@ Use the modern Firefox focus style for all focusable elements.
 :-moz-focusring {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     outline: auto;
+=======
+  outline: auto;
+>>>>>>> Stashed changes
 =======
   outline: auto;
 >>>>>>> Stashed changes
@@ -722,7 +817,11 @@ Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/
 :-moz-ui-invalid {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     box-shadow: none;
+=======
+  box-shadow: none;
+>>>>>>> Stashed changes
 =======
   box-shadow: none;
 >>>>>>> Stashed changes
@@ -738,7 +837,11 @@ Add the correct vertical alignment in Chrome and Firefox.
 progress {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     vertical-align: baseline;
+=======
+  vertical-align: baseline;
+>>>>>>> Stashed changes
 =======
   vertical-align: baseline;
 >>>>>>> Stashed changes
@@ -755,7 +858,11 @@ Correct the cursor style of increment and decrement buttons in Safari.
 ::-webkit-outer-spin-button {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     height: auto;
+=======
+  height: auto;
+>>>>>>> Stashed changes
 =======
   height: auto;
 >>>>>>> Stashed changes
@@ -772,6 +879,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 [type='search'] {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     -webkit-appearance: textfield;
     /* 1 */
     outline-offset: -2px;
@@ -779,11 +887,16 @@ Correct the cursor style of increment and decrement buttons in Safari.
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
   /* 2 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -796,7 +909,11 @@ Remove the inner padding in Chrome and Safari on macOS.
 ::-webkit-search-decoration {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     -webkit-appearance: none;
+=======
+  -webkit-appearance: none;
+>>>>>>> Stashed changes
 =======
   -webkit-appearance: none;
 >>>>>>> Stashed changes
@@ -813,6 +930,7 @@ Remove the inner padding in Chrome and Safari on macOS.
 ::-webkit-file-upload-button {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     -webkit-appearance: button;
     /* 1 */
     font: inherit;
@@ -820,11 +938,16 @@ Remove the inner padding in Chrome and Safari on macOS.
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   -webkit-appearance: button;
   /* 1 */
   font: inherit;
   /* 2 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -837,7 +960,11 @@ Add the correct display in Chrome and Safari.
 summary {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     display: list-item;
+=======
+  display: list-item;
+>>>>>>> Stashed changes
 =======
   display: list-item;
 >>>>>>> Stashed changes
@@ -865,6 +992,7 @@ p,
 pre {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     margin: 0;
 }
 
@@ -878,6 +1006,8 @@ legend {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   margin: 0;
 }
 
@@ -889,6 +1019,9 @@ fieldset {
 legend {
   padding: 0;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -899,9 +1032,15 @@ ul,
 menu {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     list-style: none;
     margin: 0;
     padding: 0;
+=======
+  list-style: none;
+  margin: 0;
+  padding: 0;
+>>>>>>> Stashed changes
 =======
   list-style: none;
   margin: 0;
@@ -921,7 +1060,11 @@ Reset default styling for dialogs.
 dialog {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     padding: 0;
+=======
+  padding: 0;
+>>>>>>> Stashed changes
 =======
   padding: 0;
 >>>>>>> Stashed changes
@@ -937,7 +1080,11 @@ Prevent resizing textareas horizontally by default.
 textarea {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     resize: vertical;
+=======
+  resize: vertical;
+>>>>>>> Stashed changes
 =======
   resize: vertical;
 >>>>>>> Stashed changes
@@ -954,6 +1101,7 @@ textarea {
 input::-moz-placeholder, textarea::-moz-placeholder {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     opacity: 1;
     /* 1 */
     color: #9ca3af;
@@ -961,11 +1109,16 @@ input::-moz-placeholder, textarea::-moz-placeholder {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   opacity: 1;
   /* 1 */
   color: #9ca3af;
   /* 2 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -975,6 +1128,7 @@ input::placeholder,
 textarea::placeholder {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     opacity: 1;
     /* 1 */
     color: #9ca3af;
@@ -982,11 +1136,16 @@ textarea::placeholder {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   opacity: 1;
   /* 1 */
   color: #9ca3af;
   /* 2 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1000,7 +1159,11 @@ button,
 [role="button"] {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     cursor: pointer;
+=======
+  cursor: pointer;
+>>>>>>> Stashed changes
 =======
   cursor: pointer;
 >>>>>>> Stashed changes
@@ -1016,7 +1179,11 @@ Make sure disabled buttons don't get the pointer cursor.
 :disabled {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     cursor: default;
+=======
+  cursor: default;
+>>>>>>> Stashed changes
 =======
   cursor: default;
 >>>>>>> Stashed changes
@@ -1041,6 +1208,7 @@ embed,
 object {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     display: block;
     /* 1 */
     vertical-align: middle;
@@ -1048,11 +1216,16 @@ object {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   display: block;
   /* 1 */
   vertical-align: middle;
   /* 2 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1066,8 +1239,13 @@ img,
 video {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     max-width: 100%;
     height: auto;
+=======
+  max-width: 100%;
+  height: auto;
+>>>>>>> Stashed changes
 =======
   max-width: 100%;
   height: auto;
@@ -1081,6 +1259,7 @@ video {
 /* Make elements with the HTML hidden attribute stay hidden by default */
 
 [hidden]:where(:not([hidden="until-found"])) {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     display: none;
@@ -2923,6 +3102,8 @@ input[type="range"]::-ms-fill-lower {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   display: none;
 }
 
@@ -4761,6 +4942,9 @@ input[type="range"]::-ms-fill-lower {
 .duration-300 {
   transition-duration: 300ms;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -4769,6 +4953,7 @@ input[type="range"]::-ms-fill-lower {
 /* Fuentes definidas */
 
 @font-face {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     font-family: 'Poppins';
@@ -5729,6 +5914,8 @@ input[type="range"]::-ms-fill-lower {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   font-family: 'Poppins';
 
   font-style: normal;
@@ -6685,6 +6872,9 @@ input[type="range"]::-ms-fill-lower {
     --tw-ring-color: rgb(75 85 99 / var(--tw-ring-opacity, 1));
   }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

@@ -44,6 +44,7 @@ public class PeopleAdapter {
     public ResponseEntity<Void> createPeople(@Valid @RequestBody PeopleWebModel peopleWebModel) {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         try {
             PeopleModel objectFromWeb = forMappingPeople.fromWeb(peopleWebModel);
             forPeople.createPeople(objectFromWeb);
@@ -51,6 +52,11 @@ public class PeopleAdapter {
         } catch (IllegalArgumentException e) {
             throw new RuntimeException("ERROR CREATING PERSON", e);
         }
+=======
+        PeopleModel objectFromWeb = forMappingPeople.fromWeb(peopleWebModel);
+        forPeople.createPeople(objectFromWeb);
+        return ResponseEntity.ok().build();
+>>>>>>> Stashed changes
 =======
         PeopleModel objectFromWeb = forMappingPeople.fromWeb(peopleWebModel);
         forPeople.createPeople(objectFromWeb);
@@ -76,6 +82,7 @@ public class PeopleAdapter {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @PutMapping("/update/{userId}")
     public ResponseEntity<PeopleWebModel> updatePeople(@PathVariable Long userId, @Valid @RequestBody PeopleWebModel peopleWebModel) {
         try {
@@ -95,6 +102,11 @@ public class PeopleAdapter {
     public ResponseEntity<PeopleWebModel> updatePeople(@PathVariable Long id, @Valid @RequestBody PeopleWebModel peopleWebModel) {
         try {
 >>>>>>> Stashed changes
+=======
+    @PutMapping("/update/{id}")
+    public ResponseEntity<PeopleWebModel> updatePeople(@PathVariable Long id, @Valid @RequestBody PeopleWebModel peopleWebModel) {
+        try {
+>>>>>>> Stashed changes
             PeopleModel personToUpdate = forMappingPeople.fromWeb(peopleWebModel);
             personToUpdate.setPersonId(id);
             personToUpdate.setIdUser(id);
@@ -102,6 +114,9 @@ public class PeopleAdapter {
             PeopleModel updatedPerson = (PeopleModel) forPeople.updatePeople(personToUpdate);
             return ResponseEntity.ok(forMappingPeople.toWeb(updatedPerson));
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

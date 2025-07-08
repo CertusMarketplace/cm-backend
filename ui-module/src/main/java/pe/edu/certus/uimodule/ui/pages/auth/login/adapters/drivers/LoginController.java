@@ -14,6 +14,7 @@ public class LoginController implements ForLogin {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @Value( "${google.client-id}" )
     private String googleClientId;
 
@@ -24,6 +25,8 @@ public class LoginController implements ForLogin {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     @Value("${google.client-id}")
     private String googleClientId;
 
@@ -32,6 +35,9 @@ public class LoginController implements ForLogin {
     public String showLoginPage(Model model) {
         model.addAttribute("googleClientId", googleClientId);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

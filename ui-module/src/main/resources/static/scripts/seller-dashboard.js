@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     const contentArea = document.getElementById("all-content");
 
     const loadContent = (view) => {
@@ -16,11 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     const loadContent = (view) => {
         const contentArea = document.getElementById("all-content");
         fetch(`/marketplace/fragments/${view}`)
             .then(res => res.text())
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -30,6 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     loadSellerWorks();
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+                } else if (view === 'seller-sales') {
+                    // loadSellerSales();
+>>>>>>> Stashed changes
 =======
                 } else if (view === 'seller-sales') {
                     // loadSellerSales();
@@ -45,7 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     const setActiveSidebarLink = (activeId) => {
@@ -59,6 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -69,6 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (view === 'seller-sales') activeLinkId = 'stateLinkSales';
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
@@ -79,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadContent(view);
     };
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     const setActiveSidebarLink = (activeId) => {
@@ -237,10 +259,14 @@ document.addEventListener('DOMContentLoaded', () => {
 =======
     loadView('seller-works');
 >>>>>>> Stashed changes
+=======
+    loadView('seller-works');
+>>>>>>> Stashed changes
 });
 
 async function loadSellerWorks() {
     const token = localStorage.getItem('jwt_token');
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     const worksContainer = document.getElementById('works-container');
@@ -258,6 +284,8 @@ async function loadSellerWorks() {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     const noWorksMessage = document.getElementById('no-works-message');
     const noReviewWorksMessage = document.getElementById('no-review-works-message');
     const worksContainer = document.getElementById('works-container');
@@ -273,6 +301,9 @@ async function loadSellerWorks() {
         if (!response.ok) throw new Error('Could not fetch works.');
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -282,6 +313,7 @@ async function loadSellerWorks() {
         const reviewWorks = works.filter(w => w.workStatus === 'EN_REVISION');
 
         if (worksContainer) {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
             worksContainer.innerHTML = publishedWorks.length > 0 ? publishedWorks.map(createWorkCard).join('') : '<p class="col-span-full text-center text-gray-500">No tienes trabajos publicados.</p>';
@@ -295,6 +327,8 @@ async function loadSellerWorks() {
         if (worksContainer) worksContainer.innerHTML = '<p class="col-span-full text-center text-red-500">Error al cargar trabajos.</p>';
         if (reviewContainer) reviewContainer.innerHTML = '<p class="col-span-full text-center text-red-500">Error al cargar trabajos.</p>';
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
             worksContainer.innerHTML = '';
@@ -318,6 +352,9 @@ async function loadSellerWorks() {
     } catch (error) {
         console.error("Error loading seller works:", error);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -331,7 +368,11 @@ function createWorkCard(work) {
             <div class="flex justify-center">
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 <img src="${work.workImageUrl || '/img/placeholder.png'}" class="h-48 w-full object-cover rounded-lg" alt="${work.workTitle}">
+=======
+                <img src="${work.workImageUrl}" class="h-48 w-full object-cover rounded-lg" alt="${work.workTitle}">
+>>>>>>> Stashed changes
 =======
                 <img src="${work.workImageUrl}" class="h-48 w-full object-cover rounded-lg" alt="${work.workTitle}">
 >>>>>>> Stashed changes
@@ -365,6 +406,12 @@ function confirmDelete(workId) {
     console.log(`Eliminar trabajo ${workId}`);
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    if (confirm(`¿Estás seguro de que deseas eliminar este trabajo?`)) {
+        // Lógica de eliminación
+    }
+>>>>>>> Stashed changes
 =======
     if (confirm(`¿Estás seguro de que deseas eliminar este trabajo?`)) {
         // Lógica de eliminación

@@ -23,6 +23,9 @@ public interface ForAuth {
     HashMap<String, String> login(LoginModel loginRequest) throws Exception;
     ResponseWebModel register( AuthEntity user, String personName, String personLastname) throws Exception;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

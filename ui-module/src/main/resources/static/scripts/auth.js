@@ -3,7 +3,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     // --- Elementos del Main Header ---
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -12,6 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const guestMenu = document.getElementById('guest-menu');
     const userDropdownName = document.getElementById('user-dropdown-name');
     const userDropdownEmail = document.getElementById('user-dropdown-email');
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     const userDropdownImage = document.querySelector('#user-menu-button img');
@@ -75,6 +79,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     const logoutButton = document.getElementById('logout-button');
 
     const dashboardLinkContainer = document.getElementById('dashboard-link-container');
@@ -101,6 +107,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (dashboardLinkContainer) dashboardLinkContainer.classList.add('hidden');
             if (sellLink) sellLink.classList.remove('hidden');
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -109,6 +118,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (token) {
         try {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
             const [userResponse, personResponse] = await Promise.all([
@@ -122,6 +132,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             let personData = null;
             if (personResponse.ok) personData = await personResponse.json();
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
             const userResponse = await fetch('/api/v1/users/me', {
@@ -138,6 +150,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (!personResponse.ok) throw new Error('Person data not found');
             const personData = await personResponse.json();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -147,8 +162,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         } catch (error) {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             console.error("Authentication check failed:", error.message);
             logout();
+=======
+            localStorage.removeItem('jwt_token');
+            updateUI(false, null, null);
+>>>>>>> Stashed changes
 =======
             localStorage.removeItem('jwt_token');
             updateUI(false, null, null);
@@ -162,6 +182,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         updateUI(false, null, null);
     }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     const setupLogout = (button) => {
@@ -255,6 +276,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     if (logoutButton) {
         logoutButton.addEventListener('click', (e) => {
             e.preventDefault();
@@ -263,6 +286,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

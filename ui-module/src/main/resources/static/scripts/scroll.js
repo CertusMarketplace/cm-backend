@@ -1,6 +1,10 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 document.addEventListener("DOMContentLoaded", function () {
+=======
+document.addEventListener("DOMContentLoaded", function() {
+>>>>>>> Stashed changes
 =======
 document.addEventListener("DOMContentLoaded", function() {
 >>>>>>> Stashed changes

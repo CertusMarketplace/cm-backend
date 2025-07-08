@@ -9,6 +9,7 @@ import pe.edu.certus.uimodule.ui.pages.request.ports.drivers.ForRequestSeller;
 @Controller
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 @RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE )
 public class RequestSellerRoleController implements ForRequestSeller {
 
@@ -16,11 +17,16 @@ public class RequestSellerRoleController implements ForRequestSeller {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 @RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE)
 public class RequestSellerRoleController implements ForRequestSeller {
 
     @GetMapping( RequestSellerRoleRoute.REQUEST_SELLER_ROLE_PAGE_ROUTE)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

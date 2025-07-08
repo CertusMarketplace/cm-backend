@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import pe.edu.certus.worksmodule.repository.entity.WorkEntity;
 import java.util.List;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 import java.util.List;
 
@@ -29,6 +30,11 @@ public interface ForQueryingWork extends JpaRepository<WorkEntity, Long> {
 @Repository
 public interface ForQueryingWork extends JpaRepository<WorkEntity, Long> {
 >>>>>>> Stashed changes
+=======
+
+@Repository
+public interface ForQueryingWork extends JpaRepository<WorkEntity, Long> {
+>>>>>>> Stashed changes
     List<WorkEntity> findByIdSellerUser(Long sellerId);
 
     @Query("SELECT w, AVG(r.ratingScore) FROM works w LEFT JOIN RatingEntity r ON w.workId = r.workId GROUP BY w.workId")
@@ -37,6 +43,9 @@ public interface ForQueryingWork extends JpaRepository<WorkEntity, Long> {
     @Query("SELECT w FROM works w LEFT JOIN FETCH w.workCategory")
     List<WorkEntity> findAllWithCategory();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

@@ -3,7 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     // --- Selectores de elementos del DOM ---
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -12,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('register-form');
     const errorMessageDiv = document.getElementById('error-message');
     const successMessageDiv = document.getElementById('success-message');
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     const customGoogleBtn = document.getElementById('custom-google-btn');
@@ -24,16 +28,22 @@ document.addEventListener('DOMContentLoaded', () => {
 =======
 
 >>>>>>> Stashed changes
+=======
+
+>>>>>>> Stashed changes
     const showMessage = (element, message, isError = false) => {
         if (element) {
             element.textContent = message;
             element.classList.remove('hidden');
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             element.className = isError
                 ? 'text-center text-red-700 text-sm p-3 bg-red-100 border border-red-400 rounded-lg my-4'
                 : 'text-center text-green-700 text-sm p-3 bg-green-100 border border-green-400 rounded-lg my-4';
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
             if (isError) {
@@ -44,6 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 element.classList.remove('text-red-700', 'bg-red-100', 'border-red-400');
             }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -61,11 +74,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 method: 'POST',
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(body),
             });
             const data = await response.json();
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
                 headers: { 'Content-Type': 'application/json' },
@@ -75,6 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -85,11 +104,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     localStorage.setItem('jwt_token', data.jwt);
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     window.location.href = '/marketplace/works';
                 }
             } else {
                 showMessage(errorMessageDiv, data.error || data.message || 'Ocurrió un error.', true);
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
                     const urlParams = new URLSearchParams(window.location.search);
@@ -104,6 +126,9 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 showMessage(errorMessageDiv, data.message || data.error || 'Ocurrió un error.', true);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -113,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     // --- Listeners para formularios manuales ---
@@ -134,6 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: document.getElementById('nombre').value,
                 lastname: document.getElementById('apellido').value
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     if (loginForm) {
@@ -159,6 +187,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 personName: name,
                 personLastname: lastname
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -166,6 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     // --- Lógica de Autenticación con Google ---
@@ -226,6 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     const handleGoogleCredentialResponse = async (googleResponse) => {
         try {
             const response = await fetch(`${API_BASE_URL}/google-login`, {
@@ -274,6 +308,9 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

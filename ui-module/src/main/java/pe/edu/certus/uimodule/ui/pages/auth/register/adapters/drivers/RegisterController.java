@@ -14,6 +14,7 @@ public class RegisterController implements ForRegister {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @Value( "${google.client-id}" )
     private String googleClientId;
 
@@ -24,6 +25,8 @@ public class RegisterController implements ForRegister {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     @Value("${google.client-id}")
     private String googleClientId;
 
@@ -32,6 +35,9 @@ public class RegisterController implements ForRegister {
     public String showRegisterPage(Model model) {
         model.addAttribute("googleClientId", googleClientId);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

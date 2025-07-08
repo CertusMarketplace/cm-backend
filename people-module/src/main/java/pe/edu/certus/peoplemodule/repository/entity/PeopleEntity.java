@@ -20,8 +20,11 @@ public class PeopleEntity {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @Column(name = "id_user", nullable = false, unique = true)
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     @Column(name = "id_user")
@@ -39,8 +42,11 @@ public class PeopleEntity {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @Column(name = "person_dni", length = 8, unique = true)
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     @Column(name = "person_dni", length = 8)
@@ -65,8 +71,11 @@ public class PeopleEntity {
     @Column(name = "person_current_term")
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     private Integer personCurrentTerm;
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     private Integer personInstitutionalCycle;

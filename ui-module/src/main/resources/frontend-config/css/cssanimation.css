@@ -17,6 +17,7 @@
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .cssanimation span {
     display: inline-block
 }
@@ -32,10 +33,15 @@
 .cssanimation span { display: inline-block }
 .infinite { animation-iteration-count: infinite !important }
 >>>>>>> Stashed changes
+=======
+.cssanimation span { display: inline-block }
+.infinite { animation-iteration-count: infinite !important }
+>>>>>>> Stashed changes
 
 /*************************************************************
 Striking
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .hu__hu__ {
@@ -82,6 +88,8 @@ Striking
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .hu__hu__ { animation: hu__hu__ infinite 2s ease-in-out }
 @keyframes hu__hu__ {
     50% { transform: translateY(30px) }
@@ -101,6 +109,9 @@ Striking
 
 .effect3d { animation-name: effect3d }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -110,6 +121,7 @@ Striking
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leRainDrop span {
@@ -189,6 +201,8 @@ Striking
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .leRainDrop span { animation-name: leRainDrop; animation-iteration-count: infinite; }
 @keyframes leRainDrop {
     0%, 25%, 55%, 75%, 87%, 97%, 100% { transform: scaleX(1.0) }
@@ -221,6 +235,9 @@ Striking
     40% { font-size: 80% }
     100% { font-size: 100% }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -233,6 +250,7 @@ Striking
     border-right: 2px solid #7E2EA0;
     animation: typing 2s steps(12, end), cursor .2s steps(12, end) infinite;
 }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
@@ -281,6 +299,8 @@ Striking
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 @keyframes typing {
     from { width: 0 }
 }
@@ -299,6 +319,9 @@ Striking
     48%, 72%, 80%, 96% { transform: translateY(30px) }
     76%, to { transform: translateY(40px) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -313,11 +336,16 @@ Striking
 }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 @keyframes wipe {
     to {
         width: 0
     }
+=======
+@keyframes wipe {
+    to { width: 0 }
+>>>>>>> Stashed changes
 =======
 @keyframes wipe {
     to { width: 0 }
@@ -337,6 +365,7 @@ Striking
 }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 @keyframes open {
     from {
@@ -351,12 +380,17 @@ Striking
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 @keyframes open {
     from { width: 0 }
 }
 
 .leMagnify span { animation-name: leMagnify }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -367,6 +401,7 @@ Striking
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leBeat span {
@@ -383,11 +418,16 @@ Striking
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .leBeat span { animation-name: leBeat; }
 @keyframes leBeat {
     14%, 42% { transform: scale(1.3) }
     28%, 70% { transform: scale(1) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -396,6 +436,7 @@ Striking
 /*************************************************************
 Letter Fade in
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leFadeIn span {
@@ -418,6 +459,8 @@ Letter Fade in
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .leFadeIn span { animation-name: leFadeIn }
 @keyframes leFadeIn {
     from { opacity: 0 }
@@ -426,6 +469,9 @@ Letter Fade in
 
 .leFadeInLeft span { animation-name: leFadeInLeft }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -434,6 +480,7 @@ Letter Fade in
         opacity: 0;
         transform: translateX(-60px);
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -448,11 +495,16 @@ Letter Fade in
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { opacity: 1 }
 }
 
 .leFadeInRight span { animation-name: leFadeInRight }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -461,6 +513,7 @@ Letter Fade in
         opacity: 0;
         transform: translateX(60px);
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -475,11 +528,16 @@ Letter Fade in
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { opacity: 1 }
 }
 
 .leFadeInTop span { animation-name: leFadeInTop }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -488,6 +546,7 @@ Letter Fade in
         opacity: 0;
         transform: translateY(-100%);
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -502,11 +561,16 @@ Letter Fade in
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { opacity: 1 }
 }
 
 .leFadeInBottom span { animation-name: leFadeInBottom }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -515,6 +579,7 @@ Letter Fade in
         opacity: 0;
         transform: translateY(100%);
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -526,11 +591,15 @@ Letter Fade in
 =======
     to { opacity: 1 }
 >>>>>>> Stashed changes
+=======
+    to { opacity: 1 }
+>>>>>>> Stashed changes
 }
 
 /************************************************************
 Letter Fade Out
 *************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leFadeOut span {
@@ -554,6 +623,8 @@ Letter Fade Out
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .leFadeOut span { animation-name: leFadeOut }
 @keyframes leFadeOut {
     to { opacity: 0 }
@@ -563,6 +634,9 @@ Letter Fade Out
 @keyframes leFadeOutLeft {
     from { opacity: 1 }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -572,6 +646,7 @@ Letter Fade Out
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leFadeOutRight span {
@@ -592,12 +667,18 @@ Letter Fade Out
 @keyframes leFadeOutRight {
     from { opacity: 1 }
 >>>>>>> Stashed changes
+=======
+.leFadeOutRight span { animation-name: leFadeOutRight }
+@keyframes leFadeOutRight {
+    from { opacity: 1 }
+>>>>>>> Stashed changes
     to {
         opacity: 0;
         transform: translateX(60px);
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leFadeOutTop span {
@@ -618,12 +699,18 @@ Letter Fade Out
 @keyframes leFadeOutTop {
     from { opacity: 1 }
 >>>>>>> Stashed changes
+=======
+.leFadeOutTop span { animation-name: leFadeOutTop }
+@keyframes leFadeOutTop {
+    from { opacity: 1 }
+>>>>>>> Stashed changes
     to {
         opacity: 0;
         transform: translateY(-100%);
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leFadeOutBottom span {
@@ -644,6 +731,11 @@ Letter Fade Out
 @keyframes leFadeOutBottom {
     from { opacity: 1 }
 >>>>>>> Stashed changes
+=======
+.leFadeOutBottom span { animation-name: leFadeOutBottom }
+@keyframes leFadeOutBottom {
+    from { opacity: 1 }
+>>>>>>> Stashed changes
     to {
         opacity: 0;
         transform: translateY(100%);
@@ -653,6 +745,7 @@ Letter Fade Out
 /*************************************************************
 Moving Back
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leMovingBackFromRight span {
@@ -685,6 +778,8 @@ Moving Back
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .leMovingBackFromRight span { animation-name: leMovingBackFromRight; transform-origin: bottom }
 @keyframes leMovingBackFromRight {
     40% { transform: rotate(45deg) }
@@ -701,6 +796,9 @@ Moving Back
         transform: rotate(0deg);
         animation-timing-function: cubic-bezier(0,.9,.7,1.45)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -710,6 +808,7 @@ Moving Back
 /*************************************************************
 Kick out
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leKickOutBehind span {
@@ -742,6 +841,8 @@ Kick out
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .leKickOutBehind span { animation-name: leKickOutFront; transform-origin: top }
 @keyframes leKickOutFront {
     40% { transform: rotate(45deg) }
@@ -758,6 +859,9 @@ Kick out
         transform: rotate(0deg);
         animation-timing-function: cubic-bezier(0,.9,.7,1.45)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -767,6 +871,7 @@ Kick out
 /************************************************************
 Letter Skate
 *************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leSkateX span {
@@ -810,6 +915,8 @@ Letter Skate
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .leSkateX span { animation-name: leScaleX; animation-iteration-count: infinite }
 @keyframes leScaleX {
     50% { transform: scaleX(0.4) }
@@ -826,6 +933,9 @@ Letter Skate
     50% { transform: scale3d(0.4, 0.4, 1) }
     75% { transform: scale3d(0.4, 1, 1) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -834,6 +944,7 @@ Letter Skate
 /************************************************************
 Letter Scale
 *************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leScaleXIn span {
@@ -846,11 +957,15 @@ Letter Scale
 =======
 .leScaleXIn span { animation-name: leScaleXIn }
 >>>>>>> Stashed changes
+=======
+.leScaleXIn span { animation-name: leScaleXIn }
+>>>>>>> Stashed changes
 @keyframes leScaleXIn {
     from {
         transform: perspective(400px) rotateX(90deg);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     50% {
@@ -865,11 +980,16 @@ Letter Scale
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     50% { opacity: 1 }
 }
 
 .leScaleXOut span { animation-name: leScaleXOut }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -878,6 +998,7 @@ Letter Scale
         transform: perspective(400px) rotateX(90deg);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     from {
@@ -892,11 +1013,16 @@ Letter Scale
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     from { opacity: 1 }
 }
 
 .leScaleYIn span { animation-name: leScaleYIn }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -905,6 +1031,7 @@ Letter Scale
         transform: perspective(400px) rotateY(90deg);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     50% {
@@ -919,11 +1046,16 @@ Letter Scale
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     50% { opacity: 1 }
 }
 
 .leScaleYOut span { animation-name: leScaleYOut }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -932,6 +1064,7 @@ Letter Scale
         transform: perspective(400px) rotateY(90deg);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     from {
@@ -943,11 +1076,15 @@ Letter Scale
 =======
     from { opacity: 1 }
 >>>>>>> Stashed changes
+=======
+    from { opacity: 1 }
+>>>>>>> Stashed changes
 }
 
 /*************************************************************
 Letter Jump
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leJump span {
@@ -969,6 +1106,11 @@ Letter Jump
 @keyframes leJump {
     to { transform: translateY(-20px) }
 >>>>>>> Stashed changes
+=======
+.leJump span { animation-name: leJump; animation-iteration-count: infinite }
+@keyframes leJump {
+    to { transform: translateY(-20px) }
+>>>>>>> Stashed changes
 }
 
 /*************************************************************
@@ -976,10 +1118,14 @@ Letter Fly
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leAboundTop span {
     animation-name: leAboundTop
 }
 
+=======
+.leAboundTop span { animation-name: leAboundTop }
+>>>>>>> Stashed changes
 =======
 .leAboundTop span { animation-name: leAboundTop }
 >>>>>>> Stashed changes
@@ -995,10 +1141,14 @@ Letter Fly
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leAboundBottom span {
     animation-name: leAboundBottom
 }
 
+=======
+.leAboundBottom span { animation-name: leAboundBottom }
+>>>>>>> Stashed changes
 =======
 .leAboundBottom span { animation-name: leAboundBottom }
 >>>>>>> Stashed changes
@@ -1014,10 +1164,14 @@ Letter Fly
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leAboundLeft span {
     animation-name: leAboundLeft
 }
 
+=======
+.leAboundLeft span { animation-name: leAboundLeft }
+>>>>>>> Stashed changes
 =======
 .leAboundLeft span { animation-name: leAboundLeft }
 >>>>>>> Stashed changes
@@ -1033,10 +1187,14 @@ Letter Fly
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leAboundRight span {
     animation-name: leAboundRight
 }
 
+=======
+.leAboundRight span { animation-name: leAboundRight }
+>>>>>>> Stashed changes
 =======
 .leAboundRight span { animation-name: leAboundRight }
 >>>>>>> Stashed changes
@@ -1055,10 +1213,14 @@ Letter Fly In
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leFlyInTop span {
     animation-name: leFlyInTop
 }
 
+=======
+.leFlyInTop span { animation-name: leFlyInTop }
+>>>>>>> Stashed changes
 =======
 .leFlyInTop span { animation-name: leFlyInTop }
 >>>>>>> Stashed changes
@@ -1078,6 +1240,7 @@ Letter Fly In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leFlyInLeft span {
     animation-name: leFlyInLeft;
     animation-timing-function: ease-in-out
@@ -1089,11 +1252,15 @@ Letter Fly In
 =======
 .leFlyInLeft span { animation-name: leFlyInLeft; animation-timing-function: ease-in-out }
 >>>>>>> Stashed changes
+=======
+.leFlyInLeft span { animation-name: leFlyInLeft; animation-timing-function: ease-in-out }
+>>>>>>> Stashed changes
 @keyframes leFlyInLeft {
     0% {
         transform: translate(-40px, 0px);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     50% {
@@ -1109,11 +1276,16 @@ Letter Fly In
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     50% { transform: translate(40px, 0px) }
 }
 
 .leFlyInRight span { animation-name: leFlyInRight; animation-timing-function: ease-in-out }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1122,6 +1294,7 @@ Letter Fly In
         transform: translate(40px, 0px);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     50% {
@@ -1136,11 +1309,16 @@ Letter Fly In
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     50% { transform: translate(-40px, 0px) }
 }
 
 .leFlyInBottom span { animation-name: leFlyInBottom }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1158,6 +1336,7 @@ Letter Fly In
 /*************************************************************
 Letter Fly Out
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leFlyOutTop span {
@@ -1178,12 +1357,18 @@ Letter Fly Out
 @keyframes leFlyOutTop {
     50% { transform: translate(0px, 50px) }
 >>>>>>> Stashed changes
+=======
+.leFlyOutTop span { animation-name: leFlyOutTop }
+@keyframes leFlyOutTop {
+    50% { transform: translate(0px, 50px) }
+>>>>>>> Stashed changes
     to {
         transform: translate(0px, -100px);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leFlyOutLeft span {
@@ -1205,12 +1390,18 @@ Letter Fly Out
 @keyframes leFlyOutLeft {
     50% { transform: translate(40px, 0px) }
 >>>>>>> Stashed changes
+=======
+.leFlyOutLeft span { animation-name: leFlyOutLeft; animation-timing-function: ease-in-out }
+@keyframes leFlyOutLeft {
+    50% { transform: translate(40px, 0px) }
+>>>>>>> Stashed changes
     to {
         transform: translate(-100px, 0px);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leFlyOutRight span {
@@ -1232,12 +1423,18 @@ Letter Fly Out
 @keyframes leFlyOutRight {
     50% { transform: translate(-40px, 0px) }
 >>>>>>> Stashed changes
+=======
+.leFlyOutRight span { animation-name: leFlyOutRight; animation-timing-function: ease-in-out }
+@keyframes leFlyOutRight {
+    50% { transform: translate(-40px, 0px) }
+>>>>>>> Stashed changes
     to {
         transform: translate(100px, 0px);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leFlyOutBottom span {
@@ -1248,6 +1445,11 @@ Letter Fly Out
     50% {
         transform: translate(0px, -40px)
     }
+=======
+.leFlyOutBottom span { animation-name: leFlyOutBottom }
+@keyframes leFlyOutBottom {
+    50% { transform: translate(0px, -40px) }
+>>>>>>> Stashed changes
 =======
 .leFlyOutBottom span { animation-name: leFlyOutBottom }
 @keyframes leFlyOutBottom {
@@ -1269,10 +1471,14 @@ Letter Door Open & Close
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leDoorCloseLeft span {
     animation-name: leDoorCloseLeft
 }
 
+=======
+.leDoorCloseLeft span { animation-name: leDoorCloseLeft }
+>>>>>>> Stashed changes
 =======
 .leDoorCloseLeft span { animation-name: leDoorCloseLeft }
 >>>>>>> Stashed changes
@@ -1290,6 +1496,7 @@ Letter Door Open & Close
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     to {
         opacity: 1
     }
@@ -1302,11 +1509,16 @@ Letter Door Open & Close
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { opacity: 1 }
 }
 
 .leDoorOpenRight span { animation-name: leDoorOpenRight }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1323,10 +1535,14 @@ Letter Door Open & Close
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leDoorCloseRight span {
     animation-name: leDoorCloseRight
 }
 
+=======
+.leDoorCloseRight span { animation-name: leDoorCloseRight }
+>>>>>>> Stashed changes
 =======
 .leDoorCloseRight span { animation-name: leDoorCloseRight }
 >>>>>>> Stashed changes
@@ -1344,6 +1560,7 @@ Letter Door Open & Close
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     to {
         opacity: 1
     }
@@ -1356,11 +1573,16 @@ Letter Door Open & Close
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { opacity: 1 }
 }
 
 .leDoorOpenLeft span { animation-name: leDoorOpenLeft }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1380,6 +1602,7 @@ Letter Hang And Drop
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leHangAndDropLeft span {
     animation-name: leHangAndDropLeft
 }
@@ -1388,6 +1611,11 @@ Letter Hang And Drop
     from {
         transform-origin: left
     }
+=======
+.leHangAndDropLeft span { animation-name: leHangAndDropLeft }
+@keyframes leHangAndDropLeft {
+    from { transform-origin: left }
+>>>>>>> Stashed changes
 =======
 .leHangAndDropLeft span { animation-name: leHangAndDropLeft }
 @keyframes leHangAndDropLeft {
@@ -1414,6 +1642,7 @@ Letter Hang And Drop
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leHangAndDropRight span {
     animation-name: leHangAndDropRight
 }
@@ -1422,6 +1651,11 @@ Letter Hang And Drop
     from {
         transform-origin: right
     }
+=======
+.leHangAndDropRight span { animation-name: leHangAndDropRight }
+@keyframes leHangAndDropRight {
+    from { transform-origin: right }
+>>>>>>> Stashed changes
 =======
 .leHangAndDropRight span { animation-name: leHangAndDropRight }
 @keyframes leHangAndDropRight {
@@ -1449,6 +1683,7 @@ Letter Hang And Drop
 /*************************************************************
 Letter Shake
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leRencontre span {
@@ -1602,6 +1837,8 @@ Letter Shake
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .leRencontre span { animation: leRencontre .4s; animation-iteration-count: infinite }
 @keyframes leRencontre {
     0%, 33%, 100% {
@@ -1666,6 +1903,9 @@ Letter Shake
 @keyframes leVibration {
     50% { transform: skewY(1deg) skewX(-1deg) scale(1.06) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1674,6 +1914,7 @@ Letter Shake
 /*************************************************************
 Letter Push Release
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .lePushReleaseFrom span {
@@ -1686,11 +1927,15 @@ Letter Push Release
 =======
 .lePushReleaseFrom span { animation-name: lePushReleaseFrom }
 >>>>>>> Stashed changes
+=======
+.lePushReleaseFrom span { animation-name: lePushReleaseFrom }
+>>>>>>> Stashed changes
 @keyframes lePushReleaseFrom {
     from {
         transform: scale(3, 3);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     50% {
@@ -1705,11 +1950,16 @@ Letter Push Release
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     50% { transform: scale(.5, .5) }
 }
 
 .lePushReleaseFromLeft span { animation-name: lePushReleaseFromLeft }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1718,6 +1968,7 @@ Letter Push Release
         transform: translateX(-100%);
         opacity: 0
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     30% {
@@ -1732,11 +1983,16 @@ Letter Push Release
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     30% { transform: translateX(100px) }
 }
 
 .lePushReleaseFromTop span { animation-name: lePushReleaseFromTop }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1745,6 +2001,7 @@ Letter Push Release
         transform: translateY(-100%);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     30% {
@@ -1759,11 +2016,16 @@ Letter Push Release
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     30% { transform: translateY(100px) }
 }
 
 .lePushReleaseFromBottom span { animation-name: lePushReleaseFromBottom }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1772,6 +2034,7 @@ Letter Push Release
         transform: translateY(100%);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     30% {
@@ -1790,6 +2053,8 @@ Letter Push Release
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     30% { transform: translateY(-100px) }
 }
 
@@ -1797,6 +2062,9 @@ Letter Push Release
 @keyframes lePushReleaseTo {
     30% { transform: scale(.5, .5) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1806,6 +2074,7 @@ Letter Push Release
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .lePushReleaseToTop span {
@@ -1826,12 +2095,18 @@ Letter Push Release
 @keyframes lePushReleaseToTop {
     30% { transform: translateY(100px) }
 >>>>>>> Stashed changes
+=======
+.lePushReleaseToTop span { animation-name: lePushReleaseToTop }
+@keyframes lePushReleaseToTop {
+    30% { transform: translateY(100px) }
+>>>>>>> Stashed changes
     to {
         transform: translateY(-100%);
         opacity: 0
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .lePushReleaseToBottom span {
@@ -1842,6 +2117,11 @@ Letter Push Release
     30% {
         transform: translateY(-100px)
     }
+=======
+.lePushReleaseToBottom span { animation-name: lePushReleaseToBottom }
+@keyframes lePushReleaseToBottom {
+    30% { transform: translateY(-100px) }
+>>>>>>> Stashed changes
 =======
 .lePushReleaseToBottom span { animation-name: lePushReleaseToBottom }
 @keyframes lePushReleaseToBottom {
@@ -1863,10 +2143,14 @@ Letter Flip
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leFlipInTop span {
     animation-name: leFlipInTop
 }
 
+=======
+.leFlipInTop span { animation-name: leFlipInTop }
+>>>>>>> Stashed changes
 =======
 .leFlipInTop span { animation-name: leFlipInTop }
 >>>>>>> Stashed changes
@@ -1885,6 +2169,7 @@ Letter Flip
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     to {
         transform: perspective(600px)
     }
@@ -1897,11 +2182,16 @@ Letter Flip
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { transform: perspective(600px) }
 }
 
 .leFlipOutTop span { animation-name: leFlipOutTop }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1917,6 +2207,7 @@ Letter Flip
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     to {
         transform: perspective(600px)
     }
@@ -1929,11 +2220,16 @@ Letter Flip
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { transform: perspective(600px) }
 }
 
 .leFlipInBottom span { animation-name: leFlipInBottom }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1949,6 +2245,7 @@ Letter Flip
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     to {
         transform: perspective(600px)
     }
@@ -1961,11 +2258,16 @@ Letter Flip
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { transform: perspective(600px) }
 }
 
 .leFlipOutBottom span { animation-name: leFlipOutBottom }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1981,9 +2283,13 @@ Letter Flip
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     to {
         transform: perspective(600px)
     }
+=======
+    to { transform: perspective(600px) }
+>>>>>>> Stashed changes
 =======
     to { transform: perspective(600px) }
 >>>>>>> Stashed changes
@@ -1997,10 +2303,14 @@ Letter Elevate
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leElevateLeft span {
     animation-name: leElevateLeft
 }
 
+=======
+.leElevateLeft span { animation-name: leElevateLeft }
+>>>>>>> Stashed changes
 =======
 .leElevateLeft span { animation-name: leElevateLeft }
 >>>>>>> Stashed changes
@@ -2025,10 +2335,14 @@ Letter Elevate
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leElevateRight span {
     animation-name: leElevateRight
 }
 
+=======
+.leElevateRight span { animation-name: leElevateRight }
+>>>>>>> Stashed changes
 =======
 .leElevateRight span { animation-name: leElevateRight }
 >>>>>>> Stashed changes
@@ -2056,10 +2370,14 @@ Letter Roll From
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRollFromLeft span {
     animation-name: leRollFromLeft
 }
 
+=======
+.leRollFromLeft span { animation-name: leRollFromLeft }
+>>>>>>> Stashed changes
 =======
 .leRollFromLeft span { animation-name: leRollFromLeft }
 >>>>>>> Stashed changes
@@ -2075,10 +2393,14 @@ Letter Roll From
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRollFromRight span {
     animation-name: leRollFromRight
 }
 
+=======
+.leRollFromRight span { animation-name: leRollFromRight }
+>>>>>>> Stashed changes
 =======
 .leRollFromRight span { animation-name: leRollFromRight }
 >>>>>>> Stashed changes
@@ -2094,10 +2416,14 @@ Letter Roll From
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRollFromTop span {
     animation-name: leRollFromTop
 }
 
+=======
+.leRollFromTop span { animation-name: leRollFromTop }
+>>>>>>> Stashed changes
 =======
 .leRollFromTop span { animation-name: leRollFromTop }
 >>>>>>> Stashed changes
@@ -2113,10 +2439,14 @@ Letter Roll From
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRollFromBottom span {
     animation-name: leRollFromBottom
 }
 
+=======
+.leRollFromBottom span { animation-name: leRollFromBottom }
+>>>>>>> Stashed changes
 =======
 .leRollFromBottom span { animation-name: leRollFromBottom }
 >>>>>>> Stashed changes
@@ -2135,10 +2465,14 @@ Letter Roll To
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRollToLeft span {
     animation-name: leRollToLeft
 }
 
+=======
+.leRollToLeft span { animation-name: leRollToLeft }
+>>>>>>> Stashed changes
 =======
 .leRollToLeft span { animation-name: leRollToLeft }
 >>>>>>> Stashed changes
@@ -2154,10 +2488,14 @@ Letter Roll To
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRollToRight span {
     animation-name: leRollToRight
 }
 
+=======
+.leRollToRight span { animation-name: leRollToRight }
+>>>>>>> Stashed changes
 =======
 .leRollToRight span { animation-name: leRollToRight }
 >>>>>>> Stashed changes
@@ -2173,10 +2511,14 @@ Letter Roll To
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRollToTop span {
     animation-name: leRollToTop
 }
 
+=======
+.leRollToTop span { animation-name: leRollToTop }
+>>>>>>> Stashed changes
 =======
 .leRollToTop span { animation-name: leRollToTop }
 >>>>>>> Stashed changes
@@ -2192,10 +2534,14 @@ Letter Roll To
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRollToBottom span {
     animation-name: leRollToBottom
 }
 
+=======
+.leRollToBottom span { animation-name: leRollToBottom }
+>>>>>>> Stashed changes
 =======
 .leRollToBottom span { animation-name: leRollToBottom }
 >>>>>>> Stashed changes
@@ -2214,10 +2560,14 @@ Letter Rotate In skate
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRotateSkateInRight span {
     animation-name: leRotateSkateInRight
 }
 
+=======
+.leRotateSkateInRight span { animation-name: leRotateSkateInRight }
+>>>>>>> Stashed changes
 =======
 .leRotateSkateInRight span { animation-name: leRotateSkateInRight }
 >>>>>>> Stashed changes
@@ -2233,10 +2583,14 @@ Letter Rotate In skate
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRotateSkateInLeft span {
     animation-name: leRotateSkateInLeft
 }
 
+=======
+.leRotateSkateInLeft span { animation-name: leRotateSkateInLeft }
+>>>>>>> Stashed changes
 =======
 .leRotateSkateInLeft span { animation-name: leRotateSkateInLeft }
 >>>>>>> Stashed changes
@@ -2252,10 +2606,14 @@ Letter Rotate In skate
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRotateSkateInTop span {
     animation-name: leRotateSkateInTop
 }
 
+=======
+.leRotateSkateInTop span { animation-name: leRotateSkateInTop }
+>>>>>>> Stashed changes
 =======
 .leRotateSkateInTop span { animation-name: leRotateSkateInTop }
 >>>>>>> Stashed changes
@@ -2271,10 +2629,14 @@ Letter Rotate In skate
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRotateSkateInBottom span {
     animation-name: leRotateSkateInBottom
 }
 
+=======
+.leRotateSkateInBottom span { animation-name: leRotateSkateInBottom }
+>>>>>>> Stashed changes
 =======
 .leRotateSkateInBottom span { animation-name: leRotateSkateInBottom }
 >>>>>>> Stashed changes
@@ -2293,10 +2655,14 @@ Letter Rotate Out skate
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRotateSkateOutRight span {
     animation-name: leRotateSkateOutRight
 }
 
+=======
+.leRotateSkateOutRight span { animation-name: leRotateSkateOutRight }
+>>>>>>> Stashed changes
 =======
 .leRotateSkateOutRight span { animation-name: leRotateSkateOutRight }
 >>>>>>> Stashed changes
@@ -2312,10 +2678,14 @@ Letter Rotate Out skate
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRotateSkateOutLeft span {
     animation-name: leRotateSkateOutLeft
 }
 
+=======
+.leRotateSkateOutLeft span { animation-name: leRotateSkateOutLeft }
+>>>>>>> Stashed changes
 =======
 .leRotateSkateOutLeft span { animation-name: leRotateSkateOutLeft }
 >>>>>>> Stashed changes
@@ -2331,10 +2701,14 @@ Letter Rotate Out skate
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRotateSkateOutTop span {
     animation-name: leRotateSkateOutTop
 }
 
+=======
+.leRotateSkateOutTop span { animation-name: leRotateSkateOutTop }
+>>>>>>> Stashed changes
 =======
 .leRotateSkateOutTop span { animation-name: leRotateSkateOutTop }
 >>>>>>> Stashed changes
@@ -2350,10 +2724,14 @@ Letter Rotate Out skate
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRotateSkateOutBottom span {
     animation-name: leRotateSkateOutBottom
 }
 
+=======
+.leRotateSkateOutBottom span { animation-name: leRotateSkateOutBottom }
+>>>>>>> Stashed changes
 =======
 .leRotateSkateOutBottom span { animation-name: leRotateSkateOutBottom }
 >>>>>>> Stashed changes
@@ -2372,10 +2750,14 @@ Letter Rotation
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRotateXZoomIn span {
     animation-name: leRotateXZoomIn
 }
 
+=======
+.leRotateXZoomIn span { animation-name: leRotateXZoomIn }
+>>>>>>> Stashed changes
 =======
 .leRotateXZoomIn span { animation-name: leRotateXZoomIn }
 >>>>>>> Stashed changes
@@ -2387,6 +2769,7 @@ Letter Rotation
         transform: perspective(600px) translate3d(0, -60px, -2000px) rotateX(75deg);
         opacity: 0
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     5% {
@@ -2405,6 +2788,8 @@ Letter Rotation
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     5% { transform: perspective(600px) translate3d(0, -60px, -1500px) rotateX(75deg) }
 }
 
@@ -2412,6 +2797,9 @@ Letter Rotation
 @keyframes leRotateXZoomOut {
     95% { transform: perspective(600px) translate3d(0, -60px, -1500px) rotateX(75deg) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -2421,6 +2809,7 @@ Letter Rotation
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leRotateYZoomIn span {
@@ -2433,11 +2822,15 @@ Letter Rotation
 =======
 .leRotateYZoomIn span { animation-name: leRotateYZoomIn }
 >>>>>>> Stashed changes
+=======
+.leRotateYZoomIn span { animation-name: leRotateYZoomIn }
+>>>>>>> Stashed changes
 @keyframes leRotateYZoomIn {
     from {
         transform: perspective(600px) translate3d(0, -60px, -2000px) rotateY(75deg);
         opacity: 0
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     5% {
@@ -2456,6 +2849,8 @@ Letter Rotation
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     5% { transform: perspective(600px) translate3d(0, -60px, -1500px) rotateY(75deg) }
 }
 
@@ -2463,6 +2858,9 @@ Letter Rotation
 @keyframes leRotateYZoomOut {
     95% { transform: perspective(600px) translate3d(0, -60px, -1500px) rotateY(75deg) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -2478,10 +2876,14 @@ Letter Rotate
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leRotateIn span {
     animation-name: leRotateIn
 }
 
+=======
+.leRotateIn span { animation-name: leRotateIn }
+>>>>>>> Stashed changes
 =======
 .leRotateIn span { animation-name: leRotateIn }
 >>>>>>> Stashed changes
@@ -2493,6 +2895,7 @@ Letter Rotate
         transform: rotate(-180deg);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -2511,6 +2914,8 @@ Letter Rotate
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { opacity: 1 }
 }
 
@@ -2518,6 +2923,9 @@ Letter Rotate
 @keyframes leRotateOut {
     from { opacity: 1 }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -2527,6 +2935,7 @@ Letter Rotate
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leRotateInLeft span {
@@ -2539,11 +2948,15 @@ Letter Rotate
 =======
 .leRotateInLeft span { animation-name: leRotateInLeft }
 >>>>>>> Stashed changes
+=======
+.leRotateInLeft span { animation-name: leRotateInLeft }
+>>>>>>> Stashed changes
 @keyframes leRotateInLeft {
     from {
         transform: rotate(-180deg) translateX(150px);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -2562,6 +2975,8 @@ Letter Rotate
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { opacity: 1 }
 }
 
@@ -2569,6 +2984,9 @@ Letter Rotate
 @keyframes leRotateOutLeft {
     from { opacity: 1 }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -2578,6 +2996,7 @@ Letter Rotate
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leRotateInRight span {
@@ -2590,11 +3009,15 @@ Letter Rotate
 =======
 .leRotateInRight span { animation-name: leRotateInRight }
 >>>>>>> Stashed changes
+=======
+.leRotateInRight span { animation-name: leRotateInRight }
+>>>>>>> Stashed changes
 @keyframes leRotateInRight {
     from {
         transform: rotate(-180deg) translateX(-150px);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -2613,6 +3036,8 @@ Letter Rotate
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { opacity: 1 }
 }
 
@@ -2620,6 +3045,9 @@ Letter Rotate
 @keyframes leRotateOutRight {
     from { opacity: 1 }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -2632,6 +3060,7 @@ Letter Rotate
 /*************************************************************
 Letter Spin
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leSpinInLeft span {
@@ -2652,12 +3081,18 @@ Letter Spin
 @keyframes leSpinInLeft {
     from, to { transform-origin: left bottom }
 >>>>>>> Stashed changes
+=======
+.leSpinInLeft span { animation-name: leSpinInLeft }
+@keyframes leSpinInLeft {
+    from, to { transform-origin: left bottom }
+>>>>>>> Stashed changes
     from {
         transform: rotate(90deg);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leSpinInRight span {
@@ -2678,12 +3113,18 @@ Letter Spin
 @keyframes leSpinInRight {
     from, to { transform-origin: right bottom }
 >>>>>>> Stashed changes
+=======
+.leSpinInRight span { animation-name: leSpinInRight }
+@keyframes leSpinInRight {
+    from, to { transform-origin: right bottom }
+>>>>>>> Stashed changes
     from {
         transform: rotate(-90deg);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leSpinOutLeft span {
@@ -2704,12 +3145,18 @@ Letter Spin
 @keyframes leSpinOutLeft {
     from, to { transform-origin: left bottom }
 >>>>>>> Stashed changes
+=======
+.leSpinOutLeft span { animation-name: leSpinOutLeft }
+@keyframes leSpinOutLeft {
+    from, to { transform-origin: left bottom }
+>>>>>>> Stashed changes
     to {
         transform: rotate(90deg);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leSpinOutRight span {
@@ -2720,6 +3167,11 @@ Letter Spin
     from, to {
         transform-origin: right bottom
     }
+=======
+.leSpinOutRight span { animation-name: leSpinOutRight }
+@keyframes leSpinOutRight {
+    from, to { transform-origin: right bottom }
+>>>>>>> Stashed changes
 =======
 .leSpinOutRight span { animation-name: leSpinOutRight }
 @keyframes leSpinOutRight {
@@ -2741,10 +3193,14 @@ Letter Blur In
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leBlurIn span {
     animation-name: leBlurIn
 }
 
+=======
+.leBlurIn span { animation-name: leBlurIn }
+>>>>>>> Stashed changes
 =======
 .leBlurIn span { animation-name: leBlurIn }
 >>>>>>> Stashed changes
@@ -2761,10 +3217,14 @@ Letter Blur In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leBlurInRight span {
     animation-name: leBlurInRight
 }
 
+=======
+.leBlurInRight span { animation-name: leBlurInRight }
+>>>>>>> Stashed changes
 =======
 .leBlurInRight span { animation-name: leBlurInRight }
 >>>>>>> Stashed changes
@@ -2781,10 +3241,14 @@ Letter Blur In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leBlurInLeft span {
     animation-name: leBlurInLeft
 }
 
+=======
+.leBlurInLeft span { animation-name: leBlurInLeft }
+>>>>>>> Stashed changes
 =======
 .leBlurInLeft span { animation-name: leBlurInLeft }
 >>>>>>> Stashed changes
@@ -2801,10 +3265,14 @@ Letter Blur In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leBlurInTop span {
     animation-name: leBlurInTop
 }
 
+=======
+.leBlurInTop span { animation-name: leBlurInTop }
+>>>>>>> Stashed changes
 =======
 .leBlurInTop span { animation-name: leBlurInTop }
 >>>>>>> Stashed changes
@@ -2821,10 +3289,14 @@ Letter Blur In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leBlurInBottom span {
     animation-name: leBlurInBottom
 }
 
+=======
+.leBlurInBottom span { animation-name: leBlurInBottom }
+>>>>>>> Stashed changes
 =======
 .leBlurInBottom span { animation-name: leBlurInBottom }
 >>>>>>> Stashed changes
@@ -2844,10 +3316,14 @@ Letter Blur Out
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leBlurOut span {
     animation-name: leBlurOut
 }
 
+=======
+.leBlurOut span { animation-name: leBlurOut }
+>>>>>>> Stashed changes
 =======
 .leBlurOut span { animation-name: leBlurOut }
 >>>>>>> Stashed changes
@@ -2864,10 +3340,14 @@ Letter Blur Out
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leBlurOutRight span {
     animation-name: leBlurOutRight
 }
 
+=======
+.leBlurOutRight span { animation-name: leBlurOutRight }
+>>>>>>> Stashed changes
 =======
 .leBlurOutRight span { animation-name: leBlurOutRight }
 >>>>>>> Stashed changes
@@ -2884,10 +3364,14 @@ Letter Blur Out
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leBlurOutLeft span {
     animation-name: leBlurOutLeft
 }
 
+=======
+.leBlurOutLeft span { animation-name: leBlurOutLeft }
+>>>>>>> Stashed changes
 =======
 .leBlurOutLeft span { animation-name: leBlurOutLeft }
 >>>>>>> Stashed changes
@@ -2904,10 +3388,14 @@ Letter Blur Out
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leBlurOutTop span {
     animation-name: leBlurOutTop
 }
 
+=======
+.leBlurOutTop span { animation-name: leBlurOutTop }
+>>>>>>> Stashed changes
 =======
 .leBlurOutTop span { animation-name: leBlurOutTop }
 >>>>>>> Stashed changes
@@ -2924,10 +3412,14 @@ Letter Blur Out
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leBlurOutBottom span {
     animation-name: leBlurOutBottom
 }
 
+=======
+.leBlurOutBottom span { animation-name: leBlurOutBottom }
+>>>>>>> Stashed changes
 =======
 .leBlurOutBottom span { animation-name: leBlurOutBottom }
 >>>>>>> Stashed changes
@@ -2947,6 +3439,7 @@ Letter Pop Up
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .lePopUp span {
     animation-name: lePopUp
 }
@@ -2964,6 +3457,8 @@ Letter Pop Up
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .lePopUp span { animation-name: lePopUp }
 @keyframes lePopUp {
     50% { transform: scale(1.5) }
@@ -2971,6 +3466,9 @@ Letter Pop Up
 
 .lePopUpLeft span { animation-name: lePopUpLeft }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -2983,10 +3481,14 @@ Letter Pop Up
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .lePopUpRight span {
     animation-name: lePopUpRight
 }
 
+=======
+.lePopUpRight span { animation-name: lePopUpRight }
+>>>>>>> Stashed changes
 =======
 .lePopUpRight span { animation-name: lePopUpRight }
 >>>>>>> Stashed changes
@@ -3006,6 +3508,7 @@ Letter Pop Out
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .lePopOut span {
     animation-name: lePopOut
 }
@@ -3023,6 +3526,8 @@ Letter Pop Out
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .lePopOut span { animation-name: lePopOut }
 @keyframes lePopOut {
     50% { transform: scale(.5) }
@@ -3030,6 +3535,9 @@ Letter Pop Out
 
 .lePopOutLeft span { animation-name: lePopOutLeft }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -3042,10 +3550,14 @@ Letter Pop Out
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .lePopOutRight span {
     animation-name: lePopOutRight
 }
 
+=======
+.lePopOutRight span { animation-name: lePopOutRight }
+>>>>>>> Stashed changes
 =======
 .lePopOutRight span { animation-name: lePopOutRight }
 >>>>>>> Stashed changes
@@ -3064,10 +3576,14 @@ Letter Bouncing
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leBounceFromTop span {
     animation-name: leBounceFromTop
 }
 
+=======
+.leBounceFromTop span { animation-name: leBounceFromTop }
+>>>>>>> Stashed changes
 =======
 .leBounceFromTop span { animation-name: leBounceFromTop }
 >>>>>>> Stashed changes
@@ -3089,6 +3605,7 @@ Letter Bouncing
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     90% {
         transform: translate3d(0, -4px, 0)
     }
@@ -3101,11 +3618,16 @@ Letter Bouncing
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     90% { transform: translate3d(0, -4px, 0) }
 }
 
 .leBounceFromDown span { animation-name: leBounceFromDown }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -3124,6 +3646,7 @@ Letter Bouncing
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     90% {
         transform: translate3d(0, 4px, 0)
     }
@@ -3136,11 +3659,16 @@ Letter Bouncing
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     90% { transform: translate3d(0, 4px, 0) }
 }
 
 .leBounceY span { animation-name: leBounceY }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -3159,6 +3687,7 @@ Letter Bouncing
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     90% {
         transform: scale3d(1, 1.1, 1)
     }
@@ -3171,11 +3700,16 @@ Letter Bouncing
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     90% { transform: scale3d(1, 1.1, 1) }
 }
 
 .leBounceZoomIn span { animation-name: leBounceZoomIn }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -3194,6 +3728,7 @@ Letter Bouncing
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     90% {
         transform: scale(1.1)
     }
@@ -3206,11 +3741,16 @@ Letter Bouncing
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     90% { transform: scale(1.1) }
 }
 
 .leBounceZoomOut span { animation-name: leBounceZoomOut }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -3229,9 +3769,13 @@ Letter Bouncing
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     90% {
         transform: scale(.9)
     }
+=======
+    90% { transform: scale(.9) }
+>>>>>>> Stashed changes
 =======
     90% { transform: scale(.9) }
 >>>>>>> Stashed changes
@@ -3243,6 +3787,7 @@ Letter Bouncing
 /*************************************************************
 Letter Perspective
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .lePerspectiveOutTop span {
@@ -3265,12 +3810,18 @@ Letter Perspective
 @keyframes lePerspectiveOutTop {
     50% { opacity: 1 }
 >>>>>>> Stashed changes
+=======
+.lePerspectiveOutTop span { animation-name: lePerspectiveOutTop; transform: perspective(500px); transform-style: preserve-3d }
+@keyframes lePerspectiveOutTop {
+    50% { opacity: 1 }
+>>>>>>> Stashed changes
     to {
         transform: perspective(500px) rotateX(90deg) translateY(-50px) translateZ(50px);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .lePerspectiveOutBottom span {
@@ -3293,6 +3844,11 @@ Letter Perspective
 @keyframes lePerspectiveOutBottom {
     50% { opacity: 1 }
 >>>>>>> Stashed changes
+=======
+.lePerspectiveOutBottom span { animation-name: lePerspectiveOutBottom; transform: perspective(500px); transform-style: preserve-3d }
+@keyframes lePerspectiveOutBottom {
+    50% { opacity: 1 }
+>>>>>>> Stashed changes
     to {
         transform: perspective(500px) rotateX(90deg) translateY(50px) translateZ(-50px);
         opacity: 0;
@@ -3305,10 +3861,14 @@ Letter Zoom In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leZoomIn span {
     animation-name: leZoomIn
 }
 
+=======
+.leZoomIn span { animation-name: leZoomIn }
+>>>>>>> Stashed changes
 =======
 .leZoomIn span { animation-name: leZoomIn }
 >>>>>>> Stashed changes
@@ -3324,10 +3884,14 @@ Letter Zoom In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leZoomInLeft span {
     animation-name: leZoomInLeft
 }
 
+=======
+.leZoomInLeft span { animation-name: leZoomInLeft }
+>>>>>>> Stashed changes
 =======
 .leZoomInLeft span { animation-name: leZoomInLeft }
 >>>>>>> Stashed changes
@@ -3343,10 +3907,14 @@ Letter Zoom In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leZoomInRight span {
     animation-name: leZoomInRight
 }
 
+=======
+.leZoomInRight span { animation-name: leZoomInRight }
+>>>>>>> Stashed changes
 =======
 .leZoomInRight span { animation-name: leZoomInRight }
 >>>>>>> Stashed changes
@@ -3362,10 +3930,14 @@ Letter Zoom In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leZoomInTop span {
     animation-name: LetterZoomInTop
 }
 
+=======
+.leZoomInTop span { animation-name: LetterZoomInTop }
+>>>>>>> Stashed changes
 =======
 .leZoomInTop span { animation-name: LetterZoomInTop }
 >>>>>>> Stashed changes
@@ -3381,10 +3953,14 @@ Letter Zoom In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leZoomInBottom span {
     animation-name: leZoomInBottom
 }
 
+=======
+.leZoomInBottom span { animation-name: leZoomInBottom }
+>>>>>>> Stashed changes
 =======
 .leZoomInBottom span { animation-name: leZoomInBottom }
 >>>>>>> Stashed changes
@@ -3403,10 +3979,14 @@ Letter Zoom Out
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leZoomOut span {
     animation-name: leZoomOut
 }
 
+=======
+.leZoomOut span { animation-name: leZoomOut }
+>>>>>>> Stashed changes
 =======
 .leZoomOut span { animation-name: leZoomOut }
 >>>>>>> Stashed changes
@@ -3422,10 +4002,14 @@ Letter Zoom Out
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leZoomOutLeft span {
     animation-name: leZoomOutLeft
 }
 
+=======
+.leZoomOutLeft span { animation-name: leZoomOutLeft }
+>>>>>>> Stashed changes
 =======
 .leZoomOutLeft span { animation-name: leZoomOutLeft }
 >>>>>>> Stashed changes
@@ -3441,10 +4025,14 @@ Letter Zoom Out
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leZoomOutRight span {
     animation-name: leZoomOutRight
 }
 
+=======
+.leZoomOutRight span { animation-name: leZoomOutRight }
+>>>>>>> Stashed changes
 =======
 .leZoomOutRight span { animation-name: leZoomOutRight }
 >>>>>>> Stashed changes
@@ -3460,10 +4048,14 @@ Letter Zoom Out
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leZoomOutTop span {
     animation-name: leZoomOutTop
 }
 
+=======
+.leZoomOutTop span { animation-name: leZoomOutTop }
+>>>>>>> Stashed changes
 =======
 .leZoomOutTop span { animation-name: leZoomOutTop }
 >>>>>>> Stashed changes
@@ -3479,10 +4071,14 @@ Letter Zoom Out
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .leZoomOutBottom span {
     animation-name: leZoomOutBottom
 }
 
+=======
+.leZoomOutBottom span { animation-name: leZoomOutBottom }
+>>>>>>> Stashed changes
 =======
 .leZoomOutBottom span { animation-name: leZoomOutBottom }
 >>>>>>> Stashed changes
@@ -3499,6 +4095,7 @@ Letter Zoom Out
 /*************************************************************
 Letter Dance In
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leDanceInTop span {
@@ -3579,6 +4176,8 @@ Letter Dance In
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .leDanceInTop span { animation-name: leDanceInTop; transform-origin: top }
 @keyframes leDanceInTop {
     from { opacity: 0 }
@@ -3608,6 +4207,9 @@ Letter Dance In
     66% { transform: skew(6deg) }
     83% { transform: skew(-4deg) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -3616,6 +4218,7 @@ Letter Dance In
 /*************************************************************
 Letter Dance Out
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .leDanceOutTop span {
@@ -3696,6 +4299,8 @@ Letter Dance Out
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .leDanceOutTop span { animation-name: leDanceOutTop; transform-origin: top }
 @keyframes leDanceOutTop {
     16% { transform: skew(-14deg) }
@@ -3725,6 +4330,9 @@ Letter Dance Out
     83% { transform: skew(-4deg) }
     to { opacity: 0 }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -3733,6 +4341,7 @@ Letter Dance Out
 /*************************************************************
 One After One Fade in
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .oaoFadeIn span:nth-child(even) {
@@ -3747,12 +4356,16 @@ One After One Fade in
 =======
 .oaoFadeIn span:nth-child(even) { animation-name: leoaoFadeInTop; animation-duration: .7s; animation-timing-function: ease-out; }
 >>>>>>> Stashed changes
+=======
+.oaoFadeIn span:nth-child(even) { animation-name: leoaoFadeInTop; animation-duration: .7s; animation-timing-function: ease-out; }
+>>>>>>> Stashed changes
 @keyframes leoaoFadeInTop {
     from {
         transform: translateY(-100px);
         opacity: 0;
     }
 }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
@@ -3768,6 +4381,9 @@ One After One Fade in
 =======
 .oaoFadeIn span:nth-child(odd) { animation-name: leoaoFadeInBottom; animation-duration: .7s; animation-timing-function: ease-out;  }
 >>>>>>> Stashed changes
+=======
+.oaoFadeIn span:nth-child(odd) { animation-name: leoaoFadeInBottom; animation-duration: .7s; animation-timing-function: ease-out;  }
+>>>>>>> Stashed changes
 @keyframes leoaoFadeInBottom {
     from {
         transform: translateY(100px);
@@ -3775,6 +4391,7 @@ One After One Fade in
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .oaoFadeOut span:nth-child(even) {
@@ -3789,12 +4406,16 @@ One After One Fade in
 =======
 .oaoFadeOut span:nth-child(even) { animation-name: leoaoFadeOutop; animation-duration: .7s; animation-timing-function: ease-in; }
 >>>>>>> Stashed changes
+=======
+.oaoFadeOut span:nth-child(even) { animation-name: leoaoFadeOutop; animation-duration: .7s; animation-timing-function: ease-in; }
+>>>>>>> Stashed changes
 @keyframes leoaoFadeOutop {
     to {
         transform: translateY(-100px);
         opacity: 0;
     }
 }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
@@ -3810,6 +4431,9 @@ One After One Fade in
 =======
 .oaoFadeOut span:nth-child(odd) { animation-name: leoaoFadeOutBottom; animation-duration: .7s; animation-timing-function: ease-in;  }
 >>>>>>> Stashed changes
+=======
+.oaoFadeOut span:nth-child(odd) { animation-name: leoaoFadeOutBottom; animation-duration: .7s; animation-timing-function: ease-in;  }
+>>>>>>> Stashed changes
 @keyframes leoaoFadeOutBottom {
     to {
         transform: translateY(100%);
@@ -3819,10 +4443,14 @@ One After One Fade in
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .oaoFlyIn span:nth-child(even) {
     animation-name: leoaoFlyInTop
 }
 
+=======
+.oaoFlyIn span:nth-child(even) { animation-name: leoaoFlyInTop }
+>>>>>>> Stashed changes
 =======
 .oaoFlyIn span:nth-child(even) { animation-name: leoaoFlyInTop }
 >>>>>>> Stashed changes
@@ -3841,11 +4469,15 @@ One After One Fade in
 }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 .oaoFlyIn span:nth-child(odd) {
     animation-name: leoaoFlyInBottom
 }
 
+=======
+.oaoFlyIn span:nth-child(odd) { animation-name: leoaoFlyInBottom }
+>>>>>>> Stashed changes
 =======
 .oaoFlyIn span:nth-child(odd) { animation-name: leoaoFlyInBottom }
 >>>>>>> Stashed changes
@@ -3866,10 +4498,14 @@ One After One Fade in
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .oaoFlyOut span:nth-child(even) {
     animation-name: leoaoFlyOutTop
 }
 
+=======
+.oaoFlyOut span:nth-child(even) { animation-name: leoaoFlyOutTop }
+>>>>>>> Stashed changes
 =======
 .oaoFlyOut span:nth-child(even) { animation-name: leoaoFlyOutTop }
 >>>>>>> Stashed changes
@@ -3885,6 +4521,7 @@ One After One Fade in
         transform: translateY(-50px);
         animation-timing-function: ease-out
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -3906,6 +4543,11 @@ One After One Fade in
 }
 .oaoFlyOut span:nth-child(odd) { animation-name: leoaoFlyOutBottom }
 >>>>>>> Stashed changes
+=======
+    to { opacity: 0 }
+}
+.oaoFlyOut span:nth-child(odd) { animation-name: leoaoFlyOutBottom }
+>>>>>>> Stashed changes
 @keyframes leoaoFlyOutBottom {
     30% {
         transform: translateY(-80px);
@@ -3915,6 +4557,7 @@ One After One Fade in
         transform: translateY(50px);
         animation-timing-function: ease-out
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -3929,11 +4572,16 @@ One After One Fade in
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { opacity: 0 }
 }
 
 .oaoRotateIn span:nth-child(even) { animation-name: oaoRotateInTop }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -3945,11 +4593,15 @@ One After One Fade in
 }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 .oaoRotateIn span:nth-child(odd) {
     animation-name: oaoRotateInBottom
 }
 
+=======
+.oaoRotateIn span:nth-child(odd) { animation-name: oaoRotateInBottom }
+>>>>>>> Stashed changes
 =======
 .oaoRotateIn span:nth-child(odd) { animation-name: oaoRotateInBottom }
 >>>>>>> Stashed changes
@@ -3964,11 +4616,15 @@ One After One Fade in
 }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 .oaoRotateOut span:nth-child(even) {
     animation-name: oaoRotateOutTop
 }
 
+=======
+.oaoRotateOut span:nth-child(even) { animation-name: oaoRotateOutTop }
+>>>>>>> Stashed changes
 =======
 .oaoRotateOut span:nth-child(even) { animation-name: oaoRotateOutTop }
 >>>>>>> Stashed changes
@@ -3983,11 +4639,15 @@ One After One Fade in
 }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 .oaoRotateOut span:nth-child(odd) {
     animation-name: oaoRotateOutBottom
 }
 
+=======
+.oaoRotateOut span:nth-child(odd) { animation-name: oaoRotateOutBottom }
+>>>>>>> Stashed changes
 =======
 .oaoRotateOut span:nth-child(odd) { animation-name: oaoRotateOutBottom }
 >>>>>>> Stashed changes
@@ -4003,10 +4663,14 @@ One After One Fade in
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .oaoRotateXIn span:nth-child(even) {
     animation-name: oaoRotateXInTop
 }
 
+=======
+.oaoRotateXIn span:nth-child(even) { animation-name: oaoRotateXInTop }
+>>>>>>> Stashed changes
 =======
 .oaoRotateXIn span:nth-child(even) { animation-name: oaoRotateXInTop }
 >>>>>>> Stashed changes
@@ -4021,11 +4685,15 @@ One After One Fade in
 }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 .oaoRotateXIn span:nth-child(odd) {
     animation-name: oaoRotateXInBottom
 }
 
+=======
+.oaoRotateXIn span:nth-child(odd) { animation-name: oaoRotateXInBottom }
+>>>>>>> Stashed changes
 =======
 .oaoRotateXIn span:nth-child(odd) { animation-name: oaoRotateXInBottom }
 >>>>>>> Stashed changes
@@ -4041,10 +4709,14 @@ One After One Fade in
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .oaoRotateXOut span:nth-child(even) {
     animation-name: oaoRotateXOutTop
 }
 
+=======
+.oaoRotateXOut span:nth-child(even) { animation-name: oaoRotateXOutTop }
+>>>>>>> Stashed changes
 =======
 .oaoRotateXOut span:nth-child(even) { animation-name: oaoRotateXOutTop }
 >>>>>>> Stashed changes
@@ -4059,11 +4731,15 @@ One After One Fade in
 }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 .oaoRotateXOut span:nth-child(odd) {
     animation-name: oaoRotateXOutBottom
 }
 
+=======
+.oaoRotateXOut span:nth-child(odd) { animation-name: oaoRotateXOutBottom }
+>>>>>>> Stashed changes
 =======
 .oaoRotateXOut span:nth-child(odd) { animation-name: oaoRotateXOutBottom }
 >>>>>>> Stashed changes
@@ -4079,10 +4755,14 @@ One After One Fade in
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .oaoRotateYIn span:nth-child(even) {
     animation-name: oaoRotateYInTop
 }
 
+=======
+.oaoRotateYIn span:nth-child(even) { animation-name: oaoRotateYInTop }
+>>>>>>> Stashed changes
 =======
 .oaoRotateYIn span:nth-child(even) { animation-name: oaoRotateYInTop }
 >>>>>>> Stashed changes
@@ -4097,11 +4777,15 @@ One After One Fade in
 }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 .oaoRotateYIn span:nth-child(odd) {
     animation-name: oaoRotateYInBottom
 }
 
+=======
+.oaoRotateYIn span:nth-child(odd) { animation-name: oaoRotateYInBottom }
+>>>>>>> Stashed changes
 =======
 .oaoRotateYIn span:nth-child(odd) { animation-name: oaoRotateYInBottom }
 >>>>>>> Stashed changes
@@ -4117,10 +4801,14 @@ One After One Fade in
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .oaoRotateYOut span:nth-child(even) {
     animation-name: oaoRotateYOutTop
 }
 
+=======
+.oaoRotateYOut span:nth-child(even) { animation-name: oaoRotateYOutTop }
+>>>>>>> Stashed changes
 =======
 .oaoRotateYOut span:nth-child(even) { animation-name: oaoRotateYOutTop }
 >>>>>>> Stashed changes
@@ -4135,11 +4823,15 @@ One After One Fade in
 }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 .oaoRotateYOut span:nth-child(odd) {
     animation-name: oaoRotateYOutBottom
 }
 
+=======
+.oaoRotateYOut span:nth-child(odd) { animation-name: oaoRotateYOutBottom }
+>>>>>>> Stashed changes
 =======
 .oaoRotateYOut span:nth-child(odd) { animation-name: oaoRotateYOutBottom }
 >>>>>>> Stashed changes
@@ -4152,6 +4844,7 @@ One After One Fade in
         opacity: 0;
     }
 }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
@@ -4178,6 +4871,8 @@ Fade in
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 /*************************************************************
 Fade in
 **************************************************************/
@@ -4189,6 +4884,9 @@ Fade in
 
 .fadeInLeft { animation-name: fadeInLeft }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -4197,6 +4895,7 @@ Fade in
         opacity: 0;
         transform: translateX(-100%);
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -4211,11 +4910,16 @@ Fade in
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { opacity: 1 }
 }
 
 .fadeInRight { animation-name: fadeInRight }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -4224,6 +4928,7 @@ Fade in
         opacity: 0;
         transform: translateX(100%);
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -4238,11 +4943,16 @@ Fade in
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { opacity: 1 }
 }
 
 .fadeInTop { animation-name: fadeInTop }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -4251,6 +4961,7 @@ Fade in
         opacity: 0;
         transform: translateY(-100%);
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -4265,11 +4976,16 @@ Fade in
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { opacity: 1 }
 }
 
 .fadeInBottom { animation-name: fadeInBottom }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -4278,6 +4994,7 @@ Fade in
         opacity: 0;
         transform: translateY(100%);
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -4289,11 +5006,15 @@ Fade in
 =======
     to { opacity: 1 }
 >>>>>>> Stashed changes
+=======
+    to { opacity: 1 }
+>>>>>>> Stashed changes
 }
 
 /**************************************************************
 Fade Out
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .fadeOut {
@@ -4317,6 +5038,8 @@ Fade Out
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .fadeOut { animation-name: fadeOut }
 @keyframes fadeOut {
     to { opacity: 0 }
@@ -4326,6 +5049,9 @@ Fade Out
 @keyframes fadeOutLeft {
     from { opacity: 1 }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -4335,6 +5061,7 @@ Fade Out
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .fadeOutRight {
@@ -4355,12 +5082,18 @@ Fade Out
 @keyframes fadeOutRight {
     from { opacity: 1 }
 >>>>>>> Stashed changes
+=======
+.fadeOutRight { animation-name: fadeOutRight }
+@keyframes fadeOutRight {
+    from { opacity: 1 }
+>>>>>>> Stashed changes
     to {
         opacity: 0;
         transform: translateX(100%);
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .fadeOutTop {
@@ -4381,12 +5114,18 @@ Fade Out
 @keyframes fadeOutTop {
     from { opacity: 1 }
 >>>>>>> Stashed changes
+=======
+.fadeOutTop { animation-name: fadeOutTop }
+@keyframes fadeOutTop {
+    from { opacity: 1 }
+>>>>>>> Stashed changes
     to {
         opacity: 0;
         transform: translateY(-100%);
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .fadeOutBottom {
@@ -4407,6 +5146,11 @@ Fade Out
 @keyframes fadeOutBottom {
     from { opacity: 1 }
 >>>>>>> Stashed changes
+=======
+.fadeOutBottom { animation-name: fadeOutBottom }
+@keyframes fadeOutBottom {
+    from { opacity: 1 }
+>>>>>>> Stashed changes
     to {
         opacity: 0;
         transform: translateY(100%);
@@ -4416,6 +5160,7 @@ Fade Out
 /*************************************************************
 Move From
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .moveFromLeft {
@@ -4459,6 +5204,8 @@ Move From
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .moveFromLeft { animation-name: moveFromLeft }
 @keyframes moveFromLeft {
     from { transform: translateX(-800px) }
@@ -4478,6 +5225,9 @@ Move From
 @keyframes moveFromBottom {
     from { transform: translateY(800px) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -4486,6 +5236,7 @@ Move From
 /*************************************************************
 Move To
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .moveToLeft {
@@ -4529,6 +5280,8 @@ Move To
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .moveToLeft { animation-name: moveToLeft }
 @keyframes moveToLeft {
     to { transform: translateX(-800px) }
@@ -4548,6 +5301,9 @@ Move To
 @keyframes moveToBottom {
     to { transform: translateY(800px) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -4558,10 +5314,14 @@ Door
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .doorCloseFromLeft {
     animation-name: doorCloseFromLeft
 }
 
+=======
+.doorCloseFromLeft { animation-name: doorCloseFromLeft }
+>>>>>>> Stashed changes
 =======
 .doorCloseFromLeft { animation-name: doorCloseFromLeft }
 >>>>>>> Stashed changes
@@ -4583,10 +5343,14 @@ Door
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .doorOpenFromRight {
     animation-name: doorOpenFromRight
 }
 
+=======
+.doorOpenFromRight { animation-name: doorOpenFromRight }
+>>>>>>> Stashed changes
 =======
 .doorOpenFromRight { animation-name: doorOpenFromRight }
 >>>>>>> Stashed changes
@@ -4608,10 +5372,14 @@ Door
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .doorCloseFromRight {
     animation-name: doorCloseFromRight
 }
 
+=======
+.doorCloseFromRight { animation-name: doorCloseFromRight }
+>>>>>>> Stashed changes
 =======
 .doorCloseFromRight { animation-name: doorCloseFromRight }
 >>>>>>> Stashed changes
@@ -4633,10 +5401,14 @@ Door
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .doorOpenFromLeft {
     animation-name: doorOpenFromLeft
 }
 
+=======
+.doorOpenFromLeft { animation-name: doorOpenFromLeft }
+>>>>>>> Stashed changes
 =======
 .doorOpenFromLeft { animation-name: doorOpenFromLeft }
 >>>>>>> Stashed changes
@@ -4659,6 +5431,7 @@ Door
 /*************************************************************
 Heartbeat
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .heartbeatSlow {
@@ -4688,6 +5461,8 @@ Heartbeat
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .heartbeatSlow { animation-name: heartbeatSlow; animation-iteration-count: infinite; animation-duration: .5s }
 @keyframes heartbeatSlow {
     35%, 65% { transform: scale(1.2) }
@@ -4698,6 +5473,9 @@ Heartbeat
     14%, 42% { transform: scale(1.3) }
     28%, 70% { transform: scale(1) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -4708,6 +5486,7 @@ Hang On
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .hangOnLeft {
     animation-name: hangOnLeft
 }
@@ -4716,6 +5495,11 @@ Hang On
     from {
         transform-origin: left;
     }
+=======
+.hangOnLeft { animation-name: hangOnLeft }
+@keyframes hangOnLeft {
+    from { transform-origin: left; }
+>>>>>>> Stashed changes
 =======
 .hangOnLeft { animation-name: hangOnLeft }
 @keyframes hangOnLeft {
@@ -4750,6 +5534,7 @@ Hang On
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .hangOnRight {
     animation-name: hangOnRight
 }
@@ -4758,6 +5543,11 @@ Hang On
     from {
         transform-origin: right;
     }
+=======
+.hangOnRight { animation-name: hangOnRight }
+@keyframes hangOnRight {
+    from { transform-origin: right; }
+>>>>>>> Stashed changes
 =======
 .hangOnRight { animation-name: hangOnRight }
 @keyframes hangOnRight {
@@ -4795,6 +5585,7 @@ Hang And Drop
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .hangAndDropLeft {
     animation-name: hangAndDropLeft
 }
@@ -4803,6 +5594,11 @@ Hang And Drop
     from {
         transform-origin: left
     }
+=======
+.hangAndDropLeft { animation-name: hangAndDropLeft }
+@keyframes hangAndDropLeft {
+    from { transform-origin: left }
+>>>>>>> Stashed changes
 =======
 .hangAndDropLeft { animation-name: hangAndDropLeft }
 @keyframes hangAndDropLeft {
@@ -4831,6 +5627,7 @@ Hang And Drop
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .hangAndDropRight {
     animation-name: hangAndDropRight
 }
@@ -4839,6 +5636,11 @@ Hang And Drop
     from {
         transform-origin: right
     }
+=======
+.hangAndDropRight { animation-name: hangAndDropRight }
+@keyframes hangAndDropRight {
+    from { transform-origin: right }
+>>>>>>> Stashed changes
 =======
 .hangAndDropRight { animation-name: hangAndDropRight }
 @keyframes hangAndDropRight {
@@ -4868,6 +5670,7 @@ Hang And Drop
 /*************************************************************
 Shake
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .pulseShake {
@@ -5003,6 +5806,8 @@ Shake
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .pulseShake { animation-name: pulseShake; animation-iteration-count: infinite }
 @keyframes pulseShake {
     90% { transform: scale(1) }
@@ -5057,6 +5862,9 @@ Shake
 @keyframes vibration {
     50% { transform: skewY(1deg) skewX(-1deg) scale(1.06) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -5065,6 +5873,7 @@ Shake
 /*************************************************************
 Push Release From
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .pushReleaseFrom {
@@ -5077,11 +5886,15 @@ Push Release From
 =======
 .pushReleaseFrom { animation-name: pushReleaseFrom }
 >>>>>>> Stashed changes
+=======
+.pushReleaseFrom { animation-name: pushReleaseFrom }
+>>>>>>> Stashed changes
 @keyframes pushReleaseFrom {
     from {
         transform: scale(3, 3);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     30% {
@@ -5142,6 +5955,8 @@ Push Release From
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     30% { transform: scale(.5, .5) }
 }
 
@@ -5168,6 +5983,9 @@ Push Release From
     from { transform: translateY(100%) }
     30% { transform: translateY(-100px) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -5176,6 +5994,7 @@ Push Release From
 /*************************************************************
 Push Release To
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .pushReleaseTo {
@@ -5196,12 +6015,18 @@ Push Release To
 @keyframes pushReleaseTo {
     30% { transform: scale(.5, .5) }
 >>>>>>> Stashed changes
+=======
+.pushReleaseTo { animation-name: pushReleaseTo }
+@keyframes pushReleaseTo {
+    30% { transform: scale(.5, .5) }
+>>>>>>> Stashed changes
     to {
         transform: scale(5, 5);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .pushReleaseToLeft {
@@ -5222,12 +6047,18 @@ Push Release To
 @keyframes pushReleaseToLeft {
     30% { transform: translateX(100px) }
 >>>>>>> Stashed changes
+=======
+.pushReleaseToLeft { animation-name: pushReleaseToLeft }
+@keyframes pushReleaseToLeft {
+    30% { transform: translateX(100px) }
+>>>>>>> Stashed changes
     to {
         transform: translateX(-100%);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .pushReleaseToRight {
@@ -5248,12 +6079,18 @@ Push Release To
 @keyframes pushReleaseToRight {
     30% { transform: translateX(-100px) }
 >>>>>>> Stashed changes
+=======
+.pushReleaseToRight { animation-name: pushReleaseToRight }
+@keyframes pushReleaseToRight {
+    30% { transform: translateX(-100px) }
+>>>>>>> Stashed changes
     to {
         transform: translateX(100%);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .pushReleaseToTop {
@@ -5274,12 +6111,18 @@ Push Release To
 @keyframes pushReleaseToTop {
     30% { transform: translateY(100px) }
 >>>>>>> Stashed changes
+=======
+.pushReleaseToTop { animation-name: pushReleaseToTop }
+@keyframes pushReleaseToTop {
+    30% { transform: translateY(100px) }
+>>>>>>> Stashed changes
     to {
         transform: translateY(-100%);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .pushReleaseToBottom {
@@ -5290,6 +6133,11 @@ Push Release To
     30% {
         transform: translateY(-100px)
     }
+=======
+.pushReleaseToBottom { animation-name: pushReleaseToBottom }
+@keyframes pushReleaseToBottom {
+    30% { transform: translateY(-100px) }
+>>>>>>> Stashed changes
 =======
 .pushReleaseToBottom { animation-name: pushReleaseToBottom }
 @keyframes pushReleaseToBottom {
@@ -5311,10 +6159,14 @@ Flip X
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .flipX {
     animation-name: flipX
 }
 
+=======
+.flipX { animation-name: flipX }
+>>>>>>> Stashed changes
 =======
 .flipX { animation-name: flipX }
 >>>>>>> Stashed changes
@@ -5326,6 +6178,7 @@ Flip X
         transform: perspective(600px) rotateX(-180deg);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -5378,6 +6231,8 @@ Flip X
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { transform: perspective(600px) rotateX(-360deg) }
 }
 
@@ -5414,6 +6269,9 @@ Flip X
     }
     to  { transform: scale(1) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -5422,6 +6280,7 @@ Flip X
 /*************************************************************
 Flip Y
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .flipY {
@@ -5434,11 +6293,15 @@ Flip Y
 =======
 .flipY { animation-name: flipY }
 >>>>>>> Stashed changes
+=======
+.flipY { animation-name: flipY }
+>>>>>>> Stashed changes
 @keyframes flipY {
     from {
         transform: perspective(600px) rotateY(180deg);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -5491,6 +6354,8 @@ Flip Y
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { transform: perspective(600px) rotateY(360deg) }
 }
 
@@ -5527,6 +6392,9 @@ Flip Y
     }
     to  { transform: scale(1) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -5535,6 +6403,7 @@ Flip Y
 /*************************************************************
 Skew
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .skewLeft {
@@ -5564,6 +6433,8 @@ Skew
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .skewLeft { animation-name: skewLeft }
 @keyframes skewLeft {
     70% { transform: skewX(40deg) }
@@ -5576,6 +6447,9 @@ Skew
 
 .skewInLeft { animation-name: skewInLeft }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -5584,6 +6458,7 @@ Skew
         opacity: 0;
         transform: translateX(-100%) skewX(-40deg)
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     70% {
@@ -5598,11 +6473,16 @@ Skew
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     70% { transform: skewX(-30deg) }
 }
 
 .skewInRight { animation-name: skewInRight }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -5611,6 +6491,7 @@ Skew
         opacity: 0;
         transform: translateX(100%) skewX(40deg)
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     70% {
@@ -5629,6 +6510,8 @@ Skew
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     70% { transform: skewX(30deg) }
 }
 
@@ -5636,6 +6519,9 @@ Skew
 @keyframes skewOutLeft {
     20% { transform: skewX(40deg) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -5645,6 +6531,7 @@ Skew
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .skewOutRight {
@@ -5665,6 +6552,11 @@ Skew
 @keyframes skewOutRight {
     20% { transform: skewX(-40deg) }
 >>>>>>> Stashed changes
+=======
+.skewOutRight { animation-name: skewOutRight }
+@keyframes skewOutRight {
+    20% { transform: skewX(-40deg) }
+>>>>>>> Stashed changes
     to {
         transform: translateX(100%) skewX(-40deg);
         opacity: 0
@@ -5674,6 +6566,7 @@ Skew
 /*************************************************************
 Shock In
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .shockZoom {
@@ -5757,6 +6650,8 @@ Shock In
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .shockZoom { animation-name: shockZoom }
 @keyframes shockZoom {
     from { transform: matrix(5, 0, 0, 5, 0, 0) }
@@ -5791,6 +6686,9 @@ Shock In
     35% { transform: matrix(1, 0, 0, 1, 0, -50) }
     43% { transform: matrix(1, 0, 0, 1, 0, 0) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -5799,6 +6697,7 @@ Shock In
 /*************************************************************
 Pull release
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .pullRelease {
@@ -5822,6 +6721,8 @@ Pull release
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .pullRelease { animation-name: pullRelease }
 @keyframes pullRelease {
     15% { transform: scale(1.8) }
@@ -5831,6 +6732,9 @@ Pull release
 @keyframes pushRelease {
     15% { transform: scale(.5) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -5839,6 +6743,7 @@ Pull release
 /*************************************************************
 Swing In
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .swingInLeft {
@@ -5851,11 +6756,15 @@ Swing In
 =======
 .swingInLeft { animation-name: swingInLeft }
 >>>>>>> Stashed changes
+=======
+.swingInLeft { animation-name: swingInLeft }
+>>>>>>> Stashed changes
 @keyframes swingInLeft {
     from {
         transform: matrix(3, 0, 0, 3, -800, 0);
         animation-timing-function: ease-out;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     50% {
@@ -5870,11 +6779,16 @@ Swing In
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     50% { transform: matrix(1.3, 0, 0, 1.3, 20, 0) }
 }
 
 .swingInRight { animation-name: swingInRight }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -5883,6 +6797,7 @@ Swing In
         transform: matrix(3, 0, 0, 3, 800, 0);
         animation-timing-function: ease-out;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     50% {
@@ -5897,11 +6812,16 @@ Swing In
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     50% { transform: matrix(1.3, 0, 0, 1.3, -20, 0) }
 }
 
 .swingInTop { animation-name: swingInTop }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -5910,6 +6830,7 @@ Swing In
         transform: matrix(3, 0, 0, 3, 0, -800);
         animation-timing-function: ease-out;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     50% {
@@ -5924,11 +6845,16 @@ Swing In
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     50% { transform: matrix(1.3, 0, 0, 1.3, 0, 20) }
 }
 
 .swingInBottom { animation-name: swingInBottom }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -5939,9 +6865,13 @@ Swing In
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     50% {
         transform: matrix(1.3, 0, 0, 1.3, 0, -20)
     }
+=======
+    50% { transform: matrix(1.3, 0, 0, 1.3, 0, -20) }
+>>>>>>> Stashed changes
 =======
     50% { transform: matrix(1.3, 0, 0, 1.3, 0, -20) }
 >>>>>>> Stashed changes
@@ -5956,10 +6886,14 @@ Elevate
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .elevateLeft {
     animation-name: elevateLeft
 }
 
+=======
+.elevateLeft { animation-name: elevateLeft }
+>>>>>>> Stashed changes
 =======
 .elevateLeft { animation-name: elevateLeft }
 >>>>>>> Stashed changes
@@ -5983,10 +6917,14 @@ Elevate
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .elevateRight {
     animation-name: elevateRight
 }
 
+=======
+.elevateRight { animation-name: elevateRight }
+>>>>>>> Stashed changes
 =======
 .elevateRight { animation-name: elevateRight }
 >>>>>>> Stashed changes
@@ -6013,10 +6951,14 @@ Roll From
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .rollFromLeft {
     animation-name: rollFromLeft
 }
 
+=======
+.rollFromLeft { animation-name: rollFromLeft }
+>>>>>>> Stashed changes
 =======
 .rollFromLeft { animation-name: rollFromLeft }
 >>>>>>> Stashed changes
@@ -6036,10 +6978,14 @@ Roll From
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .rollFromRight {
     animation-name: rollFromRight
 }
 
+=======
+.rollFromRight { animation-name: rollFromRight }
+>>>>>>> Stashed changes
 =======
 .rollFromRight { animation-name: rollFromRight }
 >>>>>>> Stashed changes
@@ -6060,10 +7006,14 @@ Roll From
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .rollFromTop {
     animation-name: rollFromTop
 }
 
+=======
+.rollFromTop { animation-name: rollFromTop }
+>>>>>>> Stashed changes
 =======
 .rollFromTop { animation-name: rollFromTop }
 >>>>>>> Stashed changes
@@ -6083,10 +7033,14 @@ Roll From
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .rollFromBottom {
     animation-name: rollFromBottom
 }
 
+=======
+.rollFromBottom { animation-name: rollFromBottom }
+>>>>>>> Stashed changes
 =======
 .rollFromBottom { animation-name: rollFromBottom }
 >>>>>>> Stashed changes
@@ -6109,10 +7063,14 @@ Roll To
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .rollToLeft {
     animation-name: rollToLeft
 }
 
+=======
+.rollToLeft { animation-name: rollToLeft }
+>>>>>>> Stashed changes
 =======
 .rollToLeft { animation-name: rollToLeft }
 >>>>>>> Stashed changes
@@ -6132,10 +7090,14 @@ Roll To
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .rollToRight {
     animation-name: rollToRight
 }
 
+=======
+.rollToRight { animation-name: rollToRight }
+>>>>>>> Stashed changes
 =======
 .rollToRight { animation-name: rollToRight }
 >>>>>>> Stashed changes
@@ -6155,10 +7117,14 @@ Roll To
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .rollToTop {
     animation-name: rollToTop
 }
 
+=======
+.rollToTop { animation-name: rollToTop }
+>>>>>>> Stashed changes
 =======
 .rollToTop { animation-name: rollToTop }
 >>>>>>> Stashed changes
@@ -6178,10 +7144,14 @@ Roll To
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .rollToBottom {
     animation-name: rollToBottom
 }
 
+=======
+.rollToBottom { animation-name: rollToBottom }
+>>>>>>> Stashed changes
 =======
 .rollToBottom { animation-name: rollToBottom }
 >>>>>>> Stashed changes
@@ -6202,6 +7172,7 @@ Roll To
 /*************************************************************
 Rotation
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .rotate {
@@ -6238,6 +7209,8 @@ Rotation
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .rotate { animation-name: rotate; animation-timing-function: ease-in-out }
 @keyframes rotate {
     from { transform: rotate(0deg) }
@@ -6252,6 +7225,9 @@ Rotation
 
 .rotateXIn { animation-name: rotateXIn }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -6260,6 +7236,7 @@ Rotation
         transform: perspective(600px) translate3d(0, -60px, -2000px) rotateX(75deg);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     5% {
@@ -6278,6 +7255,8 @@ Rotation
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     5% { transform: perspective(600px) translate3d(0, -60px, -1500px) rotateX(75deg) }
 }
 
@@ -6285,6 +7264,9 @@ Rotation
 @keyframes rotateXOut {
     95% { transform: perspective(600px) translate3d(0, -60px, -1500px) rotateX(75deg) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -6294,6 +7276,7 @@ Rotation
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .rotateY {
@@ -6316,6 +7299,8 @@ Rotation
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .rotateY { animation-name: rotateY }
 @keyframes rotateY {
     from { transform: perspective(600px) rotateY(0deg) }
@@ -6324,6 +7309,9 @@ Rotation
 
 .rotateYIn { animation-name: rotateYIn }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -6332,6 +7320,7 @@ Rotation
         transform: perspective(600px) translate3d(0, -60px, -2000px) rotateY(75deg);
         opacity: 0;
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     5% {
@@ -6350,6 +7339,8 @@ Rotation
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     5% { transform: perspective(600px) translate3d(0, -60px, -1500px) rotateY(75deg) }
 }
 
@@ -6357,6 +7348,9 @@ Rotation
 @keyframes rotateYOut {
     95% { transform: perspective(600px) translate3d(0, -60px, -1500px) rotateY(75deg) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -6371,10 +7365,14 @@ Rotate In
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .rotateInLeft {
     animation-name: rotateInLeft
 }
 
+=======
+.rotateInLeft { animation-name: rotateInLeft }
+>>>>>>> Stashed changes
 =======
 .rotateInLeft { animation-name: rotateInLeft }
 >>>>>>> Stashed changes
@@ -6386,6 +7384,7 @@ Rotate In
         opacity: 0;
         transform: translateX(-100%) rotate(0deg)
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -6400,11 +7399,16 @@ Rotate In
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { transform: translateX(0px) rotate(360deg) }
 }
 
 .rotateInRight { animation-name: rotateInRight }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -6413,6 +7417,7 @@ Rotate In
         opacity: 0;
         transform: translateX(100%) rotate(0deg)
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -6427,11 +7432,16 @@ Rotate In
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { transform: translateX(0px) rotate(-360deg) }
 }
 
 .rotateInTop { animation-name: rotateInTop }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -6440,6 +7450,7 @@ Rotate In
         opacity: 0;
         transform: translateY(-400%) rotate(0deg)
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -6454,11 +7465,16 @@ Rotate In
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { transform: translateX(0px) rotate(360deg) }
 }
 
 .rotateInBottom { animation-name: rotateInBottom }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -6467,6 +7483,7 @@ Rotate In
         opacity: 0;
         transform: translateY(400%) rotate(0deg)
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -6478,11 +7495,15 @@ Rotate In
 =======
     to { transform: translateX(0px) rotate(360deg) }
 >>>>>>> Stashed changes
+=======
+    to { transform: translateX(0px) rotate(360deg) }
+>>>>>>> Stashed changes
 }
 
 /*************************************************************
 Rotate Out
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .rotateOutLeft {
@@ -6503,12 +7524,18 @@ Rotate Out
 @keyframes rotateOutLeft {
     from { transform: translateX(0px) rotate(360deg) }
 >>>>>>> Stashed changes
+=======
+.rotateOutLeft { animation-name: rotateOutLeft }
+@keyframes rotateOutLeft {
+    from { transform: translateX(0px) rotate(360deg) }
+>>>>>>> Stashed changes
     to {
         transform: translateX(-800px) rotate(0deg);
         opacity: 0
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .rotateOutRight {
@@ -6529,12 +7556,18 @@ Rotate Out
 @keyframes rotateOutRight {
     from { transform: translateX(0px) rotate(-360deg) }
 >>>>>>> Stashed changes
+=======
+.rotateOutRight { animation-name: rotateOutRight }
+@keyframes rotateOutRight {
+    from { transform: translateX(0px) rotate(-360deg) }
+>>>>>>> Stashed changes
     to {
         transform: translateX(800px) rotate(0deg);
         opacity: 0
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .rotateOutTop {
@@ -6555,12 +7588,18 @@ Rotate Out
 @keyframes rotateOutTop {
     from { transform: translateX(0px) rotate(360deg) }
 >>>>>>> Stashed changes
+=======
+.rotateOutTop { animation-name: rotateOutTop }
+@keyframes rotateOutTop {
+    from { transform: translateX(0px) rotate(360deg) }
+>>>>>>> Stashed changes
     to {
         transform: translateY(-800px) rotate(0deg);
         opacity: 0
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .rotateOutBottom {
@@ -6571,6 +7610,11 @@ Rotate Out
     from {
         transform: translateX(0px) rotate(360deg)
     }
+=======
+.rotateOutBottom { animation-name: rotateOutBottom }
+@keyframes rotateOutBottom {
+    from { transform: translateX(0px) rotate(360deg) }
+>>>>>>> Stashed changes
 =======
 .rotateOutBottom { animation-name: rotateOutBottom }
 @keyframes rotateOutBottom {
@@ -6592,6 +7636,7 @@ Spin To
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .spinToLeft {
     animation-name: spinToLeft
 }
@@ -6610,12 +7655,18 @@ Spin To
 @keyframes spinToLeft {
     from, to { transform-origin: left bottom }
 >>>>>>> Stashed changes
+=======
+.spinToLeft { animation-name: spinToLeft }
+@keyframes spinToLeft {
+    from, to { transform-origin: left bottom }
+>>>>>>> Stashed changes
     from {
         transform: rotate(90deg);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .spinToRight {
@@ -6636,12 +7687,18 @@ Spin To
 @keyframes spinToRight {
     from, to { transform-origin: right bottom }
 >>>>>>> Stashed changes
+=======
+.spinToRight { animation-name: spinToRight }
+@keyframes spinToRight {
+    from, to { transform-origin: right bottom }
+>>>>>>> Stashed changes
     from {
         transform: rotate(-90deg);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .spinToTop {
@@ -6662,12 +7719,18 @@ Spin To
 @keyframes spinToTop {
     from, to { transform-origin: left bottom }
 >>>>>>> Stashed changes
+=======
+.spinToTop { animation-name: spinToTop }
+@keyframes spinToTop {
+    from, to { transform-origin: left bottom }
+>>>>>>> Stashed changes
     from {
         transform: rotate(-90deg);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .spinToBottom {
@@ -6678,6 +7741,11 @@ Spin To
     from, to {
         transform-origin: right bottom
     }
+=======
+.spinToBottom { animation-name: spinToBottom }
+@keyframes spinToBottom {
+    from, to { transform-origin: right bottom }
+>>>>>>> Stashed changes
 =======
 .spinToBottom { animation-name: spinToBottom }
 @keyframes spinToBottom {
@@ -6699,6 +7767,7 @@ Spin From
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .spinFromLeft {
     animation-name: spinFromLeft
 }
@@ -6717,12 +7786,18 @@ Spin From
 @keyframes spinFromLeft {
     from, to { transform-origin: left bottom }
 >>>>>>> Stashed changes
+=======
+.spinFromLeft { animation-name: spinFromLeft }
+@keyframes spinFromLeft {
+    from, to { transform-origin: left bottom }
+>>>>>>> Stashed changes
     to {
         transform: rotate(90deg);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .spinFromRight {
@@ -6743,12 +7818,18 @@ Spin From
 @keyframes spinFromRight {
     from, to { transform-origin: right bottom }
 >>>>>>> Stashed changes
+=======
+.spinFromRight { animation-name: spinFromRight }
+@keyframes spinFromRight {
+    from, to { transform-origin: right bottom }
+>>>>>>> Stashed changes
     to {
         transform: rotate(-90deg);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .spinFromTop {
@@ -6769,12 +7850,18 @@ Spin From
 @keyframes spinFromTop {
     from, to { transform-origin: left bottom }
 >>>>>>> Stashed changes
+=======
+.spinFromTop { animation-name: spinFromTop }
+@keyframes spinFromTop {
+    from, to { transform-origin: left bottom }
+>>>>>>> Stashed changes
     to {
         transform: rotate(-90deg);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .spinFromBottom {
@@ -6785,6 +7872,11 @@ Spin From
     from, to {
         transform-origin: right bottom
     }
+=======
+.spinFromBottom { animation-name: spinFromBottom }
+@keyframes spinFromBottom {
+    from, to { transform-origin: right bottom }
+>>>>>>> Stashed changes
 =======
 .spinFromBottom { animation-name: spinFromBottom }
 @keyframes spinFromBottom {
@@ -6807,10 +7899,14 @@ Blur In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .blurIn {
     animation-name: blurIn
 }
 
+=======
+.blurIn { animation-name: blurIn }
+>>>>>>> Stashed changes
 =======
 .blurIn { animation-name: blurIn }
 >>>>>>> Stashed changes
@@ -6826,10 +7922,14 @@ Blur In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .blurInLeft {
     animation-name: blurInLeft
 }
 
+=======
+.blurInLeft { animation-name: blurInLeft }
+>>>>>>> Stashed changes
 =======
 .blurInLeft { animation-name: blurInLeft }
 >>>>>>> Stashed changes
@@ -6846,10 +7946,14 @@ Blur In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .blurInRight {
     animation-name: blurInRight
 }
 
+=======
+.blurInRight { animation-name: blurInRight }
+>>>>>>> Stashed changes
 =======
 .blurInRight { animation-name: blurInRight }
 >>>>>>> Stashed changes
@@ -6866,10 +7970,14 @@ Blur In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .blurInTop {
     animation-name: blurInTop
 }
 
+=======
+.blurInTop { animation-name: blurInTop }
+>>>>>>> Stashed changes
 =======
 .blurInTop { animation-name: blurInTop }
 >>>>>>> Stashed changes
@@ -6886,10 +7994,14 @@ Blur In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .blurInBottom {
     animation-name: blurInBottom
 }
 
+=======
+.blurInBottom { animation-name: blurInBottom }
+>>>>>>> Stashed changes
 =======
 .blurInBottom { animation-name: blurInBottom }
 >>>>>>> Stashed changes
@@ -6907,6 +8019,7 @@ Blur In
 /*************************************************************
 Blur Out
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .blurOut {
@@ -6929,6 +8042,8 @@ Blur Out
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .blurOut { animation-name: blurOut }
 @keyframes blurOut {
     85%, to { filter: blur(20px) }
@@ -6937,6 +8052,9 @@ Blur Out
 
 .blurOutLeft { animation-name: blurOutLeft }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -6945,6 +8063,7 @@ Blur Out
         filter: blur(20px);
         transform: translateX(100%);
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -6959,11 +8078,16 @@ Blur Out
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { opacity: 0 }
 }
 
 .blurOutRight { animation-name: blurOutRight }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -6972,6 +8096,7 @@ Blur Out
         filter: blur(20px);
         transform: translateX(-100%);
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -6986,11 +8111,16 @@ Blur Out
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { opacity: 0 }
 }
 
 .blurOutTop { animation-name: blurOutTop }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -6999,6 +8129,7 @@ Blur Out
         filter: blur(20px);
         transform: translateY(100%);
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     to {
@@ -7013,11 +8144,16 @@ Blur Out
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     to { opacity: 0 }
 }
 
 .blurOutBottom { animation-name: blurOutBottom }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7028,9 +8164,13 @@ Blur Out
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     to {
         opacity: 0
     }
+=======
+    to { opacity: 0 }
+>>>>>>> Stashed changes
 =======
     to { opacity: 0 }
 >>>>>>> Stashed changes
@@ -7044,10 +8184,14 @@ Bounce
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .bounceFromTop {
     animation-name: bounceFromTop
 }
 
+=======
+.bounceFromTop { animation-name: bounceFromTop }
+>>>>>>> Stashed changes
 =======
 .bounceFromTop { animation-name: bounceFromTop }
 >>>>>>> Stashed changes
@@ -7069,6 +8213,7 @@ Bounce
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     90% {
         transform: translate3d(0, -4px, 0)
     }
@@ -7081,11 +8226,16 @@ Bounce
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     90% { transform: translate3d(0, -4px, 0) }
 }
 
 .bounceFromDown { animation-name: bounceFromDown }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7104,6 +8254,7 @@ Bounce
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     90% {
         transform: translate3d(0, 4px, 0)
     }
@@ -7116,11 +8267,16 @@ Bounce
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     90% { transform: translate3d(0, 4px, 0) }
 }
 
 .bounceX { animation-name: bounceX }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7139,6 +8295,7 @@ Bounce
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     90% {
         transform: scale3d(1.1, 1, 1)
     }
@@ -7151,11 +8308,16 @@ Bounce
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     90% { transform: scale3d(1.1, 1, 1) }
 }
 
 .bounceY { animation-name: bounceY }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7174,6 +8336,7 @@ Bounce
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     90% {
         transform: scale3d(1, 1.1, 1)
     }
@@ -7186,11 +8349,16 @@ Bounce
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     90% { transform: scale3d(1, 1.1, 1) }
 }
 
 .bounceZoomIn { animation-name: bounceZoomIn }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7209,6 +8377,7 @@ Bounce
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     90% {
         transform: scale(1.1)
     }
@@ -7221,11 +8390,16 @@ Bounce
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     90% { transform: scale(1.1) }
 }
 
 .bounceZoomOut { animation-name: bounceZoomOut }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7244,9 +8418,13 @@ Bounce
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     90% {
         transform: scale(.9)
     }
+=======
+    90% { transform: scale(.9) }
+>>>>>>> Stashed changes
 =======
     90% { transform: scale(.9) }
 >>>>>>> Stashed changes
@@ -7258,6 +8436,7 @@ Bounce
 /*************************************************************
 Bounce In
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .bounceInTop {
@@ -7337,6 +8516,8 @@ Bounce In
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .bounceInTop { animation-name: bounceInTop }
 @keyframes bounceInTop {
     0% { transform: translate3d(0, -300%, 0) }
@@ -7368,6 +8549,9 @@ Bounce In
     73% { transform: translate3d(12px, 0, 0) }
     88% { transform: translate3d(-8px, 0, 0) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7376,6 +8560,7 @@ Bounce In
 /*************************************************************
 Bounce Out
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .bounceOutTop {
@@ -7398,6 +8583,8 @@ Bounce Out
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .bounceOutTop { animation-name: bounceOutTop }
 @keyframes bounceOutTop {
     18%, 33%, 48% { opacity: 1}
@@ -7405,6 +8592,9 @@ Bounce Out
     33% { transform: translate3d(0, -12px, 0) }
     48% { transform: translate3d(0, 8px, 0) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7414,6 +8604,7 @@ Bounce Out
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .bounceOutBottom {
@@ -7436,6 +8627,8 @@ Bounce Out
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .bounceOutBottom { animation-name: bounceOutBottom }
 @keyframes bounceOutBottom {
     18%, 33%, 48% { opacity: 1}
@@ -7443,6 +8636,9 @@ Bounce Out
     33% { transform: translate3d(0, 12px, 0) }
     48% { transform: translate3d(0, -8px, 0) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7452,6 +8648,7 @@ Bounce Out
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .bounceOutLeft {
@@ -7474,6 +8671,8 @@ Bounce Out
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .bounceOutLeft { animation-name: bounceOutLeft }
 @keyframes bounceOutLeft {
     18%, 33%, 48% { opacity: 1}
@@ -7481,6 +8680,9 @@ Bounce Out
     33% { transform: translate3d(-12px, 0, 0) }
     48% { transform: translate3d(8px, 0, 0) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7490,6 +8692,7 @@ Bounce Out
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .bounceOutRight {
@@ -7512,6 +8715,8 @@ Bounce Out
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .bounceOutRight { animation-name: bounceOutRight }
 @keyframes bounceOutRight {
     18%, 33%, 48% { opacity: 1}
@@ -7519,6 +8724,9 @@ Bounce Out
     33% { transform: translate3d(12px, 0, 0) }
     48% { transform: translate3d(-8px, 0, 0) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7531,6 +8739,7 @@ Bounce Out
 /*************************************************************
 Perspective
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .perspectiveToTop {
@@ -7553,12 +8762,18 @@ Perspective
 @keyframes perspectiveToTop {
     50% { opacity: 1 }
 >>>>>>> Stashed changes
+=======
+.perspectiveToTop { animation-name: perspectiveToTop; transform: perspective(500px); transform-style: preserve-3d }
+@keyframes perspectiveToTop {
+    50% { opacity: 1 }
+>>>>>>> Stashed changes
     to {
         transform: perspective(500px) rotateX(90deg) translateY(-50px) translateZ(50px);
         opacity: 0;
     }
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .perspectiveToBottom {
@@ -7581,6 +8796,11 @@ Perspective
 @keyframes perspectiveToBottom {
     50% { opacity: 1 }
 >>>>>>> Stashed changes
+=======
+.perspectiveToBottom { animation-name: perspectiveToBottom; transform: perspective(500px); transform-style: preserve-3d }
+@keyframes perspectiveToBottom {
+    50% { opacity: 1 }
+>>>>>>> Stashed changes
     to {
         transform: perspective(500px) rotateX(90deg) translateY(50px) translateZ(-50px);
         opacity: 0;
@@ -7592,10 +8812,14 @@ Zoom In
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .zoomIn {
     animation-name: zoomIn
 }
 
+=======
+.zoomIn { animation-name: zoomIn }
+>>>>>>> Stashed changes
 =======
 .zoomIn { animation-name: zoomIn }
 >>>>>>> Stashed changes
@@ -7611,10 +8835,14 @@ Zoom In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .zoomInLeft {
     animation-name: zoomInLeft
 }
 
+=======
+.zoomInLeft { animation-name: zoomInLeft }
+>>>>>>> Stashed changes
 =======
 .zoomInLeft { animation-name: zoomInLeft }
 >>>>>>> Stashed changes
@@ -7630,10 +8858,14 @@ Zoom In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .zoomInRight {
     animation-name: zoomInRight
 }
 
+=======
+.zoomInRight { animation-name: zoomInRight }
+>>>>>>> Stashed changes
 =======
 .zoomInRight { animation-name: zoomInRight }
 >>>>>>> Stashed changes
@@ -7649,10 +8881,14 @@ Zoom In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .zoomInTop {
     animation-name: zoomInTop
 }
 
+=======
+.zoomInTop { animation-name: zoomInTop }
+>>>>>>> Stashed changes
 =======
 .zoomInTop { animation-name: zoomInTop }
 >>>>>>> Stashed changes
@@ -7668,10 +8904,14 @@ Zoom In
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .zoomInBottom {
     animation-name: zoomInBottom
 }
 
+=======
+.zoomInBottom { animation-name: zoomInBottom }
+>>>>>>> Stashed changes
 =======
 .zoomInBottom { animation-name: zoomInBottom }
 >>>>>>> Stashed changes
@@ -7690,10 +8930,14 @@ Zoom Out
 **************************************************************/
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .zoomOut {
     animation-name: zoomOut
 }
 
+=======
+.zoomOut { animation-name: zoomOut }
+>>>>>>> Stashed changes
 =======
 .zoomOut { animation-name: zoomOut }
 >>>>>>> Stashed changes
@@ -7709,10 +8953,14 @@ Zoom Out
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .zoomOutLeft {
     animation-name: zoomOutLeft
 }
 
+=======
+.zoomOutLeft { animation-name: zoomOutLeft }
+>>>>>>> Stashed changes
 =======
 .zoomOutLeft { animation-name: zoomOutLeft }
 >>>>>>> Stashed changes
@@ -7728,10 +8976,14 @@ Zoom Out
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .zoomOutRight {
     animation-name: zoomOutRight
 }
 
+=======
+.zoomOutRight { animation-name: zoomOutRight }
+>>>>>>> Stashed changes
 =======
 .zoomOutRight { animation-name: zoomOutRight }
 >>>>>>> Stashed changes
@@ -7747,10 +8999,14 @@ Zoom Out
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .zoomOutTop {
     animation-name: zoomOutTop
 }
 
+=======
+.zoomOutTop { animation-name: zoomOutTop }
+>>>>>>> Stashed changes
 =======
 .zoomOutTop { animation-name: zoomOutTop }
 >>>>>>> Stashed changes
@@ -7766,10 +9022,14 @@ Zoom Out
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .zoomOutBottom {
     animation-name: zoomOutBottom
 }
 
+=======
+.zoomOutBottom { animation-name: zoomOutBottom }
+>>>>>>> Stashed changes
 =======
 .zoomOutBottom { animation-name: zoomOutBottom }
 >>>>>>> Stashed changes
@@ -7786,6 +9046,7 @@ Zoom Out
 /*************************************************************
 Dance
 **************************************************************/
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 .danceTop {
@@ -7857,6 +9118,8 @@ Dance
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .danceTop { animation-name: danceTop; transform-origin: top }
 @keyframes danceTop {
     16% { transform: skew(-14deg) }
@@ -7883,6 +9146,9 @@ Dance
     66% { transform: skew(6deg) }
     83% { transform: skew(-4deg) }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

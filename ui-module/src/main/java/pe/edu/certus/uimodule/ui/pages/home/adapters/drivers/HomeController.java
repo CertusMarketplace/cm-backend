@@ -12,9 +12,15 @@ public class HomeController implements ForHome {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @GetMapping( HomeRoute.HOME_PAGE_ROUTE )
     @Override
     public String showHomePage( ) {
+=======
+    @GetMapping( HomeRoute.HOME_PAGE_ROUTE)
+    @Override
+    public String showHomePage() {
+>>>>>>> Stashed changes
 =======
     @GetMapping( HomeRoute.HOME_PAGE_ROUTE)
     @Override

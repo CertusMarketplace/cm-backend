@@ -26,6 +26,7 @@ public record PeopleWebModel(
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         @Size(max = 15)
         String personMobilePhone,
 
@@ -44,6 +45,8 @@ public record PeopleWebModel(
         Integer personCurrentTerm
 ) {}
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         @Size(max = 15, message = "El número de teléfono no puede exceder los 15 caracteres")
