@@ -14,6 +14,9 @@ import pe.edu.certus.authmodule.logic.model.RegisterModel;
 import pe.edu.certus.authmodule.logic.ports.driver.ForAuth;
 import pe.edu.certus.authmodule.logic.ports.driver.ForGoogleAuth;
 import pe.edu.certus.authmodule.repository.entity.AuthEntity;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 import java.util.HashMap;
 

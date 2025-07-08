@@ -1,6 +1,12 @@
 package pe.edu.certus.uimodule.ui.pages.works.adapters.drivers;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+>>>>>>> Stashed changes
 =======
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import pe.edu.certus.uimodule.ui.pages.constants.BusinessRoute;
 import pe.edu.certus.worksmodule.logic.model.WorkModel;
 import pe.edu.certus.worksmodule.logic.ports.driver.ForWork;
@@ -19,6 +26,8 @@ import pe.edu.certus.worksmodule.logic.ports.driver.ForWork;
 @Controller
 @RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE )
 =======
+=======
+>>>>>>> Stashed changes
 import org.springframework.web.bind.annotation.RequestParam;
 import pe.edu.certus.uimodule.ui.pages.constants.BusinessRoute;
 import pe.edu.certus.ratingsmodule.logic.model.RatingModel;
@@ -31,11 +40,15 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping(BusinessRoute.BUSINESS_PAGE_ROUTE)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 @SuppressWarnings( "SpringJavaInjectionPointsAutowiringInspection" )
 public class WorkRouteController {
 
     private final ForWork forWork;
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
     public WorkRouteController( ForWork forWork ) {
@@ -54,6 +67,8 @@ public class WorkRouteController {
         model.addAttribute( "work", work );
         model.addAttribute( "ratings", work.getRatings( ) );
 =======
+=======
+>>>>>>> Stashed changes
     private final ForRating forRating;
 
     public WorkRouteController( ForWork forWork, ForRating forRating ) {
@@ -77,6 +92,9 @@ public class WorkRouteController {
 
         model.addAttribute("work", work);
         model.addAttribute("ratings", workRatings);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
         return WorkRoute.WORK_DETAIL_PAGE_FILE;

@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <head th:replace="~{fragments/head :: head}"></head>
 
 =======
+=======
+>>>>>>> Stashed changes
 <head>
     <th:block th:replace="~{fragments/head :: head}"></th:block>
     <title th:text="${work.workTitle} + ' - Certus Marketplace'">Detalle del Trabajo</title>
 </head>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 <body class="bg-gray-100 text-gray-900 pt-20">
 
 <header th:replace="~{fragments/main-header :: header}"></header>
 
 <main class="max-w-7xl mx-auto mt-10 p-6 bg-white rounded-lg shadow">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     <!-- ... (contenido de la página de detalles que ya tienes) ... -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
@@ -35,6 +42,8 @@
                          alt="Miniatura del trabajo">
                 </div>
 =======
+=======
+>>>>>>> Stashed changes
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
         <div class="grid gap-4">
             <div>
@@ -46,6 +55,9 @@
                 <div><img class="h-auto max-w-full rounded-lg" th:src="@{/img/works/detalle3.jpg}" alt=""></div>
                 <div><img class="h-auto max-w-full rounded-lg" th:src="@{/img/works/detalle4.jpg}" alt=""></div>
                 <div><img class="h-auto max-w-full rounded-lg" th:src="@{/img/works/detalle5.jpg}" alt=""></div>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             </div>
         </div>
@@ -53,6 +65,7 @@
         <div class="flex flex-col justify-between h-full">
             <div>
                 <div class="flex items-center justify-between mb-1">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                     <h1 class="text-2xl font-bold text-gray-800" th:text="${work.workTitle}">
                         Título del Trabajo</h1>
@@ -74,6 +87,8 @@
                             th:attr="data-id=${work.workId}">Agregar al carrito
                     </button>
 =======
+=======
+>>>>>>> Stashed changes
                     <h1 class="text-2xl font-bold text-gray-800" th:text="${work.workTitle}">Título del Trabajo</h1>
                 </div>
                 <p class="text-sm text-gray-500 mb-6">
@@ -84,6 +99,9 @@
                 <div class="flex flex-col sm:flex-row gap-4 mb-6">
                     <button class="flex-1 bg-white border border-[#00205b] text-[#00205b] hover:bg-blue-50 font-medium px-5 py-2.5 rounded-md transition duration-200">Contactar autor</button>
                     <button class="flex-1 bg-[#00205b] hover:bg-[#001a4d] text-white font-medium px-5 py-2.5 rounded-md transition duration-200">Agregar al carrito</button>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 </div>
 
@@ -97,6 +115,10 @@
         </div>
     </div>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
@@ -107,6 +129,7 @@
                 Este trabajo aún no tiene reseñas.
             </div>
             <div th:unless="${#lists.isEmpty(ratings)}" class="space-y-6">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                 <div th:each="rating : ${ratings}"
                      class="bg-white border rounded-lg shadow-sm p-4">
@@ -130,6 +153,8 @@
             </div>
         </div>
 =======
+=======
+>>>>>>> Stashed changes
                 <div th:each="rating : ${ratings}" class="bg-white border rounded-lg shadow-sm p-4">
                     <div class="flex items-center gap-3 mb-2">
                         <img th:src="@{/img/works/perfil-generico.png}" class="w-10 h-10 rounded-full object-cover" />
@@ -146,12 +171,16 @@
             </div>
         </div>
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         <div>
             <h3 class="text-xl font-semibold mb-4">Cuéntanos tu experiencia</h3>
             <form id="comment-form" class="mb-8">
                 <div class="mb-4">
                     <label for="comment-textarea" class="sr-only">Tu comentario</label>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                     <textarea id="comment-textarea" rows="4"
                               class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
@@ -163,6 +192,8 @@
                 </button>
             </form>
 =======
+=======
+>>>>>>> Stashed changes
                     <textarea id="comment-textarea" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Escribe tu comentario aquí..." required></textarea>
                 </div>
                 <button type="submit" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-[#00205b] rounded-lg hover:bg-[#001a4d] focus:ring-4 focus:outline-none focus:ring-blue-300">
@@ -170,6 +201,9 @@
                 </button>
             </form>
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             <div id="comments-list" class="space-y-6">
                 <p class="text-gray-500">Aún no hay comentarios.</p>
@@ -178,6 +212,7 @@
     </div>
 </main>
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <!-- Drawer del Carrito -->
 <div id="cart-drawer"
@@ -209,6 +244,8 @@
     </div>
 </div>
 =======
+=======
+>>>>>>> Stashed changes
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.2.1/dist/flowbite.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -247,6 +284,9 @@
         });
     });
 </script>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 </body>

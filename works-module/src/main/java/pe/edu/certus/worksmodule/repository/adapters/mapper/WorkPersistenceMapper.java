@@ -5,7 +5,11 @@ import pe.edu.certus.worksmodule.logic.model.CommentModel;
 import pe.edu.certus.worksmodule.logic.model.RatingModel;
 import pe.edu.certus.worksmodule.logic.model.WorkModel;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import pe.edu.certus.worksmodule.repository.entity.RatingEntity;
+=======
+import pe.edu.certus.worksmodule.repository.entity.WorkCategoryEntity;
+>>>>>>> Stashed changes
 =======
 import pe.edu.certus.worksmodule.repository.entity.WorkCategoryEntity;
 >>>>>>> Stashed changes
@@ -23,6 +27,7 @@ import java.util.stream.Collectors;
 @Component
 public class WorkPersistenceMapper implements ForBridgingWork {
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     private final ForBridgingRating forBridgingRating;
     private final ForBridgingComment forBridgingComment;
@@ -97,6 +102,49 @@ public class WorkPersistenceMapper implements ForBridgingWork {
                 .workPublishedAt(workModel.getWorkPublishedAt())
                 .workUpdatedAt(workModel.getWorkUpdatedAt())
                 .workStatus(convertToEntityStatus(workModel.getWorkStatus()))
+=======
+    @Override
+    public WorkEntity toPersistence(WorkModel workModel) {
+        WorkCategoryEntity categoryEntity = null;
+        if (workModel.getIdWorkCategory() != null) {
+            categoryEntity = new WorkCategoryEntity();
+            categoryEntity.setId(workModel.getIdWorkCategory());
+        }
+
+        return WorkEntity.builder()
+                .workId(workModel.getWorkId())
+                .idSellerUser(workModel.getIdSellerUser())
+                .workCategory(categoryEntity)
+                .workTitle(workModel.getWorkTitle())
+                .workDescription(workModel.getWorkDescription())
+                .workPrice(workModel.getWorkPrice())
+                .workIsDeleted(workModel.getWorkIsDeleted())
+                .workImageUrl(workModel.getWorkImageUrl())
+                .workPublishedAt(workModel.getWorkPublishedAt())
+                .workUpdatedAt(workModel.getWorkUpdatedAt())
+                .workStatus(convertToEntityStatus(workModel.getWorkStatus()))
+                .build();
+    }
+
+    @Override
+    public  WorkModel fromPersistence(WorkEntity workEntity) {
+        Long categoryId = workEntity.getWorkCategory() != null ? workEntity.getWorkCategory().getId() : null;
+        String categoryName = workEntity.getWorkCategory() != null ? workEntity.getWorkCategory().getName() : null;
+
+        return WorkModel.builder()
+                .workId(workEntity.getWorkId())
+                .idSellerUser(workEntity.getIdSellerUser())
+                .idWorkCategory(categoryId)
+                .workCategory(categoryName)
+                .workTitle(workEntity.getWorkTitle())
+                .workDescription(workEntity.getWorkDescription())
+                .workPrice(workEntity.getWorkPrice())
+                .workIsDeleted(workEntity.getWorkIsDeleted())
+                .workImageUrl(workEntity.getWorkImageUrl())
+                .workPublishedAt(workEntity.getWorkPublishedAt())
+                .workUpdatedAt(workEntity.getWorkUpdatedAt())
+                .workStatus(convertToModelStatus(workEntity.getWorkStatus()))
+>>>>>>> Stashed changes
                 .build();
     }
 

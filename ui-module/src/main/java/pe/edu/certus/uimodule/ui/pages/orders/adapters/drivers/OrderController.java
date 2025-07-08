@@ -8,15 +8,21 @@ import pe.edu.certus.uimodule.ui.pages.orders.ports.drivers.ForOrder;
 
 @Controller
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 @RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE )
 public class OrderController implements ForOrder {
 
     @GetMapping( OrderRoute.ORDERS_PAGE_ROUTE )
 =======
+=======
+>>>>>>> Stashed changes
 @RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE)
 public class OrderController implements ForOrder {
 
     @GetMapping( OrderRoute.ORDERS_PAGE_ROUTE)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     @Override
     public String showOrders( ) {
@@ -25,7 +31,11 @@ public class OrderController implements ForOrder {
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @GetMapping( OrderRoute.ORDER_DETAILS_PAGE_ROUTE )
+=======
+    @GetMapping( OrderRoute.ORDER_DETAILS_PAGE_ROUTE)
+>>>>>>> Stashed changes
 =======
     @GetMapping( OrderRoute.ORDER_DETAILS_PAGE_ROUTE)
 >>>>>>> Stashed changes

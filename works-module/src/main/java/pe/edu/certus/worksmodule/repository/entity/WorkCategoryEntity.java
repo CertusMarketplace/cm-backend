@@ -12,7 +12,10 @@ import org.hibernate.annotations.Immutable;
 @Setter
 public class WorkCategoryEntity {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     @Id

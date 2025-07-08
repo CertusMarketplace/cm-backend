@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const API_URL = '/api/v1/works';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    const paginationContainer = document.getElementById('pagination-container');
+>>>>>>> Stashed changes
 =======
     const paginationContainer = document.getElementById('pagination-container');
 >>>>>>> Stashed changes
@@ -14,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bannerDescription = document.getElementById('banner-description');
 
     const categoryInfo = {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         'todos': {
             title: 'Todos los Productos',
@@ -48,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ).join('');
 
 =======
+=======
+>>>>>>> Stashed changes
         'todos': { title: 'Todos los Productos', description: 'Explora todas nuestras soluciones digitales disponibles.', bannerImage: '/img/works/banner-todos.jpg' },
         'cursos': { title: 'Cursos', description: 'Aprende y domina nuevas habilidades con nuestros cursos especializados.', bannerImage: '/img/works/banner-cursos.jpg' },
         'ilustraciones': { title: 'Ilustraciones Digitales', description: 'Descubre arte digital único y personalizable para tus proyectos.', bannerImage: '/img/works/banner-ilustraciones.jpg' },
@@ -62,6 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const starsHtml = Array(5).fill().map((_, i) =>
             `<i class="fa-solid fa-star ${i < Math.round(product.averageRating) ? 'text-gray-900' : 'text-gray-300'}"></i>`
         ).join('');
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         const detailUrl = `/marketplace/works/${product.workId}`;
 
@@ -72,7 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 </a>
                 <div class="p-4">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     <p class="text-sm text-gray-500 mb-2">${product.sellerName || 'Vendedor Anónimo'}</p>
+=======
+                    <p class="text-sm text-gray-500 mb-2">Vendedor ID: ${product.idSellerUser}</p>
+>>>>>>> Stashed changes
 =======
                     <p class="text-sm text-gray-500 mb-2">Vendedor ID: ${product.idSellerUser}</p>
 >>>>>>> Stashed changes
@@ -97,6 +111,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const filters = getSelectedFilters();
         const params = new URLSearchParams({
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+            page: currentPage - 1,
+            size: itemsPerPage,
+>>>>>>> Stashed changes
 =======
             page: currentPage - 1,
             size: itemsPerPage,
@@ -113,6 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             renderProductCards(products);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
@@ -134,7 +157,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateBanner(category) {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         const info = categoryInfo[category.replace(/\s/g, '-').toLowerCase()];
+=======
+        const info = categoryInfo[category];
+>>>>>>> Stashed changes
 =======
         const info = categoryInfo[category];
 >>>>>>> Stashed changes
@@ -147,6 +174,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     applyFiltersButton.addEventListener('click', () => {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        currentPage = 1;
+>>>>>>> Stashed changes
 =======
         currentPage = 1;
 >>>>>>> Stashed changes
@@ -158,6 +189,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('input[name="price"][value="all"]').checked = true;
         document.querySelector('input[name="popularity"][value="all"]').checked = true;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        currentPage = 1;
+>>>>>>> Stashed changes
 =======
         currentPage = 1;
 >>>>>>> Stashed changes

@@ -11,7 +11,10 @@ import pe.edu.certus.authmodule.repository.ports.driver.ForQueryingAuth;
 import pe.edu.certus.peoplemodule.logic.model.PeopleModel;
 import pe.edu.certus.peoplemodule.logic.ports.driver.ForPeople;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 import java.util.HashMap;
@@ -27,8 +30,12 @@ public class GoogleAuthManager implements ForGoogleAuth {
     private final ForPeople forPeople;
     private final JwtManager jwtManager;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     private final BCryptPasswordEncoder passwordEncoder;
     private final ForPeople<PeopleModel, Long> forPeople;
+=======
+    private final PasswordEncoder passwordEncoder;
+>>>>>>> Stashed changes
 =======
     private final PasswordEncoder passwordEncoder;
 >>>>>>> Stashed changes
@@ -44,8 +51,12 @@ public class GoogleAuthManager implements ForGoogleAuth {
         this.forPeople = forPeople;
         this.jwtManager = jwtManager;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         this.passwordEncoder = (BCryptPasswordEncoder) passwordEncoder;
         this.forPeople = forPeople;
+=======
+        this.passwordEncoder = passwordEncoder;
+>>>>>>> Stashed changes
 =======
         this.passwordEncoder = passwordEncoder;
 >>>>>>> Stashed changes
@@ -62,6 +73,7 @@ public class GoogleAuthManager implements ForGoogleAuth {
             if (userOptional.isPresent()) {
                 user = userOptional.get();
             } else {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                 user = new AuthEntity();
                 user.setUserEmail(email);
@@ -82,6 +94,8 @@ public class GoogleAuthManager implements ForGoogleAuth {
 
                 forPeople.createPeople(newPersonProfile);
 =======
+=======
+>>>>>>> Stashed changes
                 boolean isCertusEmail = email != null && email.toLowerCase().endsWith("@certus.edu.pe");
                 AuthEntity newUser = new AuthEntity();
                 newUser.setUserEmail(email);
@@ -104,6 +118,9 @@ public class GoogleAuthManager implements ForGoogleAuth {
                         .personInstitutionalEmail(isCertusEmail ? email : null)
                         .build();
                 forPeople.createPeople(newPerson);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             }
 

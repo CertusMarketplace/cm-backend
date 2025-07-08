@@ -2,13 +2,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     const token = localStorage.getItem('jwt_token');
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     // --- Elementos del Main Header ---
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     const userMenu = document.getElementById('user-menu');
     const guestMenu = document.getElementById('guest-menu');
     const userDropdownName = document.getElementById('user-dropdown-name');
     const userDropdownEmail = document.getElementById('user-dropdown-email');
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     const userDropdownImage = document.querySelector('#user-menu-button img');
     const logoutButton = document.getElementById('logout-button');
@@ -69,6 +73,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (protectedPaths.some(path => window.location.pathname.includes(path))) {
             window.location.href = '/marketplace/auth/login';
 =======
+=======
+>>>>>>> Stashed changes
     const logoutButton = document.getElementById('logout-button');
 
     const dashboardLinkContainer = document.getElementById('dashboard-link-container');
@@ -94,12 +100,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             guestMenu.classList.remove('hidden');
             if (dashboardLinkContainer) dashboardLinkContainer.classList.add('hidden');
             if (sellLink) sellLink.classList.remove('hidden');
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         }
     };
 
     if (token) {
         try {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
             const [userResponse, personResponse] = await Promise.all([
                 fetch('/api/v1/users/me', {headers: {'Authorization': `Bearer ${token}`}}),
@@ -112,6 +122,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             let personData = null;
             if (personResponse.ok) personData = await personResponse.json();
 =======
+=======
+>>>>>>> Stashed changes
             const userResponse = await fetch('/api/v1/users/me', {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -125,14 +137,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             if (!personResponse.ok) throw new Error('Person data not found');
             const personData = await personResponse.json();
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
             updateUI(true, userData, personData);
 
         } catch (error) {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             console.error("Authentication check failed:", error.message);
             logout();
+=======
+            localStorage.removeItem('jwt_token');
+            updateUI(false, null, null);
+>>>>>>> Stashed changes
 =======
             localStorage.removeItem('jwt_token');
             updateUI(false, null, null);
@@ -142,6 +162,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         updateUI(false, null, null);
     }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     const setupLogout = (button) => {
         if (button) {
@@ -232,6 +253,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 =======
+=======
+>>>>>>> Stashed changes
     if (logoutButton) {
         logoutButton.addEventListener('click', (e) => {
             e.preventDefault();
@@ -239,5 +262,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             window.location.href = '/marketplace/auth/login';
         });
     }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 });

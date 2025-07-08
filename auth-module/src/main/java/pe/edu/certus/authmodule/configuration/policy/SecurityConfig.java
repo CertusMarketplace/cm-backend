@@ -47,6 +47,7 @@ public class SecurityConfig {
                         // Rutas públicas de la UI
                         .requestMatchers(
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                                 "/marketplace/**", "/css/**", "/scripts/**", "/img/**", "/video/**",
                                 "/favicon.ico", "/error"
                         ).permitAll()
@@ -81,6 +82,15 @@ public class SecurityConfig {
                                 AntPathRequestMatcher.antMatcher("/video/**"),
                                 AntPathRequestMatcher.antMatcher("/favicon.ico"),
 
+=======
+                                // Recursos Estáticos
+                                AntPathRequestMatcher.antMatcher("/css/**"),
+                                AntPathRequestMatcher.antMatcher("/scripts/**"),
+                                AntPathRequestMatcher.antMatcher("/img/**"),
+                                AntPathRequestMatcher.antMatcher("/video/**"),
+                                AntPathRequestMatcher.antMatcher("/favicon.ico"),
+
+>>>>>>> Stashed changes
                                 // Rutas de UI Públicas
                                 AntPathRequestMatcher.antMatcher("/"),
                                 AntPathRequestMatcher.antMatcher("/home"),
@@ -94,6 +104,9 @@ public class SecurityConfig {
                                 AntPathRequestMatcher.antMatcher(HttpMethod.GET, "/api/v1/people/**"),
                                 AntPathRequestMatcher.antMatcher(HttpMethod.GET, "/api/v1/users/**")
                         ).permitAll()
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                         .anyRequest().authenticated()
                 )

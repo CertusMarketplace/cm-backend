@@ -35,6 +35,9 @@ public class WorkMapper implements ForMappingWork {
                 .workStatus( workWebModel.workStatus() )
                 .averageRating(workWebModel.averageRating())
                 .build();
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 
@@ -69,11 +72,16 @@ public class WorkMapper implements ForMappingWork {
                 workModel.getWorkPublishedAt(),
                 workModel.getWorkUpdatedAt(),
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 workModel.getWorkCategory(),
                 workModel.getSellerName(),
                 workModel.getAverageRating(),
                 workModel.getRatings() != null ? workModel.getRatings().stream().map(forMappingRating::toWeb).collect(Collectors.toList()) : Collections.emptyList(),
                 workModel.getComments() != null ? workModel.getComments().stream().map(forMappingComment::toWeb).collect(Collectors.toList()) : Collections.emptyList()
+=======
+                workModel.getWorkStatus(),
+                workModel.getAverageRating()
+>>>>>>> Stashed changes
 =======
                 workModel.getWorkStatus(),
                 workModel.getAverageRating()

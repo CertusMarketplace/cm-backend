@@ -27,6 +27,9 @@ public class PeoplePersistenceMapper implements ForBridgingPeople {
 =======
                 .personInstitutionalCycle(peopleEntity.getPersonInstitutionalCycle())
                 .personInstitutionalCareer(peopleEntity.getPersonInstitutionalCareer())
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 .build();
     }
@@ -50,6 +53,9 @@ public class PeoplePersistenceMapper implements ForBridgingPeople {
 =======
                 .personInstitutionalCycle(peopleModel.getPersonInstitutionalCycle())
                 .personInstitutionalCareer(peopleModel.getPersonInstitutionalCareer())
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 .build();
     }

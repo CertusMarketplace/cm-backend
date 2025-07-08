@@ -4,7 +4,11 @@ import org.springframework.ui.Model;
 
 public interface ForLogin {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     String showLoginPage( Model model );
+=======
+    String showLoginPage(Model model);
+>>>>>>> Stashed changes
 =======
     String showLoginPage(Model model);
 >>>>>>> Stashed changes

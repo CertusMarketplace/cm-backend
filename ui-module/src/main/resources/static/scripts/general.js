@@ -1,6 +1,12 @@
 // Función Header
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 function headerHome() {
+=======
+
+function headerHome() {
+    
+>>>>>>> Stashed changes
 =======
 
 function headerHome() {
@@ -10,6 +16,7 @@ function headerHome() {
     const sidebar = document.getElementById('sidebar');
     const closeSidebar = document.getElementById('closeSidebar');
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     if (burguer && sidebar && closeSidebar) {
         burguer.addEventListener('click', () => {
@@ -43,6 +50,8 @@ function loadView(view) {
 
 // Función Estado de Filtro Sidebar
 =======
+=======
+>>>>>>> Stashed changes
    if ( burguer && sidebar && closeSidebar ) {
 
     burguer.addEventListener('click', () => {
@@ -76,11 +85,15 @@ function loadView(view) {
 
 // Función Estado de Filtro Sidebar
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 function setActiveSidebarLink(activeId) {
     const links = ['stateLinkWork', 'stateLinkReview', 'stateLinkSales', 'stateLinkSettings', 'stateLinkAccount', 'stateLinkLogout'];
     links.forEach(id => {
         const element = document.getElementById(id);
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         if (element) {
             if (id === activeId) {
@@ -91,6 +104,8 @@ function setActiveSidebarLink(activeId) {
                 element.classList.add('hover:bg-blue-900');
             }
 =======
+=======
+>>>>>>> Stashed changes
         if (!element) return;
         if (id === activeId) {
             element.classList.add('bg-skyBlueCertus');
@@ -98,11 +113,15 @@ function setActiveSidebarLink(activeId) {
         } else {
             element.classList.remove('bg-skyBlueCertus');
             element.classList.add('hover:bg-blue-900');
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         }
     });
 }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 // CORRECCIÓN: Agregar listeners solo si los elementos existen
 document.addEventListener('DOMContentLoaded', () => {
@@ -140,6 +159,8 @@ function greetingExpression() {
     }
 }
 =======
+=======
+>>>>>>> Stashed changes
 ['stateLinkWork', 'stateLinkReview', 'stateLinkSales', 'stateLinkSettings', 'stateLinkAccount', 'stateLinkLogout'].forEach(id => {
     const element = document.getElementById(id);
     if (!element) return;
@@ -166,5 +187,9 @@ function greetingExpression () {
 
 }
 
+<<<<<<< Updated upstream
+greetingExpression();
+>>>>>>> Stashed changes
+=======
 greetingExpression();
 >>>>>>> Stashed changes

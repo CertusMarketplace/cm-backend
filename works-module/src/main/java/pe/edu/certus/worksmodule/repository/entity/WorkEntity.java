@@ -3,9 +3,12 @@ package pe.edu.certus.worksmodule.repository.entity;
 import jakarta.persistence.*;
 import lombok.*;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import org.hibernate.annotations.Where;
 import pe.edu.certus.peoplemodule.repository.entity.PeopleEntity;
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 import java.math.BigDecimal;
@@ -16,8 +19,12 @@ import java.util.List;
 import java.util.Set;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 @Entity
 @Table(name = "works")
+=======
+@Entity(name = "works")
+>>>>>>> Stashed changes
 =======
 @Entity(name = "works")
 >>>>>>> Stashed changes
@@ -34,10 +41,13 @@ public class WorkEntity {
     private Long workId;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_seller_user", referencedColumnName = "id_user", insertable = false, updatable = false)
     private PeopleEntity seller;
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     @Column(name = "id_seller_user")
@@ -57,10 +67,13 @@ public class WorkEntity {
     private BigDecimal workPrice;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @Builder.Default
     @Column(name = "work_is_deleted")
     private Boolean workIsDeleted = Boolean.FALSE;
 =======
+=======
+>>>>>>> Stashed changes
     @Column(name = "work_is_deleted")
     private Boolean workIsDeleted;
 >>>>>>> Stashed changes
@@ -69,12 +82,15 @@ public class WorkEntity {
     private String workImageUrl;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @OneToMany(mappedBy = "work", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<WorkImageEntity> images = new HashSet<>();
 
     @Column(name = "work_file_path")
     private String workFilePath;
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     @Column(name = "work_published_at")
@@ -88,6 +104,7 @@ public class WorkEntity {
     private WorkStatus workStatus;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @OneToMany(mappedBy = "work", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<RatingEntity> ratings = new ArrayList<>();
 
@@ -95,6 +112,8 @@ public class WorkEntity {
     @Where(clause = "id_parent_comment IS NULL")
     private List<CommentEntity> comments = new ArrayList<>();
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     public enum WorkStatus {

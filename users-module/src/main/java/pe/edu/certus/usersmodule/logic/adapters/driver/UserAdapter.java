@@ -4,7 +4,11 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import org.springframework.security.core.Authentication;
+=======
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+>>>>>>> Stashed changes
 =======
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 >>>>>>> Stashed changes
@@ -27,6 +31,7 @@ public class UserAdapter {
         this.forMappingUser = forMappingUser;
     }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     @GetMapping("/me")
     public ResponseEntity<UserWebModel> getCurrentUser(Authentication authentication) {
@@ -52,11 +57,16 @@ public class UserAdapter {
         } catch (IllegalArgumentException e) {
             throw new RuntimeException("ERROR CREATING USER", e);
 =======
+=======
+>>>>>>> Stashed changes
     @PutMapping("/update-role/{userId}/{roleId}")
     public ResponseEntity<Void> updateUserRole(@PathVariable Long userId, @PathVariable Long roleId) {
         UserModel user = (UserModel) forUser.findUserById(userId);
         if (user == null) {
             return ResponseEntity.notFound().build();
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         }
         user.setIdRole(roleId);
@@ -87,6 +97,7 @@ public class UserAdapter {
     @GetMapping("/{id}")
     public ResponseEntity<UserWebModel> findUserById(@PathVariable Long id) {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         try {
             UserModel userModel = (UserModel) forUser.findUserById(id);
             UserWebModel response = forMappingUser.toWeb(userModel);
@@ -96,6 +107,11 @@ public class UserAdapter {
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().build();
         }
+=======
+        UserModel userModel = (UserModel) forUser.findUserById(id);
+        UserWebModel response = forMappingUser.toWeb(userModel);
+        return ResponseEntity.ok(response);
+>>>>>>> Stashed changes
     }
 
     @PutMapping("/update-role/{userId}/{roleId}")
@@ -120,6 +136,9 @@ public class UserAdapter {
         UserModel updatedUser = (UserModel) forUser.updateUser(objectFromWeb);
         UserWebModel response = forMappingUser.toWeb(updatedUser);
         return ResponseEntity.ok(response);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 
@@ -132,6 +151,7 @@ public class UserAdapter {
     @GetMapping
     public ResponseEntity<List<UserWebModel>> findAllUsers() {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         try {
             List<UserModel> userModels = forUser.findAllUsers();
             List<UserWebModel> response = userModels.stream()
@@ -142,11 +162,16 @@ public class UserAdapter {
             throw new RuntimeException("ERROR FINDING ALL USERS", e);
         }
 =======
+=======
+>>>>>>> Stashed changes
         List<UserModel> userModels = forUser.findAllUsers();
         List<UserWebModel> response = userModels.stream()
                 .map(forMappingUser::toWeb)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(response);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 }

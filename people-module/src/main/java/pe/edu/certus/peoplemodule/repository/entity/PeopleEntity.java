@@ -19,8 +19,11 @@ public class PeopleEntity {
     private Long personId;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @Column(name = "id_user", nullable = false, unique = true)
 =======
+=======
+>>>>>>> Stashed changes
     @Column(name = "id_user")
 >>>>>>> Stashed changes
     private Long idUser;
@@ -35,8 +38,11 @@ public class PeopleEntity {
     private String personProfileImageUrl;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @Column(name = "person_dni", length = 8, unique = true)
 =======
+=======
+>>>>>>> Stashed changes
     @Column(name = "person_dni", length = 8)
 >>>>>>> Stashed changes
     private String personDni;
@@ -58,8 +64,11 @@ public class PeopleEntity {
 
     @Column(name = "person_current_term")
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     private Integer personCurrentTerm;
 =======
+=======
+>>>>>>> Stashed changes
     private Integer personInstitutionalCycle;
 >>>>>>> Stashed changes
 }

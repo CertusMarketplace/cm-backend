@@ -24,5 +24,8 @@ public class PeopleModel {
 =======
     private Integer personInstitutionalCycle;
     private String personInstitutionalCareer;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }

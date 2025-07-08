@@ -8,6 +8,9 @@ public interface ForManagingWork {
     WorkModel satisfyCreateWork( WorkModel workModel );
 =======
     void satisfyCreateWork( WorkModel workModel );
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     List<WorkModel> satisfyFindAllWorkWithRatings();
     WorkModel satisfyFindWorkById( Long id );
@@ -15,9 +18,13 @@ public interface ForManagingWork {
     WorkModel satisfyUpdateWork( WorkModel workModel );
     void satisfyDeleteWorkById( Long id );
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     List<WorkModel> satisfyFindWorksByIds(List<Long> ids);
     List<WorkModel> satisfyFindAllBySellerId(Long sellerId);
 }
+=======
+}
+>>>>>>> Stashed changes
 =======
 }
 >>>>>>> Stashed changes

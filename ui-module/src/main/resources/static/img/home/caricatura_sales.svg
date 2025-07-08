@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <svg width="139" height="166" viewBox="0 0 139 166" fill="none"
      xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_293_202)">
@@ -68,6 +69,8 @@
         </clipPath>
     </defs>
 =======
+=======
+>>>>>>> Stashed changes
 <svg width="139" height="166" viewBox="0 0 139 166" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_293_202)">
 <path d="M129.014 14.0525H19.3704C15.3483 14.0525 12.0777 17.2839 12.0777 21.2579V95.494C12.0777 99.4679 15.3483 102.699 19.3704 102.699H129.014C133.036 102.699 136.307 99.4679 136.307 95.494V21.2579C136.307 17.2839 133.036 14.0525 129.014 14.0525Z" fill="#F2F2F2"/>
@@ -106,5 +109,8 @@
 <rect width="139" height="166" fill="white"/>
 </clipPath>
 </defs>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 </svg>

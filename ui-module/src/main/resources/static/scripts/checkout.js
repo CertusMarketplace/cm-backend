@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     document.body.addEventListener('click', async (e) => {
         if (e.target.closest('#checkout-button')) {
             const token = localStorage.getItem('jwt_token');
@@ -93,6 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     handlePaymentStatus();
 =======
+=======
+>>>>>>> Stashed changes
     const cartDrawer = document.getElementById('cart-drawer');
     const cartItemsContainer = document.getElementById('cart-items-container');
     const cartTotalElement = document.getElementById('cart-total');
@@ -233,5 +236,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 });

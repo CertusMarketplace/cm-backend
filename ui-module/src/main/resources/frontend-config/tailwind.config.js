@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     content: [
         "../templates/**/*.html",
         "../templates/**/*.html",
@@ -26,6 +27,8 @@ module.exports = {
         require('flowbite/plugin')
     ],
 =======
+=======
+>>>>>>> Stashed changes
   content: [
    "../templates/**/*.html",  
    "../templates/**/*.html",
@@ -50,5 +53,8 @@ module.exports = {
   plugins: [
     require('flowbite/plugin')
   ],
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }

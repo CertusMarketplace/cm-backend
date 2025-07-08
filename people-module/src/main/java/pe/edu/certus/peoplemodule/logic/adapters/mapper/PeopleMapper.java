@@ -25,6 +25,9 @@ public class PeopleMapper implements ForMappingPeople {
 =======
                 .personInstitutionalCycle(peopleWebModel.personInstitutionalCycle())
                 .personInstitutionalCareer(peopleWebModel.personInstitutionalCareer())
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 .build();
     }
@@ -43,8 +46,13 @@ public class PeopleMapper implements ForMappingPeople {
                 peopleModel.getPersonInstituteCampus(),
                 peopleModel.getPersonInstitutionalEmail(),
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 peopleModel.getPersonInstitutionalCareer(),
                 peopleModel.getPersonCurrentTerm()
+=======
+                peopleModel.getPersonInstitutionalCycle(),
+                peopleModel.getPersonInstitutionalCareer()
+>>>>>>> Stashed changes
 =======
                 peopleModel.getPersonInstitutionalCycle(),
                 peopleModel.getPersonInstitutionalCareer()

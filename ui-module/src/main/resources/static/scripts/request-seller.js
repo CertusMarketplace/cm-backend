@@ -33,10 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         if (!token) {
             const password = formData.get('password');
             const confirmPassword = formData.get('confirmPassword');
 =======
+=======
+>>>>>>> Stashed changes
         const personData = {
             personName: formData.get('name'),
             personLastname: formData.get('lastname'),
@@ -53,11 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const password = formData.get('password');
             const confirmPassword = formData.get('confirmPassword');
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             if (password !== confirmPassword) {
                 showMessage('Las contraseñas no coinciden.', true);
                 return;
             }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         }
 
@@ -105,6 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             showMessage(error.message, true);
 =======
+=======
+>>>>>>> Stashed changes
 
             const registrationData = {
                 userEmail: institutionalEmail,
@@ -159,6 +168,9 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch (error) {
                 showMessage(error.message || 'Ocurrió un error. Inténtalo de nuevo.', true);
             }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         }
     });

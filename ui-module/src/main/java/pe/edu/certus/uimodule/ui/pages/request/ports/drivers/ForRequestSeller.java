@@ -7,7 +7,11 @@ public interface ForRequestSeller {
      ================================== */
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     String showRequestRolePage( );
+=======
+    String showRequestRolePage();
+>>>>>>> Stashed changes
 =======
     String showRequestRolePage();
 >>>>>>> Stashed changes

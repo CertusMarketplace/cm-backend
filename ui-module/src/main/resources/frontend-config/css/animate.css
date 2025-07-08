@@ -1,6 +1,10 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 @charset "UTF-8";
 /*!
+=======
+@charset "UTF-8";/*!
+>>>>>>> Stashed changes
 =======
 @charset "UTF-8";/*!
 >>>>>>> Stashed changes
@@ -11,6 +15,7 @@
  * Copyright (c) 2020 Animate.css
  */
 :root {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     --animate-duration: 1s;
     --animate-delay: 1s;
@@ -4370,6 +4375,8 @@
     -webkit-animation-name: slideOutUp;
     animation-name: slideOutUp;
 =======
+=======
+>>>>>>> Stashed changes
   --animate-duration: 1s;
   --animate-delay: 1s;
   --animate-repeat: 1;
@@ -8433,5 +8440,8 @@
 .animate__slideOutUp {
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
