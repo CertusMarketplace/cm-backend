@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+<<<<<<< Updated upstream
 <section th:fragment="modal-user-request-work">
     <dialog id="modalUserRequestWork"
             class="rounded-xl w-1/2 h-1/2 backdrop:bg-black/60 left-[10rem]">
@@ -122,4 +123,116 @@
         </div>
     </dialog>
 </section>
+=======
+    <section th:fragment="modal-user-request-work">
+        <dialog id="modalUserRequestWork" class="rounded-xl w-1/2 h-1/2 backdrop:bg-black/60 left-[10rem]">
+            <div class="relative text-right mt-2 mr-2">
+                <button onclick="document.getElementById('modalUserRequestWork').close()">
+                    <div class="flex justify-center items-center bg-redCertus rounded-full h-10 w-10">
+                        <i class="fa-solid fa-xmark text-lg text-white"></i>
+                    </div>
+                </button>
+            </div>
+            <div class="w-full max-w-lg px-4 bg-white rounded-lg font-poppinsshadow-sm sm:px-8 text-black flex flex-col mx-auto justify-center">                
+                <div class="flex justify-center items-center mb-4">
+                    <h5 class="text-xl font-bold leading-none text-center">Solicitudes por tu trabajo</h5>                    
+                </div>
+                <div class="flow-root">
+                    <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+                        <li class="py-3 sm:py-4">
+                            <div class="flex items-center">
+                                <div class="shrink-0">
+                                    <img class="w-8 h-8 rounded-full" th:src="@{/img/dashboard/seller/profile-picture-1.jpg}" alt="Neil image">
+                                </div>
+                                <div class="flex-1 min-w-0 ms-4">
+                                    <p class="text-sm font-medium">
+                                        Neil Sims
+                                    </p>
+                                    <p class="text-sm text-gray-500">
+                                        email@windster.com
+                                    </p>
+                                </div>
+                                <div class="inline-flex items-center font-semibold">
+                                    <a href="#"><i class="fa-brands fa-whatsapp text-3xl"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="py-3 sm:py-4">
+                            <div class="flex items-center ">
+                                <div class="shrink-0">
+                                    <img class="w-8 h-8 rounded-full" th:src="@{/img/dashboard/seller/profile-picture-2.jpg}" alt="Bonnie image">
+                                </div>
+                                <div class="flex-1 min-w-0 ms-4">
+                                    <p class="text-sm font-medium">
+                                        Bonnie Green
+                                    </p>
+                                    <p class="text-sm text-gray-500">
+                                        email@windster.com
+                                    </p>
+                                </div>
+                                <div class="inline-flex items-center text-base font-semibold">
+                                    <a href="#"><i class="fa-brands fa-whatsapp text-3xl"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="py-3 sm:py-4">
+                            <div class="flex items-center">
+                                <div class="shrink-0">
+                                    <img class="w-8 h-8 rounded-full" th:src="@{/img/dashboard/seller/profile-picture-3.jpg}" alt="Michael image">
+                                </div>
+                                <div class="flex-1 min-w-0 ms-4">
+                                    <p class="text-sm font-medium">
+                                        Michael Gough
+                                    </p>
+                                    <p class="text-sm text-gray-500">
+                                        email@windster.com
+                                    </p>
+                                </div>
+                                <div class="inline-flex items-center text-base font-semibolde">
+                                    <a href="#"><i class="fa-brands fa-whatsapp text-3xl"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="py-3 sm:py-4">
+                            <div class="flex items-center ">
+                                <div class="shrink-0">
+                                    <img class="w-8 h-8 rounded-full" th:src="@{/img/dashboard/seller/profile-picture-4.jpg}" alt="Lana image">
+                                </div>
+                                <div class="flex-1 min-w-0 ms-4">
+                                    <p class="text-sm font-medium">
+                                        Lana Byrd
+                                    </p>
+                                    <p class="text-sm text-gray-500">
+                                        email@windster.com
+                                    </p>
+                                </div>
+                                <div class="inline-flex items-center">
+                                    <a href="#"><i class="fa-brands fa-whatsapp text-3xl"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="pt-3 pb-0 sm:pt-4">
+                            <div class="flex items-center ">
+                                <div class="shrink-0">
+                                    <img class="w-8 h-8 rounded-full" th:src="@{/img/dashboard/seller/profile-picture-5.jpg}" alt="Thomas image">
+                                </div>
+                                <div class="flex-1 min-w-0 ms-4">
+                                    <p class="text-sm font-medium">
+                                        Thomes Lean
+                                    </p>
+                                    <p class="text-sm text-gray-500">
+                                        email@windster.com
+                                    </p>
+                                </div>
+                                <div class="inline-flex items-center text-base">
+                                    <a href="#"><i class="fa-brands fa-whatsapp text-3xl"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </dialog>
+    </section>
+>>>>>>> Stashed changes
 </html>

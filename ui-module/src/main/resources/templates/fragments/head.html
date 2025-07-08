@@ -1,5 +1,9 @@
 <!DOCTYPE html>
+<<<<<<< Updated upstream
 <html xmlns:th="http://www.thymeleaf.org">
+=======
+<html>
+>>>>>>> Stashed changes
 <head th:fragment="head">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +11,7 @@
     <link rel="shortcut icon" th:href="@{/img/home/logo_certus.png}" type="image/x-icon">
     <title>Certus Marketplace</title>
     <base th:href="@{/}">
+<<<<<<< Updated upstream
 
     <!-- Estilos (sin cambios) -->
     <link rel="stylesheet"
@@ -30,11 +35,33 @@
     <!-- Scripts de la aplicación -->
     <script defer th:src="@{/scripts/scroll.js}"></script>
     <script defer th:src="@{/scripts/general.js}"></script>
+=======
+    <script src="https://kit.fontawesome.com/126fa838b4.js" crossorigin="anonymous"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer onload="onGoogleLibraryLoad()"></script>
+
+    <!-- SDK de PayPal -->
+    <script th:src="'https://www.paypal.com/sdk/js?client-id=' + ${@environment.getProperty('paypal.client-id')} + '¤cy=USD'"></script>
+
+    <script defer th:src="@{/scripts/alpine.js}"></script>
+    <script defer th:src="@{/scripts/scroll.js}"></script>
+    <script defer th:src="@{/scripts/general.js}"></script>
+    <script defer th:src="@{/scripts/flowbite.min.js}"></script>
+
+    <!-- Scripts de Lógica de la Aplicación -->
+>>>>>>> Stashed changes
     <script defer th:src="@{/scripts/auth.js}"></script>
     <script defer th:src="@{/scripts/auth-flow.js}"></script>
     <script defer th:src="@{/scripts/request-seller.js}"></script>
     <script defer th:src="@{/scripts/filters.js}"></script>
     <script defer th:src="@{/scripts/cart.js}"></script>
     <script defer th:src="@{/scripts/checkout.js}"></script>
+<<<<<<< Updated upstream
+=======
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" crossorigin="anonymous" />
+    <link th:href="@{/css/cssanimation.css}" rel="stylesheet">
+    <link th:href="@{/css/general.css}" rel="stylesheet">
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+>>>>>>> Stashed changes
 </head>
 </html>

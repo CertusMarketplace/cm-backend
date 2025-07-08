@@ -1,3 +1,4 @@
+// Archivo: people-module/src/main/java/pe/edu/certus/peoplemodule/repository/entity/PeopleEntity.java
 package pe.edu.certus.peoplemodule.repository.entity;
 
 import jakarta.persistence.*;
@@ -17,7 +18,11 @@ public class PeopleEntity {
     @Column(name = "person_id")
     private Long personId;
 
+<<<<<<< Updated upstream
     @Column(name = "id_user", nullable = false, unique = true)
+=======
+    @Column(name = "id_user")
+>>>>>>> Stashed changes
     private Long idUser;
 
     @Column(name = "person_name", nullable = false, length = 100)
@@ -29,7 +34,11 @@ public class PeopleEntity {
     @Column(name = "person_profile_image_url", length = 255)
     private String personProfileImageUrl;
 
+<<<<<<< Updated upstream
     @Column(name = "person_dni", length = 8, unique = true)
+=======
+    @Column(name = "person_dni", length = 8)
+>>>>>>> Stashed changes
     private String personDni;
 
     @Column(name = "person_mobile_phone", length = 15)
@@ -48,5 +57,9 @@ public class PeopleEntity {
     private String personInstitutionalCareer;
 
     @Column(name = "person_current_term")
+<<<<<<< Updated upstream
     private Integer personCurrentTerm;
+=======
+    private Integer personInstitutionalCycle;
+>>>>>>> Stashed changes
 }

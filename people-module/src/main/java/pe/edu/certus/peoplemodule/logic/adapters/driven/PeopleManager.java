@@ -1,91 +1,110 @@
 package pe.edu.certus.peoplemodule.logic.adapters.driven;
 
+import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pe.edu.certus.peoplemodule.logic.model.PeopleModel;
-import pe.edu.certus.peoplemodule.logic.ports.driven.ForManagingPeople;
 import pe.edu.certus.peoplemodule.logic.ports.driver.ForPeople;
+import pe.edu.certus.peoplemodule.repository.entity.PeopleEntity;
+import pe.edu.certus.peoplemodule.repository.ports.driver.ForQueryingPeople;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
-public class PeopleManager implements ForPeople<PeopleModel, Long> {
+@RequiredArgsConstructor
+public class PeopleManager implements ForPeople {
 
-    private final ForManagingPeople forManagingPeople;
-
-    public PeopleManager(ForManagingPeople forManagingPeople) {
-        this.forManagingPeople = forManagingPeople;
-    }
+    private final ForQueryingPeople forQueryingPeople;
 
     @Override
-    public void createPeople(PeopleModel peopleModel) {
-        try {
-            forManagingPeople.satisfyCreatePeople(peopleModel);
-            System.out.println("THE PERSON HAS BEEN CREATED SUCCESSFULLY");
-        } catch (IllegalArgumentException e) {
-            System.out.println("ERROR CREATING THE PERSON: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
+    public PeopleModel createPeople(PeopleModel peopleModel) {
+        PeopleEntity peopleEntity = PeopleEntity.builder()
+                .idUser(peopleModel.getIdUser())
+                .personName(peopleModel.getPersonName())
+                .personLastname(peopleModel.getPersonLastname())
+                .personInstitutionalEmail(peopleModel.getPersonInstitutionalEmail())
+                .build();
 
-    @Override
-    public PeopleModel findPeopleById(Long id) {
-        try {
-            if (id == null) {
-                throw new IllegalArgumentException("ID CANNOT BE NULL");
-            }
-
-            PeopleModel peopleModel = forManagingPeople.satisfyFindPeopleById(id);
-            System.out.println("THE PERSON HAS BEEN FOUND SUCCESSFULLY");
-
-            if (peopleModel == null) {
-                throw new IllegalArgumentException("PERSON NOT FOUND");
-            }
-
-            return peopleModel;
-        } catch (Exception e) {
-            throw new RuntimeException("FAILED TO FIND PERSON", e);
-        }
+        PeopleEntity savedEntity = forQueryingPeople.save(peopleEntity);
+        return mapEntityToModel(savedEntity);
     }
 
     @Override
     public PeopleModel updatePeople(PeopleModel peopleModel) {
-        try {
-            if (peopleModel == null) {
-                throw new IllegalArgumentException("PERSON MODEL CANNOT BE NULL");
-            }
+        PeopleEntity peopleEntity = forQueryingPeople.findById(peopleModel.getPersonId())
+                .orElseThrow(() -> new EntityNotFoundException("No se encontró la persona con ID: " + peopleModel.getPersonId()));
 
-            PeopleModel updatedPeopleModel = forManagingPeople.satisfyUpdatePeople(peopleModel);
-            System.out.println("PERSON UPDATED SUCCESSFULLY");
+        peopleEntity.setPersonName(peopleModel.getPersonName());
+        peopleEntity.setPersonLastname(peopleModel.getPersonLastname());
+        peopleEntity.setPersonDni(peopleModel.getPersonDni());
+        peopleEntity.setPersonMobilePhone(peopleModel.getPersonMobilePhone());
+        peopleEntity.setPersonGender(peopleModel.getPersonGender());
+        peopleEntity.setPersonInstituteCampus(peopleModel.getPersonInstituteCampus());
+        peopleEntity.setPersonInstitutionalEmail(peopleModel.getPersonInstitutionalEmail());
+        peopleEntity.setPersonInstitutionalCareer(peopleModel.getPersonInstitutionalCareer());
+        peopleEntity.setPersonInstitutionalCycle(peopleModel.getPersonInstitutionalCycle());
 
-            return updatedPeopleModel;
-        } catch (Exception e) {
-            throw new RuntimeException("FAILED TO UPDATE PERSON", e);
-        }
+        PeopleEntity updatedEntity = forQueryingPeople.save(peopleEntity);
+        return mapEntityToModel(updatedEntity);
     }
 
     @Override
-    public void deletePeople(Long id) {
-        try {
-            if (id == null) {
-                throw new IllegalArgumentException("ID CANNOT BE NULL");
-            }
+    public PeopleModel findPeopleById(Long personId) {
+        PeopleEntity peopleEntity = forQueryingPeople.findById(personId)
+                .orElseThrow(() -> new EntityNotFoundException("No se encontró la persona con ID de persona: " + personId));
+        return mapEntityToModel(peopleEntity);
+    }
 
-            forManagingPeople.satisfyDeletePeopleById(id);
-            System.out.println("PERSON DELETED SUCCESSFULLY");
-
-        } catch (Exception e) {
-            throw new RuntimeException("FAILED TO DELETE PERSON", e);
-        }
+    @Override
+    public PeopleModel findPeopleByIdUser(Long idUser) {
+        PeopleEntity peopleEntity = forQueryingPeople.findByIdUser(idUser)
+                .orElseThrow(() -> new EntityNotFoundException("No se encontró la persona con ID de usuario: " + idUser));
+        return mapEntityToModel(peopleEntity);
     }
 
     @Override
     public List<PeopleModel> findAllPeople() {
-        try {
-            List<PeopleModel> peopleModels = forManagingPeople.satisfyFindAllPeople();
-            System.out.println("ALL PEOPLE HAVE BEEN FOUND SUCCESSFULLY");
-            return peopleModels;
-        } catch (Exception e) {
-            throw new RuntimeException("FAILED TO FIND ALL PEOPLE", e);
+        return forQueryingPeople.findAll().stream()
+                .map(this::mapEntityToModel)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public void deletePeople(Long id) {
+        if (!forQueryingPeople.existsById(id)) {
+            throw new EntityNotFoundException("No se puede eliminar, persona no encontrada con ID: " + id);
         }
+        forQueryingPeople.deleteById(id);
+    }
+
+    @Override
+    public void requestSellerRole(PeopleModel peopleModel, Long userId) {
+        PeopleModel existingPerson = this.findPeopleByIdUser(userId);
+
+        existingPerson.setPersonDni(peopleModel.getPersonDni());
+        existingPerson.setPersonMobilePhone(peopleModel.getPersonMobilePhone());
+        existingPerson.setPersonInstituteCampus(peopleModel.getPersonInstituteCampus());
+        existingPerson.setPersonInstitutionalEmail(peopleModel.getPersonInstitutionalEmail());
+        existingPerson.setPersonInstitutionalCareer(peopleModel.getPersonInstitutionalCareer());
+        existingPerson.setPersonInstitutionalCycle(peopleModel.getPersonInstitutionalCycle());
+
+        this.updatePeople(existingPerson);
+    }
+
+    private PeopleModel mapEntityToModel(PeopleEntity entity) {
+        return PeopleModel.builder()
+                .personId(entity.getPersonId())
+                .idUser(entity.getIdUser())
+                .personName(entity.getPersonName())
+                .personLastname(entity.getPersonLastname())
+                .personDni(entity.getPersonDni())
+                .personMobilePhone(entity.getPersonMobilePhone())
+                .personGender(entity.getPersonGender())
+                .personInstituteCampus(entity.getPersonInstituteCampus())
+                .personInstitutionalEmail(entity.getPersonInstitutionalEmail())
+                .personInstitutionalCareer(entity.getPersonInstitutionalCareer())
+                .personInstitutionalCycle(entity.getPersonInstitutionalCycle())
+                .build();
     }
 }

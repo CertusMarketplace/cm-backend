@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!productContainer) return;
 
     const API_URL = '/api/v1/works';
+<<<<<<< Updated upstream
+=======
+    const paginationContainer = document.getElementById('pagination-container');
+>>>>>>> Stashed changes
     const applyFiltersButton = document.getElementById('apply-filters');
     const clearFiltersButton = document.getElementById('clear-filters');
     const dynamicBanner = document.getElementById('dynamic-banner');
@@ -10,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bannerDescription = document.getElementById('banner-description');
 
     const categoryInfo = {
+<<<<<<< Updated upstream
         'todos': {
             title: 'Todos los Productos',
             description: 'Explora todas nuestras soluciones digitales disponibles.',
@@ -42,6 +47,22 @@ document.addEventListener('DOMContentLoaded', () => {
             `<i class="fa-solid fa-star ${i < Math.round(product.averageRating) ? 'text-gray-900' : 'text-gray-300'}"></i>`
         ).join('');
 
+=======
+        'todos': { title: 'Todos los Productos', description: 'Explora todas nuestras soluciones digitales disponibles.', bannerImage: '/img/works/banner-todos.jpg' },
+        'cursos': { title: 'Cursos', description: 'Aprende y domina nuevas habilidades con nuestros cursos especializados.', bannerImage: '/img/works/banner-cursos.jpg' },
+        'ilustraciones': { title: 'Ilustraciones Digitales', description: 'Descubre arte digital único y personalizable para tus proyectos.', bannerImage: '/img/works/banner-ilustraciones.jpg' },
+        'musica': { title: 'Música y Audio', description: 'Encuentra pistas, efectos y recursos de audio para tus creaciones.', bannerImage: '/img/works/banner-music.jpg' },
+        'software': { title: 'Software', description: 'Soluciones digitales que transforman tu mundo, hechas a tu medida.', bannerImage: '/img/works/banner-software.jpg' },
+    };
+
+    let currentPage = 1;
+    const itemsPerPage = 8;
+
+    function createProductCard(product) {
+        const starsHtml = Array(5).fill().map((_, i) =>
+            `<i class="fa-solid fa-star ${i < Math.round(product.averageRating) ? 'text-gray-900' : 'text-gray-300'}"></i>`
+        ).join('');
+>>>>>>> Stashed changes
         const detailUrl = `/marketplace/works/${product.workId}`;
 
         return `
@@ -50,7 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${product.workImageUrl}" alt="${product.workTitle}" class="w-full h-48 object-cover">
                 </a>
                 <div class="p-4">
+<<<<<<< Updated upstream
                     <p class="text-sm text-gray-500 mb-2">${product.sellerName || 'Vendedor Anónimo'}</p>
+=======
+                    <p class="text-sm text-gray-500 mb-2">Vendedor ID: ${product.idSellerUser}</p>
+>>>>>>> Stashed changes
                     <a href="${detailUrl}" class="text-lg font-semibold text-gray-800 mb-1 hover:text-[#00205b]">${product.workTitle}</a>
                     <div class="flex items-center mb-3">${starsHtml}</div>
                     <div class="flex justify-between items-center mt-4">
@@ -71,6 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchAndDisplayWorks() {
         const filters = getSelectedFilters();
         const params = new URLSearchParams({
+<<<<<<< Updated upstream
+=======
+            page: currentPage - 1,
+            size: itemsPerPage,
+>>>>>>> Stashed changes
             category: filters.category,
             priceRange: filters.price,
             popularity: filters.popularity === 'all' ? 0 : filters.popularity
@@ -82,6 +112,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const products = await response.json();
 
             renderProductCards(products);
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
             updateBanner(filters.category);
 
         } catch (error) {
@@ -99,7 +133,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateBanner(category) {
+<<<<<<< Updated upstream
         const info = categoryInfo[category.replace(/\s/g, '-').toLowerCase()];
+=======
+        const info = categoryInfo[category];
+>>>>>>> Stashed changes
         if (info && bannerTitle && bannerDescription && dynamicBanner) {
             bannerTitle.textContent = info.title;
             bannerDescription.textContent = info.description;
@@ -108,6 +146,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     applyFiltersButton.addEventListener('click', () => {
+<<<<<<< Updated upstream
+=======
+        currentPage = 1;
+>>>>>>> Stashed changes
         fetchAndDisplayWorks();
     });
 
@@ -115,6 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('input[name="category"][value="todos"]').checked = true;
         document.querySelector('input[name="price"][value="all"]').checked = true;
         document.querySelector('input[name="popularity"][value="all"]').checked = true;
+<<<<<<< Updated upstream
+=======
+        currentPage = 1;
+>>>>>>> Stashed changes
         fetchAndDisplayWorks();
     });
 

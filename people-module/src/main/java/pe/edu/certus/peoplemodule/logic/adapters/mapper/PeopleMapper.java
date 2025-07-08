@@ -19,8 +19,13 @@ public class PeopleMapper implements ForMappingPeople {
                 .personGender(peopleWebModel.personGender())
                 .personInstituteCampus(peopleWebModel.personInstituteCampus())
                 .personInstitutionalEmail(peopleWebModel.personInstitutionalEmail())
+<<<<<<< Updated upstream
                 .personInstitutionalCareer(peopleWebModel.personInstitutionalCareer())
                 .personCurrentTerm(peopleWebModel.personCurrentTerm())
+=======
+                .personInstitutionalCycle(peopleWebModel.personInstitutionalCycle())
+                .personInstitutionalCareer(peopleWebModel.personInstitutionalCareer())
+>>>>>>> Stashed changes
                 .build();
     }
 
@@ -37,8 +42,13 @@ public class PeopleMapper implements ForMappingPeople {
                 peopleModel.getPersonGender(),
                 peopleModel.getPersonInstituteCampus(),
                 peopleModel.getPersonInstitutionalEmail(),
+<<<<<<< Updated upstream
                 peopleModel.getPersonInstitutionalCareer(),
                 peopleModel.getPersonCurrentTerm()
+=======
+                peopleModel.getPersonInstitutionalCycle(),
+                peopleModel.getPersonInstitutionalCareer()
+>>>>>>> Stashed changes
         );
     }
 }

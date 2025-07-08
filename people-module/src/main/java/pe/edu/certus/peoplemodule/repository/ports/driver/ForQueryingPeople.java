@@ -7,5 +7,9 @@ import pe.edu.certus.peoplemodule.repository.entity.PeopleEntity;
 import java.util.Optional;
 
 public interface ForQueryingPeople extends JpaRepository<PeopleEntity, Long> {
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     Optional<PeopleEntity> findByIdUser(Long idUser);
 }

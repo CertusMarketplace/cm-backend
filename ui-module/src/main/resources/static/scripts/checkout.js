@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+<<<<<<< Updated upstream
     document.body.addEventListener('click', async (e) => {
         if (e.target.closest('#checkout-button')) {
             const token = localStorage.getItem('jwt_token');
@@ -91,4 +92,146 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     handlePaymentStatus();
+=======
+    const cartDrawer = document.getElementById('cart-drawer');
+    const cartItemsContainer = document.getElementById('cart-items-container');
+    const cartTotalElement = document.getElementById('cart-total');
+    const checkoutButton = document.getElementById('checkout-button');
+
+    const renderCartItems = () => {
+        const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+        cartItemsContainer.innerHTML = '';
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = `<div class="text-center py-10 text-gray-500">Tu carrito está vacío.</div>`;
+            if(checkoutButton) checkoutButton.classList.add('hidden');
+            if(cartTotalElement) cartTotalElement.closest('div').classList.add('hidden');
+            return;
+        }
+
+        if(checkoutButton) checkoutButton.classList.remove('hidden');
+        if(cartTotalElement) cartTotalElement.closest('div').classList.remove('hidden');
+
+        let total = 0;
+        cart.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.className = 'flex justify-between items-center p-2';
+            itemElement.innerHTML = `
+                <div>
+                    <p class="font-medium text-sm">${item.title}</p>
+                    <p class="text-gray-500 text-sm">S/ ${item.price.toFixed(2)}</p>
+                </div>
+                <div id="paypal-button-container-${item.id}"></div>
+            `;
+            cartItemsContainer.appendChild(itemElement);
+            total += item.price;
+
+            initiatePaypalPayment(item.id, item.price);
+        });
+
+        cartTotalElement.textContent = `S/ ${total.toFixed(2)}`;
+    };
+
+    const initiatePaypalPayment = async (workId, price) => {
+        const token = localStorage.getItem('jwt_token');
+        if (!token) {
+            // No se renderiza el botón si no está logueado
+            const container = document.getElementById(`paypal-button-container-${workId}`);
+            container.innerHTML = `<a href="/marketplace/auth/login" class="text-xs text-blue-600 hover:underline">Inicia sesión para comprar</a>`;
+            return;
+        }
+
+        try {
+            const response = await fetch('/api/v1/paypal/create-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ workId: workId })
+            });
+
+            if (!response.ok) throw new Error('Failed to create PayPal order');
+
+            const orderData = await response.json();
+            renderPaypalButton(orderData.orderId, workId);
+
+        } catch (error) {
+            console.error('Error initiating PayPal payment:', error);
+            const container = document.getElementById(`paypal-button-container-${workId}`);
+            container.innerHTML = `<span class="text-xs text-red-500">Error al cargar pago</span>`;
+        }
+    };
+
+    const renderPaypalButton = (orderId, workId) => {
+        const containerId = `paypal-button-container-${workId}`;
+        const container = document.getElementById(containerId);
+        container.innerHTML = '';
+
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return orderId;
+            },
+            onApprove: async function(data, actions) {
+                const token = localStorage.getItem('jwt_token');
+                const decodedToken = JSON.parse(atob(token.split('.')[1]));
+                const buyerUserId = decodedToken.sub;
+
+                try {
+                    const response = await fetch('/api/v1/paypal/capture-order', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({
+                            orderId: data.orderID,
+                            workId: workId,
+                            buyerUserId: buyerUserId
+                        })
+                    });
+
+                    if (!response.ok) throw new Error('Failed to capture payment');
+
+                    const details = await response.json();
+                    alert('¡Transacción completada por ' + details.payerName + '!');
+
+                    let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+                    cart = cart.filter(item => item.id !== workId);
+                    localStorage.setItem('shoppingCart', JSON.stringify(cart));
+                    renderCartItems();
+
+                } catch (error) {
+                    console.error('Error capturing payment:', error);
+                    alert('Hubo un error al procesar tu pago. Por favor, intenta de nuevo.');
+                }
+            },
+            onError: function (err) {
+                console.error('PayPal button error:', err);
+                alert('Ocurrió un error con PayPal.');
+            }
+        }).render('#' + containerId);
+    };
+
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.attributeName === 'aria-hidden' && cartDrawer.getAttribute('aria-hidden') === 'false') {
+                renderCartItems();
+            }
+        });
+    });
+
+    if (cartDrawer) {
+        observer.observe(cartDrawer, { attributes: true });
+    }
+
+    if(checkoutButton) {
+        checkoutButton.addEventListener('click', () => {
+            const token = localStorage.getItem('jwt_token');
+            if(!token) {
+                window.location.href = '/marketplace/auth/login?redirect=cart';
+            }
+        });
+    }
+>>>>>>> Stashed changes
 });

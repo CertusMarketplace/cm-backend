@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< Updated upstream
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <header th:fragment="header-seller">
     <div class="flex font-poppins justify-between py-2 px-6">
@@ -168,4 +169,126 @@
         </form>
     </dialog>
 </header>
+=======
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+    <header th:fragment="header-seller">
+        <!-- Burguer Sidebar -->      
+        <div class="flex font-poppins justify-between py-2 px-6">
+            <div class="flex sm:hidden">
+                <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="items-center text-blueCertus sm:hidden hover:text-skyBlueCertus hover:rounded-full py-1.5 px-2 hover:border-b-2 hover:border-skyBlueCertus">
+                   <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <!-- Nav User -->
+            <div class="flex justify-center items-center space-x-2">              
+                <div class="hidden lg:flex lg:flex-col">
+                    <h3 class="text-xl"><span id="greeting"></span>Geraldo</h3>
+                    <span class="text-base text-gray-500">¿Que tienes pensado hoy?</span>
+                </div>
+            </div>
+            <nav class="flex items-center justify-center lg:space-x-3">
+                <button onclick="document.getElementById('modalAddWork').showModal()" class="lg:border border-gray-600 rounded-full flex justify-center items-center h-10 w-10 lg:w-32 duration-100 lg:space-x-1 lg:py-2 lg:px-6 text-blueCertus hover:text-skyBlueCertus hover:border-b-2 hover:border-skyBlueCertus">
+                    <i class="fa-solid fa-plus text-2xl"></i>
+                    <span class="hidden lg:flex">Publicar</span>
+                </button>
+                <button class="lg:border border-blueCertus rounded-full flex justify-center items-center h-10 w-10 lg:w-40 duration-100 lg:space-x-1 lg:py-2 lg:px-6 text-blueCertus lg:text-white lg:bg-blueCertus hover:bg-skyBlueCertus hover:border-skyBlueCertus">
+                    <i class="fa-solid fa-store text-xl"></i>
+                    <span class="hidden lg:flex">Marketplace</span>
+                </button>
+                <a class="pl-2" href="#">
+                    <img class="h-[45px] lg:h-[68px]" th:src="@{/img/dashboard/seller/user.svg}" alt="User">
+                </a>
+            </nav>
+        </div> 
+
+        <!-- Modal del Botón Publicar -->
+
+         <dialog id="modalAddWork" class="h-3/4 w-3/5 backdrop:bg-black/60 left-[15rem] rounded-xl">
+            <div class="px-8 font-poppins text-sm space-y-6">
+                <div class="mt-8 mb-8">
+                    <h1 class="text-xl text-center font-extrabold">Subir Trabajo Digital</h1>
+                    <p class="text-center">Comparte tu creación con la comunidad</p>
+                </div>
+               <div class="grid grid-cols-2 gap-x-4 text-sm">
+                    <div class="space-y-6">
+                       <label class="w-full py-10 border-2 border-dashed border-gray-300 flex flex-col rounded-xl items-center justify-center text-center cursor-pointer hover:bg-gray-50 transition">                            
+                            <div class="flex flex-col items-center space-y-2 px-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gray-500" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 16V4a1 1 0 011-1h8a1 1 0 011 1v12m-4 4l-4-4m0 0l4-4m-4 4h12" />
+                                </svg>
+
+                                <p class="font-semibold text-gray-700">Arrastra y suelta tus imágenes aquí</p>
+                                <span class="text-sm text-blue-600 underline">Explorar archivos</span>
+                                <p class="text-xs text-gray-500 mt-1">Formatos compatibles: PNG, JPG, GIF (máximo 100 MB)</p>
+                            </div>
+                            <input type="file" class="hidden" />
+                        </label>
+                        <div class="space-y-2">
+                            <label for="price" class="font-bold">Categoría</label>
+                            <select name="Seleccionar Categoría" type="text" id="priceWork"  class="text-sm w-full h-10 border-gray-400 rounded-lg">
+                                <option value="" selected disabled hidden>Seleccionar Categoría</option>
+                                <option value="Opción 1">Ilustración Digital</option>
+                                <option value="Opción 2">Software</option>
+                                <option value="Opción 3">Pinturas</option>
+                                <option value="Opción 4">Cursos</option>
+                                <option value="Opción 5">Música y Audio</option>
+                            </select>
+                        </div>                    
+                    </div>
+                    <div class="space-y-6">
+                       <div class="space-y-2">
+                            <label for="titleWork" class="font-bold">Título del Trabajo</label>
+                            <input type="text" placeholder="Arctic Monkeys" id="titleWork" name="titleWork" class="w-full h-10 border-gray-400 rounded-lg text-sm">
+                       </div>
+                        <div class="space-y-2">
+                            <label for="titleWork" class="font-bold">Descripción</label>
+                            <textarea type="text" id="titleWork" placeholder="Ingresa la descripción del trabajo" name="titleWork" class="text-sm w-full py-1.5 h-44 max-h-44 border-gray-400 rounded-lg"></textarea>
+                        </div>
+                    </div>
+               </div>
+                <div class="grid grid-cols-2 w-full gap-x-4 text-sm">
+                    <div class="space-y-2">
+                        <label class="w-full py-6 border-2 border-dashed border-gray-300 flex flex-col rounded-xl items-center cursor-pointer hover:bg-gray-50 transition">                            
+                            <div class="flex">                               
+                                <div class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-file-arrow-up text-blueCertus"></i>                     
+                                    <p>Elegir Archivo</p>
+                                    <p class="text-sm text-gray-500 mx-20"> Tamaño máximo de archivo: 300mb </p>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <input type="file" class="hidden" />
+                        </label>              
+                    </div>
+                    <div class="space-y-2">
+                        <label for="price" class="font-bold">Precio (PE)</label>
+                        <input type="text" placeholder="S/700.00" id="priceWork" name="priceWork" class="w-full h-10 border-gray-400 rounded-lg text-sm">
+                    </div>
+                </div>   
+                <div class="grid grid-cols-2 w-full gap-x-4 text-sm">
+                    <div class="space-y-1.5">
+                        <div>
+                            <i class="fa-solid fa-circle-exclamation text-blueCertus"></i>
+                            <span class="text-gray-600 text-sm">Recuerda: Para que tu trabajo este publicado, tendra que pasar un proceso de revisión previamente con los administradores.
+                                Esto para cuidar la integridad y seguridad hacia nuestra comunidad.
+                            </span>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-circle-exclamation text-blueCertus"></i>
+                            <span class="text-gray-600 text-sm">El trabajo podrá ser editado solo 1 sola vez.</span>
+                        </div>
+                    </div>
+                    <div class="space-y-3">                          
+                        <button class="h-10 text-center text-white bg-blueCertus w-full rounded-full">Pasar Revisión</button>                   
+                        <button onclick="document.getElementById('modalAddWork').close()" class="h-10 text-center text-white bg-redCertus w-full rounded-full">Cancelar</button>
+                    </div>
+                </div>               
+            </div>
+        </dialog>
+        
+    </header>
+>>>>>>> Stashed changes
 </html>

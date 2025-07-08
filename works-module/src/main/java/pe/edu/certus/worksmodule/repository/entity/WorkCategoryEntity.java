@@ -11,7 +11,10 @@ import org.hibernate.annotations.Immutable;
 @Getter
 @Setter
 public class WorkCategoryEntity {
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "category_id")

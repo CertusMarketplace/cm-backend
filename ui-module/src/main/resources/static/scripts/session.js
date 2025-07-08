@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 document.addEventListener('DOMContentLoaded', function () {
+=======
+document.addEventListener('DOMContentLoaded', function() {
+>>>>>>> Stashed changes
     const token = localStorage.getItem('jwt_token');
 
     const userMenuDesktop = document.getElementById('user-menu-desktop');

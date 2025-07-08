@@ -18,6 +18,11 @@ public class PeopleModel {
     private String personGender;
     private String personInstituteCampus;
     private String personInstitutionalEmail;
+<<<<<<< Updated upstream
     private String personInstitutionalCareer;
     private Integer personCurrentTerm;
+=======
+    private Integer personInstitutionalCycle;
+    private String personInstitutionalCareer;
+>>>>>>> Stashed changes
 }

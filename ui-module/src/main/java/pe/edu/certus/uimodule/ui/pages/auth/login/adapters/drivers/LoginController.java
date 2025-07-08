@@ -12,6 +12,7 @@ import pe.edu.certus.uimodule.ui.pages.constants.BusinessRoute;
 @RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE )
 public class LoginController implements ForLogin {
 
+<<<<<<< Updated upstream
     @Value( "${google.client-id}" )
     private String googleClientId;
 
@@ -19,6 +20,15 @@ public class LoginController implements ForLogin {
     @Override
     public String showLoginPage( Model model ) {
         model.addAttribute( "googleClientId", googleClientId );
+=======
+    @Value("${google.client-id}")
+    private String googleClientId;
+
+    @GetMapping( LoginRoute.LOGIN_PAGE_ROUTE)
+    @Override
+    public String showLoginPage(Model model) {
+        model.addAttribute("googleClientId", googleClientId);
+>>>>>>> Stashed changes
         return LoginRoute.LOGIN_PAGE_FILE;
     }
 }

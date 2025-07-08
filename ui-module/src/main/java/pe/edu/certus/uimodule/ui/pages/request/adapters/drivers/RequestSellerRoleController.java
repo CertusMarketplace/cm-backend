@@ -7,10 +7,17 @@ import pe.edu.certus.uimodule.ui.pages.constants.BusinessRoute;
 import pe.edu.certus.uimodule.ui.pages.request.ports.drivers.ForRequestSeller;
 
 @Controller
+<<<<<<< Updated upstream
 @RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE )
 public class RequestSellerRoleController implements ForRequestSeller {
 
     @GetMapping( RequestSellerRoleRoute.REQUEST_SELLER_ROLE_PAGE_ROUTE )
+=======
+@RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE)
+public class RequestSellerRoleController implements ForRequestSeller {
+
+    @GetMapping( RequestSellerRoleRoute.REQUEST_SELLER_ROLE_PAGE_ROUTE)
+>>>>>>> Stashed changes
     @Override
     public String showRequestRolePage( ) {
         return RequestSellerRoleRoute.REQUEST_SELLER_ROLE_PAGE_FILE;

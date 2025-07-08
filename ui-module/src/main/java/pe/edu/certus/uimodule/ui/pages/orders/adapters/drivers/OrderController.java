@@ -7,17 +7,28 @@ import pe.edu.certus.uimodule.ui.pages.constants.BusinessRoute;
 import pe.edu.certus.uimodule.ui.pages.orders.ports.drivers.ForOrder;
 
 @Controller
+<<<<<<< Updated upstream
 @RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE )
 public class OrderController implements ForOrder {
 
     @GetMapping( OrderRoute.ORDERS_PAGE_ROUTE )
+=======
+@RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE)
+public class OrderController implements ForOrder {
+
+    @GetMapping( OrderRoute.ORDERS_PAGE_ROUTE)
+>>>>>>> Stashed changes
     @Override
     public String showOrders( ) {
         return OrderRoute.ORDERS_PAGE_FILE;
     }
 
 
+<<<<<<< Updated upstream
     @GetMapping( OrderRoute.ORDER_DETAILS_PAGE_ROUTE )
+=======
+    @GetMapping( OrderRoute.ORDER_DETAILS_PAGE_ROUTE)
+>>>>>>> Stashed changes
     @Override
     public String showOrderDetails( ) {
         return OrderRoute.ORDER_DETAILS_PAGE_FILE;

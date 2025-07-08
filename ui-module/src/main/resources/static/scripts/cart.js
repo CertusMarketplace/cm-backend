@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 const cartManager = (() => {
     // ... (resto de las funciones de cartManager se mantienen igual) ...
     const getUserId = () => { /* ... */
@@ -125,3 +126,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+=======
+document.addEventListener('DOMContentLoaded', () => {
+    const cartIconBadge = document.getElementById('cart-icon-badge');
+
+    const updateCartBadge = () => {
+        const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+        if (cartIconBadge) {
+            cartIconBadge.textContent = cart.length;
+            cartIconBadge.classList.toggle('hidden', cart.length === 0);
+        }
+    };
+
+    const addToCart = (workId) => {
+        let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+        if (cart.includes(workId)) {
+            alert("Este producto ya está en el carrito.");
+            return;
+        }
+
+        cart.push(workId);
+        localStorage.setItem('shoppingCart', JSON.stringify(cart));
+        updateCartBadge();
+        alert("Producto añadido al carrito.");
+    };
+
+    // Botón de agregar al carrito en detalles o lista
+    document.body.addEventListener('click', (event) => {
+        const btn = event.target.closest('.add-to-cart-btn');
+        if (btn) {
+            const productId = parseInt(btn.dataset.id, 10);
+            addToCart(productId);
+        }
+    });
+
+    updateCartBadge();
+});
+>>>>>>> Stashed changes

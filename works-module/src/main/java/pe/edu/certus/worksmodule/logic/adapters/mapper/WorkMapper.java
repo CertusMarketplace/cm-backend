@@ -11,12 +11,31 @@ import java.util.stream.Collectors;
 
 public class WorkMapper implements ForMappingWork {
 
+<<<<<<< Updated upstream
     private final ForMappingRating forMappingRating;
     private final ForMappingComment forMappingComment;
 
     public WorkMapper(ForMappingRating forMappingRating, ForMappingComment forMappingComment) {
         this.forMappingRating = forMappingRating;
         this.forMappingComment = forMappingComment;
+=======
+    @Override
+    public WorkModel fromWeb( WorkWebModel workWebModel ) {
+        return WorkModel.builder()
+                .workId( workWebModel.workId() )
+                .idSellerUser( workWebModel.idSellerUser() )
+                .idWorkCategory( workWebModel.idWorkCategory() )
+                .workTitle( workWebModel.workTitle() )
+                .workDescription( workWebModel.workDescription() )
+                .workPrice( workWebModel.workPrice() )
+                .workIsDeleted( workWebModel.workIsDeleted() )
+                .workImageUrl( workWebModel.workImageUrl() )
+                .workPublishedAt( workWebModel.workPublishedAt() )
+                .workUpdatedAt( workWebModel.workUpdatedAt() )
+                .workStatus( workWebModel.workStatus() )
+                .averageRating(workWebModel.averageRating())
+                .build();
+>>>>>>> Stashed changes
     }
 
     @Override
@@ -49,11 +68,16 @@ public class WorkMapper implements ForMappingWork {
                 workModel.getWorkIsDeleted(),
                 workModel.getWorkPublishedAt(),
                 workModel.getWorkUpdatedAt(),
+<<<<<<< Updated upstream
                 workModel.getWorkCategory(),
                 workModel.getSellerName(),
                 workModel.getAverageRating(),
                 workModel.getRatings() != null ? workModel.getRatings().stream().map(forMappingRating::toWeb).collect(Collectors.toList()) : Collections.emptyList(),
                 workModel.getComments() != null ? workModel.getComments().stream().map(forMappingComment::toWeb).collect(Collectors.toList()) : Collections.emptyList()
+=======
+                workModel.getWorkStatus(),
+                workModel.getAverageRating()
+>>>>>>> Stashed changes
         );
     }
 }

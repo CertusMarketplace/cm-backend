@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 document.addEventListener("DOMContentLoaded", function () {
+=======
+document.addEventListener("DOMContentLoaded", function() {
+>>>>>>> Stashed changes
     // Animaciones que se repiten
     const animatables = document.querySelectorAll('[data-animate]');
     // Animaciones que solo ocurren una vez

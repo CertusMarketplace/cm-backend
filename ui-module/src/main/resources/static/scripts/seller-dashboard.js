@@ -5,30 +5,60 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+<<<<<<< Updated upstream
     const contentArea = document.getElementById("all-content");
 
     const loadContent = (view) => {
         if (!contentArea) return;
         fetch(`/marketplace/fragments/${view}`)
             .then(res => res.ok ? res.text() : Promise.reject(res))
+=======
+    const loadContent = (view) => {
+        const contentArea = document.getElementById("all-content");
+        fetch(`/marketplace/fragments/${view}`)
+            .then(res => res.text())
+>>>>>>> Stashed changes
             .then(html => {
                 contentArea.innerHTML = html;
                 if (view === 'seller-works' || view === 'seller-works-under-review') {
                     loadSellerWorks();
+<<<<<<< Updated upstream
+=======
+                } else if (view === 'seller-sales') {
+                    // loadSellerSales();
+>>>>>>> Stashed changes
                 }
             })
             .catch(err => console.error(`Error loading view ${view}:`, err));
     };
 
+<<<<<<< Updated upstream
+=======
+    const setActiveSidebarLink = (activeId) => {
+        const links = ['stateLinkWork', 'stateLinkReview', 'stateLinkSales', 'stateLinkSettings', 'stateLinkAccount', 'stateLinkLogout'];
+        links.forEach(id => {
+            const element = document.getElementById(id);
+            if (!element) return;
+            element.classList.toggle('bg-skyBlueCertus', id === activeId);
+            element.classList.toggle('hover:bg-blue-900', id !== activeId);
+        });
+    };
+
+>>>>>>> Stashed changes
     window.loadView = (view) => {
         let activeLinkId = '';
         if (view === 'seller-works') activeLinkId = 'stateLinkWork';
         if (view === 'seller-works-under-review') activeLinkId = 'stateLinkReview';
         if (view === 'seller-sales') activeLinkId = 'stateLinkSales';
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         setActiveSidebarLink(activeLinkId);
         loadContent(view);
     };
 
+<<<<<<< Updated upstream
     const setActiveSidebarLink = (activeId) => {
         const links = ['stateLinkWork', 'stateLinkReview', 'stateLinkSales', 'stateLinkSettings', 'stateLinkAccount', 'stateLinkLogout'];
         links.forEach(id => {
@@ -179,10 +209,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+=======
+    loadView('seller-works');
+>>>>>>> Stashed changes
 });
 
 async function loadSellerWorks() {
     const token = localStorage.getItem('jwt_token');
+<<<<<<< Updated upstream
     const worksContainer = document.getElementById('works-container');
     const reviewContainer = document.getElementById('review-container');
 
@@ -195,12 +229,29 @@ async function loadSellerWorks() {
         });
 
         if (!response.ok) throw new Error('No se pudieron cargar los trabajos del vendedor.');
+=======
+    const noWorksMessage = document.getElementById('no-works-message');
+    const noReviewWorksMessage = document.getElementById('no-review-works-message');
+    const worksContainer = document.getElementById('works-container');
+    const reviewContainer = document.getElementById('review-container');
+
+    try {
+        const decodedToken = JSON.parse(atob(token.split('.')[1]));
+        const sellerId = decodedToken.sub;
+
+        const response = await fetch(`/api/v1/works/seller/${sellerId}`, {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (!response.ok) throw new Error('Could not fetch works.');
+
+>>>>>>> Stashed changes
         const works = await response.json();
 
         const publishedWorks = works.filter(w => w.workStatus === 'PUBLICADO');
         const reviewWorks = works.filter(w => w.workStatus === 'EN_REVISION');
 
         if (worksContainer) {
+<<<<<<< Updated upstream
             worksContainer.innerHTML = publishedWorks.length > 0 ? publishedWorks.map(createWorkCard).join('') : '<p class="col-span-full text-center text-gray-500">No tienes trabajos publicados.</p>';
         }
         if (reviewContainer) {
@@ -211,6 +262,28 @@ async function loadSellerWorks() {
         console.error("Error al cargar los trabajos del vendedor:", error);
         if (worksContainer) worksContainer.innerHTML = '<p class="col-span-full text-center text-red-500">Error al cargar trabajos.</p>';
         if (reviewContainer) reviewContainer.innerHTML = '<p class="col-span-full text-center text-red-500">Error al cargar trabajos.</p>';
+=======
+            worksContainer.innerHTML = '';
+            if (publishedWorks.length === 0) {
+                if(noWorksMessage) noWorksMessage.classList.remove('hidden');
+            } else {
+                if(noWorksMessage) noWorksMessage.classList.add('hidden');
+                publishedWorks.forEach(work => worksContainer.innerHTML += createWorkCard(work));
+            }
+        }
+
+        if (reviewContainer) {
+            reviewContainer.innerHTML = '';
+            if (reviewWorks.length === 0) {
+                if(noReviewWorksMessage) noReviewWorksMessage.classList.remove('hidden');
+            } else {
+                if(noReviewWorksMessage) noReviewWorksMessage.classList.add('hidden');
+                reviewWorks.forEach(work => reviewContainer.innerHTML += createWorkCard(work));
+            }
+        }
+    } catch (error) {
+        console.error("Error loading seller works:", error);
+>>>>>>> Stashed changes
     }
 }
 
@@ -219,7 +292,11 @@ function createWorkCard(work) {
     return `
         <div class="max-w-xs p-3 space-y-2 border-2 rounded-md bg-white">
             <div class="flex justify-center">
+<<<<<<< Updated upstream
                 <img src="${work.workImageUrl || '/img/placeholder.png'}" class="h-48 w-full object-cover rounded-lg" alt="${work.workTitle}">
+=======
+                <img src="${work.workImageUrl}" class="h-48 w-full object-cover rounded-lg" alt="${work.workTitle}">
+>>>>>>> Stashed changes
             </div>
             <div class="text-sm space-y-1.5">
                 <h5><strong>Trabajo:</strong> ${work.workTitle}</h5>
@@ -245,4 +322,10 @@ function openRequestsModal(workId) {
 
 function confirmDelete(workId) {
     console.log(`Eliminar trabajo ${workId}`);
+<<<<<<< Updated upstream
+=======
+    if (confirm(`¿Estás seguro de que deseas eliminar este trabajo?`)) {
+        // Lógica de eliminación
+    }
+>>>>>>> Stashed changes
 }

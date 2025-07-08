@@ -12,6 +12,7 @@ import pe.edu.certus.uimodule.ui.pages.constants.BusinessRoute;
 @RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE )
 public class RegisterController implements ForRegister {
 
+<<<<<<< Updated upstream
     @Value( "${google.client-id}" )
     private String googleClientId;
 
@@ -19,6 +20,15 @@ public class RegisterController implements ForRegister {
     @Override
     public String showRegisterPage( Model model ) {
         model.addAttribute( "googleClientId", googleClientId );
+=======
+    @Value("${google.client-id}")
+    private String googleClientId;
+
+    @GetMapping(RegisterRoute.REGISTER_PAGE_ROUTE)
+    @Override
+    public String showRegisterPage(Model model) {
+        model.addAttribute("googleClientId", googleClientId);
+>>>>>>> Stashed changes
         return RegisterRoute.REGISTER_PAGE_FILE;
     }
 }

@@ -6,6 +6,10 @@ public interface ForRequestSeller {
             REQUEST SELLER ROLE ENDPOINTS
      ================================== */
 
+<<<<<<< Updated upstream
     String showRequestRolePage( );
+=======
+    String showRequestRolePage();
+>>>>>>> Stashed changes
 
 }

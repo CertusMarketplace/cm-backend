@@ -63,7 +63,11 @@
         <module>works-module</module>
         <module>users-module</module>
         <module>paypal-module</module>
+<<<<<<< Updated upstream
         <module>bootloader</module>
+=======
+        <module>ui-module</module>
+>>>>>>> Stashed changes
     </modules>
 
     <properties>

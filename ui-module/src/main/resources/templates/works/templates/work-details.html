@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+<<<<<<< Updated upstream
 <head th:replace="~{fragments/head :: head}"></head>
 
+=======
+<head>
+    <th:block th:replace="~{fragments/head :: head}"></th:block>
+    <title th:text="${work.workTitle} + ' - Certus Marketplace'">Detalle del Trabajo</title>
+</head>
+>>>>>>> Stashed changes
 <body class="bg-gray-100 text-gray-900 pt-20">
 
 <header th:replace="~{fragments/main-header :: header}"></header>
 
 <main class="max-w-7xl mx-auto mt-10 p-6 bg-white rounded-lg shadow">
+<<<<<<< Updated upstream
     <!-- ... (contenido de la página de detalles que ya tienes) ... -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
 
@@ -26,12 +34,26 @@
                          th:src="${imageUrl}"
                          alt="Miniatura del trabajo">
                 </div>
+=======
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+        <div class="grid gap-4">
+            <div>
+                <img class="h-auto max-w-full rounded-lg" th:src="@{${work.workImageUrl}}" th:alt="${work.workTitle}">
+            </div>
+            <div class="grid grid-cols-5 gap-4">
+                <div><img class="h-auto max-w-full rounded-lg" th:src="@{/img/works/detalle1.jpg}" alt=""></div>
+                <div><img class="h-auto max-w-full rounded-lg" th:src="@{/img/works/detalle2.jpg}" alt=""></div>
+                <div><img class="h-auto max-w-full rounded-lg" th:src="@{/img/works/detalle3.jpg}" alt=""></div>
+                <div><img class="h-auto max-w-full rounded-lg" th:src="@{/img/works/detalle4.jpg}" alt=""></div>
+                <div><img class="h-auto max-w-full rounded-lg" th:src="@{/img/works/detalle5.jpg}" alt=""></div>
+>>>>>>> Stashed changes
             </div>
         </div>
 
         <div class="flex flex-col justify-between h-full">
             <div>
                 <div class="flex items-center justify-between mb-1">
+<<<<<<< Updated upstream
                     <h1 class="text-2xl font-bold text-gray-800" th:text="${work.workTitle}">
                         Título del Trabajo</h1>
                 </div>
@@ -51,6 +73,18 @@
                     <button class="flex-1 bg-[#00205b] hover:bg-[#001a4d] text-white font-medium px-5 py-2.5 rounded-md transition duration-200 add-to-cart-btn"
                             th:attr="data-id=${work.workId}">Agregar al carrito
                     </button>
+=======
+                    <h1 class="text-2xl font-bold text-gray-800" th:text="${work.workTitle}">Título del Trabajo</h1>
+                </div>
+                <p class="text-sm text-gray-500 mb-6">
+                    Autor: <a th:href="@{'/marketplace/profiles/' + ${work.idSellerUser}}" class="text-[#00205b] font-medium hover:underline" th:text="'Usuario ' + ${work.idSellerUser}">Nombre del Autor</a>
+                </p>
+                <p class="text-lg text-gray-600 font-semibold mb-6" th:text="'S/ ' + ${#numbers.formatDecimal(work.workPrice, 1, 'COMMA', 2, 'POINT')}">S/0.00</p>
+
+                <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                    <button class="flex-1 bg-white border border-[#00205b] text-[#00205b] hover:bg-blue-50 font-medium px-5 py-2.5 rounded-md transition duration-200">Contactar autor</button>
+                    <button class="flex-1 bg-[#00205b] hover:bg-[#001a4d] text-white font-medium px-5 py-2.5 rounded-md transition duration-200">Agregar al carrito</button>
+>>>>>>> Stashed changes
                 </div>
 
                 <div>
@@ -62,6 +96,10 @@
             </div>
         </div>
     </div>
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     <div class="mt-12 pt-10 border-t border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
             <h3 class="text-xl font-semibold mb-4">Reseñas de Compradores</h3>
@@ -69,6 +107,7 @@
                 Este trabajo aún no tiene reseñas.
             </div>
             <div th:unless="${#lists.isEmpty(ratings)}" class="space-y-6">
+<<<<<<< Updated upstream
                 <div th:each="rating : ${ratings}"
                      class="bg-white border rounded-lg shadow-sm p-4">
                     <div class="flex items-center gap-3 mb-2">
@@ -90,11 +129,30 @@
                 </div>
             </div>
         </div>
+=======
+                <div th:each="rating : ${ratings}" class="bg-white border rounded-lg shadow-sm p-4">
+                    <div class="flex items-center gap-3 mb-2">
+                        <img th:src="@{/img/works/perfil-generico.png}" class="w-10 h-10 rounded-full object-cover" />
+                        <div>
+                            <p class="text-sm font-medium text-gray-800" th:text="'Usuario ' + ${rating.userId}">Nombre Usuario</p>
+                            <div class="text-[#00205b]">
+                                <i th:each="i : ${#numbers.sequence(1, rating.ratingScore)}" class="fa-solid fa-star"></i>
+                                <i th:each="i : ${#numbers.sequence(1, 5 - rating.ratingScore)}" class="fa-regular fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600" th:text="${rating.ratingComment}">Comentario de la reseña.</p>
+                </div>
+            </div>
+        </div>
+
+>>>>>>> Stashed changes
         <div>
             <h3 class="text-xl font-semibold mb-4">Cuéntanos tu experiencia</h3>
             <form id="comment-form" class="mb-8">
                 <div class="mb-4">
                     <label for="comment-textarea" class="sr-only">Tu comentario</label>
+<<<<<<< Updated upstream
                     <textarea id="comment-textarea" rows="4"
                               class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                               placeholder="Escribe tu comentario aquí..." required></textarea>
@@ -104,6 +162,15 @@
                     Publicar comentario
                 </button>
             </form>
+=======
+                    <textarea id="comment-textarea" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Escribe tu comentario aquí..." required></textarea>
+                </div>
+                <button type="submit" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-[#00205b] rounded-lg hover:bg-[#001a4d] focus:ring-4 focus:outline-none focus:ring-blue-300">
+                    Publicar comentario
+                </button>
+            </form>
+
+>>>>>>> Stashed changes
             <div id="comments-list" class="space-y-6">
                 <p class="text-gray-500">Aún no hay comentarios.</p>
             </div>
@@ -111,6 +178,7 @@
     </div>
 </main>
 
+<<<<<<< Updated upstream
 <!-- Drawer del Carrito -->
 <div id="cart-drawer"
      class="fixed top-0 right-0 z-50 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-80 sm:w-96"
@@ -140,6 +208,46 @@
         </div>
     </div>
 </div>
+=======
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.2.1/dist/flowbite.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const commentForm = document.getElementById('comment-form');
+        const commentTextarea = document.getElementById('comment-textarea');
+        const commentsList = document.getElementById('comments-list');
+
+        commentForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const commentText = commentTextarea.value.trim();
+            if (commentText === "") { return; }
+
+            const newComment = document.createElement('article');
+            newComment.className = 'p-6 text-base bg-white rounded-lg shadow-sm border';
+
+            newComment.innerHTML = `
+                <footer class="flex justify-between items-center mb-2">
+                    <div class="flex items-center">
+                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 font-semibold">
+                            <img class="mr-2 w-6 h-6 rounded-full" src="/img/works/perfil-generico.png" alt="Usuario Genérico">
+                            Usuario Anónimo
+                        </p>
+                        <p class="text-sm text-gray-600"><time>Ahora mismo</time></p>
+                    </div>
+                </footer>
+                <p class="text-gray-500"></p>
+            `;
+            newComment.querySelector('p.text-gray-500').textContent = commentText;
+
+            if (commentsList.querySelector('p.text-gray-500')) {
+                commentsList.innerHTML = '';
+            }
+            commentsList.prepend(newComment);
+            commentTextarea.value = "";
+            commentTextarea.focus();
+        });
+    });
+</script>
+>>>>>>> Stashed changes
 
 </body>
 </html>

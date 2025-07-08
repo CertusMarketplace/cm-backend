@@ -10,9 +10,15 @@ import pe.edu.certus.uimodule.ui.pages.home.ports.drivers.ForHome;
 @RequestMapping( BusinessRoute.BUSINESS_PAGE_ROUTE )
 public class HomeController implements ForHome {
 
+<<<<<<< Updated upstream
     @GetMapping( HomeRoute.HOME_PAGE_ROUTE )
     @Override
     public String showHomePage( ) {
+=======
+    @GetMapping( HomeRoute.HOME_PAGE_ROUTE)
+    @Override
+    public String showHomePage() {
+>>>>>>> Stashed changes
         return HomeRoute.HOME_PAGE_FILE;
     }
 }

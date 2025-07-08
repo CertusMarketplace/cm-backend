@@ -17,23 +17,39 @@ import pe.edu.certus.authmodule.repository.entity.AuthEntity;
 import pe.edu.certus.authmodule.repository.ports.driver.ForQueryingAuth;
 import pe.edu.certus.peoplemodule.logic.model.PeopleModel;
 import pe.edu.certus.peoplemodule.logic.ports.driver.ForPeople;
+<<<<<<< Updated upstream
 
 import java.io.IOException;
 import java.util.Collections;
+=======
+>>>>>>> Stashed changes
 import java.util.HashMap;
 import java.util.Optional;
 
 @Service
+@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 public class AuthManager implements ForAuth {
 
     private final ForQueryingAuth forQueryingAuth;
+<<<<<<< Updated upstream
+=======
+    private final ForPeople forPeople;
+    private final JwtManager jwtManager;
+>>>>>>> Stashed changes
     private final PasswordEncoder passwordEncoder;
     private final JwtManager jwtManager;
     private final ForPeople<PeopleModel, Long> forPeople;
     private final GoogleIdTokenVerifier googleIdTokenVerifier;
 
+<<<<<<< Updated upstream
     public AuthManager(ForQueryingAuth forQueryingAuth, PasswordEncoder passwordEncoder, JwtManager jwtManager, ForPeople<PeopleModel, Long> forPeople, @Value("${google.client-id}") String clientId) {
         this.forQueryingAuth = forQueryingAuth;
+=======
+    public AuthManager(ForQueryingAuth forQueryingAuth, ForPeople forPeople, JwtManager jwtManager, PasswordEncoder passwordEncoder) {
+        this.forQueryingAuth = forQueryingAuth;
+        this.forPeople = forPeople;
+        this.jwtManager = jwtManager;
+>>>>>>> Stashed changes
         this.passwordEncoder = passwordEncoder;
         this.jwtManager = jwtManager;
         this.forPeople = forPeople;
@@ -56,10 +72,20 @@ public class AuthManager implements ForAuth {
     }
 
     @Override
+<<<<<<< Updated upstream
     public void register(RegisterRequest request) {
         // CORRECCIÓN: Usar getEmail(), getName(), getLastname()
         if (forQueryingAuth.findByUserEmail(request.getEmail()).isPresent()) {
             throw new IllegalArgumentException("El correo ya está registrado");
+=======
+    public HashMap<String, String> login(LoginModel loginRequest) throws Exception {
+        HashMap<String, String> response = new HashMap<>();
+        Optional<AuthEntity> userOptional = forQueryingAuth.findByUserEmail(loginRequest.getUserEmail());
+
+        if (userOptional.isEmpty()) {
+            response.put("error", "Usuario no registrado!");
+            return response;
+>>>>>>> Stashed changes
         }
         AuthEntity user = new AuthEntity();
         user.setUserEmail(request.getEmail());
@@ -67,6 +93,7 @@ public class AuthManager implements ForAuth {
         user.setIdRole(3L); // Por defecto rol de Comprador al registrarse
         user = forQueryingAuth.save(user);
 
+<<<<<<< Updated upstream
         PeopleModel person = PeopleModel.builder()
                 .idUser(user.getId())
                 .personName(request.getName())
@@ -115,5 +142,42 @@ public class AuthManager implements ForAuth {
             error.put("error", "Error interno al procesar token de Google.");
             return error;
         }
+=======
+        AuthEntity user = userOptional.get();
+        if (passwordEncoder.matches(loginRequest.getUserPassword(), user.getUserPassword())) {
+            response.put("jwt", jwtManager.generateJWT(user.getId()));
+        } else {
+            response.put("error", "Credenciales incorrectas");
+        }
+        return response;
+    }
+
+    @Override
+    public ResponseWebModel register(AuthEntity user, String personName, String personLastname) throws Exception {
+        ResponseWebModel response = new ResponseWebModel();
+        Optional<AuthEntity> existingUser = forQueryingAuth.findByUserEmail(user.getUserEmail());
+        if (existingUser.isPresent()) {
+            response.setNumOfErrors(1);
+            response.setMessage("Un usuario con este correo ya existe.");
+            return response;
+        }
+
+        boolean isCertusEmail = user.getUserEmail() != null && user.getUserEmail().toLowerCase().endsWith("@certus.edu.pe");
+
+        user.setIdRole(isCertusEmail ? 2L : 3L);
+        user.setUserPassword(passwordEncoder.encode(user.getUserPassword()));
+        AuthEntity savedUser = forQueryingAuth.save(user);
+
+        PeopleModel newPerson = PeopleModel.builder()
+                .idUser(savedUser.getId())
+                .personName(personName)
+                .personLastname(personLastname)
+                .personInstitutionalEmail(isCertusEmail ? user.getUserEmail() : null)
+                .build();
+        forPeople.createPeople(newPerson);
+
+        response.setMessage("¡Usuario creado con éxito!");
+        return response;
+>>>>>>> Stashed changes
     }
 }

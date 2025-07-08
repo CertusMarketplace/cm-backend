@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+<<<<<<< Updated upstream
 <section th:fragment="modal-look-review-work">
     <dialog id="modalLookReviewWork"
             class="h-3/4 w-3/5 backdrop:bg-black/60 left-[15rem] rounded-xl">
@@ -61,4 +62,58 @@
         </div>
     </dialog>
 </section>
+=======
+    <section th:fragment="modal-look-review-work">
+         <dialog id="modalLookReviewWork" class="h-3/4 w-3/5 backdrop:bg-black/60 left-[15rem] rounded-xl">
+            <div class="px-8 font-poppins text-sm">
+                <div class="relative text-right mt-2">
+                    <button onclick="document.getElementById('modalLookReviewWork').close()">
+                        <div class="flex justify-center items-center bg-redCertus rounded-full h-10 w-10">
+                            <i class="fa-solid fa-xmark text-lg text-white"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="mb-4">
+                    <h1 class="text-xl text-center font-extrabold">Proceso de Revisión</h1>
+                </div>                
+                <div class="flex flex-col space-y-5 px-52">
+                    <div class="bg-blueCertus text-white py-4 px-6 rounded-lg">
+                        <h1 class="text-base font-extralight">Trabajo: <span class="font-bold">Arctic Monkeys Ilustración</span></h1>
+                        <p class="text-base font-extralight">Categoría: <span class="font-bold">Ilustración Digital</span></p>
+                    </div>
+                    <div class="py-2 space-y-5">
+                        <div class="flex justify-between px-4 items-center">
+                            <div class="bg-blueCertus rounded-full flex items-center justify-center h-10 w-10">
+                                <i class="fa-solid fa-clock-rotate-left text-white text-lg"></i>
+                            </div>
+                            <div class="bg-blueCertus rounded-full flex items-center justify-center h-10 w-10">
+                                <i class="fa-solid fa-magnifying-glass text-white text-lg"></i>
+                            </div>
+                            <div class="bg-blueCertus rounded-full flex items-center justify-center h-10 w-10">
+                                <i class="fa-solid fa-check text-white text-lg"></i>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="h-2 w-full bg-blueCertus"></div>
+                            <div class="h-2 w-full bg-gray-300"></div>
+                        </div>
+                        <div class="w-full flex justify-between items-center">
+                            <p class="text-blueCertus">Pendiente</p>
+                            <p class="text-blueCertus">En Revisión</p>
+                            <p class="text-gray-500">Aprobado</p>
+                        </div>
+                    </div>
+                    <div class="bg-linear-to-r from-[#F5F3FF] to bg-[#EFF6FF] p-6 rounded-lg space-y-4">
+                        <h1 class="text-base"><i class="fa-solid fa-lightbulb text-yellow-400 text-lg mr-2 "></i>Toma nota de esto</h1>
+                        <p>Cuando termine el proceso de revisión, se te notificará si tu trabajo fue aprobado o no, si la administración lo aprueba
+                        el trabajo estará publicado en Certus Marketplace. Para visualizar tus trabajos subidos ir a “Publicaciones” en tu Dashboard</p>
+                    </div>
+                    <div>
+                        <img class="max-h-48 w-full bg-cover object-cover rounded-lg" th:src="@{/img/dashboard/seller/banner-publicity-certus.jpg}" alt="Banner Certus">
+                    </div>
+                </div>
+            </div>
+        </dialog>
+    </section>
+>>>>>>> Stashed changes
 </html>

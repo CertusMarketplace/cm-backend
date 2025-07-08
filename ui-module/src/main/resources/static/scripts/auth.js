@@ -1,11 +1,15 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const token = localStorage.getItem('jwt_token');
 
+<<<<<<< Updated upstream
     // --- Elementos del Main Header ---
+=======
+>>>>>>> Stashed changes
     const userMenu = document.getElementById('user-menu');
     const guestMenu = document.getElementById('guest-menu');
     const userDropdownName = document.getElementById('user-dropdown-name');
     const userDropdownEmail = document.getElementById('user-dropdown-email');
+<<<<<<< Updated upstream
     const userDropdownImage = document.querySelector('#user-menu-button img');
     const logoutButton = document.getElementById('logout-button');
     const dashboardLinkContainer = document.getElementById('dashboard-link-container');
@@ -64,11 +68,39 @@ document.addEventListener('DOMContentLoaded', async () => {
         const protectedPaths = ['/dashboard', '/profile', '/request-seller-role'];
         if (protectedPaths.some(path => window.location.pathname.includes(path))) {
             window.location.href = '/marketplace/auth/login';
+=======
+    const logoutButton = document.getElementById('logout-button');
+
+    const dashboardLinkContainer = document.getElementById('dashboard-link-container');
+    const sellLink = document.querySelector('a[href="/marketplace/request-seller-role"]');
+
+    const updateUI = (isAuthenticated, userData, personData) => {
+        if (isAuthenticated && userData && personData) {
+            guestMenu.classList.add('hidden');
+            userMenu.classList.remove('hidden');
+
+            userDropdownName.textContent = `${personData.personName} ${personData.personLastname}`;
+            userDropdownEmail.textContent = userData.userEmail;
+
+            if (userData.idRole === 2) {
+                if (dashboardLinkContainer) dashboardLinkContainer.classList.remove('hidden');
+                if (sellLink) sellLink.classList.add('hidden');
+            } else {
+                if (dashboardLinkContainer) dashboardLinkContainer.classList.add('hidden');
+                if (sellLink) sellLink.classList.remove('hidden');
+            }
+        } else {
+            userMenu.classList.add('hidden');
+            guestMenu.classList.remove('hidden');
+            if (dashboardLinkContainer) dashboardLinkContainer.classList.add('hidden');
+            if (sellLink) sellLink.classList.remove('hidden');
+>>>>>>> Stashed changes
         }
     };
 
     if (token) {
         try {
+<<<<<<< Updated upstream
             const [userResponse, personResponse] = await Promise.all([
                 fetch('/api/v1/users/me', {headers: {'Authorization': `Bearer ${token}`}}),
                 fetch('/api/v1/people/me', {headers: {'Authorization': `Bearer ${token}`}})
@@ -79,17 +111,38 @@ document.addEventListener('DOMContentLoaded', async () => {
             const userData = await userResponse.json();
             let personData = null;
             if (personResponse.ok) personData = await personResponse.json();
+=======
+            const userResponse = await fetch('/api/v1/users/me', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+
+            if (!userResponse.ok) throw new Error('User session invalid');
+            const userData = await userResponse.json();
+
+            const personResponse = await fetch(`/api/v1/people/${userData.userId}`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+
+            if (!personResponse.ok) throw new Error('Person data not found');
+            const personData = await personResponse.json();
+>>>>>>> Stashed changes
 
             updateUI(true, userData, personData);
 
         } catch (error) {
+<<<<<<< Updated upstream
             console.error("Authentication check failed:", error.message);
             logout();
+=======
+            localStorage.removeItem('jwt_token');
+            updateUI(false, null, null);
+>>>>>>> Stashed changes
         }
     } else {
         updateUI(false, null, null);
     }
 
+<<<<<<< Updated upstream
     const setupLogout = (button) => {
         if (button) {
             button.addEventListener('click', (e) => {
@@ -178,4 +231,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             google.accounts.id.renderButton(googleBtn, {theme: 'outline', size: 'large'});
         }
     };
+=======
+    if (logoutButton) {
+        logoutButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('jwt_token');
+            window.location.href = '/marketplace/auth/login';
+        });
+    }
+>>>>>>> Stashed changes
 });

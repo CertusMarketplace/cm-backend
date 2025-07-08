@@ -3,7 +3,6 @@ package pe.edu.certus.worksmodule.logic.model;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -28,9 +27,13 @@ public class WorkModel {
     private LocalDateTime workPublishedAt;
     private LocalDateTime workUpdatedAt;
     private WorkStatus workStatus;
+<<<<<<< Updated upstream
     private Double averageRating;
     private List<RatingModel> ratings;
     private List<CommentModel> comments;
+=======
+    private double averageRating;
+>>>>>>> Stashed changes
 
     public enum WorkStatus {
         PUBLICADO,

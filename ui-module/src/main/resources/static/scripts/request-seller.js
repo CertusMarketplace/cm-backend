@@ -32,13 +32,33 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+<<<<<<< Updated upstream
         if (!token) {
             const password = formData.get('password');
             const confirmPassword = formData.get('confirmPassword');
+=======
+        const personData = {
+            personName: formData.get('name'),
+            personLastname: formData.get('lastname'),
+            personDni: formData.get('dni'),
+            personMobilePhone: formData.get('number'),
+            personGender: formData.get('gender'),
+            personInstituteCampus: formData.get('campus'),
+            personInstitutionalEmail: institutionalEmail,
+            personInstitutionalCareer: formData.get('career'),
+            personInstitutionalCycle: parseInt(formData.get('cycle'))
+        };
+
+        if (!token) {
+            const password = formData.get('password');
+            const confirmPassword = formData.get('confirmPassword');
+
+>>>>>>> Stashed changes
             if (password !== confirmPassword) {
                 showMessage('Las contraseñas no coinciden.', true);
                 return;
             }
+<<<<<<< Updated upstream
         }
 
         const requestData = {
@@ -84,6 +104,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
             showMessage(error.message, true);
+=======
+
+            const registrationData = {
+                userEmail: institutionalEmail,
+                userPassword: password,
+                personName: personData.personName,
+                personLastname: personData.personLastname,
+            };
+
+            try {
+                const response = await fetch('/api/v1/auth/register', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(registrationData)
+                });
+                const result = await response.json();
+
+                if (!response.ok) throw new Error(result.message || 'Error al registrar la cuenta de vendedor.');
+
+                showMessage('¡Cuenta de Vendedor creada! Serás redirigido para iniciar sesión.', false);
+                setTimeout(() => window.location.href = '/marketplace/auth/login?registrationSuccess=true', 3000);
+
+            } catch (error) {
+                showMessage(error.message, true);
+            }
+
+        } else {
+            try {
+                const decodedToken = JSON.parse(atob(token.split('.')[1]));
+                const userId = decodedToken.sub;
+
+                const headers = {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                };
+
+                await fetch(`/api/v1/users/update-role/${userId}/2`, {
+                    method: 'PUT',
+                    headers: headers
+                });
+
+                const personResponse = await fetch(`/api/v1/people/update/${userId}`, {
+                    method: 'PUT',
+                    headers: headers,
+                    body: JSON.stringify(personData)
+                });
+
+                if (!personResponse.ok) throw new Error('Error al actualizar tu perfil.');
+
+                showMessage('¡Felicidades! Tu rol ha sido actualizado a Vendedor. Serás redirigido a tu panel.', false);
+                setTimeout(() => window.location.href = '/marketplace/dashboard/seller', 3000);
+
+            } catch (error) {
+                showMessage(error.message || 'Ocurrió un error. Inténtalo de nuevo.', true);
+            }
+>>>>>>> Stashed changes
         }
     });
 });

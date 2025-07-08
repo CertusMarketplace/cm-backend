@@ -1,5 +1,6 @@
 /* Efecto 1 Movimiento */
 
+<<<<<<< Updated upstream
 .danceTop {
     animation-name: danceTop;
     transform-origin: top
@@ -21,26 +22,45 @@
     83% {
         transform: skew(-4deg)
     }
+=======
+.danceTop { animation-name: danceTop; transform-origin: top }
+
+@keyframes danceTop {
+    16% { transform: skew(-14deg) }
+    33% { transform: skew(12deg) }
+    49% { transform: skew(-8deg) }
+    66% { transform: skew(6deg) }
+    83% { transform: skew(-4deg) }
+>>>>>>> Stashed changes
 }
 
 /* Efecto 2 fadeInRight */
 
+<<<<<<< Updated upstream
 .fadeInRight {
     animation-name: fadeInRight
 }
 
+=======
+.fadeInRight { animation-name: fadeInRight }
+>>>>>>> Stashed changes
 @keyframes fadeInRight {
     from {
         opacity: 0;
         transform: translateX(100%);
     }
+<<<<<<< Updated upstream
     to {
         opacity: 1
     }
+=======
+    to { opacity: 1 }
+>>>>>>> Stashed changes
 }
 
 /* Efecto 3 */
 
+<<<<<<< Updated upstream
 .leDanceInTop span {
     animation-name: leDanceInTop;
     transform-origin: top
@@ -65,20 +85,38 @@
     83% {
         transform: skew(-4deg)
     }
+=======
+.leDanceInTop span { animation-name: leDanceInTop; transform-origin: top }
+@keyframes leDanceInTop {
+    from { opacity: 0 }
+    16% { transform: skew(-14deg) }
+    33% { transform: skew(12deg) }
+    49% { transform: skew(-8deg) }
+    66% { transform: skew(6deg) }
+    83% { transform: skew(-4deg) }
+>>>>>>> Stashed changes
 }
 
 /* Efecto 4 */
 
+<<<<<<< Updated upstream
 .leScaleXIn span {
     animation-name: leScaleXIn
 }
 
+=======
+.leScaleXIn span { animation-name: leScaleXIn }
+>>>>>>> Stashed changes
 @keyframes leScaleXIn {
     from {
         transform: perspective(400px) rotateX(90deg);
         opacity: 0;
     }
+<<<<<<< Updated upstream
     50% {
         opacity: 1
     }
+=======
+    50% { opacity: 1 }
+>>>>>>> Stashed changes
 }

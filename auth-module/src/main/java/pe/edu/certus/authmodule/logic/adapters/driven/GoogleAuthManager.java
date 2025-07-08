@@ -1,7 +1,6 @@
 package pe.edu.certus.authmodule.logic.adapters.driven;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pe.edu.certus.authmodule.jwt.adapters.JwtManager;
@@ -11,29 +10,45 @@ import pe.edu.certus.authmodule.repository.entity.AuthEntity;
 import pe.edu.certus.authmodule.repository.ports.driver.ForQueryingAuth;
 import pe.edu.certus.peoplemodule.logic.model.PeopleModel;
 import pe.edu.certus.peoplemodule.logic.ports.driver.ForPeople;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 import java.util.HashMap;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
+@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 public class GoogleAuthManager implements ForGoogleAuth {
 
     private final ForVerifyingGoogleToken forVerifyingGoogleToken;
     private final ForQueryingAuth forQueryingAuth;
+    private final ForPeople forPeople;
     private final JwtManager jwtManager;
+<<<<<<< Updated upstream
     private final BCryptPasswordEncoder passwordEncoder;
     private final ForPeople<PeopleModel, Long> forPeople;
+=======
+    private final PasswordEncoder passwordEncoder;
+>>>>>>> Stashed changes
 
     public GoogleAuthManager(ForVerifyingGoogleToken forVerifyingGoogleToken,
                              ForQueryingAuth forQueryingAuth,
+                             ForPeople forPeople,
                              JwtManager jwtManager,
                              PasswordEncoder passwordEncoder,
                              ForPeople< PeopleModel, Long> forPeople) {
         this.forVerifyingGoogleToken = forVerifyingGoogleToken;
         this.forQueryingAuth = forQueryingAuth;
+        this.forPeople = forPeople;
         this.jwtManager = jwtManager;
+<<<<<<< Updated upstream
         this.passwordEncoder = (BCryptPasswordEncoder) passwordEncoder;
         this.forPeople = forPeople;
+=======
+        this.passwordEncoder = passwordEncoder;
+>>>>>>> Stashed changes
     }
 
     @Override
@@ -47,6 +62,7 @@ public class GoogleAuthManager implements ForGoogleAuth {
             if (userOptional.isPresent()) {
                 user = userOptional.get();
             } else {
+<<<<<<< Updated upstream
                 user = new AuthEntity();
                 user.setUserEmail(email);
                 user.setUserPassword(passwordEncoder.encode(java.util.UUID.randomUUID().toString()));
@@ -65,6 +81,30 @@ public class GoogleAuthManager implements ForGoogleAuth {
                         .build();
 
                 forPeople.createPeople(newPersonProfile);
+=======
+                boolean isCertusEmail = email != null && email.toLowerCase().endsWith("@certus.edu.pe");
+                AuthEntity newUser = new AuthEntity();
+                newUser.setUserEmail(email);
+                newUser.setUserPassword(passwordEncoder.encode(UUID.randomUUID().toString()));
+                newUser.setIdRole(isCertusEmail ? 2L : 3L);
+                user = forQueryingAuth.save(newUser);
+
+                String fullName = (String) payload.get("name");
+                String firstName = fullName;
+                String lastName = "";
+                if (fullName != null && fullName.contains(" ")) {
+                    firstName = fullName.substring(0, fullName.lastIndexOf(" "));
+                    lastName = fullName.substring(fullName.lastIndexOf(" ") + 1);
+                }
+
+                PeopleModel newPerson = PeopleModel.builder()
+                        .idUser(user.getId())
+                        .personName(firstName)
+                        .personLastname(lastName)
+                        .personInstitutionalEmail(isCertusEmail ? email : null)
+                        .build();
+                forPeople.createPeople(newPerson);
+>>>>>>> Stashed changes
             }
 
             HashMap<String, String> jwt = new HashMap<>();

@@ -26,10 +26,17 @@
             <version>${lombok.version}</version>
             <optional>true</optional>
         </dependency>
+<<<<<<< Updated upstream
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
+=======
+        <dependency>
+            <groupId>pe.edu.certus</groupId>
+            <artifactId>users-module</artifactId>
+            <version>${version}</version>
+>>>>>>> Stashed changes
         </dependency>
     </dependencies>
 

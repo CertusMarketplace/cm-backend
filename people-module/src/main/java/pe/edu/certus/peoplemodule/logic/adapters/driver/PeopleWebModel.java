@@ -24,6 +24,7 @@ public record PeopleWebModel(
         @Pattern(regexp = "^[0-9]*$", message = "El DNI debe contener solo números")
         String personDni,
 
+<<<<<<< Updated upstream
         @Size(max = 15)
         String personMobilePhone,
 
@@ -41,3 +42,22 @@ public record PeopleWebModel(
 
         Integer personCurrentTerm
 ) {}
+=======
+        @Size(max = 15, message = "El número de teléfono no puede exceder los 15 caracteres")
+        String personMobilePhone,
+
+        @Size(max = 1, message = "El género debe ser un solo carácter")
+        String personGender,
+
+        @Size(max = 100, message = "El campus del instituto no puede exceder los 100 caracteres")
+        String personInstituteCampus,
+
+        @Size(max = 100, message = "El correo institucional no puede exceder los 100 caracteres")
+        String personInstitutionalEmail,
+
+        Integer personInstitutionalCycle,
+
+        String personInstitutionalCareer
+) {
+}
+>>>>>>> Stashed changes

@@ -42,6 +42,7 @@ public class PeopleAdapter {
 
     @PostMapping("/create")
     public ResponseEntity<Void> createPeople(@Valid @RequestBody PeopleWebModel peopleWebModel) {
+<<<<<<< Updated upstream
         try {
             PeopleModel objectFromWeb = forMappingPeople.fromWeb(peopleWebModel);
             forPeople.createPeople(objectFromWeb);
@@ -49,6 +50,11 @@ public class PeopleAdapter {
         } catch (IllegalArgumentException e) {
             throw new RuntimeException("ERROR CREATING PERSON", e);
         }
+=======
+        PeopleModel objectFromWeb = forMappingPeople.fromWeb(peopleWebModel);
+        forPeople.createPeople(objectFromWeb);
+        return ResponseEntity.ok().build();
+>>>>>>> Stashed changes
     }
 
     @GetMapping("/{id}")
@@ -59,11 +65,10 @@ public class PeopleAdapter {
             return ResponseEntity.ok(response);
         } catch (EntityNotFoundException e) {
             return ResponseEntity.notFound().build();
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().build();
         }
     }
 
+<<<<<<< Updated upstream
     @PutMapping("/update/{userId}")
     public ResponseEntity<PeopleWebModel> updatePeople(@PathVariable Long userId, @Valid @RequestBody PeopleWebModel peopleWebModel) {
         try {
@@ -74,10 +79,19 @@ public class PeopleAdapter {
             PeopleModel updatedPeople = (PeopleModel) forPeople.updatePeople(peopleToUpdate);
             PeopleWebModel response = forMappingPeople.toWeb(updatedPeople);
             return ResponseEntity.ok(response);
+=======
+    @PutMapping("/update/{id}")
+    public ResponseEntity<PeopleWebModel> updatePeople(@PathVariable Long id, @Valid @RequestBody PeopleWebModel peopleWebModel) {
+        try {
+            PeopleModel personToUpdate = forMappingPeople.fromWeb(peopleWebModel);
+            personToUpdate.setPersonId(id);
+            personToUpdate.setIdUser(id);
+
+            PeopleModel updatedPerson = (PeopleModel) forPeople.updatePeople(personToUpdate);
+            return ResponseEntity.ok(forMappingPeople.toWeb(updatedPerson));
+>>>>>>> Stashed changes
         } catch (EntityNotFoundException e) {
             return ResponseEntity.notFound().build();
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().build();
         }
     }
 
@@ -88,21 +102,15 @@ public class PeopleAdapter {
             return ResponseEntity.ok().build();
         } catch (EntityNotFoundException e) {
             return ResponseEntity.notFound().build();
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().build();
         }
     }
 
     @GetMapping
     public ResponseEntity<List<PeopleWebModel>> findAllPeople() {
-        try {
-            List<PeopleModel> peopleModels = forPeople.findAllPeople();
-            List<PeopleWebModel> response = peopleModels.stream()
-                    .map(forMappingPeople::toWeb)
-                    .collect(Collectors.toList());
-            return ResponseEntity.ok(response);
-        } catch (Exception e) {
-            throw new RuntimeException("ERROR FINDING ALL PEOPLE", e);
-        }
+        List<PeopleModel> peopleModels = forPeople.findAllPeople();
+        List<PeopleWebModel> response = peopleModels.stream()
+                .map(forMappingPeople::toWeb)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(response);
     }
 }

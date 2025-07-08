@@ -3,6 +3,7 @@
 <th:block th:replace="~{fragments/head :: head}"></th:block>
 <body>
 
+<<<<<<< Updated upstream
 <!-- Header Extraído -->
 
 <header th:replace="~{fragments/main-header :: header}"></header>
@@ -215,5 +216,185 @@
 <!-- Footer -->
 
 <footer th:replace="~{home/templates/fragments/footer :: footer}"></footer>
+=======
+    <!-- Header Extraído -->
+
+    <header th:replace="~{fragments/main-header :: header}"></header>
+    <!-- Banner Inicial -->
+
+    <section class="relative overflow-hidden">
+
+      <video autoplay muted loop playsinline class="absolute bg-top top-0 left-0 w-full h-full object-cover z-20 brightness-[0.4]">
+        <source th:src="@{video/video_banner.mp4}" type="video/mp4" />
+        Tu navegador no soporta videos HTML5.
+      </video>
+
+      <div class="relative z-30 flex flex-col items-center justify-center py-6 px-6 md:py-14 space-y-4 md:space-y-8 text-center font-poppins">
+        <div>
+          <h1 class="text-3xl text-white lg:text-4xl font-bold animate__animated" data-animate="animate__fadeInDown">
+            Marketplace estudiantil para mentes creativas
+          </h1>
+        </div>
+        <div>
+          <p class="text-base lg:text-lg text-white animate__animated" data-animate="animate__fadeInDown">
+            Compra y vende obras creativas directamente de estudiantes talentosos.
+          </p>
+        </div>
+        <div class="space-x-2">
+          <a th:href="@{/marketplace/auth/login}">
+            <button th:src="@{/home}" class="rounded-full text-black xl:text-lg min-w-36 lg:min-w-40 py-2 bg-white hover:bg-skyBlueCertus hover:text-white duration-200 animate__animated" data-animate="animate__fadeInLeft">
+              Iniciar
+            </button>
+          </a>
+          <a th:href="@{/marketplace/works}">
+            <button class="rounded-full text-white xl:text-lg min-w-36 py-2 bg-blueCertus hover:bg-skyBlueCertus duration-200 animate__animated" data-animate="animate__fadeInRight">
+              Marketplace
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Productos Banner -->
+
+    <section>
+      <div class="grid grid-rows-1 md:grid-rows-none md:grid-cols-none justify-center font-poppins md:relative md:justify-normal mx-12 my-4 min-[450px]:my-10 xl:my-14 xl:mx-36 2xl:mx-60">
+        <div class="max-w-72 md:max-w-none md:grid md:grid-cols-2">
+          <div class="relative">
+            <img class="h-full w-full object-cover rounded-tl-lg rounded-tr-lg md:rounded-tr-none" th:src="@{/img/home/product-banner-1.png}" alt="Producto">
+            <div class="absolute top-0 right-0">
+              <a href="#" class="text-white bg-blueCertus px-6 rounded-tr-lg md:rounded-tr-none hover:bg-skyBlueCertus duration-200 animate__animated" data-animate="animate__flash">Ver</a>
+            </div>
+          </div>
+          <div class="relative">
+            <img class="h-full w-full object-cover rounded-tr-lg" th:src="@{/img/home/product-banner-2.png}" alt="Producto 2">
+            <div class="absolute top-0 right-0">
+              <a href="#" class="text-white bg-blueCertus px-6 hover:bg-skyBlueCertus duration-200 md:rounded-tr-lg animate__animated" data-animate="animate__flash">Ver</a>
+            </div>
+          </div>
+        </div>
+        <div class="relative w-full md:absolute md:bottom-0 md:left-0 animate__animated" data-animate-once="animate__fadeInDown">
+          <div class="absolute inset-0 bg-gradient-to-r from-[#000000] to-[#828282] opacity-70"></div>
+          <div class="relative py-4 md:py-4 md:px-6 space-y-4 md:space-y-5 text-center md:text-left flex flex-col max-w-72 md:max-w-full inset-0">
+              <h2 class="text-xl text-white font-bold cssanimation fadeInTop" data-animate-once="animate__flash">
+                Envuelvete en un mundo creativo
+              </h2> 
+              <p class="text-gray-200 text-sm md:text-base leading-2 cssanimation fadeInTop">
+                Descubre artes, ilustraciones, música, software increíbles de <br> estudiantes talentosos
+              </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Categorias -->
+
+    <section>
+      <div class="flex flex-col items-center justify-center space-y-6 my-6 lg:my-10 lg:space-y-12 bg-gray-100 py-8">
+        <div class="text-black font-poppins">
+          <h2 class="text-center text-2xl font-extrabold lg:text-3xl animate__animated" data-animate-once="animate__fadeInLeft">Explora diversas categorías</h2>
+        </div>
+        <div class="font-poppins grid grid-cols-3 grid-rows-2 items-center justify-center text-center mx-6 md:mx-12 xl:mx-60 gap-x-4 gap-y-5 lg:gap-x-12 xl:gap-x-16 md:gap-y-0 md:grid-cols-5 md:grid-rows-1 animate__animated" data-animate-once="animate__fadeInLeft">
+          <div class="flex flex-col items-center justify-center space-y-2">
+            <div class="flex justify-center items-center bg-purpleCertus h-24 w-24 sm:h-28 sm:w-28 lg:h-36 lg:w-36 xl:h-40 xl:w-40 relative">
+              <img class="h-16 sm:h-20 lg:h-24 xl:h-32 absolute bottom-0" th:src="@{/img/home/categorie-1.svg}" alt="Imagen Categoria 1">
+            </div>
+            <span class="text-base">Software</span>
+          </div>
+          <div class="flex flex-col items-center justify-center space-y-2">
+            <div class="flex justify-center items-center bg-[#C4BF87] h-24 w-24 sm:h-28 sm:w-28 lg:h-36 lg:w-36 xl:h-40 xl:w-40 relative">
+              <img class="h-16 sm:h-20 lg:h-24 xl:h-32 absolute bottom-0" th:src="@{/img/home/categorie-2.svg}" alt="Imagen Categoria 2">
+            </div>
+            <span class="text-base">Pinturas</span>
+          </div>
+          <div class="flex flex-col items-center justify-center space-y-2">
+            <div class="flex justify-center items-center bg-[#87C4B3] h-24 w-24 sm:h-28 sm:w-28 lg:h-36 lg:w-36 xl:h-40 xl:w-40 relative">
+              <img class="h-16 sm:h-20 lg:h-24 xl:h-32 absolute bottom-0" th:src="@{/img/home/categorie-3.svg}" alt="Imagen Categoria 3">
+            </div>
+            <span class="text-base">Ilustraciones</span>
+          </div>
+          <div class="flex flex-col items-center justify-center space-y-2">
+            <div class="flex justify-center items-center bg-redCertus h-24 w-24 sm:h-28 sm:w-28 lg:h-36 lg:w-36 xl:h-40 xl:w-40 relative">
+              <img class="h-16 sm:h-20 lg:h-24 xl:h-32 absolute bottom-0" th:src="@{/img/home/categorie-4.svg}" alt="Imagen Categoria 4">
+            </div>
+            <span class="text-base">Cursos</span>
+          </div>
+          <div class="flex flex-col items-center justify-center space-y-2">
+            <div class="flex justify-center items-center bg-skyBlueCertus h-24 w-24 sm:h-28 sm:w-28 lg:h-36 lg:w-36 xl:h-40 xl:w-40 relative">
+              <img class="h-16 sm:h-20 lg:h-24 xl:h-32 absolute bottom-0" th:src="@{/img/home/categorie-5.svg}" alt="Imagen Categoria 5">
+            </div>
+            <span class="whitespace-nowrap">Música y Audio</span> 
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Ventajas -->
+
+    <section>
+      <div class="grid grid-cols-1 lg:grid-cols-2 items-center justify-center my-8 md:my-16 xl:my-20 mx-6 lg:mx-12 xl:mx-36 2xl:mx-52 font-poppins gap-y-8 lg:gap-6 xl:gap-0">
+        <div class="space-y-8 xl:space-y-12 m-auto animate__animated" data-animate-once="animate__fadeInLeft">
+          <h2 class="text-center text-2xl lg:text-3xl font-extrabold leading-6 animte__animated">¿Porqué comprar en Certus Marketplace?</h2>
+          <div class="space-y-8">
+            <div class="flex items-start">
+              <i class="fa-solid fa-shield-halved text-blueCertus text-[24px] lg:text-[27px] ml-1 mt-1 animate__animated"></i>
+              <div class="space-y-2 ml-4">
+                <h3 class="font-extrabold animate__animated">Compra Segura</h3>
+                <p class="animate__animated">Pagos seguros y protegidos para compradores y vendedores</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fa-solid fa-users text-blueCertus text-[24px] lg:text-[27px] mt-1 animate__animated"></i>
+              <div class="space-y-2 ml-3">
+                <h3 class="font-extrabold animate__animated">Comunidad de Estudiantes</h3>
+                <p class="animate__animated">Oportunidad de conectar con estudiantes de Certus</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fa-solid fa-percent text-blueCertus text-[24px] lg:text-[27px] ml-2 animate__animated"></i>
+              <div class="space-y-2 ml-4">
+                <h3 class="font-extrabold animate__animated">Monetiza tu Creatividad</h3>
+                <p class="animate__animated">Genera ingresos dejando marca con tu creatividad</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="m-auto">
+          <img th:src="@{/img/home/img-working.png}" alt="Imagen Working">
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Solicitud rol Vendedor -->
+
+    <section>
+      <div class="grid grid-cols-1 lg:grid-cols-2 mt-12 font-poppins gap-y-10 mx-6 lg:mx-12 xl:mx-36">
+        <div class="flex flex-col text-center space-y-6 lg:order-2">
+          <h2 class="text-xl lg:text-2xl font-extrabold leading-6 animate__animated" data-animate-once="animate__fadeInDown">¿Estás listo para ser Vendedor?</h2>
+          <p class="animate__animated" data-animate-once="animate__fadeInDown">¿Eres estudiante de Certus?, Vente tus trabajos y monetiza rápidamente</p>
+          <a th:href="@{/marketplace/request-seller-role}" class="bg-blueCertus m-auto text-white xl:text-lg py-2 min-w-36 rounded-full hover:bg-skyBlueCertus duration-200 z-20 animate__animated" data-animate="animate__fadeInRight">Ser Vendedor</a>
+        </div>
+        <div class="m-auto relative lg:order-1 lg:ml-36">
+          <img th:src="@{/img/home/caricatura_sales.svg}" class="h-52" alt="Caricatura Undraw">                    
+        </div>        
+      </div>            
+    </section>       
+  
+    <!-- Olas -->
+
+    <div class="relative">
+      <svg class="absolute -mt-14 min-[596px]:-mt-20 lg:-mt-28 min-[1180px]:-mt-36 w-max"
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#0056A0" fill-opacity="1"
+          d="M0,160L26.7,154.7C53.3,149,107,139,160,117.3C213.3,96,267,64,320,85.3C373.3,107,427,181,480,197.3C533.3,213,587,171,640,133.3C693.3,96,747,64,800,69.3C853.3,75,907,117,960,144C1013.3,171,1067,181,1120,160C1173.3,139,1227,85,1280,64C1333.3,43,1387,53,1413,58.7L1440,64L1440,320L1413.3,320C1386.7,320,1333,320,1280,320C1226.7,320,1173,320,1120,320C1066.7,320,1013,320,960,320C906.7,320,853,320,800,320C746.7,320,693,320,640,320C586.7,320,533,320,480,320C426.7,320,373,320,320,320C266.7,320,213,320,160,320C106.7,320,53,320,27,320L0,320Z">
+        </path>
+      </svg>
+    </div>
+
+    <!-- Footer -->
+
+    <footer th:replace="~{home/templates/fragments/footer :: footer}"></footer>
+>>>>>>> Stashed changes
 </body>
 </html>
