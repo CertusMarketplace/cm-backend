@@ -64,6 +64,7 @@
         <module>users-module</module>
         <module>paypal-module</module>
         <module>bootloader</module>
+        <module>ui-module</module>
     </modules>
 
     <properties>

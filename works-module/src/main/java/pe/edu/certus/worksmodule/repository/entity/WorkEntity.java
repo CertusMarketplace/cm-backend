@@ -70,11 +70,11 @@ public class WorkEntity {
     private WorkStatus workStatus;
 
     @OneToMany(mappedBy = "work", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<RatingEntity> ratings = new ArrayList<>();
+    private Set<RatingEntity> ratings = new HashSet<>(); // CAMBIADO de List a Set
 
     @OneToMany(mappedBy = "work", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Where(clause = "id_parent_comment IS NULL")
-    private List<CommentEntity> comments = new ArrayList<>();
+    private Set<CommentEntity> comments = new HashSet<>(); // CAMBIADO de List a Set
 
     public enum WorkStatus {
         PUBLICADO,

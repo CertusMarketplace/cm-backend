@@ -5,7 +5,9 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet; // CAMBIADO
 import java.util.List;
+import java.util.Set; // CAMBIADO
 
 @Entity
 @Table(name = "comments")
@@ -46,7 +48,7 @@ public class CommentEntity {
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "parentComment", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CommentEntity> replies = new ArrayList<>();
+    private Set<CommentEntity> replies = new HashSet<>();
 
     @PrePersist
     protected void onCreate() {

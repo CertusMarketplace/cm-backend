@@ -9,12 +9,16 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import pe.edu.certus.authmodule.jwt.adapters.JwtManager;
 import pe.edu.certus.authmodule.repository.ports.driver.ForQueryingAuth;
+
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -23,15 +27,18 @@ public class SecurityConfig {
 
     private final JwtManager jwtManager;
     private final ForQueryingAuth forQueryingAuth;
+    private final AuthenticationSuccessHandler customOAuth2LoginSuccessHandler;
 
-    public SecurityConfig(JwtManager jwtManager, ForQueryingAuth forQueryingAuth) {
+    public SecurityConfig(JwtManager jwtManager, ForQueryingAuth forQueryingAuth, AuthenticationSuccessHandler customOAuth2LoginSuccessHandler) {
         this.jwtManager = jwtManager;
         this.forQueryingAuth = forQueryingAuth;
+        this.customOAuth2LoginSuccessHandler = customOAuth2LoginSuccessHandler;
     }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // **AÑADIDO**
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .exceptionHandling(exception ->
@@ -40,39 +47,32 @@ public class SecurityConfig {
                         )
                 )
                 .authorizeHttpRequests(auth -> auth
-                        // CORRECCIÓN: Se ha movido la regla de /api/v1/auth/** al principio y se ha hecho más explícita.
-                        // Esto garantiza que todas las rutas de autenticación (login, register, google-login) sean públicas.
+                        .requestMatchers("/login/oauth2/**", "/oauth2/**").permitAll()
                         .requestMatchers("/api/v1/auth/**").permitAll()
-
-                        // Rutas públicas de la UI
                         .requestMatchers(
                                 "/marketplace/**", "/css/**", "/scripts/**", "/img/**", "/video/**",
                                 "/favicon.ico", "/error"
                         ).permitAll()
-
-                        // Rutas públicas de la API para lectura
                         .requestMatchers(HttpMethod.GET,
                                 "/api/v1/works/**",
                                 "/api/v1/ratings/**",
                                 "/api/v1/people/**",
                                 "/api/v1/work-categories/**"
                         ).permitAll()
-
-                        .requestMatchers(HttpMethod.POST, "/api/v1/users/request-seller-role")
-                        .permitAll()
-
-                        // Rutas protegidas por rol
+                        .requestMatchers(HttpMethod.POST, "/api/v1/users/request-seller-role").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/comments").authenticated()
                         .requestMatchers("/marketplace/dashboard/seller/**").hasAuthority("Seller")
                         .requestMatchers("/marketplace/dashboard/admin/**").hasAuthority("Administrator")
-
-                        // Rutas que solo requieren estar autenticado, sin importar el rol
                         .requestMatchers(
                                 "/api/v1/users/me",
                                 "/api/v1/people/me",
                                 "/api/v1/paypal/**"
                         ).authenticated()
-
                         .anyRequest().authenticated()
+                )
+                .oauth2Login(oauth2 -> oauth2
+                        .loginPage("/marketplace/auth/login")
+                        .successHandler(customOAuth2LoginSuccessHandler)
                 )
                 .addFilterBefore(new JwtAuthorizationFilterConfig(jwtManager, forQueryingAuth), UsernamePasswordAuthenticationFilter.class);
 
@@ -80,7 +80,14 @@ public class SecurityConfig {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(List.of("http://localhost:8080"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+        configuration.setAllowCredentials(true);
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 }

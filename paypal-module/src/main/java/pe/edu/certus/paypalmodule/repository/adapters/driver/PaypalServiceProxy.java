@@ -25,16 +25,7 @@ public class PaypalServiceProxy implements ForManagingPaypal {
         OrdersCreateRequest request = new OrdersCreateRequest();
         request.prefer("return=representation");
         request.requestBody(buildRequestBody(amount, currency));
-
-        HttpResponse<Order> response = client.execute(request);
-
-        if (response.statusCode() >= 200 && response.statusCode() < 300) {
-            System.out.println("PayPal Order created with ID: " + response.result().id());
-        } else {
-            System.err.println("Failed to create PayPal order. Status: " + response.statusCode());
-        }
-
-        return response;
+        return client.execute(request);
     }
 
     @Override

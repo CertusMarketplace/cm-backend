@@ -1,44 +1,57 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:fragment="content" class="flex flex-col h-full">
-    <!-- Contenedor de los items del carrito, con scroll -->
-    <div id="cart-items-container" class="flex-grow divide-y divide-gray-200 overflow-y-auto">
-        <div th:if="${#lists.isEmpty(cartItems)}" class="text-center py-10 text-gray-500">
+
+<div th:fragment="content" class="flex flex-col h-full font-poppins">
+    <!-- Header del carrito -->
+    <div class="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-600 flex-shrink-0">
+        <h5 class="inline-flex items-center text-base font-semibold text-gray-800 dark:text-white">
+            <i class="fas fa-shopping-cart mr-2"></i>Mi Carrito
+        </h5>
+        <button type="button" data-drawer-hide="cart-drawer" aria-controls="cart-drawer"
+                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+            <i class="fas fa-times"></i>
+            <span class="sr-only">Cerrar menú</span>
+        </button>
+    </div>
+
+    <!-- Contenedor de items del carrito -->
+    <div id="cart-items-container" class="flex-grow divide-y divide-gray-200 dark:divide-gray-700 overflow-y-auto">
+        <div th:if="${#lists.isEmpty(cartItems)}" class="text-center py-10 px-4 text-gray-500 dark:text-gray-400">
             Tu carrito está vacío.
         </div>
-        <div th:each="item : ${cartItems}" class="flex justify-between items-start p-4 gap-4">
+        <!-- Items del carrito se renderizan aquí -->
+        <div th:each="item : ${cartItems}" class="flex items-start p-4 gap-4">
             <img th:src="${item.workImageUrl}" th:alt="${item.workTitle}"
-                 class="w-16 h-16 object-cover rounded-md flex-shrink-0">
-            <div class="flex-grow">
-                <p class="font-medium text-sm truncate" th:text="${item.workTitle}"></p>
-                <p class="text-gray-500 text-sm"
+                 class="w-16 h-16 object-cover rounded-md flex-shrink-0 border">
+            <div class="flex-1 min-w-0">
+                <p class="font-semibold text-sm truncate text-gray-800 dark:text-white" th:text="${item.workTitle}"></p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm"
                    th:text="'S/ ' + ${#numbers.formatDecimal(item.workPrice, 1, 'COMMA', 2, 'POINT')}"></p>
             </div>
-            <button class="remove-from-cart-btn text-red-500 hover:text-red-700 p-2"
+            <button class="remove-from-cart-btn text-red-500 hover:text-red-700 p-2 -mr-2"
                     th:data-id="${item.workId}">
                 <i class="fas fa-trash-alt"></i>
             </button>
         </div>
     </div>
 
-    <!-- Footer del Carrito (SOLO si hay items) -->
+    <!-- Footer del carrito -->
     <div id="cart-footer" th:if="${not #lists.isEmpty(cartItems)}"
-         class="mt-auto p-4 bg-white border-t border-gray-200">
-        <div class="flex justify-between items-center mb-4 text-lg font-semibold text-gray-800">
+         class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-600 flex-shrink-0">
+        <div class="flex justify-between items-center mb-4 text-lg font-semibold text-gray-800 dark:text-white">
             <span>Total:</span>
             <span id="cart-total"
                   th:text="'S/ ' + ${#numbers.formatDecimal(total, 1, 'COMMA', 2, 'POINT')}">S/ 0.00</span>
         </div>
 
         <button id="checkout-button" type="button"
-                class="w-full bg-[#00205b] text-white px-4 py-2.5 rounded-lg hover:bg-[#001a4d] transition duration-200">
+                class="w-full bg-[#00205b] text-white px-4 py-2.5 rounded-lg hover:bg-[#001a4d] transition duration-200 font-semibold">
             Comprar Ahora
         </button>
-
-        <!-- Span oculto para pasar datos a JS. Crítico para el funcionamiento. -->
         <span id="work-ids-json" class="hidden" th:text="${workIdsJson}"></span>
     </div>
 </div>
+
 </body>
 </html>

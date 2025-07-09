@@ -1,7 +1,9 @@
 package pe.edu.certus.worksmodule.logic.adapters.driver.web;
 
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,9 +27,19 @@ public class CommentAdapter {
     }
 
     @PostMapping("/comments")
-    public ResponseEntity< CommentWebModel > createComment( @Valid @RequestBody CreateCommentWebModel request) {
-        CommentModel domainModel = forMappingComment.fromRequest(request);
+    public ResponseEntity<CommentWebModel> createComment(
+            @Valid @RequestBody CreateCommentWebModel request,
+            Authentication authentication) {
+
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+
+        Long userId = Long.parseLong(authentication.getName());
+
+        CommentModel domainModel = forMappingComment.fromRequest(request, userId);
         CommentModel createdComment = forComment.createComment(domainModel);
+
         return ResponseEntity.ok(forMappingComment.toWeb(createdComment));
     }
 }

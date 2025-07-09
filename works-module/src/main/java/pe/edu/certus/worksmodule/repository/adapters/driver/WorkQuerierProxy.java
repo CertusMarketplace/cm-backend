@@ -44,7 +44,7 @@ public class WorkQuerierProxy implements ForManagingWork {
     public WorkModel satisfyCreateWork(WorkModel workModel) {
         WorkEntity workEntity = forBridgingWork.toPersistence(workModel);
 
-        workEntity.setWorkStatus(WorkEntity.WorkStatus.EN_REVISION);
+        workEntity.setWorkStatus(WorkEntity.WorkStatus.PUBLICADO);
         workEntity.setWorkFilePath(workModel.getWorkFilePath());
         workEntity.setWorkIsDeleted(false);
         workEntity.setWorkPublishedAt(LocalDateTime.now());
@@ -83,7 +83,7 @@ public class WorkQuerierProxy implements ForManagingWork {
     @Override
     @Transactional(readOnly = true)
     public WorkModel satisfyFindWorkById(Long id) {
-        return forQueryingWork.findById(id)
+        return forQueryingWork.findWorkByIdWithDetails(id)
                 .map(forBridgingWork::fromPersistence)
                 .orElseThrow(() -> new EntityNotFoundException(
                         "THE ENTITY WORK NOT FOUND WITH ID: " + id));

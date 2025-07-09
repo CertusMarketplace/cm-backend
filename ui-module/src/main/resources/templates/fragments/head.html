@@ -1,40 +1,40 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" th:href="@{/img/home/logo_certus.png}" type="image/x-icon">
-    <title>Certus Marketplace</title>
-    <base th:href="@{/}">
+<file path="ui-module/src/main/resources/templates/fragments/head.html">
+    <!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="shortcut icon" th:href="@{/img/home/logo_certus.png}" type="image/x-icon">
+        <title>Certus Marketplace</title>
+        <base th:href="@{/}">
 
-    <!-- Estilos (sin cambios) -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-          crossorigin="anonymous"/>
-    <link th:href="@{/css/cssanimation.css}" rel="stylesheet">
-    <link th:href="@{/css/general.css}" rel="stylesheet">
-    <link th:href="@{/css/main.css}" rel="stylesheet">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+              integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+              crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+              crossorigin="anonymous"/>
+        <link th:href="@{/css/cssanimation.css}" rel="stylesheet">
+        <link th:href="@{/css/general.css}" rel="stylesheet">
+        <link th:href="@{/css/main.css}" rel="stylesheet">
 
-    <!-- CORRECCIÓN: Script de Google ahora llama a una función que DEFINIREMOS nosotros -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
 
-    <!-- CORRECCIÓN: Movemos los scripts importantes al final del head y usamos defer para asegurar el orden -->
-    <script defer th:src="@{/scripts/flowbite.min.js}"></script>
-    <script defer th:src="@{/scripts/alpine.js}"></script>
+        <script defer th:src="@{/scripts/flowbite.min.js}"></script>
+        <script defer th:src="@{/scripts/alpine.js}"></script>
 
-    <!-- Scripts de la aplicación -->
-    <script defer th:src="@{/scripts/scroll.js}"></script>
-    <script defer th:src="@{/scripts/general.js}"></script>
-    <script defer th:src="@{/scripts/auth.js}"></script>
-    <script defer th:src="@{/scripts/auth-flow.js}"></script>
-    <script defer th:src="@{/scripts/request-seller.js}"></script>
-    <script defer th:src="@{/scripts/filters.js}"></script>
-    <script defer th:src="@{/scripts/cart.js}"></script>
-    <script defer th:src="@{/scripts/checkout.js}"></script>
-</head>
-</html>
+        <!-- Scripts de la aplicación -->
+        <script defer th:src="@{/scripts/scroll.js}"></script>
+        <script defer th:src="@{/scripts/general.js}"></script>
+        <script defer th:src="@{/scripts/auth.js}"></script>
+        <script defer th:src="@{/scripts/auth-flow.js}"></script>
+        <script defer th:src="@{/scripts/request-seller.js}"></script>
+        <script defer th:src="@{/scripts/filters.js}"></script>
+        <script defer th:src="@{/scripts/cart.js}"></script>
+        <script defer th:src="@{/scripts/checkout.js}"></script>
+        <script defer th:src="@{/scripts/work-details.js}"></script>
+    </head>
+    </html>
+</file>

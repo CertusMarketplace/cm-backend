@@ -14,6 +14,7 @@ import pe.edu.certus.worksmodule.repository.ports.mapper.ForBridgingWork;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Component
@@ -44,22 +45,21 @@ public class WorkPersistenceMapper implements ForBridgingWork {
                         .average()
                         .orElse(0.0) : 0.0;
 
-        List<RatingModel> ratingModels = workEntity.getRatings() != null ?
+        Set<RatingModel> ratingModels = workEntity.getRatings() != null ?
                 workEntity.getRatings().stream()
                         .map(forBridgingRating::fromPersistence)
-                        .collect(Collectors.toList()) :
-                Collections.emptyList();
+                        .collect(Collectors.toSet()) : // CORREGIDO
+                Collections.emptySet();
 
-        List<CommentModel> commentModels = workEntity.getComments() != null ?
+        Set<CommentModel> commentModels = workEntity.getComments() != null ?
                 workEntity.getComments().stream()
                         .map(forBridgingComment::fromPersistence)
-                        .collect(Collectors.toList()) :
-                Collections.emptyList();
+                        .collect(Collectors.toSet()) : // CORREGIDO
+                Collections.emptySet();
 
         Long categoryId = workEntity.getWorkCategory() != null ? workEntity.getWorkCategory().getId() : null;
         String categoryName = workEntity.getWorkCategory() != null ? workEntity.getWorkCategory().getName() : null;
 
-        // CAMBIO: Leer la colección de entidades y extraer las URLs.
         List<String> imageUrls = workEntity.getImages() != null ?
                 workEntity.getImages().stream()
                         .sorted(Comparator.comparing(WorkImageEntity::getIsPrimary).reversed().thenComparing(WorkImageEntity::getImageId))
@@ -77,8 +77,8 @@ public class WorkPersistenceMapper implements ForBridgingWork {
                 .workDescription(workEntity.getWorkDescription())
                 .workPrice(workEntity.getWorkPrice())
                 .workIsDeleted(workEntity.getWorkIsDeleted())
-                .workImageUrl(workEntity.getWorkImageUrl())
-                .imageUrls(imageUrls) // Se asigna la lista completa
+                .workImageUrl(imageUrls.isEmpty() ? workEntity.getWorkImageUrl() : imageUrls.get(0))
+                .imageUrls(imageUrls)
                 .workFilePath(workEntity.getWorkFilePath())
                 .workPublishedAt(workEntity.getWorkPublishedAt())
                 .workUpdatedAt(workEntity.getWorkUpdatedAt())

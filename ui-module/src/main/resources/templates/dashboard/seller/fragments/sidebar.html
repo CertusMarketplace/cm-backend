@@ -2,8 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <section th:fragment="sidebar">
 
-    <!-- Sidebar -->
-
     <aside id="default-sidebar"
            class="font-poppins fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0"
            aria-label="Sidebar">
@@ -18,7 +16,7 @@
                     <h6 class="font-poppins text-sm text-gray-200">Explora la creatividad</h6>
                 </div>
             </div>
-            <!-- Gestión Dashboard -->
+
             <div class="font-semibold pt-10 pb-4 px-8">
                 <h3 class="text-base text-white">
                     Gestión
@@ -26,28 +24,27 @@
             </div>
             <ul class="font-medium">
                 <li>
-                    <a id="stateLinkWork" href="#" onclick="loadView('seller-works')"
-                       class="flex items-center px-8 py-2 text-white hover:bg-blue-900 hover:w-full duration-100 group group-hover:text-white">
+                    <a id="stateLinkWork" href="#" data-view="seller-works"
+                       class="flex items-center px-8 py-2 text-white hover:bg-blue-900 group">
                         <i class="fa-solid fa-note-sticky text-white text-xl"></i>
-                        <span class="flex-1 ms-3 whitespace-nowrap duration-100">Publicaciones</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Publicaciones</span>
                     </a>
                 </li>
                 <li>
-                    <a id="stateLinkReview" href="#"
-                       onclick="loadView('seller-works-under-review')"
-                       class="active:bg-skyBlueCertus flex items-center px-8 py-2 text-white hover:bg-blue-900 hover:w-full duration-100 group group-hover:text-white">
+                    <a id="stateLinkReview" href="#" data-view="seller-works-under-review"
+                       class="flex items-center px-8 py-2 text-white hover:bg-blue-900 group">
                         <i class="fa-solid fa-spinner text-white text-xl"></i>
-                        <span class="flex-1 ms-3 whitespace-nowrap duration-100">Pendientes</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Pendientes</span>
                     </a>
                 </li>
                 <li>
-                    <a id="stateLinkSales" href="#" onclick="loadView('seller-sales')"
-                       class="active:bg-skyBlueCertus flex items-center px-8 py-2 text-white hover:bg-blue-900 hover:w-full duration-100 group group-hover:text-white">
+                    <a id="stateLinkSales" href="#" data-view="seller-sales"
+                       class="flex items-center px-8 py-2 text-white hover:bg-blue-900 group">
                         <i class="fa-solid fa-sack-dollar text-white text-xl"></i>
-                        <span class="flex-1 ms-3 whitespace-nowrap duration-100">Ventas</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Ventas</span>
                     </a>
                 </li>
-                <!-- Mi Cuenta -->
+
                 <div class="font-semibold pt-10 pb-4 px-6">
                     <h3 class="text-base text-white">
                         Mi Cuenta
@@ -55,28 +52,27 @@
                 </div>
                 <li>
                     <a id="stateLinkSettings" href="#"
-                       class="active:bg-skyBlueCertus flex items-center px-8 py-2 text-white hover:bg-blue-900 hover:w-full duration-100 group group-hover:text-white">
+                       class="flex items-center px-8 py-2 text-white hover:bg-blue-900 group">
                         <i class="fa-solid fa-gear text-white text-xl"></i>
-                        <span class="flex-1 ms-3 whitespace-nowrap duration-100 text-white">Ajustes</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap text-white">Ajustes</span>
                     </a>
                 </li>
                 <li>
                     <a id="stateLinkAccount" href="#"
-                       class="active:bg-skyBlueCertus flex items-center px-8 py-2 text-white hover:bg-blue-900 hover:w-full duration-100 group group-hover:text-white">
+                       class="flex items-center px-8 py-2 text-white hover:bg-blue-900 group">
                         <i class="fa-solid fa-user text-white text-xl"></i>
-                        <span class="flex-1 ms-3 whitespace-nowrap duration-100 text-white">Mi Cuenta</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap text-white">Mi Cuenta</span>
                     </a>
                 </li>
                 <li>
                     <a id="stateLinkLogout" href="#"
-                       class="active:bg-skyBlueCertus flex items-center px-8 py-2 text-white hover:bg-blue-900 hover:w-full duration-100 group group-hover:text-white">
+                       class="flex items-center px-8 py-2 text-white hover:bg-blue-900 group">
                         <i class="fa-solid fa-right-from-bracket rotate-180 text-white text-xl"></i>
-                        <span class="flex-1 ms-3 whitespace-nowrap duration-100 text-white">Cerrar Sesión</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap text-white">Cerrar Sesión</span>
                     </a>
                 </li>
             </ul>
         </div>
     </aside>
 </section>
-</html>
 </html>

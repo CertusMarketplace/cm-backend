@@ -1,10 +1,10 @@
 package pe.edu.certus.uimodule.ui.pages.works.adapters.drivers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pe.edu.certus.uimodule.ui.config.StorageConfig;
 import pe.edu.certus.worksmodule.logic.model.WorkModel;
 import pe.edu.certus.worksmodule.logic.ports.driver.ForWork;
@@ -12,73 +12,69 @@ import pe.edu.certus.worksmodule.logic.ports.driver.ForWork;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-@Controller
-@RequestMapping( "/marketplace/dashboard/seller/works" )
-@SuppressWarnings( "SpringJavaInjectionPointsAutowiringInspection" )
+@RestController
+@RequestMapping("/marketplace/dashboard/seller/works")
+@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 public class WorkController {
 
     private final ForWork forWork;
     private final StorageConfig storageConfig;
 
-    public WorkController( ForWork forWork, StorageConfig storageConfig ) {
+    public WorkController(ForWork forWork, StorageConfig storageConfig) {
         this.forWork = forWork;
         this.storageConfig = storageConfig;
     }
 
-    @PostMapping( "/create" )
-    public String createWork( @ModelAttribute( "newWork" ) WorkModel workModel,
-                              @RequestParam( "imageFiles" ) List< MultipartFile > imageFiles,
-                              @RequestParam( "projectFile" ) MultipartFile projectFile,
-                              Authentication authentication,
-                              RedirectAttributes redirectAttributes ) {
+    @PostMapping("/create")
+    public ResponseEntity<?> createWork(@ModelAttribute("newWork") WorkModel workModel,
+                                        @RequestParam("imageFiles") List<MultipartFile> imageFiles,
+                                        @RequestParam("projectFile") MultipartFile projectFile,
+                                        Authentication authentication) {
 
-        if ( authentication == null ) {
-            redirectAttributes.addFlashAttribute( "errorMessage", "Error de autenticación. Por favor, inicia sesión de nuevo." );
-            return "redirect:/marketplace/auth/login";
+        if (authentication == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("errorMessage", "Error de autenticación. Por favor, inicia sesión de nuevo."));
         }
 
-        if ( imageFiles.isEmpty( ) || imageFiles.get( 0 ).isEmpty( ) ) {
-            redirectAttributes.addFlashAttribute( "errorMessage", "Debes subir al menos una imagen para el trabajo." );
-            return "redirect:/marketplace/dashboard/seller";
+        if (imageFiles.isEmpty() || imageFiles.get(0).isEmpty()) {
+            return ResponseEntity.badRequest().body(Map.of("errorMessage", "Debes subir al menos una imagen para el trabajo."));
         }
 
-        if ( projectFile.isEmpty( ) ) {
-            redirectAttributes.addFlashAttribute( "errorMessage", "Debes subir el archivo del proyecto." );
-            return "redirect:/marketplace/dashboard/seller";
+        if (projectFile.isEmpty()) {
+            return ResponseEntity.badRequest().body(Map.of("errorMessage", "Debes subir el archivo del proyecto."));
         }
 
         try {
-            Long sellerId = Long.parseLong( authentication.getName( ) );
-            workModel.setIdSellerUser( sellerId );
+            Long sellerId = Long.parseLong(authentication.getName());
+            workModel.setIdSellerUser(sellerId);
 
-            List< String > imageUrls = new ArrayList<>( );
-            for ( MultipartFile file : imageFiles ) {
-                if ( !file.isEmpty( ) ) {
-                    imageUrls.add( storageConfig.storeFile( file, "image" ) );
+            List<String> imageUrls = new ArrayList<>();
+            for (MultipartFile file : imageFiles) {
+                if (!file.isEmpty()) {
+                    imageUrls.add(storageConfig.storeFile(file, "image"));
                 }
             }
 
-            if ( !imageUrls.isEmpty( ) ) {
-                workModel.setWorkImageUrl( imageUrls.get( 0 ) );
-                workModel.setImageUrls( imageUrls );
+            if (!imageUrls.isEmpty()) {
+                workModel.setWorkImageUrl(imageUrls.get(0));
+                workModel.setImageUrls(imageUrls);
             }
 
-            String projectPath = storageConfig.storeFile( projectFile, "project" );
-            workModel.setWorkFilePath( projectPath );
-            workModel.setWorkStatus( WorkModel.WorkStatus.EN_REVISION );
+            String projectPath = storageConfig.storeFile(projectFile, "project");
+            workModel.setWorkFilePath(projectPath);
+            workModel.setWorkStatus(WorkModel.WorkStatus.PUBLICADO);
 
-            forWork.createWork( workModel );
-            redirectAttributes.addFlashAttribute( "successMessage", "¡Trabajo enviado a revisión con éxito!" );
+            forWork.createWork(workModel);
 
-        } catch ( IOException e ) {
-            e.printStackTrace( );
-            redirectAttributes.addFlashAttribute( "errorMessage", "Error al subir los archivos: " + e.getMessage( ) );
-        } catch ( Exception e ) {
-            e.printStackTrace( );
-            redirectAttributes.addFlashAttribute( "errorMessage", "Error inesperado al crear el trabajo: " + e.getMessage( ) );
+            return ResponseEntity.ok(Map.of("successMessage", "¡Trabajo publicado con éxito!"));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("errorMessage", "Error al subir los archivos: " + e.getMessage()));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("errorMessage", "Error inesperado al crear el trabajo: " + e.getMessage()));
         }
-
-        return "redirect:/marketplace/dashboard/seller";
     }
 }

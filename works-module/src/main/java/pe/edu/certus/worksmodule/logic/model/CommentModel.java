@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set; // Importa Set
 
 @Getter
 @Setter
@@ -19,5 +20,5 @@ public class CommentModel {
     private Boolean isDeleted;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private List<CommentModel> replies;
+    private Set<CommentModel> replies; // CAMBIADO de List a Set
 }

@@ -11,6 +11,8 @@ import java.util.List;
 public record CommentWebModel(
         Long id,
         Long userId,
+        String userName,
+        String userAvatarUrl,
         String commentBody,
         LocalDateTime createdAt,
         List<CommentWebModel> replies

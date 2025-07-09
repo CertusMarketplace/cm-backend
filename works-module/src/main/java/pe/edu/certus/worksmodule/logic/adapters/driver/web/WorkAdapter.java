@@ -80,7 +80,6 @@ public class WorkAdapter {
     @GetMapping("/seller/{sellerId}")
     public ResponseEntity<List<WorkWebModel>> findWorksBySellerId(@PathVariable Long sellerId) {
         try {
-            // Se asume que ForWork tendrá un nuevo método `findAllBySellerId`
             List<WorkModel> workModels = forWork.findAllBySellerId(sellerId);
             List<WorkWebModel> response = workModels.stream()
                     .map(forMappingWork::toWeb)
@@ -90,5 +89,15 @@ public class WorkAdapter {
             return ResponseEntity.notFound().build();
         }
     }
-
+    @GetMapping("/by-ids")
+    public ResponseEntity<List<WorkWebModel>> findWorksByIds(@RequestParam List<Long> ids) {
+        if (ids == null || ids.isEmpty()) {
+            return ResponseEntity.badRequest().build();
+        }
+        List<WorkModel> workModels = forWork.findWorksByIds(ids);
+        List<WorkWebModel> response = workModels.stream()
+                .map(forMappingWork::toWeb)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(response);
+    }
 }

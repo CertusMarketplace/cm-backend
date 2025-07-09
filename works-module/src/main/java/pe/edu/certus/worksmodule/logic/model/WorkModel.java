@@ -7,6 +7,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set; // Importa Set
 
 @Getter
 @Setter
@@ -29,8 +30,8 @@ public class WorkModel {
     private LocalDateTime workUpdatedAt;
     private WorkStatus workStatus;
     private Double averageRating;
-    private List<RatingModel> ratings;
-    private List<CommentModel> comments;
+    private Set<RatingModel> ratings;
+    private Set<CommentModel> comments;
 
     public enum WorkStatus {
         PUBLICADO,

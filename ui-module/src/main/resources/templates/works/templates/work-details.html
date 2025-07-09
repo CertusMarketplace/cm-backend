@@ -7,9 +7,9 @@
 <header th:replace="~{fragments/main-header :: header}"></header>
 
 <main class="max-w-7xl mx-auto mt-10 p-6 bg-white rounded-lg shadow">
-    <!-- ... (contenido de la página de detalles que ya tienes) ... -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
 
+        <!-- Carrusel de Imágenes -->
         <div th:attr="x-data=|{ mainImage: '${work.workImageUrl}' }|">
             <div class="mb-4">
                 <img class="h-auto max-w-full rounded-lg shadow-md aspect-[4/3] object-cover"
@@ -29,39 +29,40 @@
             </div>
         </div>
 
+        <!-- Detalles del Producto -->
         <div class="flex flex-col justify-between h-full">
             <div>
                 <div class="flex items-center justify-between mb-1">
-                    <h1 class="text-2xl font-bold text-gray-800" th:text="${work.workTitle}">
-                        Título del Trabajo</h1>
+                    <h1 class="text-2xl font-bold text-gray-800" th:text="${work.workTitle}"></h1>
                 </div>
                 <p class="text-sm text-gray-500 mb-6">
                     Autor: <a th:href="@{'/marketplace/profiles/' + ${work.idSellerUser}}"
                               class="text-[#00205b] font-medium hover:underline"
-                              th:text="${work.sellerName}">Nombre del Autor</a>
+                              th:text="${work.sellerName}"></a>
                 </p>
                 <p class="text-lg text-gray-600 font-semibold mb-6"
-                   th:text="'S/ ' + ${#numbers.formatDecimal(work.workPrice, 1, 'COMMA', 2, 'POINT')}">
-                    S/0.00</p>
+                   th:text="'S/ ' + ${#numbers.formatDecimal(work.workPrice, 1, 'COMMA', 2, 'POINT')}"></p>
 
                 <div class="flex flex-col sm:flex-row gap-4 mb-6">
-                    <button class="flex-1 bg-white border border-[#00205b] text-[#00205b] hover:bg-blue-50 font-medium px-5 py-2.5 rounded-md transition duration-200">
-                        Contactar autor
-                    </button>
-                    <button class="flex-1 bg-[#00205b] hover:bg-[#001a4d] text-white font-medium px-5 py-2.5 rounded-md transition duration-200 add-to-cart-btn"
-                            th:attr="data-id=${work.workId}">Agregar al carrito
+                    <a th:href="@{'/marketplace/profiles/' + ${work.idSellerUser}}" class="flex-1 text-center bg-white border border-[#00205b] text-[#00205b] hover:bg-blue-50 font-medium px-5 py-2.5 rounded-md transition duration-200">
+                        Ver Perfil del Autor
+                    </a>
+                    <button id="add-to-cart-button" class="flex-1 bg-[#00205b] hover:bg-[#001a4d] text-white font-medium px-5 py-2.5 rounded-md transition duration-200 add-to-cart-btn"
+                            th:attr="data-id=${work.workId}" th:data-seller-id="${work.idSellerUser}">Agregar al carrito
                     </button>
                 </div>
 
                 <div>
                     <h2 class="text-lg font-semibold mb-2">Detalles</h2>
                     <div class="bg-gray-50 border border-gray-300 rounded-md p-4 text-sm text-gray-700">
-                        <p th:text="${work.workDescription}">Descripción del trabajo...</p>
+                        <p th:text="${work.workDescription}"></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Sección de Comentarios y Reseñas -->
     <div class="mt-12 pt-10 border-t border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
             <h3 class="text-xl font-semibold mb-4">Reseñas de Compradores</h3>
@@ -69,77 +70,91 @@
                 Este trabajo aún no tiene reseñas.
             </div>
             <div th:unless="${#lists.isEmpty(ratings)}" class="space-y-6">
-                <div th:each="rating : ${ratings}"
-                     class="bg-white border rounded-lg shadow-sm p-4">
+                <div th:each="rating : ${ratings}" class="bg-white border rounded-lg shadow-sm p-4">
                     <div class="flex items-center gap-3 mb-2">
-                        <img th:src="@{/img/works/perfil-generico.png}"
-                             class="w-10 h-10 rounded-full object-cover"/>
+                        <img th:src="@{/img/works/perfil-generico.png}" class="w-10 h-10 rounded-full object-cover"/>
                         <div>
-                            <p class="text-sm font-medium text-gray-800"
-                               th:text="'Usuario ' + ${rating.userId}">Nombre Usuario</p>
+                            <p class="text-sm font-medium text-gray-800" th:text="'Usuario ' + ${rating.userId}"></p>
                             <div class="text-[#00205b]">
-                                <i th:each="i : ${#numbers.sequence(1, rating.ratingScore)}"
-                                   class="fa-solid fa-star"></i>
-                                <i th:each="i : ${#numbers.sequence(1, 5 - rating.ratingScore)}"
-                                   class="fa-regular fa-star"></i>
+                                <i th:each="i : ${#numbers.sequence(1, rating.ratingScore)}" class="fa-solid fa-star"></i>
+                                <i th:each="i : ${#numbers.sequence(1, 5 - rating.ratingScore)}" class="fa-regular fa-star"></i>
                             </div>
                         </div>
                     </div>
-                    <p class="text-sm text-gray-600" th:text="${rating.ratingComment}">
-                        Comentario de la reseña.</p>
+                    <p class="text-sm text-gray-600" th:text="${rating.ratingComment}"></p>
                 </div>
             </div>
         </div>
-        <div>
+        <div id="comment-section" th:attr="data-work-id=${work.workId}">
             <h3 class="text-xl font-semibold mb-4">Cuéntanos tu experiencia</h3>
+            <div id="comment-auth-message" class="hidden bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
+                <p class="font-bold">¡Inicia sesión para comentar!</p>
+                <p>Necesitas <a th:href="@{/marketplace/auth/login}" class="font-medium underline">iniciar sesión</a> para poder dejar un comentario.</p>
+            </div>
             <form id="comment-form" class="mb-8">
                 <div class="mb-4">
                     <label for="comment-textarea" class="sr-only">Tu comentario</label>
-                    <textarea id="comment-textarea" rows="4"
-                              class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                              placeholder="Escribe tu comentario aquí..." required></textarea>
+                    <textarea id="comment-textarea" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Escribe tu comentario aquí..." required></textarea>
                 </div>
-                <button type="submit"
-                        class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-[#00205b] rounded-lg hover:bg-[#001a4d] focus:ring-4 focus:outline-none focus:ring-blue-300">
+                <button id="submit-comment-btn" type="submit" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-[#00205b] rounded-lg hover:bg-[#001a4d] focus:ring-4 focus:outline-none focus:ring-blue-300">
                     Publicar comentario
                 </button>
             </form>
             <div id="comments-list" class="space-y-6">
-                <p class="text-gray-500">Aún no hay comentarios.</p>
             </div>
         </div>
     </div>
 </main>
 
-<!-- Drawer del Carrito -->
+<!-- === INICIO DEL CAMBIO: CARRITO UNIFICADO === -->
 <div id="cart-drawer"
-     class="fixed top-0 right-0 z-50 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-80 sm:w-96"
+     class="fixed top-0 right-0 z-50 h-screen overflow-y-auto transition-transform translate-x-full bg-white w-full max-w-sm dark:bg-gray-800"
      tabindex="-1" aria-labelledby="cart-drawer-label">
-    <div class="flex justify-between items-center mb-4 border-b pb-4">
-        <h5 id="cart-drawer-label"
-            class="inline-flex items-center text-base font-semibold text-gray-600">
-            <i class="fas fa-shopping-cart mr-2"></i>Mi Carrito
-        </h5>
-        <button type="button" data-drawer-hide="cart-drawer" aria-controls="cart-drawer"
-                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex items-center justify-center">
-            <i class="fas fa-times"></i>
-            <span class="sr-only">Cerrar menú</span>
-        </button>
-    </div>
-
-    <div id="cart-items-container" class="divide-y divide-gray-200">
-    </div>
-
-    <div id="cart-footer"
-         class="absolute bottom-0 left-0 w-full p-4 bg-white border-t border-gray-200 hidden">
-        <div class="flex justify-between items-center mb-4 text-lg font-semibold text-gray-800">
-            <span>Total:</span>
-            <span id="cart-total">S/ 0.00</span>
+    <div id="cart-content-wrapper" class="flex flex-col h-full">
+        <!-- El contenido del carrito (cart-content.html) se cargará aquí por JS -->
+        <div class="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-600 flex-shrink-0">
+            <h5 id="cart-drawer-label" class="inline-flex items-center text-base font-semibold text-gray-800 dark:text-white">
+                <i class="fas fa-shopping-cart mr-2"></i>Mi Carrito
+            </h5>
+            <button type="button" data-drawer-hide="cart-drawer" aria-controls="cart-drawer" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+                <i class="fas fa-times"></i>
+                <span class="sr-only">Cerrar menú</span>
+            </button>
         </div>
-        <div id="paypal-button-container" class="w-full">
+        <div class="flex-grow flex items-center justify-center">
+            <p class="text-gray-500">Cargando carrito...</p>
         </div>
     </div>
 </div>
+<!-- === FIN DEL CAMBIO === -->
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    document.addEventListener('DOMContentLoaded', () => {
+        const addToCartButton = document.getElementById('add-to-cart-button');
+        if (!addToCartButton) return;
+
+        const token = localStorage.getItem('jwt_token');
+        const sellerId = addToCartButton.getAttribute('data-seller-id');
+
+        if (token) {
+            try {
+                const payload = JSON.parse(atob(token.split('.')[1]));
+                const currentUserId = payload.sub;
+
+                if (currentUserId && sellerId && currentUserId === sellerId) {
+                    addToCartButton.disabled = true;
+                    addToCartButton.textContent = 'No puedes comprar tu propio trabajo';
+                    addToCartButton.classList.remove('hover:bg-[#001a4d]', 'add-to-cart-btn');
+                    addToCartButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+                }
+            } catch (e) {
+                console.error('Error decodificando el token:', e);
+            }
+        }
+    });
+    /*]]>*/
+</script>
 
 </body>
 </html>

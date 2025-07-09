@@ -7,9 +7,6 @@ public record CreateCommentWebModel(
         @NotNull(message = "El ID del trabajo es obligatorio")
         Long workId,
 
-        @NotNull(message = "El ID del usuario es obligatorio")
-        Long userId,
-
         Long parentCommentId,
 
         @NotBlank(message = "El cuerpo del comentario no puede estar vacío")

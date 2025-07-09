@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface ForRating {
     RatingModel createRating(RatingModel ratingModel);
+    void createRatings(List<RatingModel> ratingModels);
     List<RatingModel> findAllRatings();
 }

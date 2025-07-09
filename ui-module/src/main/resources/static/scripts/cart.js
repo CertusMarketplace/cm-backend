@@ -1,61 +1,72 @@
 const cartManager = (() => {
-    // ... (resto de las funciones de cartManager se mantienen igual) ...
-    const getUserId = () => { /* ... */
+    const getUserIdFromToken = () => {
+        const token = localStorage.getItem('jwt_token');
+        if (!token) return null;
+        try {
+            return JSON.parse(atob(token.split('.')[1])).sub;
+        } catch (e) {
+            return null;
+        }
     };
-    const getCartKey = () => `shoppingCart_${getUserId()}`;
-    const getCart = () => JSON.parse(localStorage.getItem(getCartKey())) || [];
-    const saveCart = (cart) => localStorage.setItem(getCartKey(), JSON.stringify(cart));
-    const updateBadge = () => { /* ... */
+
+    const getCartKey = () => {
+        const userId = getUserIdFromToken();
+        return userId ? `shoppingCart_${userId}` : 'shoppingCart_guest';
     };
+
+    const getCart = () => {
+        const cartData = JSON.parse(localStorage.getItem(getCartKey())) || [];
+        // Filtra y mapea para asegurar que solo tengamos IDs numéricos.
+        // Esto soluciona el problema de datos corruptos o antiguos.
+        return cartData
+            .map(item => (typeof item === 'object' && item !== null ? item.id : item))
+            .filter(id => typeof id === 'number' && !isNaN(id));
+    };
+
+    const saveCart = (cart) => {
+        localStorage.setItem(getCartKey(), JSON.stringify(cart));
+    };
+
+    const updateBadge = () => {
+        const cart = getCart();
+        const badge = document.getElementById('cart-icon-badge');
+        if (badge) {
+            badge.textContent = cart.length;
+            badge.classList.toggle('hidden', cart.length === 0);
+        }
+    };
+
     const clearCart = () => {
         saveCart([]);
         updateBadge();
         loadCartContent();
     };
+
     const clearCartOnLogout = () => {
+        // Al cerrar sesión, no hacemos nada con el localStorage,
+        // simplemente la próxima vez se usará la llave 'shoppingCart_guest'.
         updateBadge();
     };
 
     const addToCart = async (workId) => {
-        const token = localStorage.getItem('jwt_token');
-        if (!token) {
-            window.location.href = `/marketplace/auth/login?redirect=cart`;
+        let cart = getCart();
+        if (cart.includes(workId)) {
+            alert("Este producto ya está en el carrito.");
             return;
         }
-        try {
-            let cart = getCart();
-            if (cart.some(item => item.id === workId)) {
-                alert("Este producto ya está en el carrito.");
-                return;
-            }
-            const response = await fetch(`/api/v1/works/${workId}`, {
-                headers: {'Authorization': `Bearer ${token}`}
-            });
-            if (!response.ok) throw new Error('No se pudo obtener la información del producto.');
-            const productData = await response.json();
-            const cartItem = {
-                id: productData.workId,
-                title: productData.workTitle,
-                price: productData.workPrice,
-                image: productData.workImageUrl,
-            };
-            cart.push(cartItem);
-            saveCart(cart);
-            updateBadge();
-            alert("Producto añadido al carrito.");
-            loadCartContent();
-        } catch (error) {
-            console.error("Error al añadir al carrito:", error);
-            alert("Hubo un problema al añadir el producto. Inténtalo de nuevo.");
-        }
+        cart.push(workId);
+        saveCart(cart);
+        updateBadge();
+        alert("Producto añadido al carrito.");
+        loadCartContent(); // Recargamos para mostrar el nuevo item
     };
 
     const removeFromCart = (workId) => {
         let cart = getCart();
-        cart = cart.filter(item => item.id !== workId);
+        cart = cart.filter(id => id !== workId);
         saveCart(cart);
         updateBadge();
-        loadCartContent(); // Importante: recargar el carrito
+        loadCartContent();
     };
 
     return {
@@ -64,40 +75,35 @@ const cartManager = (() => {
         removeFromCart,
         clearCart,
         updateBadge,
-        getUserId,
-        clearCartOnLogout
+        clearCartOnLogout,
     };
 })();
 
+window.cartManager = cartManager; // Exponer para otros scripts
+
 async function loadCartContent() {
-    const cartContentWrapper = document.getElementById('cart-content-wrapper');
+    const cartContentWrapper = document.getElementById('cart-content-wrapper') || document.querySelector('#cart-drawer > div');
     if (!cartContentWrapper) return;
 
     const token = localStorage.getItem('jwt_token');
-    const cart = cartManager.getCart();
-
-    if (!token) {
-        cartContentWrapper.innerHTML = '<div class="text-center py-10 text-gray-500">Inicia sesión para ver tu carrito.</div>';
-        return;
-    }
-
-    const workIds = cart.map(item => item.id);
+    const workIds = cartManager.getCart();
 
     try {
         const response = await fetch('/marketplace/cart/content', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${token}` // Es seguro enviarlo aunque sea nulo
             },
-            body: JSON.stringify({workIds: workIds})
+            body: JSON.stringify({ workIds: workIds })
         });
+
         if (!response.ok) {
-            throw new Error('Error al cargar el contenido del carrito');
+            throw new Error(`Error del servidor: ${response.status}`);
         }
         cartContentWrapper.innerHTML = await response.text();
     } catch (error) {
-        console.error("Error en loadCartContent:", error);
+        console.error("Error al cargar el contenido del carrito:", error);
         cartContentWrapper.innerHTML = '<div class="text-center py-10 text-red-500">No se pudo cargar el carrito.</div>';
     }
 }
@@ -115,13 +121,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (addBtn) {
             event.preventDefault();
             const productId = parseInt(addBtn.dataset.id, 10);
-            cartManager.addToCart(productId);
+            if (!isNaN(productId)) {
+                cartManager.addToCart(productId);
+            }
         }
 
         const removeBtn = event.target.closest('.remove-from-cart-btn');
         if (removeBtn) {
+            event.preventDefault();
             const workId = parseInt(removeBtn.dataset.id, 10);
-            cartManager.removeFromCart(workId);
+            if (!isNaN(workId)) {
+                cartManager.removeFromCart(workId);
+            }
         }
     });
 });

@@ -118,16 +118,20 @@ CREATE TABLE paypal_payments (
 );
 
 -- TABLA [10]: order_details
+
 CREATE TABLE order_details (
                                order_detail_id BIGINT AUTO_INCREMENT PRIMARY KEY,
                                id_order BIGINT NOT NULL,
                                id_work BIGINT NOT NULL,
                                order_detail_quantity INT NOT NULL DEFAULT 1,
                                order_detail_unit_price DECIMAL(10, 2) NOT NULL,
+                               order_details_status VARCHAR(255) NULL,
+                               order_details_total_price DECIMAL(19, 2) NULL,
+                               order_details_created_at DATETIME(6) NULL,
+                               order_details_access_granted BIT(1) NULL,
                                FOREIGN KEY (id_order) REFERENCES orders(order_id) ON DELETE CASCADE,
                                FOREIGN KEY (id_work) REFERENCES works(work_id)
 );
-
 -- TABLA [11]: comments
 CREATE TABLE comments (
                           comment_id BIGINT AUTO_INCREMENT PRIMARY KEY,

@@ -55,15 +55,22 @@ public class JwtAuthorizationFilterConfig extends OncePerRequestFilter {
             return true;
         }
 
-        List<String> publicApiPaths = List.of(
-                "/api/v1/works",
-                "/api/v1/works/**",
-                "/api/v1/people/**",
-                "/api/v1/work-categories/**",
-                "/api/v1/auth/**"
+        if (pathMatcher.match("/api/v1/works/**", path) && "GET".equals(method)) {
+            return true;
+        }
+        if (pathMatcher.match("/api/v1/people/**", path) && "GET".equals(method)) {
+            return true;
+        }
+        if (pathMatcher.match("/api/v1/work-categories/**", path) && "GET".equals(method)) {
+            return true;
+        }
+
+        List<String> otherPublicApiPaths = List.of(
+                "/api/v1/auth/**",
+                "/api/v1/users/request-seller-role"
         );
 
-        if ("GET".equals(method) && publicApiPaths.stream().anyMatch(p -> pathMatcher.match(p, path))) {
+        if (otherPublicApiPaths.stream().anyMatch(p -> pathMatcher.match(p, path))) {
             return true;
         }
 

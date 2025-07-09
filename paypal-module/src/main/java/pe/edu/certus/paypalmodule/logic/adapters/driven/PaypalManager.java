@@ -35,7 +35,7 @@ public class PaypalManager implements ForPaypal {
     @Override
     public CreateOrderResponseModel createOrderFromCart(List<Long> workIds) throws IOException, IllegalArgumentException {
         if (workIds == null || workIds.isEmpty()) {
-            throw new IllegalArgumentException("Cart is empty");
+            throw new IllegalArgumentException("El carrito está vacío.");
         }
         BigDecimal totalAmount = workIds.stream()
                 .map(forGettingWorkPrice::findWorkPriceById)
@@ -43,7 +43,7 @@ public class PaypalManager implements ForPaypal {
                 .map(Optional::get)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
         if (totalAmount.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalArgumentException("Invalid total amount for the cart.");
+            throw new IllegalArgumentException("El monto total del carrito es inválido.");
         }
         return createOrder(totalAmount);
     }
@@ -84,10 +84,9 @@ public class PaypalManager implements ForPaypal {
                     .payerName(order.payer().name().givenName() + " " + order.payer().name().surname())
                     .build();
 
-            // CORRECCIÓN: Llamar al servicio de persistencia para guardar los datos.
             return forPersistingPaypalPayment.createOrderAndSavePayment(paymentDetail, workIds, buyerUserId);
         } else {
-            throw new IOException("Failed to capture payment. Status: " + order.status());
+            throw new IOException("Fallo al capturar el pago. Estado: " + order.status());
         }
     }
 }

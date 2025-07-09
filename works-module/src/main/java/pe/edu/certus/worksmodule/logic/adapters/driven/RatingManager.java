@@ -22,6 +22,13 @@ public class RatingManager implements ForRating {
     }
 
     @Override
+    public void createRatings(List<RatingModel> ratingModels) {
+        for(RatingModel ratingModel : ratingModels){
+            forManagingRating.saveRating(ratingModel);
+        }
+    }
+
+    @Override
     public List<RatingModel> findAllRatings() {
         return forManagingRating.satisfyFindAllRatings();
     }

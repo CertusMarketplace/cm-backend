@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Procesando...</title>
+    <script>
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = getCookie('jwt_token');
+            if (token) {
+                // Guardar en localStorage para consistencia con tu sistema actual
+                localStorage.setItem('jwt_token', token);
+
+                // Borrar la cookie para no dejarla expuesta
+                document.cookie = 'jwt_token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+
+                // Redirigir a la página principal de trabajos
+                window.location.href = '/marketplace/works';
+            } else {
+                // Si no hay token, algo salió mal. Redirigir al login.
+                console.error("No se encontró el token JWT en la cookie después del login con OAuth2.");
+                window.location.href = '/marketplace/auth/login?error=auth_failed';
+            }
+        });
+    </script>
+</head>
+<body>
+<h1>Redirigiendo...</h1>
+</body>
+</html>

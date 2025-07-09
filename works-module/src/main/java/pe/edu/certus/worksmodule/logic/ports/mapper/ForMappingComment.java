@@ -5,6 +5,6 @@ import pe.edu.certus.worksmodule.logic.adapters.driver.inputs.CreateCommentWebMo
 import pe.edu.certus.worksmodule.logic.model.CommentModel;
 
 public interface ForMappingComment {
-    CommentModel fromRequest( CreateCommentWebModel request);
+    CommentModel fromRequest(CreateCommentWebModel request, Long userId);
     CommentWebModel toWeb( CommentModel model);
 }

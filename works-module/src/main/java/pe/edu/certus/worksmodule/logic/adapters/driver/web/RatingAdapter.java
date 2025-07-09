@@ -2,6 +2,7 @@ package pe.edu.certus.worksmodule.logic.adapters.driver.web;
 
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.certus.worksmodule.logic.adapters.driver.inputs.RatingWebModel;
 import pe.edu.certus.worksmodule.logic.model.RatingModel;
@@ -24,10 +25,27 @@ public class RatingAdapter {
     }
 
     @PostMapping
-    public ResponseEntity< RatingWebModel > createRating( @Valid @RequestBody RatingWebModel ratingWebModel) {
+    public ResponseEntity<RatingWebModel> createRating(@Valid @RequestBody RatingWebModel ratingWebModel, Authentication authentication) {
+        Long userId = Long.parseLong(authentication.getName());
+        ratingWebModel = ratingWebModel.withUserId(userId);
+
         RatingModel domainModel = forMappingRating.fromWeb(ratingWebModel);
         RatingModel createdRating = forRating.createRating(domainModel);
         return ResponseEntity.ok(forMappingRating.toWeb(createdRating));
+    }
+
+    @PostMapping("/batch")
+    public ResponseEntity<Void> createMultipleRatings(@Valid @RequestBody List<RatingWebModel> ratings, Authentication authentication) {
+        Long userId = Long.parseLong(authentication.getName());
+        List<RatingModel> domainModels = ratings.stream()
+                .map(webModel -> {
+                    RatingModel domainModel = forMappingRating.fromWeb(webModel);
+                    domainModel.setUserId(userId);
+                    return domainModel;
+                })
+                .collect(Collectors.toList());
+        forRating.createRatings(domainModels);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping

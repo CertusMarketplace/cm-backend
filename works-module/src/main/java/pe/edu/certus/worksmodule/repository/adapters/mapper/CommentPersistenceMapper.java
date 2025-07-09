@@ -38,7 +38,7 @@ public class CommentPersistenceMapper implements ForBridgingComment {
                 .updatedAt(entity.getUpdatedAt())
                 .replies(entity.getReplies() != null ? entity.getReplies().stream()
                         .map(this::fromPersistence)
-                        .collect(Collectors.toList()) : Collections.emptyList())
+                        .collect(Collectors.toSet()) : Collections.emptySet()) // CORREGIDO
                 .build();
     }
 }
