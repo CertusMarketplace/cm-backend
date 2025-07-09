@@ -95,7 +95,9 @@ bootloader/src/main/resources/banner.txt
 bootloader/src/main/resources/database-mysql.properties
 bootloader/src/main/resources/database/data.sql
 bootloader/src/main/resources/database/schema.sql
+certus-db/fly.toml
 Dockerfile
+fly.toml
 LICENSE
 mvnw
 mvnw.cmd
@@ -346,6 +348,32 @@ works-module/src/main/resources/application.properties
 
 <files>
 This section contains the contents of the repository's files.
+
+<file path="certus-db/fly.toml">
+# fly.toml en la carpeta /certus-db
+
+app = 'cm-backend-db' # Este es el nombre de tu app de base de datos
+primary_region = 'gru'
+
+[build]
+image = 'mysql:8.0.37'
+
+[[vm]]
+cpu_kind = 'shared'
+cpus = 1
+memory_mb = 2048
+
+[processes]
+app = """--datadir /data/mysql \
+    --default-authentication-plugin mysql_native_password"""
+
+[mounts]
+source = "mysqldata"
+destination = "/data"
+
+[env]
+MYSQL_DATABASE = "db_mk_certus"
+</file>
 
 <file path=".gitattributes">
 /mvnw text eol=lf
@@ -1927,68 +1955,6 @@ ________  _______   ________  _________  ___  ___  ________           ________  
    \ \_______\ \_______\ \__\\ _\    \ \__\ \ \_______\____\_\  \        \ \_______\ \__\ \__\ \_______\ \__\\ \__\ \_______\ \__\\ \__\ \_______\
     \|_______|\|_______|\|__|\|__|    \|__|  \|_______|\_________\        \|_______|\|__|\|__|\|_______|\|__| \|__|\|_______|\|__| \|__|\|_______|
                                                       \|_________|
-</file>
-
-<file path="Dockerfile">
-# =================================================================
-# Dockerfile para Certus Marketplace (Despliegue en Fly.io)
-# =================================================================
-
-# --- ETAPA 1: CONSTRUCCIÓN (Builder) ---
-# Usamos una imagen oficial de Maven que incluye el JDK 17.
-# El uso de una etiqueta específica (en lugar de 'latest') asegura builds reproducibles.
-FROM maven:3.9.6-eclipse-temurin-17-focal AS builder
-
-# Establecemos el directorio de trabajo dentro del contenedor
-WORKDIR /app
-
-# Copiamos primero los archivos pom.xml para aprovechar el cache de Docker.
-# Las dependencias solo se descargarán de nuevo si los POMs cambian.
-COPY pom.xml .
-COPY bootloader/pom.xml bootloader/
-COPY auth-module/pom.xml auth-module/
-COPY people-module/pom.xml people-module/
-COPY users-module/pom.xml users-module/
-COPY works-module/pom.xml works-module/
-COPY paypal-module/pom.xml paypal-module/
-COPY ui-module/pom.xml ui-module/
-
-# Descargamos todas las dependencias del proyecto.
-# 'go-offline' es ideal para este paso de cacheo.
-RUN mvn dependency:go-offline
-
-# Ahora copiamos todo el código fuente del proyecto.
-COPY . .
-
-# Compilamos la aplicación y creamos el JAR ejecutable.
-# Usamos -DskipTests para acelerar el build en un entorno de despliegue.
-RUN mvn clean package -DskipTests
-
-# --- ETAPA 2: PRODUCCIÓN (Runtime) ---
-# Partimos de una imagen mucho más ligera que solo contiene el Java Runtime Environment (JRE).
-FROM eclipse-temurin:17-jre-focal
-
-# Por seguridad, creamos un usuario no-root para ejecutar la aplicación.
-RUN groupadd --system appuser && useradd --system --gid appuser appuser
-
-# Establecemos el directorio de trabajo en la imagen final.
-WORKDIR /app
-
-# Copiamos únicamente el JAR ejecutable desde la etapa de construcción.
-# Le damos un nombre genérico para simplificar el comando de ejecución.
-COPY --from=builder /app/bootloader/target/*.jar app.jar
-
-# Asignamos la propiedad del JAR al usuario que acabamos de crear.
-RUN chown appuser:appuser app.jar
-
-# Cambiamos al usuario no-root.
-USER appuser
-
-# Exponemos el puerto en el que corre la aplicación Spring Boot (definido en tu application.properties).
-EXPOSE 8080
-
-# El comando que se ejecutará cuando el contenedor inicie.
-ENTRYPOINT ["java", "-jar", "app.jar"]
 </file>
 
 <file path="LICENSE">
@@ -22878,80 +22844,88 @@ INSERT IGNORE INTO comments (id_work, id_user, id_parent_comment, comment_body, 
 -- FIN DEL SCRIPT
 </file>
 
-<file path="paypal-module/pom.xml">
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<file path="Dockerfile">
+# =================================================================
+# Dockerfile para Certus Marketplace (Despliegue en Fly.io)
+# =================================================================
 
-    <parent>
-        <groupId>pe.edu.certus</groupId>
-        <artifactId>cm-backend</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
+# --- ETAPA 1: CONSTRUCCIÓN (Builder) ---
+# Usamos una imagen oficial de Maven que incluye el JDK 17.
+# El uso de una etiqueta específica (en lugar de 'latest') asegura builds reproducibles.
+FROM maven:3.9.6-eclipse-temurin-17-focal AS builder
 
-    <artifactId>paypal-module</artifactId>
-    <name>paypal-module</name>
-    <description>Módulo para la gestión de pagos con PayPal</description>
-    <url/>
+# Establecemos el directorio de trabajo dentro del contenedor
+WORKDIR /app
 
-    <properties>
-        <java.version>17</java.version>
-        <lombok.version>1.18.32</lombok.version>
-    </properties>
+# Copiamos primero los archivos pom.xml para aprovechar el cache de Docker.
+# Las dependencias solo se descargarán de nuevo si los POMs cambian.
+COPY pom.xml .
+COPY bootloader/pom.xml bootloader/
+COPY auth-module/pom.xml auth-module/
+COPY people-module/pom.xml people-module/
+COPY users-module/pom.xml users-module/
+COPY works-module/pom.xml works-module/
+COPY paypal-module/pom.xml paypal-module/
+COPY ui-module/pom.xml ui-module/
 
-    <dependencies>
-        <dependency>
-            <groupId>com.paypal.sdk</groupId>
-            <artifactId>checkout-sdk</artifactId>
-            <version>2.0.0</version>
-        </dependency>
+# Descargamos todas las dependencias del proyecto.
+# 'go-offline' es ideal para este paso de cacheo.
+RUN mvn dependency:go-offline
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+# Ahora copiamos todo el código fuente del proyecto.
+COPY . .
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
+# Compilamos la aplicación y creamos el JAR ejecutable.
+# Usamos -DskipTests para acelerar el build en un entorno de despliegue.
+RUN mvn clean package -DskipTests
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <optional>true</optional>
-        </dependency>
+# --- ETAPA 2: PRODUCCIÓN (Runtime) ---
+# Partimos de una imagen mucho más ligera que solo contiene el Java Runtime Environment (JRE).
+FROM eclipse-temurin:17-jre-focal
 
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-        </dependency>
-    </dependencies>
+# Por seguridad, creamos un usuario no-root para ejecutar la aplicación.
+RUN groupadd --system appuser && useradd --system --gid appuser appuser
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
+# Establecemos el directorio de trabajo en la imagen final.
+WORKDIR /app
 
-        </plugins>
-    </build>
+# Copiamos únicamente el JAR ejecutable desde la etapa de construcción.
+# Le damos un nombre genérico para simplificar el comando de ejecución.
+COPY --from=builder /app/bootloader/target/*.jar app.jar
 
+# Asignamos la propiedad del JAR al usuario que acabamos de crear.
+RUN chown appuser:appuser app.jar
 
-</project>
+# Cambiamos al usuario no-root.
+USER appuser
+
+# Exponemos el puerto en el que corre la aplicación Spring Boot (definido en tu application.properties).
+EXPOSE 8080
+
+# El comando que se ejecutará cuando el contenedor inicie.
+ENTRYPOINT ["java", "-jar", "app.jar"]
+</file>
+
+<file path="fly.toml">
+# fly.toml en la carpeta /cm-backend
+
+app = 'cm-backend-yhnczw' # Este es el nombre de tu app Spring
+primary_region = 'gru'
+
+[build]
+builder = "paketobuildpacks/builder:base"
+
+[http_service]
+internal_port = 8080
+force_https = true
+auto_stop_machines = true
+auto_start_machines = true
+min_machines_running = 0
+
+[[vm]]
+memory = '1gb'
+cpu_kind = 'shared'
+cpus = 1
 </file>
 
 <file path="paypal-module/src/main/java/pe/edu/certus/paypalmodule/configuration/annotations/PaypalComponentScanConfig.java">
@@ -22993,64 +22967,6 @@ import java.util.List;
 public interface ForPersistingPaypalPayment {
     PaymentDetailModel createOrderAndSavePayment( PaymentDetailModel paymentDetail, List< Long > workId, Long buyerUserId);
 }
-</file>
-
-<file path="people-module/pom.xml">
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>pe.edu.certus</groupId>
-        <artifactId>cm-backend</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
-
-    <artifactId>people-module</artifactId>
-    <name>people-module</name>
-    <description>people-module</description>
-    <url/>
-
-    <properties>
-        <java.version>17</java.version>
-        <lombok.version>1.18.32</lombok.version>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-
-        </plugins>
-    </build>
-
-</project>
 </file>
 
 <file path="people-module/src/main/java/pe/edu/certus/peoplemodule/configuration/annotations/PeopleComponentScanConfig.java">
@@ -25114,95 +25030,6 @@ public class CommentEntity {
 }
 </file>
 
-<file path="auth-module/pom.xml">
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>pe.edu.certus</groupId>
-        <artifactId>cm-backend</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
-    <artifactId>auth-module</artifactId>
-    <name>auth-module</name>
-    <description>Módulo de Autenticación y Autorización</description>
-
-    <properties>
-        <java.version>17</java.version>
-        <lombok.version>1.18.32</lombok.version>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>pe.edu.certus</groupId>
-            <artifactId>people-module</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.nimbusds</groupId>
-            <artifactId>nimbus-jose-jwt</artifactId>
-            <version>10.3</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.api-client</groupId>
-            <artifactId>google-api-client</artifactId>
-            <version>2.8.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.http-client</groupId>
-            <artifactId>google-http-client-jackson2</artifactId>
-            <version>1.47.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-oauth2-core</artifactId>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-</project>
-</file>
-
 <file path="auth-module/src/main/java/pe/edu/certus/authmodule/configuration/policy/JwtAuthorizationFilterConfig.java">
 package pe.edu.certus.authmodule.configuration.policy;
 
@@ -25510,6 +25337,75 @@ CREATE TABLE social_logins (
                                UNIQUE KEY uq_social_provider_user (social_login_provider, social_login_provider_user_id),
                                UNIQUE KEY uq_social_user_provider (id_user, social_login_provider)
 );
+</file>
+
+<file path="paypal-module/pom.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>pe.edu.certus</groupId>
+        <artifactId>cm-backend</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>paypal-module</artifactId>
+    <name>paypal-module</name>
+    <description>Módulo para la gestión de pagos con PayPal</description>
+    <url/>
+
+    <properties>
+        <java.version>17</java.version>
+        <lombok.version>1.18.32</lombok.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.paypal.sdk</groupId>
+            <artifactId>checkout-sdk</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
 </file>
 
 <file path="paypal-module/src/main/java/pe/edu/certus/paypalmodule/logic/adapters/driven/PaypalManager.java">
@@ -25841,6 +25737,56 @@ public class PaypalServiceProxy implements ForManagingPaypal {
         return orderRequest;
     }
 }
+</file>
+
+<file path="people-module/pom.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>pe.edu.certus</groupId>
+        <artifactId>cm-backend</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>people-module</artifactId>
+    <name>people-module</name>
+    <description>people-module</description>
+    <url/>
+
+    <properties>
+        <java.version>17</java.version>
+        <lombok.version>1.18.32</lombok.version>
+    </properties>
+
+    <dependencies>
+        <!-- Tus dependencias aquí (están bien como estaban) -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
 </file>
 
 <file path="ui-module/src/main/java/pe/edu/certus/uimodule/ui/pages/orders/adapters/drivers/CartController.java">
@@ -27217,72 +27163,6 @@ function initializeCreateWorkForm(form) {
 </html>
 </file>
 
-<file path="users-module/pom.xml">
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <parent>
-        <groupId>pe.edu.certus</groupId>
-        <artifactId>cm-backend</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
-
-    <artifactId>users-module</artifactId>
-    <name>users-module</name>
-    <description>users-module</description>
-    <url/>
-
-    <properties>
-        <java.version>17</java.version>
-        <lombok.version>1.18.32</lombok.version>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-
-        </plugins>
-    </build>
-
-</project>
-</file>
-
 <file path="users-module/src/main/java/pe/edu/certus/usersmodule/repository/entity/UserEntity.java">
 package pe.edu.certus.usersmodule.repository.entity;
 
@@ -27475,6 +27355,90 @@ public interface ForBridgingWork {
 }
 </file>
 
+<file path="auth-module/pom.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>pe.edu.certus</groupId>
+        <artifactId>cm-backend</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>auth-module</artifactId>
+    <name>auth-module</name>
+    <description>Módulo de Autenticación y Autorización</description>
+
+    <properties>
+        <java.version>17</java.version>
+        <lombok.version>1.18.32</lombok.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>pe.edu.certus</groupId>
+            <artifactId>people-module</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>10.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.api-client</groupId>
+            <artifactId>google-api-client</artifactId>
+            <version>2.8.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.http-client</groupId>
+            <artifactId>google-http-client-jackson2</artifactId>
+            <version>1.47.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-core</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+</file>
+
 <file path="auth-module/src/main/java/pe/edu/certus/authmodule/configuration/policy/SecurityConfig.java">
 package pe.edu.certus.authmodule.configuration.policy;
 
@@ -27570,6 +27534,65 @@ public class SecurityConfig {
         return source;
     }
 }
+</file>
+
+<file path="users-module/pom.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>pe.edu.certus</groupId>
+        <artifactId>cm-backend</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>users-module</artifactId>
+    <name>users-module</name>
+    <description>users-module</description>
+    <url/>
+
+    <properties>
+        <java.version>17</java.version>
+        <lombok.version>1.18.32</lombok.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
 </file>
 
 <file path="works-module/src/main/java/pe/edu/certus/worksmodule/logic/adapters/mapper/WorkMapper.java">
@@ -27676,70 +27699,6 @@ public class WorkModel {
         RECHAZADO
     }
 }
-</file>
-
-<file path="works-module/pom.xml">
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <parent>
-        <groupId>pe.edu.certus</groupId>
-        <artifactId>cm-backend</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
-
-    <artifactId>works-module</artifactId>
-    <name>works-module</name>
-    <description>works-module</description>
-    <url/>
-
-    <properties>
-        <java.version>17</java.version>
-        <lombok.version>1.18.32</lombok.version>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>pe.edu.certus</groupId>
-            <artifactId>people-module</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-
-        </plugins>
-    </build>
-
-</project>
 </file>
 
 <file path="works-module/src/main/java/pe/edu/certus/worksmodule/logic/adapters/driven/WorkManager.java">
@@ -28159,11 +28118,9 @@ public interface ForQueryingWork extends JpaRepository<WorkEntity, Long> {
 </file>
 
 <file path="bootloader/src/main/resources/database-mysql.properties">
-# CREDENTIALS FOR DATABASE
 db.username=root
 db.password=root
 
-# DATABASE CONNECTION DETAILS
 db.protocol=jdbc
 db.driver=mysql
 db.host=localhost
@@ -28171,12 +28128,67 @@ db.port=3306
 db.name=db_mk_certus
 db.driver.class=com.mysql.cj.jdbc.Driver
 
-## PATH OF DATABASE URL
 db.url=${db.protocol}:${db.driver}://${db.host}:${db.port}/${db.name}?createDatabaseIfNotExist=true
 
-# SQL INIT PROPERTIES
 sql.schema = classpath*:database/schema.sql
 sql.data = classpath*:database/data.sql
+</file>
+
+<file path="works-module/pom.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>pe.edu.certus</groupId>
+        <artifactId>cm-backend</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>works-module</artifactId>
+    <name>works-module</name>
+    <description>works-module</description>
+    <url/>
+
+    <properties>
+        <java.version>17</java.version>
+        <lombok.version>1.18.32</lombok.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>pe.edu.certus</groupId>
+            <artifactId>people-module</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
 </file>
 
 <file path="works-module/src/main/java/pe/edu/certus/worksmodule/logic/ports/driven/ForManagingWork.java">
@@ -28344,48 +28356,40 @@ public class WorkQuerierProxy implements ForManagingWork {
 <file path="bootloader/src/main/resources/application.properties">
 spring.application.name=cm-backend
 server.port=8080
+spring.main.banner-mode=console
+spring.output.ansi.enabled=always
 
-spring.config.import=optional:classpath:database-mysql.properties
+spring.datasource.url=${DATABASE_URL}
+spring.datasource.username=${DB_USERNAME}
+spring.datasource.password=${DB_PASSWORD}
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
 
-spring.datasource.url=jdbc:mysql://localhost:3306/db_mk_certus?createDatabaseIfNotExist=true
-spring.datasource.username=${db.username}
-spring.datasource.password=${db.password}
-spring.datasource.driverClassName=${db.driver.class}
+spring.jpa.hibernate.ddl-auto=update
+
+
+spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
 
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
-spring.jpa.hibernate.ddl-auto=validate
-spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
 
 spring.sql.init.mode=always
-spring.sql.init.schema-locations=classpath:database/schema.sql
-spring.sql.init.data-locations=classpath:database/data.sql
+
 spring.jpa.defer-datasource-initialization=true
 
-paypal.client-id=Aa7PfspKAaCH25tsLsOkSF2sl2jTWnFisUK230tpD57smHSNuq1AxPI3XFIiYkYyE256mrx2d5UFsFZ6
-paypal.client-secret=EO0wGjgZQJD7gO7lVeSlFnD-kLc5thi-wFqS0DZTx3Wd1wmF5u2EXRZnTzwKmLIVxMGQFqfMBa8muAYQ
+paypal.client-id=${PAYPAL_CLIENT_ID}
+paypal.client-secret=${PAYPAL_CLIENT_SECRET}
 
-google.client-id=705148880910-suv7u8n9ub95ieqrdbvntnidduqbn81o.apps.googleusercontent.com
+google.client-id=${GOOGLE_CLIENT_ID}
 spring.security.oauth2.client.registration.google.client-id=${google.client-id}
-spring.security.oauth2.client.registration.google.client-secret=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
+spring.security.oauth2.client.registration.google.client-secret=${GOOGLE_CLIENT_SECRET}
 spring.security.oauth2.client.registration.google.scope=openid,profile,email
 
 logging.level.pe.edu.certus=DEBUG
-
-logging.level.org.springframework.web=DEBUG
-
-logging.level.org.springframework.security=TRACE
-
+logging.level.org.springframework.web=INFO
+logging.level.org.springframework.security=INFO
 logging.level.org.hibernate.SQL=DEBUG
 logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
-
 logging.level.org.springframework.transaction=DEBUG
-
-logging.level.org.apache.http=DEBUG
-
-spring.main.banner-mode=console
-
-spring.output.ansi.enabled=always
 </file>
 
 <file path="pom.xml">

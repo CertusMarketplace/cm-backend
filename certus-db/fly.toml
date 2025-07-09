@@ -1,0 +1,23 @@
+# fly.toml en la carpeta /certus-db
+
+app = 'cm-backend-db' # Este es el nombre de tu app de base de datos
+primary_region = 'gru'
+
+[build]
+image = 'mysql:8.0.37'
+
+[[vm]]
+cpu_kind = 'shared'
+cpus = 1
+memory_mb = 2048
+
+[processes]
+app = """--datadir /data/mysql \
+    --default-authentication-plugin mysql_native_password"""
+
+[mounts]
+source = "mysqldata"
+destination = "/data"
+
+[env]
+MYSQL_DATABASE = "db_mk_certus"

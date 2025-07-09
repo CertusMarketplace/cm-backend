@@ -57,12 +57,3 @@ EXPOSE 8080
 
 # El comando que se ejecutará cuando el contenedor inicie.
 ENTRYPOINT ["java", "-jar", "app.jar"]
-
-# Make a directory for the mysql app
-mkdir my-mysql
-cd my-mysql
-
-# Run `fly launch` to create an app
-# Use the --no-deploy option since we'll make changes before first deploy
-# Use the --image option to specify a MySQL Docker image
-fly launch --no-deploy --image mysql:8.0.37
