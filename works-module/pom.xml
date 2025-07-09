@@ -34,7 +34,7 @@
         <dependency>
             <groupId>pe.edu.certus</groupId>
             <artifactId>people-module</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
 
     </dependencies>
@@ -42,19 +42,12 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 

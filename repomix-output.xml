@@ -95,6 +95,7 @@ bootloader/src/main/resources/banner.txt
 bootloader/src/main/resources/database-mysql.properties
 bootloader/src/main/resources/database/data.sql
 bootloader/src/main/resources/database/schema.sql
+Dockerfile
 LICENSE
 mvnw
 mvnw.cmd
@@ -1926,6 +1927,68 @@ ________  _______   ________  _________  ___  ___  ________           ________  
    \ \_______\ \_______\ \__\\ _\    \ \__\ \ \_______\____\_\  \        \ \_______\ \__\ \__\ \_______\ \__\\ \__\ \_______\ \__\\ \__\ \_______\
     \|_______|\|_______|\|__|\|__|    \|__|  \|_______|\_________\        \|_______|\|__|\|__|\|_______|\|__| \|__|\|_______|\|__| \|__|\|_______|
                                                       \|_________|
+</file>
+
+<file path="Dockerfile">
+# =================================================================
+# Dockerfile para Certus Marketplace (Despliegue en Fly.io)
+# =================================================================
+
+# --- ETAPA 1: CONSTRUCCIÓN (Builder) ---
+# Usamos una imagen oficial de Maven que incluye el JDK 17.
+# El uso de una etiqueta específica (en lugar de 'latest') asegura builds reproducibles.
+FROM maven:3.9.6-eclipse-temurin-17-focal AS builder
+
+# Establecemos el directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# Copiamos primero los archivos pom.xml para aprovechar el cache de Docker.
+# Las dependencias solo se descargarán de nuevo si los POMs cambian.
+COPY pom.xml .
+COPY bootloader/pom.xml bootloader/
+COPY auth-module/pom.xml auth-module/
+COPY people-module/pom.xml people-module/
+COPY users-module/pom.xml users-module/
+COPY works-module/pom.xml works-module/
+COPY paypal-module/pom.xml paypal-module/
+COPY ui-module/pom.xml ui-module/
+
+# Descargamos todas las dependencias del proyecto.
+# 'go-offline' es ideal para este paso de cacheo.
+RUN mvn dependency:go-offline
+
+# Ahora copiamos todo el código fuente del proyecto.
+COPY . .
+
+# Compilamos la aplicación y creamos el JAR ejecutable.
+# Usamos -DskipTests para acelerar el build en un entorno de despliegue.
+RUN mvn clean package -DskipTests
+
+# --- ETAPA 2: PRODUCCIÓN (Runtime) ---
+# Partimos de una imagen mucho más ligera que solo contiene el Java Runtime Environment (JRE).
+FROM eclipse-temurin:17-jre-focal
+
+# Por seguridad, creamos un usuario no-root para ejecutar la aplicación.
+RUN groupadd --system appuser && useradd --system --gid appuser appuser
+
+# Establecemos el directorio de trabajo en la imagen final.
+WORKDIR /app
+
+# Copiamos únicamente el JAR ejecutable desde la etapa de construcción.
+# Le damos un nombre genérico para simplificar el comando de ejecución.
+COPY --from=builder /app/bootloader/target/*.jar app.jar
+
+# Asignamos la propiedad del JAR al usuario que acabamos de crear.
+RUN chown appuser:appuser app.jar
+
+# Cambiamos al usuario no-root.
+USER appuser
+
+# Exponemos el puerto en el que corre la aplicación Spring Boot (definido en tu application.properties).
+EXPOSE 8080
+
+# El comando que se ejecutará cuando el contenedor inicie.
+ENTRYPOINT ["java", "-jar", "app.jar"]
 </file>
 
 <file path="LICENSE">
@@ -25075,7 +25138,7 @@ public class CommentEntity {
         <dependency>
             <groupId>pe.edu.certus</groupId>
             <artifactId>people-module</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -27615,27 +27678,6 @@ public class WorkModel {
 }
 </file>
 
-<file path="bootloader/src/main/resources/database-mysql.properties">
-# CREDENTIALS FOR DATABASE
-db.username=root
-db.password=root
-
-# DATABASE CONNECTION DETAILS
-db.protocol=jdbc
-db.driver=mysql
-db.host=localhost
-db.port=3306
-db.name=db_mk_certus
-db.driver.class=com.mysql.cj.jdbc.Driver
-
-## PATH OF DATABASE URL
-db.url=${db.protocol}:${db.driver}://${db.host}:${db.port}/${db.name}?createDatabaseIfNotExist=true
-
-# SQL INIT PROPERTIES
-# sql.schema = classpath*:database/schema.sql
-# sql.data = classpath*:database/data.sql
-</file>
-
 <file path="works-module/pom.xml">
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -27673,7 +27715,7 @@ db.url=${db.protocol}:${db.driver}://${db.host}:${db.port}/${db.name}?createData
         <dependency>
             <groupId>pe.edu.certus</groupId>
             <artifactId>people-module</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
 
     </dependencies>
@@ -28116,86 +28158,25 @@ public interface ForQueryingWork extends JpaRepository<WorkEntity, Long> {
 </project>
 </file>
 
-<file path="bootloader/src/main/resources/application.properties">
-# ===================================================================
-#  CERTUS MARKETPLACE - APPLICATION PROPERTIES (MODO DEBUG DETALLADO)
-# ===================================================================
+<file path="bootloader/src/main/resources/database-mysql.properties">
+# CREDENTIALS FOR DATABASE
+db.username=root
+db.password=root
 
-# -----------------
-# SERVER PROPERTIES
-# -----------------
-spring.application.name=cm-backend
-server.port=8080
+# DATABASE CONNECTION DETAILS
+db.protocol=jdbc
+db.driver=mysql
+db.host=localhost
+db.port=3306
+db.name=db_mk_certus
+db.driver.class=com.mysql.cj.jdbc.Driver
 
-# --------------------
-# DATABASE PROPERTIES
-# --------------------
-# Importa las credenciales desde el archivo específico
-spring.config.import=optional:classpath:database-mysql.properties
+## PATH OF DATABASE URL
+db.url=${db.protocol}:${db.driver}://${db.host}:${db.port}/${db.name}?createDatabaseIfNotExist=true
 
-# Configuración explícita de la base de datos
-spring.datasource.url=jdbc:mysql://localhost:3306/db_mk_certus?createDatabaseIfNotExist=true
-spring.datasource.username=${db.username}
-spring.datasource.password=${db.password}
-spring.datasource.driverClassName=${db.driver.class}
-
-# ----------------
-# JPA / HIBERNATE
-# ----------------
-# Muestra el SQL generado por Hibernate (muy útil)
-spring.jpa.show-sql=true
-# Formatea el SQL para que sea más legible en la consola
-spring.jpa.properties.hibernate.format_sql=true
-# Permite que Spring Boot actualice el esquema de la base de datos al arrancar
-spring.jpa.hibernate.ddl-auto=validate
-# Dialecto específico para MySQL 8+
-spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
-
-# ----------------
-# PAYPAL SANDBOX
-# ----------------
-paypal.client-id=Aa7PfspKAaCH25tsLsOkSF2sl2jTWnFisUK230tpD57smHSNuq1AxPI3XFIiYkYyE256mrx2d5UFsFZ6
-paypal.client-secret=EO0wGjgZQJD7gO7lVeSlFnD-kLc5thi-wFqS0DZTx3Wd1wmF5u2EXRZnTzwKmLIVxMGQFqfMBa8muAYQ
-
-# -----------------
-# GOOGLE CLIENT ID
-# -----------------
-google.client-id=705148880910-suv7u8n9ub95ieqrdbvntnidduqbn81o.apps.googleusercontent.com
-spring.security.oauth2.client.registration.google.client-id=${google.client-id}
-spring.security.oauth2.client.registration.google.client-secret=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
-spring.security.oauth2.client.registration.google.scope=openid,profile,email
-
-# ===================================================================
-#  LOGGING CONFIGURATION (NIVEL DEBUG DETALLADO)
-# ===================================================================
-
-# Nivel de logging general para tu aplicación (puedes ajustarlo a TRACE para aún más detalle)
-logging.level.pe.edu.certus=DEBUG
-
-# Nivel de logging para Spring Boot Web (verás cada petición entrante y cómo se mapea)
-logging.level.org.springframework.web=DEBUG
-
-# Nivel de logging para Spring Security (CRUCIAL para problemas de autenticación y autorización)
-# Muestra la cadena de filtros de seguridad, decisiones de acceso, etc.
-logging.level.org.springframework.security=TRACE
-
-# Nivel de logging para Hibernate/JPA
-# Muestra detalles sobre transacciones, el estado de las sesiones y el cache L2.
-logging.level.org.hibernate.SQL=DEBUG
-logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
-
-# Nivel de logging para el Transaction Manager de Spring
-# Útil para ver cómo se manejan las transacciones @Transactional
-logging.level.org.springframework.transaction=DEBUG
-
-# Nivel de logging para el cliente HTTP de PayPal (si usas uno basado en Apache)
-logging.level.org.apache.http=DEBUG
-
-# Muestra el banner de Spring al inicio (opcional)
-spring.main.banner-mode=console
-
-# Habilitar logging de la consola en color para mejor legibilidad
-spring.output.ansi.enabled=always
+# SQL INIT PROPERTIES
+sql.schema = classpath*:database/schema.sql
+sql.data = classpath*:database/data.sql
 </file>
 
 <file path="works-module/src/main/java/pe/edu/certus/worksmodule/logic/ports/driven/ForManagingWork.java">
@@ -28230,171 +28211,6 @@ public interface ForWork <WorkModel, Long>{
     List<WorkModel> findWorksByIds(List<Long> ids);
     List<WorkModel> findAllBySellerId(Long sellerId);
 }
-</file>
-
-<file path="pom.xml">
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.3</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-
-    <groupId>pe.edu.certus</groupId>
-    <artifactId>cm-backend</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>CertUs Backend Service</name>
-
-    <packaging>pom</packaging>    <!-- multi-module project -->
-    <description>Backend project for CertUs</description>
-    <url/>
-
-    <licenses>
-        <license/>
-    </licenses>
-
-    <developers>
-        <developer>
-            <id>CM-GJ</id>
-            <name>Geraldo Jaramillo</name>
-            <email>Geraldo_07_@outlook.com</email>
-            <url>https://github.com/Geraldow</url>
-            <organization></organization>
-            <roles>
-                <role>developer</role>
-            </roles>
-            <timezone>-5</timezone>
-        </developer>
-        <developer>
-            <id>CM-GC</id>
-            <name>Gabriela Conde</name>
-            <email>gabriela.2020.ci@hotmail.com</email>
-            <url>https://github.com/mersudredi</url>
-            <organization></organization>
-            <roles>
-                <role>developer</role>
-            </roles>
-            <timezone>-5</timezone>
-        </developer>
-    </developers>
-
-    <scm>
-        <connection>scm:git:https://github.com/CertusMarketplace/cm-backend.git</connection>
-        <developerConnection>scm:git@github.com:CertusMarketplace/cm-backend.git
-        </developerConnection>
-        <url>https://github.com/CertusMarketplace/cm-backend</url>
-        <tag>HEAD</tag>
-    </scm>
-
-    <modules>
-        <module>people-module</module>
-        <module>auth-module</module>
-        <module>works-module</module>
-        <module>users-module</module>
-        <module>paypal-module</module>
-        <module>bootloader</module>
-        <module>ui-module</module>
-    </modules>
-
-    <properties>
-        <java.version>17</java.version>
-    </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>3.2.3</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>1.18.32</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>1.18.32</version>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-
-        </plugins>
-    </build>
-    <repositories>
-        <repository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>https://repo.spring.io/snapshot</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>https://repo.spring.io/snapshot</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </pluginRepository>
-    </pluginRepositories>
-
-</project>
 </file>
 
 <file path="works-module/src/main/java/pe/edu/certus/worksmodule/repository/adapters/driver/WorkQuerierProxy.java">
@@ -28523,6 +28339,236 @@ public class WorkQuerierProxy implements ForManagingWork {
                 .collect(Collectors.toList());
     }
 }
+</file>
+
+<file path="bootloader/src/main/resources/application.properties">
+spring.application.name=cm-backend
+server.port=8080
+
+spring.config.import=optional:classpath:database-mysql.properties
+
+spring.datasource.url=jdbc:mysql://localhost:3306/db_mk_certus?createDatabaseIfNotExist=true
+spring.datasource.username=${db.username}
+spring.datasource.password=${db.password}
+spring.datasource.driverClassName=${db.driver.class}
+
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.hibernate.ddl-auto=validate
+spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
+
+spring.sql.init.mode=always
+spring.sql.init.schema-locations=classpath:database/schema.sql
+spring.sql.init.data-locations=classpath:database/data.sql
+spring.jpa.defer-datasource-initialization=true
+
+paypal.client-id=Aa7PfspKAaCH25tsLsOkSF2sl2jTWnFisUK230tpD57smHSNuq1AxPI3XFIiYkYyE256mrx2d5UFsFZ6
+paypal.client-secret=EO0wGjgZQJD7gO7lVeSlFnD-kLc5thi-wFqS0DZTx3Wd1wmF5u2EXRZnTzwKmLIVxMGQFqfMBa8muAYQ
+
+google.client-id=705148880910-suv7u8n9ub95ieqrdbvntnidduqbn81o.apps.googleusercontent.com
+spring.security.oauth2.client.registration.google.client-id=${google.client-id}
+spring.security.oauth2.client.registration.google.client-secret=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
+spring.security.oauth2.client.registration.google.scope=openid,profile,email
+
+logging.level.pe.edu.certus=DEBUG
+
+logging.level.org.springframework.web=DEBUG
+
+logging.level.org.springframework.security=TRACE
+
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+
+logging.level.org.springframework.transaction=DEBUG
+
+logging.level.org.apache.http=DEBUG
+
+spring.main.banner-mode=console
+
+spring.output.ansi.enabled=always
+</file>
+
+<file path="pom.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.3</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>pe.edu.certus</groupId>
+    <artifactId>cm-backend</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>CertUs Backend Service</name>
+
+    <packaging>pom</packaging>    <!-- multi-module project -->
+    <description>Backend project for CertUs</description>
+    <url/>
+
+    <licenses>
+        <license/>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>CM-GJ</id>
+            <name>Geraldo Jaramillo</name>
+            <email>Geraldo_07_@outlook.com</email>
+            <url>https://github.com/Geraldow</url>
+            <organization></organization>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>-5</timezone>
+        </developer>
+        <developer>
+            <id>CM-GC</id>
+            <name>Gabriela Conde</name>
+            <email>gabriela.2020.ci@hotmail.com</email>
+            <url>https://github.com/mersudredi</url>
+            <organization></organization>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>-5</timezone>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/CertusMarketplace/cm-backend.git</connection>
+        <developerConnection>scm:git@github.com:CertusMarketplace/cm-backend.git
+        </developerConnection>
+        <url>https://github.com/CertusMarketplace/cm-backend</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <modules>
+        <module>people-module</module>
+        <module>auth-module</module>
+        <module>works-module</module>
+        <module>users-module</module>
+        <module>paypal-module</module>
+        <module>bootloader</module>
+        <module>ui-module</module>
+    </modules>
+
+    <properties>
+        <java.version>17</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>3.2.3</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.32</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.3.1</version>
+                    <configuration>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.32</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>
 </file>
 
 </files>
