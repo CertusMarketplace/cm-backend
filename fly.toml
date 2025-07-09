@@ -2,11 +2,35 @@
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
+# Make a directory for the mysql app
+mkdir my-mysql
+cd my-mysql
+
+# Run `fly launch` to create an app
+# Use the --no-deploy option since we'll make changes before first deploy
+# Use the --image option to specify a MySQL Docker image
+fly launch --no-deploy --image mysql:8.0.37
+
+# Create a volume named "mysqldata" within our app "my-mysql"
+fly volumes create mysqldata --size 10 # gb
+
+# Set secrets:
+# MYSQL_PASSWORD      - root set for user $MYSQL_USER
+# MYSQL_ROOT_PASSWORD - root set for user "root"
+fly secrets set MYSQL_PASSWORD=root MYSQL_ROOT_PASSWORD=root
+
 
 app = 'cm-backend-yhnczw'
 primary_region = 'gru'
 
 [build]
+image = 'mysql:8'
+
+# The [processes] section is different for 8+, 8.4, and 5.7. Use the one that matches your version.
+# Use the following for versions 8 to 8.3:
+[processes]
+app = """--datadir /data/mysql \
+    --default-authentication-plugin mysql_native_password"""
 
 [http_service]
   internal_port = 8080
@@ -21,3 +45,11 @@ primary_region = 'gru'
   cpu_kind = 'shared'
   cpus = 1
   memory_mb = 2048
+
+[mounts]
+source = "mysqldata"
+destination = "/data"
+
+[env]
+MYSQL_DATABASE = "db_mk_certus"
+MYSQL_USER = "root"
