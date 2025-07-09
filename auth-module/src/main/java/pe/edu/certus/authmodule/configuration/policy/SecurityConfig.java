@@ -60,6 +60,7 @@ public class SecurityConfig {
                                 "/api/v1/work-categories/**"
                         ).permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/users/request-seller-role").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/api/v1/users/request-seller-role").authenticated()
                         .requestMatchers(HttpMethod.POST, "/api/v1/comments").authenticated()
                         .requestMatchers("/marketplace/dashboard/seller/**").hasAuthority("Seller")
                         .requestMatchers("/marketplace/dashboard/admin/**").hasAuthority("Administrator")
